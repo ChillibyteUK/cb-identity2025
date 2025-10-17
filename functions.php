@@ -203,10 +203,8 @@ add_action(
 		if ( ! $post || 'acf-field-group' !== $post->post_type ) {
 			return;
 		}
-		error_log( 'save_post fired for post_id: ' . $post_id );
 		$field_group = acf_get_field_group( $post_id );
 		if ( ! $field_group || empty( $field_group['key'] ) ) {
-			error_log( 'ACF JSON sync failed: could not get field group for post_id ' . $post_id );
 			return;
 		}
 		$acf_json_dir = get_stylesheet_directory() . '/acf-json/';

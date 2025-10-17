@@ -37,6 +37,7 @@ $l = get_field( 'link' );
 				<div class="col-md-7 cb-brand-title-text__title">
 					<img src="<?= esc_url( get_stylesheet_directory_uri() . '/img/Experience.svg' ); ?>" alt="">
 					<?php
+					// phpcs:disable
 					/*
 					$section_title = get_field( 'title' );
 
@@ -52,6 +53,7 @@ $l = get_field( 'link' );
 
 					echo wp_kses_post( implode( '', $wrapped ) );
 					*/
+					// phpcs:enable
 					?>
 				</div>
 			</div>
