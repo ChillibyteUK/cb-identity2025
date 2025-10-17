@@ -30,9 +30,10 @@
         height: 100svh;
         object-fit: cover;
         display: block;
-        transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
         grid-area: stack;
         z-index: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
     }
 
     .work-carousel-text {
@@ -57,7 +58,7 @@
 
     .work-carousel-link:hover .swiper-poster,
     .work-carousel-link:focus .swiper-poster {
-        transform: scale(1.05);
+        opacity: 0;
     }
 
     .swiper-navigation {
@@ -92,4 +93,24 @@
     .swiper-button-next {
         right: 2rem;
     }
+
+
+    .iframe-cover.swiper-video {
+        grid-area: stack;
+        position: relative;
+        width: 100%;
+        height: 100svh;
+        overflow: hidden;
+
+        iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 100vh;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+    }
+
 }

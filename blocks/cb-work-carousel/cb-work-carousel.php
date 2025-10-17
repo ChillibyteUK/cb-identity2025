@@ -50,11 +50,18 @@ $block_content = get_field( 'content' );
 				<div class="swiper-slide">
 					<a href="<?php echo esc_url( get_permalink() ); ?>" class="work-carousel-link" tabindex="0">
 						<?php
-						$thumbnail = get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'img-fluid swiper-poster' ) );
+						$video = get_field( 'vimeo_url', get_the_ID() );
+						if ( $video ) {
+							?>
+						<div class="iframe-cover swiper-video">
+							<iframe src="<?= esc_url( $video ); ?>&background=1&autoplay=0" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+						</div>
+							<?php
+						}
 						?>
-						<?= wp_kses_post( $thumbnail ); ?>
+						<?= get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'img-fluid swiper-poster' ) ); ?>
 						<div class="work-carousel-text">
-							<div class="id-container">
+							<div class="id-container pb-5">
 								<div class="work-carousel-title"><?php the_title(); ?></div>
 								<div class="work-carousel-excerpt"><?php echo wp_kses_post( wp_trim_words( get_the_excerpt(), 18, '...' ) ); ?></div>
 							</div>
@@ -96,12 +103,42 @@ document.addEventListener('DOMContentLoaded', function() {
 			crossFade: true
 		},
 		autoplay: {
-			delay: 4000,
-			disableOnInteraction: false,
+			delay: 2000,
+			disableOnInteraction: true,
+			pauseOnMouseEnter: true,
 		},
 		slidesPerView: 1,
 		spaceBetween: 0,
 		pagination: false,
+	});
+	document.querySelectorAll('.swiper-video, .work-carousel-link').forEach(function(card) {
+		card.addEventListener('mouseenter', function() {
+			if (swiper.autoplay) swiper.autoplay.stop();
+		});
+		card.addEventListener('mouseleave', function() {
+			if (swiper.autoplay) swiper.autoplay.start();
+		});
+		card.addEventListener('focusin', function() {
+			if (swiper.autoplay) swiper.autoplay.stop();
+		});
+		card.addEventListener('focusout', function() {
+			if (swiper.autoplay) swiper.autoplay.start();
+		});
+	});
+	document.querySelectorAll('.swiper-video').forEach(function(card) {
+		const iframe = card.querySelector('iframe');
+		if (!iframe) return;
+		card.addEventListener('mouseenter', function() {
+			if (iframe.contentWindow) {
+				iframe.contentWindow.postMessage({ method: 'play' }, '*');
+			}
+		});
+		card.addEventListener('mouseleave', function() {
+			if (iframe.contentWindow) {
+				iframe.contentWindow.postMessage({ method: 'pause' }, '*');
+				iframe.contentWindow.postMessage({ method: 'setCurrentTime', value: 0 }, '*');
+			}
+		});
 	});
 });
 </script>
