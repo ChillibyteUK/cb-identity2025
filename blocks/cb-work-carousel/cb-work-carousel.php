@@ -65,9 +65,11 @@ $block_content = get_field( 'content' );
 				}
 				wp_reset_postdata();
 				?>
-				<div class="swiper-navigation">
-					<div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide"></div>
-					<div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide"></div>
+				<div class="id-container px-5">
+					<div class="swiper-navigation">
+						<div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide"></div>
+						<div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide"></div>
+					</div>
 				</div>
 			</div>
 		</div>
