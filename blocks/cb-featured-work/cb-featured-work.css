@@ -28,9 +28,14 @@
 .cb-featured-work__card:hover {
   text-decoration: none;
 }
+.cb-featured-work__card:hover .cb-featured-work__image {
+  opacity: 0;
+}
 .cb-featured-work__image {
   grid-area: stack;
   aspect-ratio: 16/9;
+  transition: opacity 0.3s ease;
+  z-index: 2;
 }
 .cb-featured-work__content {
   grid-area: stack;
@@ -50,4 +55,13 @@
   font-weight: var(--fw-light);
   color: var(--col-neutral-500);
   margin-top: 0.5rem;
+}
+.cb-featured-work .work-video {
+  grid-area: stack;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
 }

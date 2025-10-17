@@ -21,7 +21,7 @@ $block_id = $block['id'] ?? '';
 		</div>
 	</div>
 	<div class="id-container">
-		<div class="row g-0">
+		<div class="row g-2">
 			<?php
 			$q = new WP_Query(
 				array(
@@ -37,8 +37,16 @@ $block_id = $block['id'] ?? '';
 					?>
 			<div class="col-md-6">
 				<a href="<?= esc_url( get_the_permalink() ); ?>" class="cb-featured-work__card">
+					<?php
+					$video = get_field( 'vimeo_url', get_the_ID() );
+					if ( $video ) {
+						?>
+					<iframe class="work-video" src="<?= esc_url( $video ); ?>&background=1&autoplay=0" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+						<?php
+					}
+					?>
 					<?= get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'cb-featured-work__image' ) ); ?>
-					<div class="cb-featured-work__content">
+					<div class="cb-featured-work__content px-5">
 						<div class="cb-featured-work__title">
 							<?php the_title(); ?>
 						</div>
@@ -56,3 +64,34 @@ $block_id = $block['id'] ?? '';
 		</div>
 	</div>
 </section>
+<?php
+add_action(
+	'wp_footer',
+	function () {
+		?>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+	document.querySelectorAll('.cb-featured-work__card').forEach(function(card) {
+		const iframe = card.querySelector('iframe.work-video');
+		if (!iframe) return;
+
+		card.addEventListener('mouseenter', function() {
+			iframe.contentWindow?.postMessage({ method: 'play' }, '*');
+		});
+		card.addEventListener('mouseleave', function() {
+			iframe.contentWindow?.postMessage({ method: 'pause' }, '*');
+			iframe.contentWindow?.postMessage({ method: 'setCurrentTime', value: 0 }, '*');
+		});
+		card.addEventListener('focusin', function() {
+			iframe.contentWindow?.postMessage({ method: 'play' }, '*');
+		});
+		card.addEventListener('focusout', function() {
+			iframe.contentWindow?.postMessage({ method: 'pause' }, '*');
+			iframe.contentWindow?.postMessage({ method: 'setCurrentTime', value: 0 }, '*');
+		});
+	});
+});
+</script>
+		<?php
+	}
+);
