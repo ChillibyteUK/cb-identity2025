@@ -266,12 +266,12 @@
         {
           "name": "work-title",
           "slug": "work-title",
-          "size": "2.5rem"
+          "size": "2.25rem"
         },
         {
           "name": "work-subtitle",
           "slug": "work-subtitle",
-          "size": "2.25rem"
+          "size": "2rem"
         },
         {
           "name": "brand-pre-title",

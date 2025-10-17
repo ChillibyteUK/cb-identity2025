@@ -34,26 +34,25 @@ $l = get_field( 'link' );
 	<div class="id-container p-5">
 		<div class="cb-brand-title-text__container">
 			<div class="row">
-				<div class="col-md-7 cb-brand-title-text__title">
-					<img src="<?= esc_url( get_stylesheet_directory_uri() . '/img/Experience.svg' ); ?>" alt="">
+				<div class="col-md-7 mb-5 d-flex justify-content-center align-items-center">
+					<div class="cb-brand-title-text__title">
 					<?php
-					// phpcs:disable
-					/*
 					$section_title = get_field( 'title' );
 
 					$lines = preg_split( '/<br\s*\/?>/i', $section_title );
 
-					// Wrap each line in a span.
+					$c = 1;
+
 					$wrapped = array_map(
-						function ( $line ) {
-							return '<span>' . trim( $line ) . '</span>';
+						function ( $line ) use ( &$c ) {
+							$output = '<div class="line"><div class="bar bar' . $c . '"></div><div class="text text' . $c . '">' . trim( $line ) . '</div></div>';
+							$c++;
+							return $output;
 						},
 						$lines
 					);
 
 					echo wp_kses_post( implode( '', $wrapped ) );
-					*/
-					// phpcs:enable
 					?>
 				</div>
 			</div>
@@ -77,3 +76,37 @@ $l = get_field( 'link' );
 		</div>
 	</div>
 </section>
+<?php
+add_action(
+	'wp_footer',
+	function () {
+		?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+	gsap.registerPlugin(ScrollTrigger);
+
+	const tl = gsap.timeline({
+		defaults: { ease: 'power3.out' },
+		scrollTrigger: {
+		trigger: '.cb-brand-title-text',
+		start: 'top center',     // when the top of the section hits middle of viewport
+		toggleActions: 'play none none none',
+		once: true               // run once only
+		}
+	});
+	// const tl = gsap.timeline({defaults: {ease: "power3.out"}});
+
+	tl.fromTo(".cb-brand-title-text__title .bar1", {x: "-150%", opacity: 0}, {x: 0, opacity: 1, duration: 0.8}, 0)
+	.fromTo(".cb-brand-title-text__title .bar2", {x: "150%", opacity: 0}, {x: 0, opacity: 1, duration: 0.8}, 0.3)
+	.fromTo(".cb-brand-title-text__title .bar3", {x: "-150%", opacity: 0}, {x: 0, opacity: 1, duration: 0.8}, 0.6)
+	.to(".cb-brand-title-text__title .bar1", {rotate: -3, duration: 0.4}, "+=0.1")
+	.to(".cb-brand-title-text__title .bar2", {rotate: 5, duration: 0.4}, "-=0.3")
+	.to(".cb-brand-title-text__title .bar3", {rotate: -6, duration: 0.4}, "-=0.3")
+	.to(".cb-brand-title-text__title .text", {opacity: 1, duration: 0.6, stagger: 0.2}, "+=0.3");
+});
+</script>
+		<?php
+	}
+);
