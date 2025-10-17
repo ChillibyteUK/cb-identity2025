@@ -1,0 +1,111 @@
+$col-primary: #27383a;
+$col-dark: #222222;
+$col-darkest: #4a4a4a;
+$col-light: #f2f2f2;
+
+:root {
+  /* =========================
+     COLOURS (HSL + computed)
+     ========================= */
+
+    --col-primary-black: #0D0D0C;
+
+    // Primary Base Neutrals
+    --col-neutral-1000: #363531;
+    --col-neutral-900: #505049;
+    --col-neutral-800: #5e5d55;
+    --col-neutral-700: #77766c;
+    --col-neutral-600: #939287;
+    --col-neutral-500: #aeada1;
+    --col-neutral-400: #c9c7bc;
+    --col-neutral-300: #dddcd2;
+    --col-neutral-200: #ebe9e1;
+    --col-neutral-100: #f8f7f0;
+
+    // Secondary Electric Purple
+    --col-purple-1000: #190A83;
+    --col-purple-900: #2f13ba; // main purple
+    --col-purple-800: #4c35d0;
+    --col-purple-700: #7162e1;
+    --col-purple-600: #8b7ff0;
+    --col-purple-500: #a49bfd;
+    --col-purple-400: #bcb7ff;
+    --col-purple-300: #d0ccff;
+    --col-purple-200: #e0deff;
+    --col-purple-100: #f1f0ff;
+
+    // Secondary Neon Green
+    --col-green-1000: #3d6900;
+    --col-green-900: #4c8200;
+    --col-green-800: #5e9f00;
+    --col-green-700: #6bb600;
+    --col-green-600: #94DD2C;
+    --col-green-500: #ADF448;
+    --col-green-400: #B8FF52; // main green
+    --col-green-300: #CAFC83;
+    --col-green-200: #DDFBB2;
+    --col-green-100: #EEFED9;
+
+    // Tertiary Action Red
+    --col-red-1000: #6e0606;
+    --col-red-900: #850d0d;
+    --col-red-800: #a51616;
+    --col-red-700: #c21d1d;
+    --col-red-600: #e03030; // main red
+    --col-red-500: #ec5a5a;
+    --col-red-400: #ff8989;
+    --col-red-300: #ffc0c0;
+    --col-red-200: #ffdfdf;
+    --col-red-100: #fff0f0;
+
+  /* =========================
+     TYPOGRAPHY (families/weights)
+     ========================= */
+  --ff-heading:
+    "Suisse", Arial, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --ff-body:
+    "Suisse", Arial, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+
+  --fw-semi: 500; /* Semi */
+  --fw-regular: 400; /* Regular */
+  --fw-light: 300; /* Light */
+
+  /* =========================
+    TYPOGRAPHY (from Figma style.txt)
+    ========================= */
+
+  --fs-base: 16px;
+
+  --fs-ui: 1.125rem; /* 18px */
+
+  --fs-work-title: 2.5rem; /* 40px */
+  --fs-work-subtitle: 2.25rem; /* 36px */ // 300
+
+  --fs-brand-pre-title: 2rem; /* 30px */
+  --fs-content-title: 2.75rem; /* 44px */
+  --fs-large-body: 2rem; /* 32px */
+
+  --fs-button: 2.5rem; /* 40px */
+
+  --fs-section-pretitle: 1.25rem; /* 20px */ // (featured work)
+  --fs-service-title: 3.125rem; /* 50px */
+
+  --fs-card-title: 1.25rem; /* 20px */ // white 600
+  --fs-card-desc: 1.125rem; /* 18px */ //n-500 300
+
+  --fs-cta-title: 3.125rem; /* 50px */ // 400
+  --fs-cta-content: 2rem; /* 32px */ // 300
+
+  --fs-footer: 1rem; /* 16px */ // title n-500 400
+  --fs-footer-connect: 1.375rem; /* 22px */ // n-500 400
+
+  --fs-colophon: 1rem //  n-700
+
+  /* === Utilities === */
+  --transition: 250ms ease-out;
+
+  --h-top: 72px;
+  --h-top-desktop: 130px;
+}

@@ -1,0 +1,41 @@
+{
+    "key": "group_cb_latest_insights",
+    "title": "CB Latest Insights",
+    "fields": [
+        {
+            "key": "field_cb_latest_insights_message",
+            "label": "CB Latest Insights",
+            "name": "message",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "cb/cb-latest-insights"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Fields for the CB Latest Insights block",
+    "show_in_rest": 0
+}

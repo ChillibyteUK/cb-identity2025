@@ -1,0 +1,12 @@
+/**
+ * CB Full Image Block Styles
+ *
+ * @package  cb-identity2025
+ */
+.cb-full-image {
+  background-color: black;
+}
+.cb-full-image img {
+  width: 100%;
+  aspect-ratio: 16/9;
+}

@@ -1,0 +1,58 @@
+/**
+ * CB Brand Title Text Block Styles
+ *
+ * @package HubSequoia2025
+ */
+
+.cb-brand-title-text {
+    background-color: black;
+    color: #fff;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    
+    &__title {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 8vw;
+        font-weight: var(--fw-regular);
+        line-height: 1;
+        color: black;
+        span {
+            background: var(--col-green-500);
+            padding: 0.1em 0.2em;
+            transform-origin: center;
+            display: inline-block;
+            margin-block: -0.2rem;
+            &:nth-child(1) {
+                transform: rotate(-2deg);
+                margin-inline-start: 2em;
+            }
+            &:nth-child(2) {
+                transform: rotate(2deg);
+                margin-inline-start: 1em;
+            }
+            &:nth-child(3) {
+                transform: rotate(-3deg);
+                margin-inline-start: 2em;
+            }
+        }
+    }
+
+    &__pre-title {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        padding-block: 0.5rem;
+        color: var(--col-green-500);
+        font-weight: var(--fw-regular);
+        font-size: var(--fs-brand-pre-title);
+        line-height: 1;
+    }
+    &__content-heading {
+        font-size: var(--fs-content-title);
+        line-height: 1.1;
+        font-weight: var(--fw-semi);
+    }
+    &__content {
+        font-size: var(--fs-large-body  );
+    }
+}

@@ -1,0 +1,141 @@
+@font-face {
+    font-family: "Suisse";
+    src: url("../fonts/SuisseIntl-Light.woff2") format("woff2"),
+         url("../fonts/SuisseIntl-Light.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Suisse";
+    src: url("../fonts/SuisseIntl-Regular.woff2") format("woff2"),
+         url("../fonts/SuisseIntl-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Suisse";
+    src: url("../fonts/SuisseIntl-SemiBold.woff2") format("woff2"),
+         url("../fonts/SuisseIntl-SemiBold.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+// :root {
+//   font-variant-ligatures: none;
+// }
+
+/* =========================
+   TYPOGRAPHY
+   ========================= */
+
+body,
+.body {
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// =========================
+// TYPOGRAPHY
+// =========================
+
+// Headings
+h1, .h1 {
+  font-family: var(--ff-body);
+  font-size: var(--fs-h1-big-page-title);
+  line-height: var(--lh-h1-big-page-title);
+  font-weight: var(--fw-h1-big-page-title);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+h2, .h2 {
+  font-family: var(--ff-body);
+  font-size: var(--fs-h2-page-subtitle);
+  line-height: var(--lh-h2-page-subtitle);
+  font-weight: var(--fw-h2-page-subtitle);
+  letter-spacing: -0.005em;
+  text-wrap: balance;
+}
+h3, .h3 {
+  font-family: var(--ff-body);
+  font-size: var(--fs-h3-page-subtitle);
+  line-height: var(--lh-h3-page-subtitle);
+  font-weight: var(--fw-h3-page-subtitle);
+  text-wrap: balance;
+}
+h4, .h4 {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-h4-body-bold);
+  line-height: var(--lh-h4-body-bold);
+  font-weight: var(--fw-bold);
+  text-wrap: balance;
+}
+
+// Body
+.body-medium {
+  font-family: var(--ff-body);
+  font-size: var(--fs-body-medium);
+  line-height: var(--lh-body-medium);
+  font-weight: var(--fw-body-medium);
+}
+
+// Large text on image
+.large-text-on-image {
+  font-family: var(--ff-body);
+  font-size: var(--fs-large-text-on-image);
+  line-height: var(--lh-large-text-on-image);
+}
+
+// Button text
+.button-text, button, .btn {
+  font-family: var(--ff-body);
+  font-size: var(--fs-button-text);
+  line-height: var(--lh-button-text);
+  font-weight: var(--fw-button-text);
+}
+
+// Helper classes for standalone typography variables
+.fw-heading { font-weight: var(--fw-heading); }
+.fw-body { font-weight: var(--fw-body); }
+.fw-bold { font-weight: var(--fw-bold); }
+
+.fs-body { font-size: var(--fs-body); }
+.fs-body-medium { font-size: var(--fs-body-medium); }
+.fs-h1-big-page-title { font-size: var(--fs-h1-big-page-title); }
+.fs-h2-page-subtitle { font-size: var(--fs-h2-page-subtitle); }
+.fs-h3-page-subtitle { font-size: var(--fs-h3-page-subtitle); }
+.fs-h4-body-bold { font-size: var(--fs-h4-body-bold); }
+.fs-large-text-on-image { font-size: var(--fs-large-text-on-image); }
+.fs-button-text { font-size: var(--fs-button-text); }
+
+// Links
+a {
+  color: var(--col-accent-400);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:focus-visible {
+  outline: 2px solid var(--col-accent-400);
+  outline-offset: 2px;
+}
+
+// Media rhythm
+p, ul, ol, blockquote, figure {
+  margin-block: 0.75em;
+}
+.w-constrained-md {
+  max-width: 72ch;
+  text-wrap: balance;
+}
+
+strong {
+  font-weight: var(--fw-semi);
+}

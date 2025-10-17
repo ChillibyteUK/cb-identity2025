@@ -1,0 +1,31 @@
+/**
+ * CB Logo Slider Block Styles
+ *
+ * @package  cb-identity2025
+ */
+.cb-logo-slider {
+  background-color: black;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.cb-logo-slider__marquee {
+  overflow: hidden;
+  width: 100%;
+}
+.cb-logo-slider__track {
+  display: flex;
+  gap: 3rem;
+  animation: marquee 30s linear infinite;
+}
+.cb-logo-slider__logo {
+  filter: invert(1);
+  height: 120px;
+  width: auto;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

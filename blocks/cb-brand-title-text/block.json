@@ -1,0 +1,18 @@
+{
+    "name": "cb/cb-brand-title-text",
+    "title": "CB Brand Title Text",
+    "description": "A custom CB Brand Title Text block",
+    "category": "cb-blocks",
+    "icon": "admin-generic",
+    "keywords": ["cb-brand-title-text", "cb"],
+    "supports": {
+        "align": ["wide", "full"],
+        "anchor": true,
+        "customClassName": true
+    },
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "cb-brand-title-text.php"
+    },
+    "style": "file:./cb-brand-title-text.css"
+}

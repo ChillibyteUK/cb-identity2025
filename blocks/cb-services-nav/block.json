@@ -1,0 +1,18 @@
+{
+    "name": "cb/cb-services-nav",
+    "title": "CB Services Nav",
+    "description": "A custom CB Services Nav block",
+    "category": "cb-blocks",
+    "icon": "admin-generic",
+    "keywords": ["cb-services-nav", "cb"],
+    "supports": {
+        "align": ["wide", "full"],
+        "anchor": true,
+        "customClassName": true
+    },
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "cb-services-nav.php"
+    },
+    "style": "file:./cb-services-nav.css"
+}

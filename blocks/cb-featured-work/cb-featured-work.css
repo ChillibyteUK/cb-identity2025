@@ -1,0 +1,53 @@
+/**
+ * CB Featured Work Block Styles
+ *
+ * @package  cb-identity2025
+ */
+.cb-featured-work {
+  background-color: black;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.cb-featured-work__pre-title {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-block: 0.5rem;
+  color: var(--col-green-500);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-section-pretitle);
+  line-height: 1;
+}
+.cb-featured-work__card {
+  aspect-ratio: 16/9;
+  width: 100%;
+  display: grid;
+  grid-template-areas: "stack";
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+.cb-featured-work__card:hover {
+  text-decoration: none;
+}
+.cb-featured-work__image {
+  grid-area: stack;
+  aspect-ratio: 16/9;
+}
+.cb-featured-work__content {
+  grid-area: stack;
+  align-self: flex-end;
+  color: #fff;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 20%, rgba(0, 0, 0, 0.8));
+  padding: 2rem 2rem 1rem 1rem;
+  z-index: 3;
+  position: relative;
+}
+.cb-featured-work__title {
+  font-size: var(--fs-card-title);
+  font-weight: var(--fw-semi);
+}
+.cb-featured-work__desc {
+  font-size: var(--fs-card-desc);
+  font-weight: var(--fw-light);
+  color: var(--col-neutral-500);
+  margin-top: 0.5rem;
+}

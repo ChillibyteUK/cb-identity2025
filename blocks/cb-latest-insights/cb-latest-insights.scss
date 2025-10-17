@@ -1,0 +1,80 @@
+/**
+ * CB Latest Insights Block Styles
+ *
+ * @package  cb-identity2025
+ */
+
+.cb-latest-insights {
+    background-color: black;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+    &__card {
+        text-decoration: none;
+        &:hover {
+            .cb-latest-insights__image {
+                transform: scale(1.05);
+            }
+        }
+    }
+    &__pre-title {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        padding-block: 0.5rem;
+        color: var(--col-green-500);
+        font-weight: var(--fw-regular);
+        font-size: var(--fs-section-pretitle);
+        line-height: 1;
+    }
+
+    &__image-wrapper {
+        overflow: hidden;
+        margin-bottom: 1rem;
+    }
+    &__image {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    &__card-1 {
+        .cb-latest-insights__image {
+            aspect-ratio: 4 / 3;
+        }
+    }
+    &__card-2 {
+        .cb-latest-insights__image {
+            aspect-ratio: 16 / 9;
+        }
+    }
+    &__card-3 {
+        .cb-latest-insights__image {
+            aspect-ratio:  5 / 4;
+        }
+    }
+    &__card-4 {
+        .cb-latest-insights__image {
+            aspect-ratio: 21 / 9;
+        }
+    }
+    &__card-5 {
+        .cb-latest-insights__image {
+            aspect-ratio: 4 / 3;
+        }
+    }
+    &__card-6 {
+        .cb-latest-insights__image {
+            aspect-ratio: 1 / 1;
+        }
+    }
+    &__title {
+        font-size: var(--fs-card-title);
+        font-weight: var(--fw-semi);
+        color: #fff;
+    }
+    &__excerpt {
+        font-size: var(--fs-card-desc);
+        font-weight: var(--fw-light);
+        color: var(--col-neutral-500);
+    }
+}

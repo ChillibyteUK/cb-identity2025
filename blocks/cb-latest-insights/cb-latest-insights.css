@@ -1,0 +1,62 @@
+/**
+ * CB Latest Insights Block Styles
+ *
+ * @package  cb-identity2025
+ */
+.cb-latest-insights {
+  background-color: black;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.cb-latest-insights__card {
+  text-decoration: none;
+}
+.cb-latest-insights__card:hover .cb-latest-insights__image {
+  transform: scale(1.05);
+}
+.cb-latest-insights__pre-title {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-block: 0.5rem;
+  color: var(--col-green-500);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-section-pretitle);
+  line-height: 1;
+}
+.cb-latest-insights__image-wrapper {
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+.cb-latest-insights__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.cb-latest-insights__card-1 .cb-latest-insights__image {
+  aspect-ratio: 4/3;
+}
+.cb-latest-insights__card-2 .cb-latest-insights__image {
+  aspect-ratio: 16/9;
+}
+.cb-latest-insights__card-3 .cb-latest-insights__image {
+  aspect-ratio: 5/4;
+}
+.cb-latest-insights__card-4 .cb-latest-insights__image {
+  aspect-ratio: 21/9;
+}
+.cb-latest-insights__card-5 .cb-latest-insights__image {
+  aspect-ratio: 4/3;
+}
+.cb-latest-insights__card-6 .cb-latest-insights__image {
+  aspect-ratio: 1/1;
+}
+.cb-latest-insights__title {
+  font-size: var(--fs-card-title);
+  font-weight: var(--fw-semi);
+  color: #fff;
+}
+.cb-latest-insights__excerpt {
+  font-size: var(--fs-card-desc);
+  font-weight: var(--fw-light);
+  color: var(--col-neutral-500);
+}

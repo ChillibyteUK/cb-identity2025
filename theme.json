@@ -1,0 +1,344 @@
+{
+  "version": 2,
+  "settings": {
+    "color": {
+      "palette": [
+        {
+          "name": "primary-black",
+          "slug": "primary-black",
+          "color": "#0D0D0C",
+          "origin": "theme"
+        },
+        {
+          "name": "neutral-1000",
+          "slug": "neutral-1000",
+          "color": "#363531",
+          "origin": "theme"
+        },
+        {
+          "name": "neutral-900",
+          "slug": "neutral-900",
+          "color": "#505049",
+          "origin": "theme"
+        },
+        {
+          "name": "neutral-800",
+          "slug": "neutral-800",
+          "color": "#5e5d55",
+          "origin": "theme"
+        },
+        {
+          "name": "neutral-700",
+          "slug": "neutral-700",
+          "color": "#77766c",
+          "origin": "theme"
+        },
+        {
+          "name": "neutral-600",
+          "slug": "neutral-600",
+          "color": "#939287",
+          "origin": "theme"
+        },
+        {
+          "name": "neutral-500",
+          "slug": "neutral-500",
+          "color": "#aeada1",
+          "origin": "theme"
+        },
+        {
+          "name": "neutral-400",
+          "slug": "neutral-400",
+          "color": "#c9c7bc",
+          "origin": "theme"
+        },
+        {
+          "name": "neutral-300",
+          "slug": "neutral-300",
+          "color": "#dddcd2",
+          "origin": "theme"
+        },
+        {
+          "name": "neutral-200",
+          "slug": "neutral-200",
+          "color": "#ebe9e1",
+          "origin": "theme"
+        },
+        {
+          "name": "neutral-100",
+          "slug": "neutral-100",
+          "color": "#f8f7f0",
+          "origin": "theme"
+        },
+        {
+          "name": "purple-1000",
+          "slug": "purple-1000",
+          "color": "#190A83",
+          "origin": "theme"
+        },
+        {
+          "name": "purple-900",
+          "slug": "purple-900",
+          "color": "#2f13ba",
+          "origin": "theme"
+        },
+        {
+          "name": "purple-800",
+          "slug": "purple-800",
+          "color": "#4c35d0",
+          "origin": "theme"
+        },
+        {
+          "name": "purple-700",
+          "slug": "purple-700",
+          "color": "#7162e1",
+          "origin": "theme"
+        },
+        {
+          "name": "purple-600",
+          "slug": "purple-600",
+          "color": "#8b7ff0",
+          "origin": "theme"
+        },
+        {
+          "name": "purple-500",
+          "slug": "purple-500",
+          "color": "#a49bfd",
+          "origin": "theme"
+        },
+        {
+          "name": "purple-400",
+          "slug": "purple-400",
+          "color": "#bcb7ff",
+          "origin": "theme"
+        },
+        {
+          "name": "purple-300",
+          "slug": "purple-300",
+          "color": "#d0ccff",
+          "origin": "theme"
+        },
+        {
+          "name": "purple-200",
+          "slug": "purple-200",
+          "color": "#e0deff",
+          "origin": "theme"
+        },
+        {
+          "name": "purple-100",
+          "slug": "purple-100",
+          "color": "#f1f0ff",
+          "origin": "theme"
+        },
+        {
+          "name": "green-1000",
+          "slug": "green-1000",
+          "color": "#3d6900",
+          "origin": "theme"
+        },
+        {
+          "name": "green-900",
+          "slug": "green-900",
+          "color": "#4c8200",
+          "origin": "theme"
+        },
+        {
+          "name": "green-800",
+          "slug": "green-800",
+          "color": "#5e9f00",
+          "origin": "theme"
+        },
+        {
+          "name": "green-700",
+          "slug": "green-700",
+          "color": "#6bb600",
+          "origin": "theme"
+        },
+        {
+          "name": "green-600",
+          "slug": "green-600",
+          "color": "#94DD2C",
+          "origin": "theme"
+        },
+        {
+          "name": "green-500",
+          "slug": "green-500",
+          "color": "#ADF448",
+          "origin": "theme"
+        },
+        {
+          "name": "green-400",
+          "slug": "green-400",
+          "color": "#B8FF52",
+          "origin": "theme"
+        },
+        {
+          "name": "green-300",
+          "slug": "green-300",
+          "color": "#CAFC83",
+          "origin": "theme"
+        },
+        {
+          "name": "green-200",
+          "slug": "green-200",
+          "color": "#DDFBB2",
+          "origin": "theme"
+        },
+        {
+          "name": "green-100",
+          "slug": "green-100",
+          "color": "#EEFED9",
+          "origin": "theme"
+        },
+        {
+          "name": "red-1000",
+          "slug": "red-1000",
+          "color": "#6e0606",
+          "origin": "theme"
+        },
+        {
+          "name": "red-900",
+          "slug": "red-900",
+          "color": "#850d0d",
+          "origin": "theme"
+        },
+        {
+          "name": "red-800",
+          "slug": "red-800",
+          "color": "#a51616",
+          "origin": "theme"
+        },
+        {
+          "name": "red-700",
+          "slug": "red-700",
+          "color": "#c21d1d",
+          "origin": "theme"
+        },
+        {
+          "name": "red-600",
+          "slug": "red-600",
+          "color": "#e03030",
+          "origin": "theme"
+        },
+        {
+          "name": "red-500",
+          "slug": "red-500",
+          "color": "#ec5a5a",
+          "origin": "theme"
+        },
+        {
+          "name": "red-400",
+          "slug": "red-400",
+          "color": "#ff8989",
+          "origin": "theme"
+        },
+        {
+          "name": "red-300",
+          "slug": "red-300",
+          "color": "#ffc0c0",
+          "origin": "theme"
+        },
+        {
+          "name": "red-200",
+          "slug": "red-200",
+          "color": "#ffdfdf",
+          "origin": "theme"
+        },
+        {
+          "name": "red-100",
+          "slug": "red-100",
+          "color": "#fff0f0",
+          "origin": "theme"
+        }
+      ]
+    },
+    "typography": {
+      "fontSizes": [
+        {
+          "name": "base",
+          "slug": "base",
+          "size": "16px"
+        },
+        {
+          "name": "ui",
+          "slug": "ui",
+          "size": "1.125rem"
+        },
+        {
+          "name": "work-title",
+          "slug": "work-title",
+          "size": "2.5rem"
+        },
+        {
+          "name": "work-subtitle",
+          "slug": "work-subtitle",
+          "size": "2.25rem"
+        },
+        {
+          "name": "brand-pre-title",
+          "slug": "brand-pre-title",
+          "size": "2rem"
+        },
+        {
+          "name": "content-title",
+          "slug": "content-title",
+          "size": "2.75rem"
+        },
+        {
+          "name": "large-body",
+          "slug": "large-body",
+          "size": "2rem"
+        },
+        {
+          "name": "button",
+          "slug": "button",
+          "size": "2.5rem"
+        },
+        {
+          "name": "section-pretitle",
+          "slug": "section-pretitle",
+          "size": "1.25rem"
+        },
+        {
+          "name": "service-title",
+          "slug": "service-title",
+          "size": "3.125rem"
+        },
+        {
+          "name": "card-title",
+          "slug": "card-title",
+          "size": "1.25rem"
+        },
+        {
+          "name": "card-desc",
+          "slug": "card-desc",
+          "size": "1.125rem"
+        },
+        {
+          "name": "cta-title",
+          "slug": "cta-title",
+          "size": "3.125rem"
+        },
+        {
+          "name": "cta-content",
+          "slug": "cta-content",
+          "size": "2rem"
+        },
+        {
+          "name": "footer",
+          "slug": "footer",
+          "size": "1rem"
+        },
+        {
+          "name": "footer-connect",
+          "slug": "footer-connect",
+          "size": "1.375rem"
+        },
+        {
+          "name": "colophon",
+          "slug": "colophon",
+          "size": "1rem //  n-700\n\n  /* === Utilities === */\n  --transition: 250ms ease-out"
+        }
+      ]
+    }
+  }
+}

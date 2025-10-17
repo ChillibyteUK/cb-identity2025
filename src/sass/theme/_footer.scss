@@ -1,0 +1,38 @@
+.footer {
+    background-color: black;
+    color: #fff;
+
+    .footer-title {
+        font-weight: var(--fw-semi);
+    }
+    .footer-title--lg {
+        font-weight: var(--fw-semi);
+        font-size: var(--fs-footer-connect);
+    }
+    .footer__menu {
+        list-style: none;
+        padding-inline-start: 0;
+        font-weight: var(--fw-light);
+        li {
+            padding-bottom: 0.25rem;
+        }
+    }
+    a {
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        &:hover {
+            color: var(--col-neutral-500);
+        }
+    }
+
+    &__logo {
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    &__colophon {
+        color: var(--col-neutral-700);
+        font-size: var(--fs-colophon);
+    }
+}
