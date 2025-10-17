@@ -281,17 +281,17 @@
         {
           "name": "content-title",
           "slug": "content-title",
-          "size": "2.75rem"
+          "size": "2.5rem"
         },
         {
           "name": "large-body",
           "slug": "large-body",
-          "size": "2rem"
+          "size": "1.75rem"
         },
         {
           "name": "button",
           "slug": "button",
-          "size": "2.5rem"
+          "size": "2.25rem"
         },
         {
           "name": "section-pretitle",

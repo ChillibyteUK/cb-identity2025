@@ -42,9 +42,10 @@
   font-weight: var(--fw-semi);
   text-decoration: none;
   font-size: var(--fs-service-title);
-  transition: color 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 .cb-services-nav__item:hover {
-  color: var(--col-green-400);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
   text-decoration: none;
 }

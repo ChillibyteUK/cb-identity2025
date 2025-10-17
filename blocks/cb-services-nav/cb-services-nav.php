@@ -43,7 +43,7 @@ $block_id = $block['id'] ?? '';
 		<a href="<?php echo esc_url( get_permalink( $service_page->ID ) ); ?>" class="cb-services-nav__item" tabindex="0">
 			<div class="id-container px-5 d-flex justify-content-between">
 				<div class="cb-services-nav__item-title"><?php echo esc_html( get_the_title( $service_page->ID ) ); ?></div>
-				<span><i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+				<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/arrow-wh.svg' ); ?>" width=65 height=60 alt="" class="cb-services-nav__item-icon" />
 			</div>
 		</a>
 					<?php
