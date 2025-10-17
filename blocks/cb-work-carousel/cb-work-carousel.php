@@ -61,7 +61,7 @@ $block_content = get_field( 'content' );
 						?>
 						<?= get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'img-fluid swiper-poster' ) ); ?>
 						<div class="work-carousel-text">
-							<div class="id-container pb-4">
+							<div class="id-container pb-2">
 								<div class="work-carousel-title"><?php the_title(); ?></div>
 								<div class="work-carousel-excerpt"><?php echo wp_kses_post( wp_trim_words( get_the_excerpt(), 18, '...' ) ); ?></div>
 							</div>
