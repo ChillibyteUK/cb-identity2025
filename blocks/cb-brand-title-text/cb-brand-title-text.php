@@ -26,8 +26,8 @@ $l = get_field( 'link' );
 
 ?>
 <section id="<?= esc_attr( $block_id ); ?>" class="<?= esc_attr( implode( ' ', $block_classes ) ); ?>">
-	<div class="cb-brand-title-text__pre-title px-5">
-		<div class="id-container">
+	<div class="cb-brand-title-text__pre-title">
+		<div class="id-container px-5">
 			<?= esc_html( get_field( 'pre_title' ) ); ?>
 		</div>
 	</div>
