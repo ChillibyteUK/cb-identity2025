@@ -96,7 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		once: true               // run once only
 		}
 	});
-	// const tl = gsap.timeline({defaults: {ease: "power3.out"}});
 
 	tl.fromTo(".cb-brand-title-text__title .bar1", {x: "-150%", opacity: 0}, {x: 0, opacity: 1, duration: 0.8}, 0)
 	.fromTo(".cb-brand-title-text__title .bar2", {x: "150%", opacity: 0}, {x: 0, opacity: 1, duration: 0.8}, 0.3)
@@ -105,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	.to(".cb-brand-title-text__title .bar2", {rotate: 5, duration: 0.4}, "-=0.3")
 	.to(".cb-brand-title-text__title .bar3", {rotate: -6, duration: 0.4}, "-=0.3")
 	.to(".cb-brand-title-text__title .text", {opacity: 1, duration: 0.6, stagger: 0.2}, "+=0.3");
+
 });
 </script>
 		<?php
