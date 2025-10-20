@@ -30,7 +30,7 @@ $l = get_field( 'link' );
 				</div>
 			</div>
 			<div class="col-md-6">
-				<div class="cb-cta__content d-flex flex-column justify-content-center h-100">
+				<div class="cb-cta__content d-flex flex-column justify-content-center h-100" data-aos="fade">
 					<h2 class="cb-cta__title mb-4">
 						<?= wp_kses_post( get_field( 'title' ) ); ?>
 					</h2>
@@ -42,6 +42,7 @@ $l = get_field( 'link' );
 							<?= esc_html( $l['title'] ); ?>
 						</a>
 					</div>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -60,13 +60,13 @@ $l = get_field( 'link' );
 		<div class="cb-brand-title-text__content-wrapper pb-5">
 			<div class="row">
 				<div class="col-md-6 offset-md-6">
-					<div class="cb-brand-title-text__content-heading mb-4">
+					<div class="cb-brand-title-text__content-heading mb-4" data-aos="fade-up">
 						<?= wp_kses_post( get_field( 'content_heading' ) ); ?>
 					</div>
-					<div class="cb-brand-title-text__content">
+					<div class="cb-brand-title-text__content" data-aos="fade-up" data-aos-delay="100">
 						<?= wp_kses_post( get_field( 'content' ) ); ?>
 					</div>
-					<div class="cb-brand-title-text__link mt-4">
+					<div class="cb-brand-title-text__link mt-4" data-aos="fade-up" data-aos-delay="200">
 						<a href="<?= esc_url( $l['url'] ); ?>" target="<?= esc_attr( $l['target'] ); ?>" class="id-button">
 							<?= esc_html( $l['title'] ); ?>
 						</a>
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	.to(".cb-brand-title-text__title .bar3", {rotate: -6, duration: 0.4}, "-=0.3")
 	.to(".cb-brand-title-text__title .text", {opacity: 1, duration: 0.6, stagger: 0.2}, "+=0.3");
 
-	// tl.timeScale(0.3);
+	tl.timeScale(2);
 });
 </script>
 		<?php
