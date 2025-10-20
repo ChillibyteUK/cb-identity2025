@@ -46,3 +46,46 @@ $l = get_field( 'link' );
 		</div>
 	</div>
 </section>
+<script>
+// Subtle parallax effect for .cb-cta__image
+document.addEventListener('DOMContentLoaded', function () {
+	var img = document.querySelector('.cb-cta__image');
+	if (!img) return;
+	var lastScrollY = window.scrollY;
+	var ticking = false;
+
+	function onScroll() {
+		lastScrollY = window.scrollY;
+		if (!ticking) {
+			window.requestAnimationFrame(update);
+			ticking = true;
+		}
+	}
+
+		function update() {
+			var rect = img.getBoundingClientRect();
+			var windowHeight = window.innerHeight;
+			// Only apply if in viewport
+			if (rect.bottom > 0 && rect.top < windowHeight) {
+				// Calculate percent scrolled through the section
+				var section = img.closest('.cb-cta');
+				if (section) {
+					var sectionRect = section.getBoundingClientRect();
+					var percent = (windowHeight - sectionRect.top) / (windowHeight + sectionRect.height);
+					// Clamp between 0 and 1
+					percent = Math.max(0, Math.min(1, percent));
+					// Parallax: move image up to 40px up or down
+					var translateY = (percent - 0.5) * 80; // Range: -40px to +40px
+					// Retain scaleX(-1) and add translateY
+					img.style.transform = 'scaleX(-1) translateY(' + translateY.toFixed(1) + 'px)';
+				}
+			}
+			ticking = false;
+		}
+
+	window.addEventListener('scroll', onScroll, { passive: true });
+	window.addEventListener('resize', onScroll);
+	// Initial position
+	onScroll();
+});
+</script>

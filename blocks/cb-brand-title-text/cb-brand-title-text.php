@@ -80,6 +80,7 @@ $l = get_field( 'link' );
 add_action(
 	'wp_footer',
 	function () {
+		// phpcs:disable WordPress.WP.EnqueuedResources.NonEnqueuedScript
 		?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -109,5 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 		<?php
+		// phpcs:enable WordPress.WP.EnqueuedResources.NonEnqueuedScript
 	}
 );
