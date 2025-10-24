@@ -68,12 +68,12 @@ defined( 'ABSPATH' ) || exit;
 			<!-- ROW 2 -->
 			<div class="col-md-4">
 				<strong>
-				<div class="mb-5">Let's talk, ask us anything</div>
+				<div class="mb-5">Let's talk.</div>
 				<?= do_shortcode( '[contact_email]' ); ?>
 				</strong>
 			</div>
 			<div class="col-md-2">
-				<div class="footer-title mb-5">Work</div>
+				<div class="footer-title mb-5"><a href="/work/">Work</a></div>
 				<div class="footer-title mb-4">Innovation Lab</div>
             </div>
 			<div class="col-md-2">
