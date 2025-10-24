@@ -29,10 +29,16 @@
     &__logo {
         border-top: 1px solid rgba(255, 255, 255, 0.2);
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        img {
-            max-width: 90%;
+        .footer__logo-clip {
+            overflow: hidden;
             display: block;
-            margin-inline: auto;
+            width: 100%;
+        }
+        .footer__logo-inner {
+            display: block;
+            transform-origin: left center;
+            will-change: transform;
+            svg { display: block; width: 100%; height: auto; }
         }
     }
 

@@ -17,15 +17,6 @@ header {
     text-decoration: none;
     padding: 0;
     position: relative;
-    &:before {
-      content: "";
-      position: absolute;
-      bottom: -0.5rem;
-      left: 0;
-      width: 0;
-      height: 3px;
-      background: transparent;
-    }
     &:hover,
     &:focus,
     &:focus-visible {
@@ -34,20 +25,28 @@ header {
     }
   }
 
-  .logo-container {
-    max-width: 240px;
-    margin-right: 1rem;
-  }
-  .logo {
-    background-image: url(../img/identity-logo.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+  .logo-clip {
+    overflow: hidden;
     display: inline-block;
-    aspect-ratio: 666.3 / 81.83;
-    width: 200px;
-    height: 50px;
-    max-width: 100%;
+    height: 25px;
+    margin-right: 1rem;
+    vertical-align: middle;
+  }
+
+  // Keep a reasonable min-width on larger screens but allow smaller viewports to shrink.
+  @media (min-width: 992px) {
+    .logo-clip { min-width: 240px; }
+  }
+  .logo-inner {
+    display: inline-block;
+    transform: translateX(0);
+    transition: transform 700ms cubic-bezier(.22,.9,.32,1);
+    will-change: transform;
+    svg {
+      display: block;
+      height: 25px;
+      width: auto;
+    }
   }
 
   .current_page_item > .nav-link,
@@ -92,4 +91,21 @@ header {
     font-weight: 900;
     border: none;
   }
+
+  .navbar-nav {
+    margin-block: 0;
+  }
+
+  .navbar-toggler {
+    color: white;
+  }
 }
+  @media (prefers-reduced-motion: reduce) {
+  .logo-inner { transition: none; transform: translateX(0) !important; }
+  .logo-clip { transition: none; }
+}
+
+  /* when animate is added, slide left by the computed final offset */
+  .logo-clip.animate .logo-inner {
+    transform: translateX(var(--logo-final-offset, 0px));
+  }
