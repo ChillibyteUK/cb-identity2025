@@ -21985,6 +21985,11 @@ header .dropdown-toggle::after {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
+.footer__logo img {
+  max-width: 90%;
+  display: block;
+  margin-inline: auto;
+}
 .footer__colophon {
   color: var(--col-neutral-700);
   font-size: var(--fs-colophon);

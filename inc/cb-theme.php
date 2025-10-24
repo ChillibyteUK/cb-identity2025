@@ -15,7 +15,7 @@ require_once CB_THEME_DIR . '/inc/cb-acf-theme-palette.php';
 require_once CB_THEME_DIR . '/inc/cb-wordpress.php';
 
 require_once CB_THEME_DIR . '/inc/cb-posttypes.php';
-// require_once CB_THEME_DIR . '/inc/cb-taxonomies.php';.
+require_once CB_THEME_DIR . '/inc/cb-taxonomies.php';
 
 require_once CB_THEME_DIR . '/inc/cb-blocks-enhanced.php';
 

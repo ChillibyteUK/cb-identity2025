@@ -1,0 +1,18 @@
+{
+    "name": "cb/cb-content-grid",
+    "title": "CB Content Grid",
+    "description": "A custom CB Content Grid block",
+    "category": "cb-blocks",
+    "icon": "admin-generic",
+    "keywords": ["cb-content-grid", "cb"],
+    "supports": {
+        "align": ["wide", "full"],
+        "anchor": true,
+        "customClassName": true
+    },
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "cb-content-grid.php"
+    },
+    "style": "file:./cb-content-grid.css"
+}

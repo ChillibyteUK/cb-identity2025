@@ -53,7 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $block_id = $block['id'] ?? '';
 
 ?>
-<section id="<?php echo esc_attr( $block_id ); ?>" class="BLOCK_CSSS_CLASS">
+<section id="<?php echo esc_attr( $block_id ); ?>" class="BLOCK_CSS_CLASS">
 
 </section>
 PHP_END

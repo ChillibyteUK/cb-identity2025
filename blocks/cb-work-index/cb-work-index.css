@@ -1,0 +1,88 @@
+/**
+ * CB Work Index Block Styles
+ *
+ * @package  cb-identity2025
+ */
+.cb-work-index {
+  background-color: black;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+.cb-work-index__pre-title {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-block: 0.5rem;
+  color: var(--col-green-500);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-section-pretitle);
+  line-height: 1;
+}
+.cb-work-index__card {
+  aspect-ratio: 16/9;
+  width: 100%;
+  display: grid;
+  grid-template-areas: "stack";
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+.cb-work-index__card:hover {
+  text-decoration: none;
+}
+.cb-work-index__card:hover .cb-work-index__image {
+  opacity: 0;
+}
+.cb-work-index__image {
+  grid-area: stack;
+  aspect-ratio: 16/9;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+.cb-work-index__content {
+  grid-area: stack;
+  align-self: flex-end;
+  color: #fff;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 20%, rgba(0, 0, 0, 0.8));
+  padding: 2rem 2rem 1rem 1rem;
+  z-index: 3;
+  position: relative;
+}
+.cb-work-index__title {
+  font-size: var(--fs-card-title);
+  font-weight: var(--fw-semi);
+}
+.cb-work-index__desc {
+  font-size: var(--fs-card-desc);
+  font-weight: var(--fw-light);
+  color: var(--col-neutral-500);
+  margin-top: 0.5rem;
+}
+.cb-work-index .work-video {
+  grid-area: stack;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+.cb-work-index__filter-bar {
+  background-color: black;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  isolation: isolate;
+  overflow: hidden;
+}
+.cb-work-index__filter-bar::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: var(--_bg-url) center/cover no-repeat fixed;
+}
+.cb-work-index__filter-bar__container {
+  background-color: rgba(255, 255, 255, 0.1);
+}
