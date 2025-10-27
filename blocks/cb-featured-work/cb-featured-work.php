@@ -53,7 +53,16 @@ $block_id = $block['id'] ?? '';
 						<div class="cb-featured-work__desc">
 							<?php
 							// get the case_study_subtitle field from the cb-case-study-hero block if available.
-							$subtitle = get_field( 'case_study_subtitle', get_the_ID() );
+							$subtitle = '';
+							$post_blocks = parse_blocks( get_the_content( null, false, get_the_ID() ) );
+							foreach ( $post_blocks as $block ) {
+								if ( isset( $block['blockName'] ) && $block['blockName'] === 'cb/cb-case-study-hero' ) {
+									if ( !empty( $block['attrs']['case_study_subtitle'] ) ) {
+										$subtitle = $block['attrs']['case_study_subtitle'];
+									}
+									break;
+								}
+							}
 							if ( $subtitle ) {
 								echo esc_html( $subtitle );
 							} else {
