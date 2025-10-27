@@ -3,6 +3,21 @@
  *
  * @package  cb-identity2025
  */
+.work-index-hero h1 {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: var(--fs-service-title);
+  font-weight: var(--fw-semi);
+  color: var(--col-white);
+}
+.work-index-hero h2 {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: var(--fs-brand-pre-title);
+  color: var(--col-neutral-800);
+  font-weight: var(--fw-regular);
+  margin-bottom: 0;
+}
+
 .cb-work-index {
   background-color: black;
   color: #fff;
