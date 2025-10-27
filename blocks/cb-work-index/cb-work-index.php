@@ -101,12 +101,12 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 <section class="work-index-hero has-primary-black-background-color pt-5">
     <h1 class="mt-5">
         <div class="id-container px-5 pt-2">
-            What we create.
+            Our work
         </div>
     </h1>
     <h2>
         <div class="id-container px-5 pt-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Where experience changes everything
         </div>
     </h2>
 </section>
