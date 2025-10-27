@@ -320,6 +320,11 @@
           "size": "1.125rem"
         },
         {
+          "name": "key-stat",
+          "slug": "key-stat",
+          "size": "5rem"
+        },
+        {
           "name": "cta-title",
           "slug": "cta-title",
           "size": "3.125rem"

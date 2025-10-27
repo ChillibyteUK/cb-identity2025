@@ -1,0 +1,18 @@
+{
+    "name": "cb/cb-case-study-key-stats",
+    "title": "CB Case Study Key Stats",
+    "description": "A custom CB Case Study Key Stats block",
+    "category": "cb-blocks",
+    "icon": "admin-generic",
+    "keywords": ["cb-case-study-key-stats", "cb"],
+    "supports": {
+        "align": ["wide", "full"],
+        "anchor": true,
+        "customClassName": true
+    },
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "cb-case-study-key-stats.php"
+    },
+    "style": "file:./cb-case-study-key-stats.css"
+}
