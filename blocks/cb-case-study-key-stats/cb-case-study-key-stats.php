@@ -24,7 +24,7 @@ acf_setup_meta( $block['data'] );
 </style>
 <section id="<?= esc_attr( $block_id ); ?>" class="case-study-key-stats">
     <div class="case-study-key-stats__container pb-5">
-		<div class="case-study-key-stats__header mb-4">
+		<div class="case-study-key-stats__header">
 			<div class="id-container px-5">
 				KEY STATS
 			</div>
