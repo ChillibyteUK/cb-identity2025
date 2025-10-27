@@ -235,7 +235,7 @@
                             "min": 0,
                             "max": 0,
                             "collapsed": "",
-                            "button_label": "Add Row",
+                            "button_label": "Add Module",
                             "rows_per_page": 20,
                             "sub_fields": [
                                 {
@@ -369,8 +369,8 @@
                                     "label": "Column Width",
                                     "name": "column_width",
                                     "aria-label": "",
-                                    "type": "select",
-                                    "instructions": "",
+                                    "type": "range",
+                                    "instructions": "3 = quarter, 4 = third, 6 = half, 8 = two thirds, 9 = three quarters, 12 = full width",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -378,22 +378,13 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "choices": {
-                                        "12": "Full",
-                                        "6": "Half",
-                                        "4": "Third",
-                                        "3": "Quarter"
-                                    },
                                     "default_value": 6,
-                                    "return_format": "value",
-                                    "multiple": 0,
-                                    "allow_null": 0,
+                                    "min": 1,
+                                    "max": 12,
                                     "allow_in_bindings": 0,
-                                    "ui": 0,
-                                    "ajax": 0,
-                                    "placeholder": "",
-                                    "create_options": 0,
-                                    "save_options": 0,
+                                    "step": "",
+                                    "prepend": "",
+                                    "append": "\/ 12",
                                     "parent_repeater": "field_68f8ab94e1d64"
                                 },
                                 {
@@ -401,8 +392,8 @@
                                     "label": "Column Offset",
                                     "name": "column_offset",
                                     "aria-label": "",
-                                    "type": "select",
-                                    "instructions": "",
+                                    "type": "range",
+                                    "instructions": "Width + Offset must be less than 12",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -410,22 +401,13 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "choices": {
-                                        "0": "None",
-                                        "3": "Quarter",
-                                        "4": "Third",
-                                        "6": "Half"
-                                    },
                                     "default_value": 0,
-                                    "return_format": "value",
-                                    "multiple": 0,
-                                    "allow_null": 0,
+                                    "min": 0,
+                                    "max": 11,
                                     "allow_in_bindings": 0,
-                                    "ui": 0,
-                                    "ajax": 0,
-                                    "placeholder": "",
-                                    "create_options": 0,
-                                    "save_options": 0,
+                                    "step": "",
+                                    "prepend": "",
+                                    "append": "",
                                     "parent_repeater": "field_68f8ab94e1d64"
                                 }
                             ]
@@ -459,5 +441,5 @@
     "description": "Fields for the CB Content Grid block",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1761211720
+    "modified": 1761563736
 }
