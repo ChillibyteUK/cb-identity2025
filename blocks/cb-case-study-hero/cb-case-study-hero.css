@@ -15,6 +15,7 @@
   font-size: var(--fs-brand-pre-title);
   color: var(--col-neutral-800);
   font-weight: var(--fw-regular);
+  margin-bottom: 0;
 }
 .case-study-hero-video-container {
   position: relative;
