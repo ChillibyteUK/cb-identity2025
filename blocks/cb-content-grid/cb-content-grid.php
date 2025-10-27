@@ -19,7 +19,7 @@ if ( empty( $grid_rows ) ) {
 $background_color = get_field( 'background' );
 ?>
 <section class="content-grid <?= esc_attr( $background_color ); ?>">
-    <div class="id-container pb-5">
+    <div class="id-container px-5 pb-5">
     <?php
     foreach ( $grid_rows as $row_index => $layout ) {
         // Support both 'multi-module_row' and 'multi_module_row' for compatibility
@@ -68,7 +68,7 @@ $background_color = get_field( 'background' );
                         }
                     } elseif ( 'text' === $mtype || 'Text' === $mtype ) {
                         $text = $block['data'][ 'grid_rows_' . $row_index . '_text' ] ?? '';
-                        echo wp_kses_post( $text );
+                        echo wp_kses_post( do_shortcode( $text ) );
                     } elseif ( 'video' === $mtype || 'Video' === $mtype ) {
                         $vimeo_url = $block['data'][ 'grid_rows_' . $row_index . '_vimeo_url' ] ?? '';
                         if ( $vimeo_url ) {
@@ -147,7 +147,7 @@ $background_color = get_field( 'background' );
                                 }
                             } elseif ( 'text' === $mtype || 'Text' === $mtype ) {
                                 $text = $block['data'][ 'grid_rows_' . $row_index . '_module_' . $module_index . '_text' ] ?? '';
-                                echo wp_kses_post( $text );
+                                echo wp_kses_post( do_shortcode( $text ) );
                             } elseif ( 'video' === $mtype || 'Video' === $mtype ) {
                                 $vimeo_url = $block['data'][ 'grid_rows_' . $row_index . '_module_' . $module_index . '_vimeo_url' ] ?? '';
                                 if ( $vimeo_url ) {

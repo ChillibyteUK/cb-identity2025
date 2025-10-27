@@ -232,3 +232,38 @@ function cb_add_current_menu_parent_for_case_studies( $items, $args ) {
 	}
 	return $items;
 }
+
+/**
+ * Shortcode to display parent categories of service taxonomy terms assigned to the current post.
+ */
+add_shortcode( 'service_parents', 'cb_service_parents_shortcode' );
+function cb_service_parents_shortcode() {
+	if ( ! is_singular() ) return '';
+
+	$post_id = get_the_ID();
+	$terms = get_the_terms( $post_id, 'service' );
+
+	if ( ! $terms || is_wp_error( $terms ) ) return '';
+
+	$parents = array();
+	foreach ( $terms as $term ) {
+		if ( $term->parent ) {
+			$parent = get_term( $term->parent, 'service' );
+			if ( $parent && ! is_wp_error( $parent ) ) {
+				$parents[ $parent->term_id ] = $parent;
+			}
+		}
+	}
+
+	if ( empty( $parents ) ) return '';
+
+	$output = '<ul class="service-parents">';
+	foreach ( $parents as $parent ) {
+		$output .= '<li><a href="' . get_term_link( $parent ) . '">' . esc_html( $parent->name ) . '</a></li>';
+	}
+	$output .= '</ul>';
+
+	return $output;
+}
+
+

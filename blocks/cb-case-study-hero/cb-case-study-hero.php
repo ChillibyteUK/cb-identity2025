@@ -29,7 +29,8 @@ $block_id = $block['id'] ?? '';
     $video = get_field( 'vimeo_url', get_the_ID() );
     if ( $video ) {
         ?>
-    <div class="id-container">
+    <div class="id-container case-study-hero-video-container">
+        <div class="overlay"></div>
         <iframe class="case-study-hero-video" src="<?= esc_url( $video ); ?>&&autoplay=1" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
     </div>
         <?php

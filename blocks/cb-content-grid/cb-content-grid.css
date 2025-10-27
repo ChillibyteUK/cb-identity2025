@@ -4,15 +4,23 @@
  * @package  cb-identity2025
  */
 .content-grid {
-  font-size: var(--fs-large-body);
+  font-size: var(--fs-body);
   font-weight: var(--fw-regular);
   color: var(--col-white);
 }
 .content-grid h2 {
   padding-top: 0.25rem;
   margin-bottom: 1rem;
-  font-size: var(--fs-section-pretitle);
+  font-size: var(--fs-brand-pre-title);
   color: var(--col-green-400);
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.content-grid.has-purple-200-background-color {
+  color: var(--col-primary-black);
+}
+.content-grid.has-purple-200-background-color h2 {
+  color: var(--col-purple-900);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }

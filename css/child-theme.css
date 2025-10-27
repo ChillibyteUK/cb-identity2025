@@ -22183,6 +22183,33 @@ header .navbar-toggler {
   --bs-aspect-ratio: calc(16 / 9 * 100%); /* = 177.77% */
 }
 
+.service-parents {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  width: -moz-fit-content;
+  width: fit-content;
+  min-width: 50%;
+}
+.service-parents li {
+  font-size: var(--fs-body);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  display: inline-block;
+  width: 100%;
+}
+.service-parents li a {
+  text-decoration: none;
+  color: var(--col-green-500);
+}
+.service-parents li a:hover {
+  text-decoration: none;
+}
+.service-parents li:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 /*
 var all = document.getElementsByTagName("*"), i = 0, rect, docWidth = document.documentElement.offsetWidth;
 for (; i < all.length; i++) {

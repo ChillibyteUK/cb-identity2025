@@ -64,6 +64,34 @@
   --bs-aspect-ratio: calc(16 / 9 * 100%); /* = 177.77% */
 }
 
+
+.service-parents {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  min-width: 50%;
+  li {
+    font-size: var(--fs-body);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    width: 100%;
+    a {
+      text-decoration: none;
+      color: var(--col-green-500);
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  li:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
 // show stuff that overflows horizontally
 // * {
 //     outline: 1px solid #f00 !important;

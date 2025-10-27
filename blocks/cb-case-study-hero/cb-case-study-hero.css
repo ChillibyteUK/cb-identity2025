@@ -16,6 +16,18 @@
   color: var(--col-white);
   font-weight: var(--fw-regular);
 }
+.case-study-hero-video-container {
+  position: relative;
+}
+.case-study-hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0) 30%);
+  pointer-events: none;
+}
 .case-study-hero-video {
   width: 100%;
   aspect-ratio: 16/9;
