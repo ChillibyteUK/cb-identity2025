@@ -4,6 +4,7 @@
      COLOURS (HSL + computed)
      ========================= */
   --col-primary-black: #0D0D0C;
+  --col-white: #fff;
   --col-neutral-1000: #363531;
   --col-neutral-900: #505049;
   --col-neutral-800: #5e5d55;
@@ -21619,7 +21620,7 @@ body,
 
 h1, .h1 {
   font-family: var(--ff-body);
-  font-size: var(--fs-h1-big-page-title);
+  font-size: var(--fs-work-title);
   line-height: var(--lh-h1-big-page-title);
   font-weight: var(--fw-h1-big-page-title);
   letter-spacing: -0.01em;
@@ -21628,7 +21629,7 @@ h1, .h1 {
 
 h2, .h2 {
   font-family: var(--ff-body);
-  font-size: var(--fs-h2-page-subtitle);
+  font-size: var(--fs-work-subtitle);
   line-height: var(--lh-h2-page-subtitle);
   font-weight: var(--fw-h2-page-subtitle);
   letter-spacing: -0.005em;

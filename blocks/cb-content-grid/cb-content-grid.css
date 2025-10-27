@@ -3,3 +3,11 @@
  *
  * @package  cb-identity2025
  */
+.content-grid {
+  font-size: var(--fs-large-body);
+  font-weight: var(--fw-regular);
+}
+.content-grid h2 {
+  font-size: var(--fs-section-pretitle);
+  color: var(--col-purple-900);
+}

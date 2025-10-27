@@ -1,0 +1,18 @@
+/**
+ * CB Case Study Hero Block Styles
+ *
+ * @package  cb-identity2025
+ */
+
+ .case-study-hero {
+    h1 {
+        font-size: var(--fs-service-title);
+        font-weight: var(--fw-semi);
+        color: var(--col-neutral-800);
+    }
+    h2 {
+        font-size: var(--fs-content-title);
+        color: var(--col-white);
+        font-weight: var(--fw-regular);
+    }
+ }

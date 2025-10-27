@@ -10,6 +10,12 @@
           "origin": "theme"
         },
         {
+          "name": "white",
+          "slug": "white",
+          "color": "#fff",
+          "origin": "theme"
+        },
+        {
           "name": "neutral-1000",
           "slug": "neutral-1000",
           "color": "#363531",

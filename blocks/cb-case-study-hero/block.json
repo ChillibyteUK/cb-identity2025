@@ -1,0 +1,18 @@
+{
+    "name": "cb/cb-case-study-hero",
+    "title": "CB Case Study Hero",
+    "description": "A custom CB Case Study Hero block",
+    "category": "cb-blocks",
+    "icon": "admin-generic",
+    "keywords": ["cb-case-study-hero", "cb"],
+    "supports": {
+        "align": ["wide", "full"],
+        "anchor": true,
+        "customClassName": true
+    },
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "cb-case-study-hero.php"
+    },
+    "style": "file:./cb-case-study-hero.css"
+}
