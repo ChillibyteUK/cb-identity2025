@@ -63,7 +63,36 @@ $block_content = get_field( 'content' );
 						<div class="work-carousel-text">
 							<div class="id-container pb-2">
 								<div class="work-carousel-title"><?php the_title(); ?></div>
-								<div class="work-carousel-excerpt"><?php echo wp_kses_post( wp_trim_words( get_the_excerpt(), 18, '...' ) ); ?></div>
+								<div class="work-carousel-excerpt">
+							<?php
+							// get the case_study_subtitle field from the cb-case-study-hero block if available.
+							if ( ! function_exists( 'cb_find_hero_subtitle' ) ) {
+								function cb_find_hero_subtitle($blocks) {
+									foreach ($blocks as $block) {
+										if (
+											isset($block['blockName']) &&
+											$block['blockName'] === 'cb/cb-case-study-hero' &&
+											!empty($block['attrs']['data']['case_study_subtitle'])
+										) {
+											return $block['attrs']['data']['case_study_subtitle'];
+										}
+										if (!empty($block['innerBlocks'])) {
+											$found = cb_find_hero_subtitle($block['innerBlocks']);
+											if ($found) return $found;
+										}
+									}
+									return '';
+								}
+							}
+							$post_blocks = parse_blocks( get_the_content( null, false, get_the_ID() ) );
+							$subtitle = cb_find_hero_subtitle($post_blocks);
+							if ( $subtitle ) {
+								echo esc_html( $subtitle );
+							} else {
+								echo wp_kses_post( wp_trim_words( get_the_excerpt(), 18, '...' ) );
+							}
+							?>
+								</div>
 							</div>
 						</div>
 					</a>

@@ -207,7 +207,26 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 						<div class="cb-work-index__desc">
 							<?php
 							// get the case_study_subtitle field from the cb-case-study-hero block if available.
-							$subtitle = get_field( 'case_study_subtitle', get_the_ID() );
+							if ( ! function_exists( 'cb_find_hero_subtitle' ) ) {
+								function cb_find_hero_subtitle($blocks) {
+									foreach ($blocks as $block) {
+										if (
+											isset($block['blockName']) &&
+											$block['blockName'] === 'cb/cb-case-study-hero' &&
+											!empty($block['attrs']['data']['case_study_subtitle'])
+										) {
+											return $block['attrs']['data']['case_study_subtitle'];
+										}
+										if (!empty($block['innerBlocks'])) {
+											$found = cb_find_hero_subtitle($block['innerBlocks']);
+											if ($found) return $found;
+										}
+									}
+									return '';
+								}
+							}
+							$post_blocks = parse_blocks( get_the_content( null, false, get_the_ID() ) );
+							$subtitle = cb_find_hero_subtitle($post_blocks);
 							if ( $subtitle ) {
 								echo esc_html( $subtitle );
 							} else {
