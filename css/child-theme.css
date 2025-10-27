@@ -21822,15 +21822,16 @@ strong {
   border-color: var(--_bg);
 }
 
-.btn-secondary {
-  --_bg: var(--col-secondary);
-  --_fg: var(--col-primary);
-  --_bd: var(--col-secondary);
+.btn-id-outline-green {
+  --_bg: transparent;
+  --_fg: var(--col-green-400);
+  --_bd: var(--col-green-400);
+  border-radius: 0;
 }
-.btn-secondary:hover {
-  background-color: var(--col-secondary);
-  color: var(--col-primary);
-  border-color: var(--col-secondary);
+.btn-id-outline-green:hover {
+  background-color: var(--col-green-400);
+  color: var(--col-primary-black);
+  border-color: var(--col-green-400);
 }
 
 .btn:focus-visible {
@@ -21896,6 +21897,9 @@ header .logo-clip {
   height: 25px;
   margin-right: 1rem;
   vertical-align: middle;
+}
+header .logo-clip:hover .logo-inner {
+  transform: translateX(0);
 }
 @media (min-width: 992px) {
   header .logo-clip {

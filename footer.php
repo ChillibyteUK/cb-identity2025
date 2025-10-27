@@ -139,77 +139,73 @@ defined( 'ABSPATH' ) || exit;
 </footer>
 <script>
 (function(){
-	const clip = document.getElementById('footer-logo-clip');
-	const inner = document.getElementById('footer-logo-inner');
-	const svg = document.getElementById('footer-logo-svg');
-	if (!clip || !inner || !svg) return;
+    const clip = document.getElementById('footer-logo-clip');
+    const inner = document.getElementById('footer-logo-inner');
+    const svg = document.getElementById('footer-logo-svg');
+    if (!clip || !inner || !svg) return;
 
-	const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-	let triggered = false;
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let triggered = false;
 
-	// Ensure initial visual state shows the three bars (left half) on load
-	// Make clip fill container and inner be 200% width, sitting at translateX(0)
-	clip.style.width = '100%';
-	inner.style.width = '200%';
-	inner.style.transform = 'translateX(0)';
-	// disable any transition until animated explicitly
-	inner.style.transition = 'none';
+    function prepareAndAnimate() {
+        clip.style.width = '100%';
+        inner.style.transformOrigin = 'left center';
+        inner.style.width = '200%';
+        inner.style.display = 'block';
+        inner.style.transform = 'translateX(0)';
+        if (prefersReduced) {
+            inner.style.transform = 'translateX(-50%)';
+            return;
+        }
+        const animDuration = 1.6;
+        const gsapEase = 'power3.out';
+        if (window.gsap && typeof window.gsap.to === 'function') {
+            window.gsap.to(inner, { xPercent: -50, duration: animDuration, ease: gsapEase });
+        } else {
+            inner.style.transition = 'transform ' + animDuration + 's cubic-bezier(.22,.9,.32,1)';
+            requestAnimationFrame(() => { inner.style.transform = 'translateX(-50%)'; });
+        }
+    }
 
-	function prepareAndAnimate() {
-		// Make clip fill the container width
-		clip.style.width = '100%';
-		// Ensure inner uses left origin so translating reveals the right half
-		inner.style.transformOrigin = 'left center';
+    function triggerIfVisible(el) {
+        const rect = el.getBoundingClientRect();
+        const vh = window.innerHeight || document.documentElement.clientHeight;
+        return rect.top < vh && rect.bottom > 0;
+    }
 
-		// Make inner element 200% width so its left-half fills the clip initially
-		inner.style.width = '200%';
-		inner.style.display = 'block';
-		inner.style.transform = 'translateX(0)';
+    const triggerEl = document.querySelector('.footer__colophon') || document.querySelector('.footer__logo') || clip;
 
-		// If user prefers reduced motion, jump to final state (fully revealed)
-		if (prefersReduced) {
-			inner.style.transform = 'translateX(-50%)';
-			return;
-		}
+    if (triggerEl) {
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (triggered) return;
+                if (entry.isIntersecting && entry.intersectionRatio > 0) {
+                    triggered = true;
+                    prepareAndAnimate();
+                    obs.disconnect();
+                }
+            });
+        }, { rootMargin: '0px 0px -10px 0px', threshold: [0.1] });
 
-		// Animate to final state: move left by 50% of inner width (revealing right half)
-		// Use a slightly slower duration and a smoother easing
-		const animDuration = 1.6; // seconds
-		const gsapEase = 'power3.out';
-		if (window.gsap && typeof window.gsap.to === 'function') {
-			window.gsap.to(inner, { xPercent: -50, duration: animDuration, ease: gsapEase });
-		} else {
-			// Fallback: animate via CSS transition with similar easing
-			inner.style.transition = 'transform ' + animDuration + 's cubic-bezier(.22,.9,.32,1)';
-			requestAnimationFrame(() => { inner.style.transform = 'translateX(-50%)'; });
-		}
-	}
+        observer.observe(triggerEl);
 
-	const observer = new IntersectionObserver((entries, obs) => {
-		entries.forEach(entry => {
-			if (triggered) return;
-			if (entry.isIntersecting && entry.intersectionRatio >= 0.1) {
-				triggered = true;
-				prepareAndAnimate();
-				obs.disconnect();
-			}
-		});
-	}, { rootMargin: '0px 0px -10px 0px', threshold: [0] });
+        // Immediately check if already visible (e.g., on fast loads or short pages)
+        if (triggerIfVisible(triggerEl)) {
+            triggered = true;
+            prepareAndAnimate();
+            observer.disconnect();
+        }
+    }
 
-	// Prefer the colophon as the trigger element (fires when its bottom enters viewport)
-	const triggerEl = document.querySelector('.footer__colophon') || document.querySelector('.footer__logo') || clip;
-	if (triggerEl) observer.observe(triggerEl);
-
-	// If window resizes before animation triggered, ensure inner stays 200% width
-	let resizeTimer = null;
-	window.addEventListener('resize', () => {
-		if (triggered) return; // no need after animation
-		clearTimeout(resizeTimer);
-		resizeTimer = setTimeout(() => {
-			clip.style.width = '100%';
-			inner.style.width = '200%';
-		}, 120);
-	});
+    let resizeTimer = null;
+    window.addEventListener('resize', () => {
+        if (triggered) return;
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            clip.style.width = '100%';
+            inner.style.width = '200%';
+        }, 120);
+    });
 })();
 </script>
 

@@ -31,6 +31,11 @@ header {
     height: 25px;
     margin-right: 1rem;
     vertical-align: middle;
+    &:hover {
+      .logo-inner {
+        transform: translateX( 0 );
+      }
+    }
   }
 
   // Keep a reasonable min-width on larger screens but allow smaller viewports to shrink.

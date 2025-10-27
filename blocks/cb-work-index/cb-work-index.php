@@ -101,7 +101,7 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-work-index">
 	<div class="cb-work-index__filter-bar py-4 px-5">
 		<div class="id-container py-4 px-5 d-flex justify-content-start gap-4 align-items-center cb-work-index__filters" data-service-map='<?php echo esc_attr( $service_map_json ); ?>' data-theme-map='<?php echo esc_attr( $theme_map_json ); ?>'>
-			<span>
+			<span style="min-width: 100px; color: var(--col-green-400);">
 				FILTER BY:
 			</span>
 			<?php
@@ -147,7 +147,7 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 				<?php
 			}
 			?>
-			<button id="cb-work-index-filter-reset" class="btn btn-outline-secondary">Reset</button>
+			<button id="cb-work-index-filter-reset" class="btn btn-id-outline-green">Reset</button>
 		</div>
 	</div>
 	<div class="id-container">
@@ -188,8 +188,8 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 					}
 					?>
 			<div class="col-md-6" data-service-terms="<?php echo esc_attr( trim( $service_classes ) ); ?>" data-theme-terms="<?php echo esc_attr( trim( $theme_classes ) ); ?>">
-				<div class="has-white-background-color has-black-color"><?php echo esc_html( trim( $service_classes ) ); ?></div>
-				<div class="has-white-background-color has-black-color"><?php echo esc_html( trim( $theme_classes ) ); ?></div>
+				<!-- <div class="has-white-background-color has-black-color"><?php echo esc_html( trim( $service_classes ) ); ?></div>
+				<div class="has-white-background-color has-black-color"><?php echo esc_html( trim( $theme_classes ) ); ?></div> -->
 				<a href="<?= esc_url( get_the_permalink() ); ?>" class="cb-work-index__card">
 					<?php
 					$video = get_field( 'vimeo_url', get_the_ID() );
