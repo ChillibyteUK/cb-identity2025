@@ -14,11 +14,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 $block_id = $block['id'] ?? '';
 
 ?>
-<section id="<?php echo esc_attr( $block_id ); ?>" class="case-study-hero has-primary-black-background-color py-5">
-<div class="id-container p-5">
-    <h1 ><?= get_the_title(); ?></h1>
+<section id="<?php echo esc_attr( $block_id ); ?>" class="case-study-hero has-primary-black-background-color pt-5">
+    <h1 class="mt-5">
+        <div class="id-container px-5 pt-2">
+            <?= get_the_title(); ?>
+        </div>
+    </h1>
     <h2>
-        <?= get_field( 'case_study_subtitle' ); ?>
+        <div class="id-container px-5 pt-2">
+            <?= get_field( 'case_study_subtitle' ); ?>
+        </div>
     </h2>
-</div>
+    <?php
+    $video = get_field( 'vimeo_url', get_the_ID() );
+    if ( $video ) {
+        ?>
+    <div class="id-container">
+        <iframe class="case-study-hero-video" src="<?= esc_url( $video ); ?>&&autoplay=1" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+    </div>
+        <?php
+    }
+    ?>
 </section>

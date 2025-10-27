@@ -6,13 +6,20 @@
 
  .case-study-hero {
     h1 {
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
         font-size: var(--fs-service-title);
         font-weight: var(--fw-semi);
         color: var(--col-neutral-800);
     }
     h2 {
-        font-size: var(--fs-content-title);
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        font-size: var(--fs-brand-pre-title);
         color: var(--col-white);
         font-weight: var(--fw-regular);
+    }
+    &-video {
+        width: 100%;
+        aspect-ratio: 16 / 9;
     }
  }

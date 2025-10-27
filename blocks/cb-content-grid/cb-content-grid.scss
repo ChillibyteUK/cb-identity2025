@@ -7,8 +7,13 @@
 .content-grid {
     font-size: var(--fs-large-body);
     font-weight: var(--fw-regular);
+    color: var(--col-white);
     h2 {
+        padding-top: 0.25rem;
+        margin-bottom: 1rem;
         font-size: var(--fs-section-pretitle);
-        color: var(--col-purple-900);
+        color: var(--col-green-400);
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
 }

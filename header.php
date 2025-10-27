@@ -152,7 +152,7 @@ if ( session_status() === PHP_SESSION_NONE ) {
 					array(
 						'theme_location' => 'primary_nav',
 						'container'      => false,
-						'menu_class'     => 'navbar-nav w-100 justify-content-end gap-4',
+						'menu_class'     => 'navbar-nav w-100 justify-content-end gap-4 me-4',
 						'fallback_cb'    => '',
 						'depth'          => 3,
 						'walker'         => new Understrap_WP_Bootstrap_Navwalker(),

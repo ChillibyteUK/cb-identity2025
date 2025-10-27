@@ -15,8 +15,11 @@ $grid_rows = $block['data']['grid_rows'] ?? array();
 if ( empty( $grid_rows ) ) {
     return;
 }
+
+$background_color = get_field( 'background' );
 ?>
-<section class="content-grid id-container pb-5">
+<section class="content-grid <?= esc_attr( $background_color ); ?>">
+    <div class="id-container pb-5">
     <?php
     foreach ( $grid_rows as $row_index => $layout ) {
         // Support both 'multi-module_row' and 'multi_module_row' for compatibility
@@ -166,4 +169,5 @@ if ( empty( $grid_rows ) ) {
         }
     }
     ?>
+    </div>
 </section>

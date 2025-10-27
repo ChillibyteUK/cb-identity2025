@@ -21,6 +21,34 @@
             "esc_html": 0
         },
         {
+            "key": "field_68ff72436685f",
+            "label": "Background",
+            "name": "background",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "has-neutral-800-background-color": "Neutral Dark",
+                "has-neutral-600-background-color": "Neutral Mid",
+                "has-purple-700-background-color": "Purple",
+                "has-primary-black-background-color": "Black"
+            },
+            "default_value": "has-neutral-800-background-color",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 0,
+            "layout": "horizontal",
+            "save_other_choice": 0
+        },
+        {
             "key": "field_68f8aab8e1d5d",
             "label": "Grid Rows",
             "name": "grid_rows",
@@ -441,5 +469,5 @@
     "description": "Fields for the CB Content Grid block",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1761563736
+    "modified": 1761572515
 }

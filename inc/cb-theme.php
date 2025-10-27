@@ -216,3 +216,19 @@ document.addEventListener('DOMContentLoaded', function () {
 		<?php
 	}
 );
+
+/**
+ * Add current-menu-parent class to /work/ menu item when viewing case study posts.
+ */
+add_filter( 'wp_nav_menu_objects', 'cb_add_current_menu_parent_for_case_studies', 10, 2 );
+function cb_add_current_menu_parent_for_case_studies( $items, $args ) {
+	if ( is_singular( 'case_study' ) ) {
+		foreach ( $items as $item ) {
+			if ( $item->url == home_url( '/work/' ) ) {
+				$item->classes[] = 'current-menu-parent';
+				break;
+			}
+		}
+	}
+	return $items;
+}
