@@ -205,7 +205,15 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 							<?php the_title(); ?>
 						</div>
 						<div class="cb-work-index__desc">
-							<?php echo wp_kses_post( wp_trim_words( get_the_excerpt(), 18, '...' ) ); ?>
+							<?php
+							// get the case_study_subtitle field from the cb-case-study-hero block if available.
+							$subtitle = get_field( 'case_study_subtitle', get_the_ID() );
+							if ( $subtitle ) {
+								echo esc_html( $subtitle );
+							} else {
+								echo wp_kses_post( wp_trim_words( get_the_excerpt(), 18, '...' ) );
+							}
+							?>
 						</div>
 					</div>
 				</a>
