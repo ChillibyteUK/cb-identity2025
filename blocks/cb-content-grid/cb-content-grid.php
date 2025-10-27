@@ -52,7 +52,7 @@ if ( empty( $grid_rows ) ) {
             }
             ?>
             <div class="row gx-4 gy-5 mb-4">
-                <div class="<?= esc_attr( implode( ' ', $col_classes ) ); ?>">
+                <div class="<?= esc_attr( implode( ' ', $col_classes ) ); ?>" data-aos="fade-up">
                     <?php
                     if ( 'image' === $mtype || 'Image' === $mtype ) {
                         $image_id = $block['data'][ 'grid_rows_' . $row_index . '_image' ] ?? null;
@@ -131,7 +131,7 @@ if ( empty( $grid_rows ) ) {
                             $col_classes[] = sanitize_html_class( $class );
                         }
                         ?>
-                        <div class="<?= esc_attr( implode( ' ', $col_classes ) ); ?>">
+                        <div class="<?= esc_attr( implode( ' ', $col_classes ) ); ?>" data-aos="fade-up">
                             <?php
                             if ( 'image' === $mtype || 'Image' === $mtype ) {
                                 $image_id = $block['data'][ 'grid_rows_' . $row_index . '_module_' . $module_index . '_image' ] ?? null;
