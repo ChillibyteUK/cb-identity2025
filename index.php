@@ -124,7 +124,7 @@ get_header();
                 'orderby'        => 'date',
                 'order'          => 'DESC', // Descending order.
                 'posts_per_page' => 3,    // Get all posts.
-				'category_name'  => 'press',
+				'category_name'  => 'news',
             );
 			$q = new WP_Query( $args );
 
