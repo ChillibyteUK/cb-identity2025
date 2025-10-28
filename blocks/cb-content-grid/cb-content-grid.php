@@ -22,8 +22,92 @@ $background_color = get_field( 'background' );
     <div class="id-container pt-5 px-5">
     <?php
     foreach ( $grid_rows as $row_index => $layout ) {
-        // Only support multi_module_row and multi-module_row
-        if ( 'multi_module_row' === $layout || 'multi-module_row' === $layout ) { // --- Multi-module row ---
+        // Support both 'multi-module_row' and 'multi_module_row' for compatibility.
+        if ( 'single_module_row' === $layout ) { // --- Single module row ---
+            $mtype      = $block['data'][ 'grid_rows_' . $row_index . '_module_type' ] ?? '';
+            $width_raw  = $block['data'][ 'grid_rows_' . $row_index . '_column_width' ] ?? 12;
+            $offset_raw = $block['data'][ 'grid_rows_' . $row_index . '_column_offset' ] ?? 0;
+            $width      = intval( $width_raw );
+            $offset     = intval( $offset_raw );
+
+            if ( $width < 1 || $width > 12 ) {
+                $width = 12;
+            }
+            if ( $offset < 0 ) {
+                $offset = 0;
+            }
+            if ( $offset > 11 ) {
+                $offset = 11;
+            }
+            if ( $width + $offset > 12 ) {
+                $offset = max( 0, 12 - $width );
+            }
+            $class = trim( $block['data'][ 'grid_rows_' . $row_index . '_custom_class' ] ?? '' );
+
+            $col_classes = array(
+                'col-md-' . esc_attr( $width ),
+            );
+            if ( $offset && '0' !== $offset ) {
+                $col_classes[] = 'offset-md-' . esc_attr( $offset );
+            }
+            if ( $class ) {
+                $col_classes[] = sanitize_html_class( $class );
+            }
+            ?>
+            <div class="row g-5 pb-5">
+                <div class="<?= esc_attr( implode( ' ', $col_classes ) ); ?>" data-aos="fade-up">
+                    <?php
+                    if ( 'image' === $mtype || 'Image' === $mtype ) {
+                        $image_id = $block['data'][ 'grid_rows_' . $row_index . '_image' ] ?? null;
+                        $caption  = $block['data'][ 'grid_rows_' . $row_index . '_caption' ] ?? '';
+						$aspect   = $block['data'][ 'grid_rows_' . $row_index . '_aspect_ratio' ] ?? '';
+
+						switch ( $aspect ) {
+							case 'Native':
+								$aspect_class = '';
+								break;
+							case '21x9':
+								$aspect_class = 'ratio ratio-21x9';
+								break;
+							case '16x9':
+								$aspect_class = 'ratio ratio-16x9';
+								break;
+							case '4x3':
+								$aspect_class = 'ratio ratio-4x3';
+								break;
+							case '1x1':
+								$aspect_class = 'ratio ratio-1x1';
+								break;
+							default:
+								$aspect_class = '';
+						}
+						if ( $image_id ) {
+							echo '<div class="img-cover ' . esc_attr( $aspect_class ) . '">';
+							echo wp_get_attachment_image( $image_id, 'full', false, array( 'class' => 'img-fluid' ) );
+							echo '</div>';
+						}
+
+                        if ( $caption ) {
+                            echo '<p class="image-caption small text-muted mt-2">' . esc_html( $caption ) . '</p>';
+                        }
+                    } elseif ( 'text' === $mtype || 'Text' === $mtype ) {
+                        $text = $block['data'][ 'grid_rows_' . $row_index . '_text' ] ?? '';
+                        echo wp_kses_post( do_shortcode( $text ) );
+                    } elseif ( 'video' === $mtype || 'Video' === $mtype ) {
+                        $vimeo_url = $block['data'][ 'grid_rows_' . $row_index . '_vimeo_url' ] ?? '';
+                        if ( $vimeo_url ) {
+                            echo '<div class="ratio ratio-16x9">';
+							?>
+							<iframe src="<?= esc_url( $vimeo_url ); ?>" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+							<?php
+                            echo '</div>';
+                        }
+                    }
+                    ?>
+                </div>
+            </div>
+        	<?php
+        } elseif ( 'multi_module_row' === $layout || 'multi-module_row' === $layout ) { // --- Multi-module row ---
             // Try to determine module count by looking for the highest module index.
             $modules_count = 0;
             // Prefer 'grid_rows_X_module' (as in your data), fallback to 'grid_rows_X_modules'.
