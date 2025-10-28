@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 
 ?>
-<main id="main" class="case-study has-neutral-100-background-color pb-5">
+<main id="main" class="case-study has-neutral-100-background-color">
     <?php
     the_content();
     ?>

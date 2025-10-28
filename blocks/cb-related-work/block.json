@@ -1,0 +1,18 @@
+{
+    "name": "cb/cb-related-work",
+    "title": "CB Related Work",
+    "description": "A custom CB Related Work block",
+    "category": "cb-blocks",
+    "icon": "admin-generic",
+    "keywords": ["cb-related-work", "cb"],
+    "supports": {
+        "align": ["wide", "full"],
+        "anchor": true,
+        "customClassName": true
+    },
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "cb-related-work.php"
+    },
+    "style": "file:./cb-related-work.css"
+}
