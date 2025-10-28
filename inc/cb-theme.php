@@ -220,18 +220,41 @@ document.addEventListener('DOMContentLoaded', function () {
 /**
  * Add current-menu-parent class to /work/ menu item when viewing case study posts.
  */
-add_filter( 'wp_nav_menu_objects', 'cb_add_current_menu_parent_for_case_studies', 10, 2 );
-function cb_add_current_menu_parent_for_case_studies( $items, $args ) {
-	if ( is_singular( 'case_study' ) ) {
-		foreach ( $items as $item ) {
-			if ( $item->url == home_url( '/work/' ) ) {
-				$item->classes[] = 'current-menu-parent';
-				break;
+add_filter(
+	'wp_nav_menu_objects',
+	function ( $items ) {
+        $news_page_id = get_option( 'page_for_posts' );
+        $work_url = home_url( '/work/' );
+        foreach ( $items as $item ) {
+            // Remove highlight classes from both News and Work by default.
+            if ( intval( $item->object_id ) === intval( $news_page_id ) ) {
+                $item->classes = array_diff( $item->classes, array( 'current_page_parent', 'current-menu-parent', 'active' ) );
+            }
+            if ( $item->url === $work_url ) {
+                $item->classes = array_diff( $item->classes, array( 'current_page_parent', 'current-menu-parent', 'active' ) );
+            }
+        }
+        if ( is_singular( 'post' ) ) {
+            // Highlight News for single posts.
+            foreach ( $items as $item ) {
+                if ( intval( $item->object_id ) === intval( $news_page_id ) ) {
+                    $item->classes[] = 'current-menu-parent';
+                    $item->classes[] = 'active';
+                }
+            }
+        } elseif ( is_singular( 'case_study' ) ) {
+		// Highlight Work for single case_study.
+			foreach ( $items as $item ) {
+				if ( $item->url === $work_url ) {
+					$item->classes[] = 'current-menu-parent';
+					$item->classes[] = 'active';
+				}
 			}
 		}
-	}
-	return $items;
-}
+		return $items;
+	},
+	20
+);
 
 /**
  * Shortcode to display parent categories of service taxonomy terms assigned to the current post.
