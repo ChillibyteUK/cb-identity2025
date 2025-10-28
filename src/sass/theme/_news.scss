@@ -57,6 +57,10 @@
     }
 }
 
+.news-insights {
+    background-color: var(--col-primary-black);
+}
+
 .insight-type-grid {
     color: var(--col-white);
     &__card {
@@ -69,7 +73,6 @@
         }
     }
     &.grid-type-1 {
-        background-color: var(--col-primary-black);
         .insight-type-grid__card-1 {
             .insight-type-grid__image {
                 aspect-ratio: 4 / 3;

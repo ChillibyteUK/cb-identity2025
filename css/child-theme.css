@@ -22071,6 +22071,10 @@ header .navbar-toggler {
   background: url("../blocks/cb-work-index/bg.jpg") center/cover no-repeat fixed;
 }
 
+.news-insights {
+  background-color: var(--col-primary-black);
+}
+
 .insight-type-grid {
   color: var(--col-white);
 }
@@ -22082,9 +22086,6 @@ header .navbar-toggler {
 }
 .insight-type-grid__card:hover .insight-type-grid__image {
   transform: scale(1.05);
-}
-.insight-type-grid.grid-type-1 {
-  background-color: var(--col-primary-black);
 }
 .insight-type-grid.grid-type-1 .insight-type-grid__card-1 .insight-type-grid__image {
   aspect-ratio: 4/3;

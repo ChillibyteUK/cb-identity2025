@@ -15,12 +15,12 @@ get_header();
 	<section id="<?php echo esc_attr( $block_id ); ?>" class="news-hero has-primary-black-background-color pt-5">
 		<h1 class="mt-5">
 			<div class="id-container px-5 pt-1">
-				News, Insights &amp; Press
+				Insights &amp; Perspectives
 			</div>
 		</h1>
 		<h2>
 			<div class="id-container px-5 pt-2">
-				Creating news and leading conversations that shape our industry	
+				Experience changes everything. Here’s how we’re shaping what’s next.
 			</div>
 		</h2>
 		<div class="row">
@@ -38,13 +38,13 @@ get_header();
 		</div>
 	</section>
 	<section class="insight-type">
-		<a class="insight-type__header" href="/news/category/insights/">
+		<!-- <a class="insight-type__header" href="/news/category/insights/">
 			<div class="id-container d-flex align-items-center justify-content-between px-5">
 				<div>Insights</div>
 				<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/arrow-wh.svg' ); ?>" width=65 height=60 alt="" class="cb-services-nav__item-icon" />
 			</div>
-		</a>
-		<div class="insight-type-grid grid-type-1 id-container p-5">
+		</a> -->
+		<div class="insight-type-grid grid-type-full id-container p-5">
 			<div class="row g-5">
 			<?php
 			$args = array(
@@ -52,7 +52,7 @@ get_header();
                 'post_status'    => array( 'publish' ),
                 'orderby'        => 'date',
                 'order'          => 'DESC', // Descending order.
-                'posts_per_page' => 3,    // Get all posts.
+                'posts_per_page' => -1,    // Get all posts.
 				'category_name'  => 'insights',
             );
 			$q = new WP_Query( $args );
@@ -70,6 +70,18 @@ get_header();
 						break;
 					case 3:
 						$col_class = 'col-md-3 insight-type-grid__card-3';
+						break;
+					case 4:
+						$col_class = 'col-md-6 insight-type-grid__card-4';
+						break;
+					case 5:
+						$col_class = 'col-md-3 insight-type-grid__card-5';
+						break;
+					case 6:
+						$col_class = 'col-md-3 insight-type-grid__card-6';
+						break;
+					case 7:
+						$col_class = 'col-md-12 insight-type-grid__card-7';
 						break;
 					default:
 						$col_class = 'col-md-6';
@@ -102,77 +114,9 @@ get_header();
 				</a>	
 			</div>
 				<?php
-			}
-			wp_reset_postdata();
-			?>
-			</div>
-		</div>
-	</section>
-	<section class="insight-type">
-		<a class="insight-type__header" href="/news/category/press/">
-			<div class="id-container d-flex align-items-center justify-content-between px-5">
-				<div>Press</div>
-				<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/arrow-wh.svg' ); ?>" width=65 height=60 alt="" class="cb-services-nav__item-icon" />
-			</div>
-		</a>
-		<div class="insight-type-grid grid-type-2 id-container p-5">
-			<div class="row g-5">
-			<?php
-			$args = array(
-                'post_type'      => 'post',
-                'post_status'    => array( 'publish' ),
-                'orderby'        => 'date',
-                'order'          => 'DESC', // Descending order.
-                'posts_per_page' => 3,    // Get all posts.
-				'category_name'  => 'press',
-            );
-			$q = new WP_Query( $args );
-
-			$counter = 3;
-			while ( $q->have_posts() ) {
-				$q->the_post();
-				++$counter;
-				switch ( $counter ) {
-					case 4:
-						$col_class = 'col-md-6 insight-type-grid__card-4';
-						break;
-					case 5:
-						$col_class = 'col-md-3 insight-type-grid__card-5';
-						break;
-					case 6:
-						$col_class = 'col-md-3 insight-type-grid__card-6';
-						break;
-					default:
-						$col_class = 'col-md-6';
-						break;
+				if ( $counter >= 7 ) {
+					$counter = 0;
 				}
-
-				?>
-			<div class="<?php echo esc_attr( $col_class ); ?>">			
-				<a href="<?php echo esc_url( get_permalink() ); ?>" class="insight-type-grid__card">
-					<div class="insight-type-grid__image-wrapper">
-						<?= get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'insight-type-grid__image' ) ); ?>
-					</div>
-					<div class="insight-type-grid__content">
-						<div class="insight-type-grid__category">
-							<?php
-							$categories = get_the_category();
-							if ( ! empty( $categories ) ) {
-								echo esc_html( $categories[0]->name );
-							}
-							?>
-						</div>
-						<div class="insight-type-grid__title">
-							<?php the_title(); ?>
-						</div>
-						<div class="insight-type-grid__date d-flex align-items-center gap-2">
-							<?php echo get_the_date( 'j F Y' ); ?> 
- 							<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/arrow-p200.svg' ); ?>" width=14 height=13 alt="" />
-						</div>
-					</div>
-				</a>	
-			</div>
-				<?php
 			}
 			wp_reset_postdata();
 			?>
