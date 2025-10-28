@@ -38,12 +38,6 @@ get_header();
 		</div>
 	</section>
 	<section class="insight-type">
-		<!-- <a class="insight-type__header" href="/news/category/insights/">
-			<div class="id-container d-flex align-items-center justify-content-between px-5">
-				<div>Insights</div>
-				<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/arrow-wh.svg' ); ?>" width=65 height=60 alt="" class="cb-services-nav__item-icon" />
-			</div>
-		</a> -->
 		<div class="insight-type-grid grid-type-full id-container p-5">
 			<div class="row g-5">
 			<?php
@@ -122,6 +116,12 @@ get_header();
 			?>
 			</div>
 		</div>
+		<a class="insight-type__header" href="/news/category/press/">
+			<div class="id-container d-flex align-items-center justify-content-between px-5">
+				<div>Press &amp; media</div>
+				<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/arrow-wh.svg' ); ?>" width=65 height=60 alt="" class="cb-services-nav__item-icon" />
+			</div>
+		</a>
 	</section>
 	<?php
 
