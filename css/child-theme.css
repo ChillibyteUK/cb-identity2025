@@ -60,24 +60,21 @@
   /* =========================
     TYPOGRAPHY (from Figma style.txt)
     ========================= */
-  --fs-base: 16px;
-  --fs-ui: 1.125rem; /* 18px */
-  --fs-work-title: 2.25rem; /* 36px */
-  --fs-work-subtitle: 2rem; /* 32px */
-  --fs-brand-pre-title: 2rem; /* 30px */
-  --fs-content-title: 2.5rem; /* 40px */
-  --fs-large-body: 1.75rem; /* 28px */
-  --fs-button: 2.25rem; /* 36px */
-  --fs-section-pretitle: 1.25rem; /* 20px */
-  --fs-service-title: 3.125rem; /* 50px */
-  --fs-card-title: 1.25rem; /* 20px */
-  --fs-card-desc: 1.125rem; /* 18px */
-  --fs-key-stat: 5rem; /* 80px */
-  --fs-cta-title: 3.125rem; /* 50px */
-  --fs-cta-content: 2rem; /* 32px */
-  --fs-footer: 1rem; /* 16px */
-  --fs-footer-connect: 1.375rem; /* 22px */
-  --fs-colophon: 1rem // n-700
+  --fs-body: 18px;
+  /* core scale @ 16px base */
+  /* core scale, corrected for 18px root */
+  /* fixed base levels */
+  --fs-100: 1rem; /* 18px floor and cap */
+  --fs-200: 1.125rem; /* ~20px floor and cap */
+  /* fluid-down heading levels */
+  --fs-300: clamp(1rem, 0.95rem + 0.5vw, 1.25rem); /* 18→22px */
+  --fs-400: clamp(1.125rem, 1rem + 0.6vw, 1.375rem); /* 20→25px */
+  --fs-500: clamp(1.25rem, 1rem + 1vw, 1.751rem); /* 22→32px */
+  --fs-600: clamp(1.5rem, 1rem + 1.2vw, 1.999rem); /* 27→36px */
+  --fs-700: clamp(1.75rem, 1rem + 1.4vw, 2.25rem); /* 31→40px */
+  --fs-800: clamp(2rem, 1rem + 1.6vw, 2.5rem); /* 36→45px */
+  --fs-850: clamp(2.5rem, 1rem + 1.9vw, 3.125rem); /* 45→56px */
+  --fs-900: clamp(4rem, 1rem + 3vw, 5rem); /* 72→90px */
   /* === Utilities === */
   --transition: 250ms ease-out;
   --h-top: 72px;
@@ -21621,18 +21618,17 @@ body,
 
 h1, .h1 {
   font-family: var(--ff-body);
-  font-size: var(--fs-work-title);
-  line-height: var(--lh-h1-big-page-title);
-  font-weight: var(--fw-h1-big-page-title);
+  font-size: var(--fs-700);
+  line-height: 1;
   letter-spacing: -0.01em;
   text-wrap: balance;
+  margin-bottom: 0;
 }
 
 h2, .h2 {
   font-family: var(--ff-body);
-  font-size: var(--fs-work-subtitle);
-  line-height: var(--lh-h2-page-subtitle);
-  font-weight: var(--fw-h2-page-subtitle);
+  font-size: var(--fs-600);
+  line-height: 1.1;
   letter-spacing: -0.005em;
   text-wrap: balance;
 }
@@ -21640,8 +21636,7 @@ h2, .h2 {
 h3, .h3 {
   font-family: var(--ff-body);
   font-size: var(--fs-h3-page-subtitle);
-  line-height: var(--lh-h3-page-subtitle);
-  font-weight: var(--fw-h3-page-subtitle);
+  line-height: 1.2;
   text-wrap: balance;
 }
 
@@ -21653,22 +21648,9 @@ h4, .h4 {
   text-wrap: balance;
 }
 
-.body-medium {
-  font-family: var(--ff-body);
-  font-size: var(--fs-body-medium);
-  line-height: var(--lh-body-medium);
-  font-weight: var(--fw-body-medium);
-}
-
-.large-text-on-image {
-  font-family: var(--ff-body);
-  font-size: var(--fs-large-text-on-image);
-  line-height: var(--lh-large-text-on-image);
-}
-
 .button-text, button, .btn {
   font-family: var(--ff-body);
-  font-size: var(--fs-button-text);
+  font-size: var(--fs-700-text);
   line-height: var(--lh-button-text);
   font-weight: var(--fw-button-text);
 }
@@ -21714,7 +21696,7 @@ h4, .h4 {
 }
 
 .fs-button-text {
-  font-size: var(--fs-button-text);
+  font-size: var(--fs-700-text);
 }
 
 a {
@@ -21761,7 +21743,7 @@ strong {
   position: relative;
   display: inline-block;
   padding: 5px 20px;
-  font-size: var(--fs-button);
+  font-size: var(--fs-700);
   line-height: 1;
   font-weight: var(--fw-semi);
   color: #fff;
@@ -21813,7 +21795,7 @@ strong {
   color: var(--_fg);
   font-family: var(--ff-body);
   font-weight: var(--fw-ui);
-  font-size: var(--fs-ui);
+  font-size: var(--fs-200);
   line-height: 1;
   transition: background-color var(--btn-transition), border-color var(--btn-transition), color var(--btn-transition), transform var(--btn-transition);
 }
@@ -21877,7 +21859,7 @@ header.scrolled {
 header a,
 header a.nav-link {
   font-family: var(--ff-body);
-  font-size: var(--fs-ui);
+  font-size: var(--fs-200);
   font-weight: var(--fw-regular);
   color: white;
   transition: color 0.3s ease;
@@ -21938,14 +21920,14 @@ header .dropdown.current-menu-item > .nav-link {
   }
   header .nav-link,
   header .navbar-nav .nav-link {
-    font-size: var(--fs-base);
+    font-size: var(--fs-200);
     padding: 1rem 0;
   }
   header .dropdown-item {
-    font-size: var(--fs-base);
+    font-size: var(--fs-200);
   }
   header .fs-subtle a {
-    font-size: var(--fs-base);
+    font-size: var(--fs-200);
   }
 }
 header .dropdown-toggle::after {
@@ -21981,13 +21963,14 @@ header .navbar-toggler {
 .footer {
   background-color: black;
   color: #fff;
+  font-size: var(--fs-100);
 }
 .footer .footer-title {
   font-weight: var(--fw-semi);
 }
 .footer .footer-title--lg {
   font-weight: var(--fw-semi);
-  font-size: var(--fs-footer-connect);
+  font-size: var(--fs-100-connect);
 }
 .footer .footer__menu {
   list-style: none;
@@ -22026,7 +22009,7 @@ header .navbar-toggler {
 }
 .footer__colophon {
   color: var(--col-neutral-700);
-  font-size: var(--fs-colophon);
+  font-size: var(--fs-100);
 }
 
 .latest-insights__item,

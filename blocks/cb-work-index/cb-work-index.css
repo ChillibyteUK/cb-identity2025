@@ -5,14 +5,14 @@
  */
 .work-index-hero h1 {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: var(--fs-service-title);
+  font-size: var(--fs-850);
   font-weight: var(--fw-semi);
   color: var(--col-white);
 }
 .work-index-hero h2 {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: var(--fs-brand-pre-title);
+  font-size: var(--fs-600);
   color: var(--col-neutral-800);
   font-weight: var(--fw-regular);
   margin-bottom: 0;
@@ -29,7 +29,7 @@
   padding-block: 0.5rem;
   color: var(--col-green-500);
   font-weight: var(--fw-regular);
-  font-size: var(--fs-section-pretitle);
+  font-size: var(--fs-300);
   line-height: 1;
 }
 .cb-work-index__card {
@@ -63,11 +63,11 @@
   position: relative;
 }
 .cb-work-index__title {
-  font-size: var(--fs-card-title);
+  font-size: var(--fs-300);
   font-weight: var(--fw-semi);
 }
 .cb-work-index__desc {
-  font-size: var(--fs-card-desc);
+  font-size: var(--fs-200);
   font-weight: var(--fw-light);
   color: var(--col-neutral-500);
   margin-top: 0.5rem;

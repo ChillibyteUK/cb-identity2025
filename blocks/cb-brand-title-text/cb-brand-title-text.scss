@@ -73,15 +73,15 @@
         padding-block: 0.5rem;
         color: var(--col-green-500);
         font-weight: var(--fw-regular);
-        font-size: var(--fs-brand-pre-title);
+        font-size: var(--fs-600);
         line-height: 1;
     }
     &__content-heading {
-        font-size: var(--fs-content-title);
+        font-size: var(--fs-800);
         line-height: 1.1;
         font-weight: var(--fw-semi);
     }
     &__content {
-        font-size: var(--fs-large-body  );
+        font-size: var(--fs-500  );
     }
 }

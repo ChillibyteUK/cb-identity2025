@@ -43,12 +43,12 @@
 }
 .cb-work-carousel .work-carousel-title {
   margin: 0;
-  font-size: var(--fs-work-title);
+  font-size: var(--fs-700);
   font-weight: 500;
 }
 .cb-work-carousel .work-carousel-excerpt {
   margin: 0;
-  font-size: var(--fs-work-subtitle);
+  font-size: var(--fs-600);
   color: var(--col-neutral-500);
   margin-top: 0.5rem;
 }

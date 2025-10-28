@@ -50,25 +50,23 @@ body,
 // Headings
 h1, .h1 {
   font-family: var(--ff-body);
-  font-size: var(--fs-work-title);
-  line-height: var(--lh-h1-big-page-title);
-  font-weight: var(--fw-h1-big-page-title);
+  font-size: var(--fs-700);
+  line-height: 1;
   letter-spacing: -0.01em;
   text-wrap: balance;
+  margin-bottom: 0;
 }
 h2, .h2 {
   font-family: var(--ff-body);
-  font-size: var(--fs-work-subtitle);
-  line-height: var(--lh-h2-page-subtitle);
-  font-weight: var(--fw-h2-page-subtitle);
+  font-size: var(--fs-600);
+  line-height: 1.1;
   letter-spacing: -0.005em;
   text-wrap: balance;
 }
 h3, .h3 {
   font-family: var(--ff-body);
   font-size: var(--fs-h3-page-subtitle);
-  line-height: var(--lh-h3-page-subtitle);
-  font-weight: var(--fw-h3-page-subtitle);
+  line-height: 1.2;
   text-wrap: balance;
 }
 h4, .h4 {
@@ -79,25 +77,11 @@ h4, .h4 {
   text-wrap: balance;
 }
 
-// Body
-.body-medium {
-  font-family: var(--ff-body);
-  font-size: var(--fs-body-medium);
-  line-height: var(--lh-body-medium);
-  font-weight: var(--fw-body-medium);
-}
-
-// Large text on image
-.large-text-on-image {
-  font-family: var(--ff-body);
-  font-size: var(--fs-large-text-on-image);
-  line-height: var(--lh-large-text-on-image);
-}
 
 // Button text
 .button-text, button, .btn {
   font-family: var(--ff-body);
-  font-size: var(--fs-button-text);
+  font-size: var(--fs-700-text);
   line-height: var(--lh-button-text);
   font-weight: var(--fw-button-text);
 }
@@ -114,7 +98,7 @@ h4, .h4 {
 .fs-h3-page-subtitle { font-size: var(--fs-h3-page-subtitle); }
 .fs-h4-body-bold { font-size: var(--fs-h4-body-bold); }
 .fs-large-text-on-image { font-size: var(--fs-large-text-on-image); }
-.fs-button-text { font-size: var(--fs-button-text); }
+.fs-button-text { font-size: var(--fs-700-text); }
 
 // Links
 a {

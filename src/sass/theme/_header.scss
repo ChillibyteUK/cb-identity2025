@@ -9,7 +9,7 @@ header {
   a,
   a.nav-link {
     font-family: var(--ff-body);
-    font-size: var(--fs-ui);
+    font-size: var(--fs-200);
     font-weight: var(--fw-regular);
     color: white;
     transition: color 0.3s ease;
@@ -74,15 +74,15 @@ header {
     }
     .nav-link,
     .navbar-nav .nav-link {
-      font-size: var(--fs-base);
+      font-size: var(--fs-200);
       padding: 1rem 0;
     }
     .dropdown-item {
-      font-size: var(--fs-base);
+      font-size: var(--fs-200);
     }
 
     .fs-subtle a {
-      font-size: var(--fs-base);
+      font-size: var(--fs-200);
     }
   }
 

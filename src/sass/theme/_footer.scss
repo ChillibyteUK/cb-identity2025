@@ -2,12 +2,14 @@
     background-color: black;
     color: #fff;
 
+    font-size: var(--fs-100);
+    
     .footer-title {
         font-weight: var(--fw-semi);
     }
     .footer-title--lg {
         font-weight: var(--fw-semi);
-        font-size: var(--fs-footer-connect);
+        font-size: var(--fs-100-connect);
     }
     .footer__menu {
         list-style: none;
@@ -44,6 +46,6 @@
 
     &__colophon {
         color: var(--col-neutral-700);
-        font-size: var(--fs-colophon);
+        font-size: var(--fs-100);
     }
 }

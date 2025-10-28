@@ -22,7 +22,7 @@ $background_color = get_field( 'background' );
     <div class="id-container pt-5 px-5">
     <?php
     foreach ( $grid_rows as $row_index => $layout ) {
-        // Support both 'multi-module_row' and 'multi_module_row' for compatibility
+        // Support both 'multi-module_row' and 'multi_module_row' for compatibility.
         if ( 'single_module_row' === $layout ) { // --- Single module row ---
             $mtype      = $block['data'][ 'grid_rows_' . $row_index . '_module_type' ] ?? '';
             $width_raw  = $block['data'][ 'grid_rows_' . $row_index . '_column_width' ] ?? 12;
@@ -84,18 +84,18 @@ $background_color = get_field( 'background' );
             </div>
         	<?php
         } elseif ( 'multi_module_row' === $layout || 'multi-module_row' === $layout ) { // --- Multi-module row ---
-            // Try to determine module count by looking for the highest module index
+            // Try to determine module count by looking for the highest module index.
             $modules_count = 0;
-            // Prefer 'grid_rows_X_module' (as in your data), fallback to 'grid_rows_X_modules'
-            if ( isset($block['data'][ 'grid_rows_' . $row_index . '_module' ]) ) {
-                $modules_count = intval($block['data'][ 'grid_rows_' . $row_index . '_module' ]);
-            } elseif ( isset($block['data'][ 'grid_rows_' . $row_index . '_modules' ]) ) {
-                $modules_count = intval($block['data'][ 'grid_rows_' . $row_index . '_modules' ]);
+            // Prefer 'grid_rows_X_module' (as in your data), fallback to 'grid_rows_X_modules'.
+            if ( isset( $block['data'][ 'grid_rows_' . $row_index . '_module' ] ) ) {
+                $modules_count = intval( $block['data'][ 'grid_rows_' . $row_index . '_module' ] );
+            } elseif ( isset( $block['data'][ 'grid_rows_' . $row_index . '_modules' ] ) ) {
+                $modules_count = intval( $block['data'][ 'grid_rows_' . $row_index . '_modules' ] );
             } else {
-                // Try to count by scanning keys
-                foreach ($block['data'] as $k => $v) {
-                    if (strpos($k, 'grid_rows_' . $row_index . '_module_') === 0 && strpos($k, '_module_type') !== false) {
-                        $modules_count++;
+                // Try to count by scanning keys.
+                foreach ( $block['data'] as $k => $v ) {
+                    if ( strpos( $k, 'grid_rows_' . $row_index . '_module_' ) === 0 && strpos( $k, '_module_type' ) !== false ) {
+                        ++$modules_count;
                     }
                 }
             }
@@ -158,13 +158,13 @@ $background_color = get_field( 'background' );
                             }
                             ?>
                         </div>
-                    <?php
+                    	<?php
                     }
                     ?>
                 </div>
-            <?php
+            	<?php
             } else {
-                echo '<!-- No modules found for row ' . esc_html($row_index) . ' -->';
+                echo '<!-- No modules found for row ' . esc_html( $row_index ) . ' -->';
             }
         }
     }

@@ -27,7 +27,7 @@
     }
     &__header {
         color: var(--col-green-400);
-        font-size: var(--fs-section-pretitle);
+        font-size: var(--fs-300);
         font-weight: var(--fw-regular);
         padding-block: 1rem;
         line-height: 1;
@@ -41,13 +41,13 @@
     }
     
     &__stat {
-        font-size: var(--fs-key-stat);
+        font-size: var(--fs-900);
         font-weight: var(--fw-semi);
         color: var(--col-green-400);
         line-height: 1;
     }
     &__descriptor {
-        font-size: var(--fs-large-body);
+        font-size: var(--fs-500);
         font-weight: var(--fw-light);
         color: var(--col-white);
     }

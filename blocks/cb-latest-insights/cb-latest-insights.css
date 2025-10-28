@@ -18,7 +18,7 @@
   padding-block: 0.5rem;
   color: var(--col-green-500);
   font-weight: var(--fw-regular);
-  font-size: var(--fs-section-pretitle);
+  font-size: var(--fs-300);
   line-height: 1;
 }
 .cb-latest-insights__image-wrapper {
@@ -51,12 +51,12 @@
   aspect-ratio: 1/1;
 }
 .cb-latest-insights__title {
-  font-size: var(--fs-card-title);
+  font-size: var(--fs-300);
   font-weight: var(--fw-semi);
   color: #fff;
 }
 .cb-latest-insights__excerpt {
-  font-size: var(--fs-card-desc);
+  font-size: var(--fs-200);
   font-weight: var(--fw-light);
   color: var(--col-neutral-500);
 }
