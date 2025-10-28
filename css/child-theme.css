@@ -22114,6 +22114,30 @@ header .navbar-toggler {
 .insight-type-grid.grid-type-2 .insight-type-grid__date {
   color: var(--col-purple-200);
 }
+.insight-type-grid.grid-type-full .insight-type-grid__card-1 .insight-type-grid__image {
+  aspect-ratio: 4/3;
+}
+.insight-type-grid.grid-type-full .insight-type-grid__card-2 .insight-type-grid__image {
+  aspect-ratio: 16/9;
+}
+.insight-type-grid.grid-type-full .insight-type-grid__card-3 .insight-type-grid__image {
+  aspect-ratio: 5/4;
+}
+.insight-type-grid.grid-type-full .insight-type-grid__date {
+  color: var(--col-neutral-600);
+}
+.insight-type-grid.grid-type-full .insight-type-grid__card-4 .insight-type-grid__image {
+  aspect-ratio: 16/9;
+}
+.insight-type-grid.grid-type-full .insight-type-grid__card-5 .insight-type-grid__image {
+  aspect-ratio: 4/3;
+}
+.insight-type-grid.grid-type-full .insight-type-grid__card-6 .insight-type-grid__image {
+  aspect-ratio: 1/1;
+}
+.insight-type-grid.grid-type-full .insight-type-grid__date {
+  color: var(--col-purple-200);
+}
 .insight-type-grid__image-wrapper {
   overflow: hidden;
 }

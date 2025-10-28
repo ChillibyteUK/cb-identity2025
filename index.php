@@ -37,7 +37,7 @@ get_header();
 			</div>
 		</div>
 	</section>
-	<section class="insight-type">
+	<section class="insight-type has-primary-black-background-color">
 		<a class="insight-type__header" href="/news/category/insights/">
 			<div class="id-container d-flex align-items-center justify-content-between px-5">
 				<div>Insights</div>
@@ -108,7 +108,7 @@ get_header();
 			</div>
 		</div>
 	</section>
-	<section class="insight-type">
+	<section class="insight-type has-purple-900-background-color">
 		<a class="insight-type__header" href="/news/category/press/">
 			<div class="id-container d-flex align-items-center justify-content-between px-5">
 				<div>Press</div>
