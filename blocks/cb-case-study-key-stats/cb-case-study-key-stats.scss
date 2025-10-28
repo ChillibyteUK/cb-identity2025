@@ -45,6 +45,9 @@
         font-weight: var(--fw-semi);
         color: var(--col-green-400);
         line-height: 1;
+        @media (min-width:992px) {
+            margin-bottom: -0.5rem;
+        }
     }
     &__descriptor {
         font-size: var(--fs-500);

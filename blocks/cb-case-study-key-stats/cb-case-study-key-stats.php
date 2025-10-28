@@ -38,10 +38,10 @@ acf_setup_meta( $block['data'] );
         <div class="case-study-key-stats__item">
 			<div class="id-container px-5" data-aos="fade-up" data-aos-delay="<?= esc_attr( $delay ); ?>">
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-lg-2">
                         <div class="case-study-key-stats__stat"><?= esc_html( get_sub_field( 'stat' ) ); ?></div>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-lg-8">
                         <div class="case-study-key-stats__descriptor"><?= esc_html( get_sub_field( 'descriptor' ) ); ?></div>
                     </div>
                 </div>

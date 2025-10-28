@@ -44,6 +44,11 @@
   color: var(--col-green-400);
   line-height: 1;
 }
+@media (min-width: 992px) {
+  .case-study-key-stats__stat {
+    margin-bottom: -0.5rem;
+  }
+}
 .case-study-key-stats__descriptor {
   font-size: var(--fs-500);
   font-weight: var(--fw-light);

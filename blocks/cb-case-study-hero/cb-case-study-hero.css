@@ -19,6 +19,7 @@
 }
 .case-study-hero-video-container {
   position: relative;
+  margin-bottom: -0.5rem;
 }
 .case-study-hero .overlay {
   position: absolute;
