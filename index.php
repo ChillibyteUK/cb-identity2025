@@ -53,6 +53,7 @@ get_header();
                 'orderby'        => 'date',
                 'order'          => 'DESC', // Descending order.
                 'posts_per_page' => 3,    // Get all posts.
+				'category_name'  => 'insights',
             );
 			$q = new WP_Query( $args );
 
@@ -108,7 +109,7 @@ get_header();
 		</div>
 	</section>
 	<section class="insight-type">
-		<a class="insight-type__header" href="/news/category/insights/">
+		<a class="insight-type__header" href="/news/category/press/">
 			<div class="id-container d-flex align-items-center justify-content-between px-5">
 				<div>Press</div>
 				<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/arrow-wh.svg' ); ?>" width=65 height=60 alt="" class="cb-services-nav__item-icon" />
@@ -123,6 +124,7 @@ get_header();
                 'orderby'        => 'date',
                 'order'          => 'DESC', // Descending order.
                 'posts_per_page' => 3,    // Get all posts.
+				'category_name'  => 'press',
             );
 			$q = new WP_Query( $args );
 
