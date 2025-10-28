@@ -13,12 +13,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Block ID.
 $block_id = $block['id'] ?? '';
 
-$l = get_field( 'link' );
-
+$cta_title = get_query_var( 'cta_title', get_field( 'title' ) );
+$content   = get_query_var( 'cta_content', get_field( 'content' ) );
+$l         = get_query_var( 'cta_link', get_field( 'link' ) );
+$bg        = get_query_var( 'cta_background', get_field( 'background' ) );
+$img       = get_query_var( 'cta_image', get_field( 'image' ) );
 ?>
 <style>
 .cb-cta {
-	--_bg-url: url('<?= esc_url( wp_get_attachment_image_url( get_field( 'background' ), 'full' ) ); ?>');
+	--_bg-url: url('<?= esc_url( wp_get_attachment_image_url( $bg, 'full' ) ); ?>');
 }
 </style>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-cta">
@@ -26,13 +29,13 @@ $l = get_field( 'link' );
 		<div class="row g-5">
 			<div class="col-md-6">
 				<div class="cb-cta__clip-group">
-					<?= wp_get_attachment_image( get_field( 'image' ), 'full', false, array( 'class' => 'img-fluid cb-cta__image' ) ); ?>
+					<?= wp_get_attachment_image( $img, 'full', false, array( 'class' => 'img-fluid cb-cta__image' ) ); ?>
 				</div>
 			</div>
 			<div class="col-md-6">
 				<div class="cb-cta__content d-flex flex-column justify-content-center h-100" data-aos="fade">
 					<h2 class="cb-cta__title mb-4">
-						<?= wp_kses_post( get_field( 'title' ) ); ?>
+						<?= wp_kses_post( $cta_title ); ?>
 					</h2>
 					<div class="cb-cta__content mb-4">
 						<?= wp_kses_post( get_field( 'content' ) ); ?>

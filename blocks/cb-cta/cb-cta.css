@@ -48,4 +48,5 @@
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
   mask-position: center;
+  overflow: hidden;
 }

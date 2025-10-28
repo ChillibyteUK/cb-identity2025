@@ -64,6 +64,7 @@
   /* core scale @ 16px base */
   /* core scale, corrected for 18px root */
   /* fixed base levels */
+  --fs-50: 0.8889rem; /* ~16px */
   --fs-100: 1rem; /* 18px floor and cap */
   --fs-200: 1.125rem; /* ~20px floor and cap */
   /* fluid-down heading levels */
@@ -146,6 +147,7 @@
   /* core scale @ 16px base */
   /* core scale, corrected for 18px root */
   /* fixed base levels */
+  --fs-50: 0.8889rem; /* ~16px */
   --fs-100: 1rem; /* 18px floor and cap */
   --fs-200: 1.125rem; /* ~20px floor and cap */
   /* fluid-down heading levels */

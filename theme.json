@@ -403,6 +403,11 @@
           "name": "900",
           "slug": "900",
           "size": "clamp(4rem, 1rem + 3vw, 5rem)"
+        },
+        {
+          "name": "50",
+          "slug": "50",
+          "size": "0.8889rem"
         }
       ]
     }
