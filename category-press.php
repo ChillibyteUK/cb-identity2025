@@ -15,7 +15,7 @@ get_header();
 	<section id="<?php echo esc_attr( $block_id ); ?>" class="news-hero has-primary-black-background-color pt-5">
 		<h1 class="mt-5">
 			<div class="id-container px-5 pt-1">
-				Insights &amp; Perspectives
+				Press, news &amp; media
 			</div>
 		</h1>
 		<h2>
@@ -37,7 +37,7 @@ get_header();
 			</div>
 		</div>
 	</section>
-	<section class="insight-type">
+	<section class="insight-type has-purple-900-background-color">
 		<div class="insight-type-grid grid-type-full id-container p-5">
 			<div class="row g-5">
 			<?php
@@ -116,9 +116,9 @@ get_header();
 			?>
 			</div>
 		</div>
-		<a class="insight-type__header" href="/news/category/press/">
+		<a class="insight-type__header" href="/news/category/insights/">
 			<div class="id-container d-flex align-items-center justify-content-between px-5">
-				<div>Press &amp; media</div>
+				<div>Insights &amp; perspectives</div>
 				<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/arrow-wh.svg' ); ?>" width=65 height=60 alt="" class="cb-services-nav__item-icon" />
 			</div>
 		</a>
