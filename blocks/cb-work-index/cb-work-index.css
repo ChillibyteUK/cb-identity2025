@@ -25,12 +25,25 @@
   overflow: hidden;
   display: grid;
   grid-template-areas: "stack";
+  text-decoration: none;
+}
+.work-index-hero__background:hover {
+  text-decoration: none;
+  color: initial;
 }
 .work-index-hero__image {
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
   grid-area: stack;
+}
+.work-index-hero .overlay {
+  grid-area: stack;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0) 30%);
+  pointer-events: none;
+  z-index: 1;
 }
 .work-index-hero__content {
   grid-area: stack;

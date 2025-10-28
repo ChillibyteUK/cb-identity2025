@@ -109,7 +109,7 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
             Where experience changes everything
         </div>
     </h2>
-	<div class="work-index-hero__background">
+	<a href="<?= esc_url( get_the_permalink() ); ?>" class="work-index-hero__background">
 		<?php
 		// get title and thumbnail of first sticky or latest case study for background image.
 		$bg_case_study = null;
@@ -151,9 +151,10 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 			}
 		}
 		?>
+		<div class="overlay"></div>
 		<div class="work-index-hero__content px-5">
 			<div class="work-index-hero__title">
-				<?php echo esc_html( get_the_title( $bg_case_study ) ); ?>
+				<?php echo esc_html( get_the_title( $bg_case_study ) ); ?> <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/arrow-wh.svg' ); ?>" width=23 height=21 alt="" class="cb-services-nav__item-icon" />
 			</div>
 			<div class="work-index-hero__desc">
 				<?php
@@ -187,7 +188,7 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 				?>
 			</div>
 		</div>
-	</div>
+	</a>
 </section>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-work-index">
 	<div class="cb-work-index__filter-bar py-4 px-5">
@@ -293,7 +294,7 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 					<?= get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'cb-work-index__image' ) ); ?>
 					<div class="cb-work-index__content px-5">
 						<div class="cb-work-index__title">
-							<?php the_title(); ?>
+							<?php the_title(); ?> <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/arrow-wh.svg' ); ?>" width=23 height=21 alt="" class="cb-services-nav__item-icon" />
 						</div>
 						<div class="cb-work-index__desc">
 							<?php
