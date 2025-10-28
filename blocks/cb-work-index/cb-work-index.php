@@ -113,7 +113,7 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 		<?php
 		// get title and thumbnail of first sticky or latest case study for background image.
 		$bg_case_study = null;
-		// Find the first sticky case_study by post meta
+		// Find the first sticky case_study by post meta.
 		$sticky_query = new WP_Query(
 			array(
 				'post_type'      => 'case_study',
@@ -147,7 +147,7 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 		if ( $bg_case_study ) {
 			$bg_image_id = get_post_thumbnail_id( $bg_case_study );
 			if ( $bg_image_id ) {
-				echo wp_get_attachment_image( $bg_image_id, 'full', false, array('class' => 'work-index-hero__image' ) );
+				echo wp_get_attachment_image( $bg_image_id, 'full', false, array( 'class' => 'work-index-hero__image' ) );
 			}
 		}
 		?>
@@ -164,27 +164,29 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 						foreach ( $blocks as $block ) {
 							if (
 								isset( $block['blockName'] ) &&
-								$block['blockName'] === 'cb/cb-case-study-hero' &&
+								'cb/cb-case-study-hero' === $block['blockName'] &&
 								! empty( $block['attrs']['data']['case_study_subtitle'] )
 							) {
 								return $block['attrs']['data']['case_study_subtitle'];
 							}
 							if ( ! empty( $block['innerBlocks'] ) ) {
 								$found = cb_find_hero_subtitle( $block['innerBlocks'] );
-								if ( $found ) return $found;
+								if ( $found ) {
+									return $found;
+								}
 							}
 						}
 						return '';
 					}
 				}
-				   $post_blocks = parse_blocks( get_post_field( 'post_content', $bg_case_study ) );
-				   $subtitle = cb_find_hero_subtitle( $post_blocks );
-				   if ( $subtitle ) {
-					   echo esc_html( $subtitle );
-				   } else {
-					   $excerpt = get_the_excerpt( $bg_case_study );
-					   echo wp_kses_post( wp_trim_words( $excerpt, 18, '...' ) );
-				   }
+				$post_blocks = parse_blocks( get_post_field( 'post_content', $bg_case_study ) );
+				$subtitle    = cb_find_hero_subtitle( $post_blocks );
+				if ( $subtitle ) {
+					echo esc_html( $subtitle );
+				} else {
+					$excerpt = get_the_excerpt( $bg_case_study );
+					echo wp_kses_post( wp_trim_words( $excerpt, 18, '...' ) );
+				}
 				?>
 			</div>
 		</div>
@@ -300,25 +302,27 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 							<?php
 							// get the case_study_subtitle field from the cb-case-study-hero block if available.
 							if ( ! function_exists( 'cb_find_hero_subtitle' ) ) {
-								function cb_find_hero_subtitle($blocks) {
-									foreach ($blocks as $block) {
+								function cb_find_hero_subtitle( $blocks ) {
+									foreach ( $blocks as $block ) {
 										if (
-											isset($block['blockName']) &&
-											$block['blockName'] === 'cb/cb-case-study-hero' &&
-											!empty($block['attrs']['data']['case_study_subtitle'])
+											isset( $block['blockName'] ) &&
+											'cb/cb-case-study-hero' === $block['blockName'] &&
+											! empty( $block['attrs']['data']['case_study_subtitle'] )
 										) {
 											return $block['attrs']['data']['case_study_subtitle'];
 										}
-										if (!empty($block['innerBlocks'])) {
-											$found = cb_find_hero_subtitle($block['innerBlocks']);
-											if ($found) return $found;
+										if ( ! empty( $block['innerBlocks'] ) ) {
+											$found = cb_find_hero_subtitle( $block['innerBlocks'] );
+											if ( $found ) {
+												return $found;
+											}
 										}
 									}
 									return '';
 								}
 							}
 							$post_blocks = parse_blocks( get_the_content( null, false, get_the_ID() ) );
-							$subtitle = cb_find_hero_subtitle($post_blocks);
+							$subtitle    = cb_find_hero_subtitle( $post_blocks );
 							if ( $subtitle ) {
 								echo esc_html( $subtitle );
 							} else {

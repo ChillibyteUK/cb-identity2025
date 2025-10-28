@@ -4,3 +4,70 @@
  * @package  cb-identity2025
  */
 
+.cb-testimonial {
+    padding-block: 3rem;
+
+    .cb-testimonial__quote {
+        font-size: var(--fs-900);
+        font-weight: var(--fw-light);
+        margin-bottom: 0.5em;
+    }
+    .cb-testimonial__author {
+        display: inline-block;
+        padding: 0.5em 0.5em 0.25em 0.5em;
+        line-height: 1;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        font-size: var(--fs-800);
+        font-weight: var(--fw-regular);
+    }
+    .cb-testimonial__company {
+        display: inline-block;
+        padding: 0.5em 0.5em 0.25em 0.5em;
+        line-height: 1;
+        font-size: var(--fs-800);
+        font-weight: var(--fw-regular);
+    }
+
+    &.has-neutral-100-background-color {
+        .cb-testimonial__quote {
+            color: var(--col-purple-900);
+        }
+        .cb-testimonial__author {
+            color: var(--col-white);
+            background-color: var(--col-purple-900);
+        }
+        .cb-testimonial__company {
+            color: var(--col-purple-900);
+            background-color: var(--col-purple-200);;
+        }
+    }
+
+    &.has-purple-900-background-color {
+        .cb-testimonial__quote {
+            color: var(--col-green-400);
+        }
+        .cb-testimonial__author {
+            color: var(--col-purple-900);
+            background-color: var(--col-green-400);
+        }
+        .cb-testimonial__company {
+            color: var(--col-purple-900);
+            background-color: var(--col-green-200);;
+        }
+    }
+
+    &.has-primary-black-background-color {
+        .cb-testimonial__quote {
+            color: var(--col-green-400);
+        }
+        .cb-testimonial__author {
+            color: var(--col-primary-black);
+            background-color: var(--col-green-400);
+        }
+        .cb-testimonial__company {
+            color: var(--col-green-400);
+            background-color: var(--col-neutral-900);
+        }
+    }
+}
