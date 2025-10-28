@@ -35,8 +35,8 @@
                 "id": ""
             },
             "choices": {
-                "has-neutral-800-background-color": "Neutral Dark",
-                "has-neutral-700-background-color": "Neutral Mid",
+                "has-neutral-900-background-color": "Neutral Dark",
+                "has-neutral-800-background-color": "Neutral Mid",
                 "has-purple-200-background-color": "Purple Light",
                 "has-purple-900-background-color": "Purple Dark",
                 "has-primary-black-background-color": "Black"
@@ -470,5 +470,5 @@
     "description": "Fields for the CB Content Grid block",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1761575694
+    "modified": 1761652754
 }

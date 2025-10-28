@@ -54,7 +54,7 @@ $background_color = get_field( 'background' );
                 $col_classes[] = sanitize_html_class( $class );
             }
             ?>
-            <div class="row g-4 pb-5">
+            <div class="row g-5 pb-5">
                 <div class="<?= esc_attr( implode( ' ', $col_classes ) ); ?>" data-aos="fade-up">
                     <?php
                     if ( 'image' === $mtype || 'Image' === $mtype ) {
@@ -101,7 +101,7 @@ $background_color = get_field( 'background' );
             }
             if ( $modules_count > 0 ) {
                 ?>
-                <div class="row g-4 pb-5">
+                <div class="row g-5 pb-5">
                     <?php
                     for ( $module_index = 0; $module_index < $modules_count; $module_index++ ) {
                         $mtype      = $block['data'][ 'grid_rows_' . $row_index . '_module_' . $module_index . '_module_type' ] ?? '';

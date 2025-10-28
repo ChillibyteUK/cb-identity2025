@@ -50,8 +50,7 @@ acf_setup_meta( $block['data'] );
                 <?php
                 $delay += 50;
             }
-        }
-        else {
+        } else {
             ?>
         <div class="case-study-key-stats__item">NO STATS ADDED</div>
             <?php
