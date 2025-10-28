@@ -52,7 +52,7 @@
             "label": "Quote",
             "name": "quote",
             "aria-label": "",
-            "type": "text",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -64,9 +64,9 @@
             "default_value": "",
             "maxlength": "",
             "allow_in_bindings": 0,
+            "rows": 2,
             "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "new_lines": "br"
         },
         {
             "key": "field_68ff96114df4a",
@@ -91,7 +91,7 @@
         },
         {
             "key": "field_68ff96164df4b",
-            "label": "Company",
+            "label": "Role, Company",
             "name": "company",
             "aria-label": "",
             "type": "text",
@@ -130,5 +130,5 @@
     "description": "Fields for the CB Testimonial block",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1761656526
+    "modified": 1761657850
 }
