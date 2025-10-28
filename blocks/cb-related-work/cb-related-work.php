@@ -15,7 +15,7 @@ $block_id = $block['id'] ?? '';
 
 // Get service and theme terms from current post.
 $services = wp_get_post_terms( get_the_ID(), 'service' );
-$themes = wp_get_post_terms( get_the_ID(), 'theme' );
+$themes   = wp_get_post_terms( get_the_ID(), 'theme' );
 
 $service_ids = array();
 foreach ( $services as $service ) {
@@ -78,25 +78,27 @@ if ( $q->have_posts() ) {
 							<?php
 							// get the case_study_subtitle field from the cb-case-study-hero block if available.
 							if ( ! function_exists( 'cb_find_hero_subtitle' ) ) {
-								function cb_find_hero_subtitle($blocks) {
-									foreach ($blocks as $block) {
+								function cb_find_hero_subtitle( $blocks ) {
+									foreach ( $blocks as $block ) {
 										if (
-											isset($block['blockName']) &&
-											$block['blockName'] === 'cb/cb-case-study-hero' &&
-											!empty($block['attrs']['data']['case_study_subtitle'])
+											isset( $block['blockName'] ) &&
+											'cb/cb-case-study-hero' === $block['blockName'] &&
+											! empty( $block['attrs']['data']['case_study_subtitle'] )
 										) {
 											return $block['attrs']['data']['case_study_subtitle'];
 										}
-										if (!empty($block['innerBlocks'])) {
-											$found = cb_find_hero_subtitle($block['innerBlocks']);
-											if ($found) return $found;
+										if ( ! empty( $block['innerBlocks'] ) ) {
+											$found = cb_find_hero_subtitle( $block['innerBlocks'] );
+											if ( $found ) {
+												return $found;
+											}
 										}
 									}
 									return '';
 								}
 							}
 							$post_blocks = parse_blocks( get_the_content( null, false, get_the_ID() ) );
-							$subtitle = cb_find_hero_subtitle($post_blocks);
+							$subtitle    = cb_find_hero_subtitle( $post_blocks );
 							if ( $subtitle ) {
 								echo esc_html( $subtitle );
 							} else {
