@@ -248,7 +248,7 @@
             padding-inline: 0;
             margin-inline-end: 2rem;
         }
-        .container:first-of-type {
+        .container:first-of-type:not([class*="post-date"]) {
             color: var(--_colour);
             font-size: var(--fs-500);
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);

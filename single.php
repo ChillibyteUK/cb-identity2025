@@ -72,13 +72,11 @@ switch ( $post_style ) {
 	</div>
 	<div class="post-date-row">
 		<div class="id-container">
-			<div class="row">
+			<div class="row post-content-row">
 				<div class="col-md-3"></div>
-				<div class="col-md-9 px-5 ps-md-0 pe-md-5">
-					<div class="container">
-						<div class="post-date pt-3">
-							<?= get_the_date( 'j F Y' ); ?>
-						</div>
+				<div class="col-md-9 post-content px-5 ps-md-0 pe-md-5">
+					<div class="container post-date pt-3">
+						<?= get_the_date( 'j F Y' ); ?>
 					</div>
 				</div>
 			</div>
