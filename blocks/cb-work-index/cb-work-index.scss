@@ -70,7 +70,7 @@
  }
 
  .cb-work-index {
-    background-color: black;
+    background-color: var(--col-primary-black);
     color: #fff;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     position: relative;
@@ -135,7 +135,7 @@
     }   
 
     &__filter-bar{
-        background-color: black;
+        background-color: var(--col-primary-black);
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         isolation: isolate;
