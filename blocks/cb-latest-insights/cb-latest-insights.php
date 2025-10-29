@@ -65,7 +65,13 @@ $block_id = $block['id'] ?? '';
 			<div class="<?php echo esc_attr( $col_class ); ?>">			
 				<a href="<?php echo esc_url( get_permalink() ); ?>" class="cb-latest-insights__card">
 					<div class="cb-latest-insights__image-wrapper">
-						<?= get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'cb-latest-insights__image' ) ); ?>
+						<?php
+						if ( get_the_post_thumbnail( get_the_ID() ) ) {
+							echo get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'cb-latest-insights__image' ) );
+						} else {
+							echo '<img src="' . esc_url( get_stylesheet_directory_uri() . '/img/default-post-image.png' ) . '" alt="" class="cb-latest-insights__image" />';
+						}
+						?>
 					</div>
 					<div class="cb-latest-insights__content">
 						<div class="cb-latest-insights__title">

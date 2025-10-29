@@ -90,7 +90,13 @@ switch ( $blog_type ) {
 			<div class="<?php echo esc_attr( $col_class ); ?>">			
 				<a href="<?php echo esc_url( get_permalink() ); ?>" class="insight-type-grid__card">
 					<div class="insight-type-grid__image-wrapper">
-						<?= get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'insight-type-grid__image' ) ); ?>
+						<?php
+						if ( get_the_post_thumbnail( get_the_ID() ) ) {
+							echo get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'insight-type-grid__image' ) );
+						} else {
+							echo '<img src="' . esc_url( get_stylesheet_directory_uri() . '/img/default-post-image.png' ) . '" alt="" class="insight-type-grid__image" />';
+						}
+						?>
 					</div>
 					<div class="insight-type-grid__content">
 						<div class="insight-type-grid__category">

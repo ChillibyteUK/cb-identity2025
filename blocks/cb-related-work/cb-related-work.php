@@ -69,7 +69,13 @@ if ( $q->have_posts() ) {
 		?>
 			<div class="col-md-6">
 				<a href="<?= esc_url( get_the_permalink() ); ?>" class="cb-related-work__card">
-					<?= get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'cb-related-work__image' ) ); ?>
+					<?php
+					if ( get_the_post_thumbnail( get_the_ID() ) ) {
+						echo get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'cb-related-work__image' ) );
+					} else {
+						echo '<img src="' . esc_url( get_stylesheet_directory_uri() . '/img/default-post-image.png' ) . '" alt="" class="cb-related-work__image" />';
+					}
+					?>
 					<div class="cb-related-work__content px-5">
 						<div class="cb-related-work__title">
 							<?php the_title(); ?> <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/arrow-wh.svg' ); ?>" width=23 height=21 alt="" class="cb-services-nav__item-icon" />
