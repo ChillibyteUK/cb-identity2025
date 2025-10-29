@@ -77,7 +77,7 @@ defined( 'ABSPATH' ) || exit;
 				<div class="footer-title mb-4">Innovation Lab</div>
             </div>
 			<div class="col-md-2">
-				<div class="footer-title mb-4">Media</div>
+				<div class="footer-title mb-4"><a href="/news/">Media</a></div>
 				<?=
 				wp_nav_menu(
 					array(
