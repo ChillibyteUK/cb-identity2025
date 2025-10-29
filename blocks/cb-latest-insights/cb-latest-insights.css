@@ -29,7 +29,8 @@
   width: 100%;
   height: auto;
   display: block;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .cb-latest-insights__card-1 .cb-latest-insights__image {
@@ -59,4 +60,4 @@
   font-size: var(--fs-200);
   font-weight: var(--fw-light);
   color: var(--col-neutral-500);
-}
+}/*# sourceMappingURL=cb-latest-insights.css.map */

@@ -26,7 +26,8 @@
 .cb-work-carousel .swiper-poster {
   width: 100%;
   height: 100svh;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
   grid-area: stack;
   z-index: 0;
@@ -103,4 +104,4 @@
   height: 100vh;
   transform: translate(-50%, -50%);
   pointer-events: none;
-}
+}/*# sourceMappingURL=cb-work-carousel.css.map */

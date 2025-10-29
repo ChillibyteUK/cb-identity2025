@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["file:///var/www/id/wp-content/themes/cb-identity2025/blocks/cb-recent-news/cb-recent-news.scss"],"names":[],"mappings":"AAAA;AAAA;AAAA;AAAA;AAAA;AAQQ;EACI"}
+{"version":3,"sources":["cb-recent-news.scss","cb-recent-news.css"],"names":[],"mappings":"AAAA;;;;EAAA;AAQQ;EACI,uCAAA;ACFZ","file":"cb-recent-news.css"}

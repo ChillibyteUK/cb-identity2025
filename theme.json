@@ -16,6 +16,12 @@
           "origin": "theme"
         },
         {
+          "name": "neutral-1100",
+          "slug": "neutral-1100",
+          "color": "#22211E",
+          "origin": "theme"
+        },
+        {
           "name": "neutral-1000",
           "slug": "neutral-1000",
           "color": "#363531",

@@ -28,5 +28,6 @@
 }
 
 .img-cover > img {
-  object-fit: cover;
-}
+  -o-object-fit: cover;
+     object-fit: cover;
+}/*# sourceMappingURL=cb-content-grid.css.map */
