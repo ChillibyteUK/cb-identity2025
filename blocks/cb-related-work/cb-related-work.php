@@ -28,7 +28,7 @@ if ( empty( $services ) && is_page() ) {
 	if ( $maybe_service_term && ! is_wp_error( $maybe_service_term ) ) {
 		$services = array( $maybe_service_term );
 	}
-	$pretitle = get_the_title( get_the_ID() );
+	$pretitle         = get_the_title( get_the_ID() );
 	$pretitle_padding = 'pt-2 pb-1';
 }
 
