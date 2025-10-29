@@ -15,14 +15,9 @@ $block_id = $block['id'] ?? '';
 
 $c = is_front_page() ? 'cb-services-nav--front' : '';
 ?>
-<style>
-.cb-services-nav {
-	--_bg-url: url('<?= esc_url( wp_get_attachment_image_url( get_field( 'background' ), 'full' ) ); ?>');
-}
-</style>
 <div id="<?php echo esc_attr( $block_id ); ?>" class="cb-services-nav <?= esc_attr( $c ); ?>">
     <div class="cb-services-nav__container pb-5">
-		<div class="cb-services-nav__header mb-4">
+		<div class="cb-services-nav__header">
 			<div class="id-container px-5">
 				SERVICES
 			</div>
@@ -40,6 +35,9 @@ $c = is_front_page() ? 'cb-services-nav--front' : '';
 			);
 			if ( $child_pages ) {
 				foreach ( $child_pages as $service_page ) {
+					if ( get_the_ID() === $service_page->ID ) {
+						continue;
+					}
 					?>
 		<a href="<?php echo esc_url( get_permalink( $service_page->ID ) ); ?>" class="cb-services-nav__item" tabindex="0">
 			<div class="id-container px-5 d-flex justify-content-between" data-aos="fade-up" data-aos-delay="<?= esc_attr( 50 * ( array_search( $service_page, $child_pages, true ) + 1 ) ); ?>">

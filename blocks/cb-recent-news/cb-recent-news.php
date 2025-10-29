@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Block ID.
 $block_id  = $block['id'] ?? '';
-$blog_type = get_query_var( 'blog_type', 'insights' );
+$blog_type = get_query_var( 'blog_type', '' );
 
 $background    = '';
 $section_title = '';
@@ -22,26 +22,31 @@ switch ( $blog_type ) {
 		$background    = 'has-purple-900-background-color';
 		$section_title = 'has-purple-800-background-color';
 		$arrow         = '/img/arrow-p200.svg';
+		$block_title   = 'RECENT NEWS';
 		break;
 	case 'insights':
 		$background    = 'has-neutral-1100-background-color';
 		$section_title = 'has-neutral-1000-background-color';
 		$arrow         = '/img/arrow-n600.svg';
+		$block_title   = 'RECENT NEWS';
 		break;
 	case 'perspectives':
 		$background    = 'has-neutral-1100-background-color';
 		$section_title = 'has-neutral-1000-background-color';
 		$arrow         = '/img/arrow-n600.svg';
+		$block_title   = 'RECENT NEWS';
 		break;
 	case 'white-paper':
 		$background    = 'has-neutral-1100-background-color';
 		$section_title = 'has-neutral-1000-background-color';
 		$arrow         = '/img/arrow-n600.svg';
+		$block_title   = 'RECENT NEWS';
 		break;
 	default:
 		$background    = 'has-primary-black-background-color';
 		$section_title = 'has-primary-black-background-color';
 		$arrow         = '/img/arrow-n600.svg';
+		$block_title   = 'INSIGHTS &amp; PERSPECTIVES';
 		break;
 }
 
@@ -49,7 +54,7 @@ switch ( $blog_type ) {
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-latest-insights cb-recent-news <?= esc_attr( $background ); ?>">
 	<div class="cb-latest-insights__pre-title <?= esc_attr( $section_title ); ?>">
 		<div class="id-container pt-2 pb-1 px-5">
-			RECENT NEWS
+			<?= esc_html( $block_title ); ?>
 		</div>
 	</div>
 	<div class="id-container">

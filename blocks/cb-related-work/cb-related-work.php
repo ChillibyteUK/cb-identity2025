@@ -14,12 +14,51 @@ if ( ! defined( 'ABSPATH' ) ) {
 $block_id = $block['id'] ?? '';
 
 // Get service and theme terms from current post.
+
 $services = wp_get_post_terms( get_the_ID(), 'service' );
 $themes   = wp_get_post_terms( get_the_ID(), 'theme' );
 
+// If no service terms, try to derive from page slug (for service description pages).
+if ( empty( $services ) && is_page() ) {
+	$page_slug = get_post_field( 'post_name', get_the_ID() );
+	$maybe_service_term = get_term_by( 'slug', $page_slug, 'service' );
+	if ( $maybe_service_term && ! is_wp_error( $maybe_service_term ) ) {
+		$services = array( $maybe_service_term );
+	}
+}
+
+// Only include posts that share the same parent service as the current post, or the same service if no parent.
 $service_ids = array();
-foreach ( $services as $service ) {
-	$service_ids[] = $service->term_id;
+if ( ! empty( $services ) ) {
+	// Collect all parent IDs for the current post's service terms.
+	$parent_id = null;
+	foreach ( $services as $service ) {
+		if ( $service->parent ) {
+			$parent_id = $service->parent;
+			break;
+		}
+	}
+	if ( $parent_id ) {
+		// Get all child terms of this parent (i.e., all siblings).
+		$siblings = get_terms(
+			array(
+				'taxonomy'   => 'service',
+				'parent'     => $parent_id,
+				'hide_empty' => false,
+			)
+		);
+		foreach ( $siblings as $sibling ) {
+			$service_ids[] = $sibling->term_id;
+		}
+		// Also include the parent itself.
+		$service_ids[] = $parent_id;
+	} else {
+		// No parent, just use the current service term(s).
+		foreach ( $services as $service ) {
+			$service_ids[] = $service->term_id;
+		}
+	}
+	$service_ids = array_unique( $service_ids );
 }
 
 $theme_ids = array();
@@ -53,6 +92,9 @@ $q = new WP_Query(
 		'post__not_in'   => array( get_the_ID() ),
 	)
 );
+
+
+
 if ( $q->have_posts() ) {
 	?>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-related-work">
@@ -84,6 +126,12 @@ if ( $q->have_posts() ) {
 							<?php
 							// get the case_study_subtitle field from the cb-case-study-hero block if available.
 							if ( ! function_exists( 'cb_find_hero_subtitle' ) ) {
+								/**
+								 * Recursively find the hero subtitle from blocks.
+								 *
+								 * @param array $blocks The parsed blocks array.
+								 * @return string Subtitle if found, empty string otherwise.
+								 */
 								function cb_find_hero_subtitle( $blocks ) {
 									foreach ( $blocks as $block ) {
 										if (
