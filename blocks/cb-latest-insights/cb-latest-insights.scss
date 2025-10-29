@@ -6,7 +6,7 @@
 
 .cb-latest-insights {
     background-color: var(--col-primary-black);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 
     &__card {
         text-decoration: none;
@@ -17,7 +17,7 @@
         }
     }
     &__pre-title {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
         padding-block: 0.5rem;
         color: var(--col-green-500);
         font-weight: var(--fw-regular);

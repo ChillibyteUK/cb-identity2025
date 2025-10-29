@@ -20,7 +20,7 @@ defined( 'ABSPATH' ) || exit;
 				<?= do_shortcode( '[social_icons class="fa-2x"]' ); ?>
 			</div>
 			<div class="col-md-2">
-				<div class="footer-title mb-4">Services</div>
+				<div class="footer-title mb-4"><a href="/services/">Services</a></div>
 				<?=
 				wp_nav_menu(
 					array(

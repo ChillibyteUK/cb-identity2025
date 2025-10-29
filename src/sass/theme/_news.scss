@@ -1,13 +1,13 @@
 .news-hero {
     h1 {
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
         font-size: var(--fs-850);
         font-weight: var(--fw-semi);
         color: var(--col-white);
     }
     h2 {
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
         font-size: var(--fs-600);
         color: var(--col-neutral-800);
         font-weight: var(--fw-regular);
@@ -24,10 +24,10 @@
     }
 }
 .insight-type {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
     &__header {
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
         display: block;
         position: relative;
         background-color: var(--col-primary-black);
@@ -167,7 +167,7 @@
     }
 
     &__category {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
         text-transform: uppercase;
         margin-bottom: 1rem;
         font-size: var(--fs-50);
@@ -217,8 +217,8 @@
     }
 
     .category-wrapper {
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
         color: var(--_colour);
         text-transform: uppercase;
         font-weight: var(--fw-regular);
@@ -227,7 +227,7 @@
         padding-block: 0.5rem 0.25rem;
     }
     .post-title {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
         padding-block: 1rem;
         h1 {
             font-size: var(--fs-850);
@@ -235,7 +235,7 @@
         }
     }
     .post-date-row {
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
         padding-bottom: 2rem;
         .post-date {
             color: var(--col-neutral-600);
@@ -253,14 +253,14 @@
         .container:first-of-type:not([class*="post-date"]) {
             color: var(--_colour);
             font-size: var(--fs-500);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
             margin-bottom: 2rem;
             padding-block: 1rem 0.5rem;
         }
 
         h2 {
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.4);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
             color: var(--_colour);
             font-size: var(--fs-600);
             font-weight: var(--fw-semi);

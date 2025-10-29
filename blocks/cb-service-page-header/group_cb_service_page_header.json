@@ -1,10 +1,10 @@
 {
-    "key": "group_cb_featured_work",
-    "title": "CB Featured Work",
+    "key": "group_cb_service_page_header",
+    "title": "CB Service Page Header",
     "fields": [
         {
-            "key": "field_cb_featured_work_message",
-            "label": "CB Featured Work",
+            "key": "field_cb_service_page_header_message",
+            "label": "CB Service Page Header",
             "name": "",
             "aria-label": "",
             "type": "message",
@@ -21,11 +21,11 @@
             "esc_html": 0
         },
         {
-            "key": "field_69021a17e4db4",
-            "label": "Count",
-            "name": "count",
+            "key": "field_690216fe622c6",
+            "label": "Service Title",
+            "name": "service_title",
             "aria-label": "",
-            "type": "number",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -34,14 +34,33 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": 4,
-            "min": 2,
-            "max": 4,
+            "default_value": "",
+            "maxlength": "",
             "allow_in_bindings": 0,
             "placeholder": "",
-            "step": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_69021729622c7",
+            "label": "Service Intro Text",
+            "name": "service_intro_text",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": 4,
+            "placeholder": "",
+            "new_lines": "br"
         }
     ],
     "location": [
@@ -49,7 +68,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "cb\/cb-featured-work"
+                "value": "cb\/cb-service-page-header"
             }
         ]
     ],
@@ -60,8 +79,8 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "Fields for the CB Featured Work block",
+    "description": "Fields for the CB Service Page Header block",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1761745455
+    "modified": 1761744700
 }

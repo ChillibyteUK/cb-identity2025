@@ -4,14 +4,14 @@
  * @package  cb-identity2025
  */
 .work-index-hero h1 {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
   font-size: var(--fs-850);
   font-weight: var(--fw-semi);
   color: var(--col-white);
 }
 .work-index-hero h2 {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   font-size: var(--fs-600);
   color: var(--col-neutral-800);
   font-weight: var(--fw-regular);
@@ -68,11 +68,11 @@
 .cb-work-index {
   background-color: var(--col-primary-black);
   color: #fff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   position: relative;
 }
 .cb-work-index__pre-title {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   padding-block: 0.5rem;
   color: var(--col-green-500);
   font-weight: var(--fw-regular);
@@ -131,7 +131,7 @@
 .cb-work-index__filter-bar {
   background-color: var(--col-primary-black);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   isolation: isolate;
   overflow: hidden;
   background-image: url("../cb-work-index/bg.jpg");

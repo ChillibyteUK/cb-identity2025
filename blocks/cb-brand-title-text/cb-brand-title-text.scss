@@ -7,8 +7,8 @@
 .cb-brand-title-text {
     background-color: var(--col-primary-black);
     color: #fff;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
     
     &__title {
         position: relative;
@@ -69,7 +69,7 @@
     }
 
     &__pre-title {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
         padding-block: 0.5rem;
         color: var(--col-green-500);
         font-weight: var(--fw-regular);

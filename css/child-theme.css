@@ -21992,8 +21992,8 @@ header .navbar-toggler {
   color: var(--col-neutral-500);
 }
 .footer__logo {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
 .footer__logo .footer__logo-clip {
   overflow: hidden;
@@ -22016,14 +22016,14 @@ header .navbar-toggler {
 }
 
 .news-hero h1, .news-hero .h1 {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
   font-size: var(--fs-850);
   font-weight: var(--fw-semi);
   color: var(--col-white);
 }
 .news-hero h2, .news-hero .h2 {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   font-size: var(--fs-600);
   color: var(--col-neutral-800);
   font-weight: var(--fw-regular);
@@ -22040,11 +22040,11 @@ header .navbar-toggler {
 }
 
 .insight-type {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
 .insight-type__header {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   display: block;
   position: relative;
   background-color: var(--col-primary-black);
@@ -22152,7 +22152,7 @@ header .navbar-toggler {
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .insight-type-grid__category {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   text-transform: uppercase;
   margin-bottom: 1rem;
   font-size: var(--fs-50);
@@ -22199,8 +22199,8 @@ header .navbar-toggler {
   overflow: hidden;
 }
 .single-blog .category-wrapper {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   color: var(--_colour);
   text-transform: uppercase;
   font-weight: var(--fw-regular);
@@ -22209,7 +22209,7 @@ header .navbar-toggler {
   padding-block: 0.5rem 0.25rem;
 }
 .single-blog .post-title {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   padding-block: 1rem;
 }
 .single-blog .post-title h1, .single-blog .post-title .h1 {
@@ -22217,7 +22217,7 @@ header .navbar-toggler {
   font-weight: var(--fw-light);
 }
 .single-blog .post-date-row {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
   padding-bottom: 2rem;
 }
 .single-blog .post-date-row .post-date {
@@ -22233,13 +22233,13 @@ header .navbar-toggler {
 .single-blog .post-content .container:first-of-type:not([class*=post-date]), .single-blog .post-content .wp-block-group:first-of-type:not([class*=post-date]):not(.alignfull) {
   color: var(--_colour);
   font-size: var(--fs-500);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   margin-bottom: 2rem;
   padding-block: 1rem 0.5rem;
 }
 .single-blog .post-content h2, .single-blog .post-content .h2 {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   color: var(--_colour);
   font-size: var(--fs-600);
   font-weight: var(--fw-semi);
@@ -22311,7 +22311,7 @@ header .navbar-toggler {
 }
 .service-parents li {
   font-size: var(--fs-body);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
   display: inline-block;
   width: 100%;
 }
@@ -22323,7 +22323,7 @@ header .navbar-toggler {
   text-decoration: none;
 }
 .service-parents li:last-child {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 /*

@@ -1,0 +1,27 @@
+/**
+ * CB Service Page Header Block Styles
+ *
+ * @package  cb-identity2025
+ */
+
+.cb-service-page-header {
+    background-color: var(--col-primary-black);
+    color: var(--col-white);
+    padding: 8rem 6rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+
+    h1 {
+        font-size: var(--fs-850);
+        font-weight: var(--fw-semi);
+        line-height: 1;
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        padding-top: 0.25rem;
+        margin-bottom: 2rem;
+    }
+    &__intro-text {
+        font-size: var(--fs-800);
+        line-height: 1.5;
+        text-wrap: balance;
+    }
+}

@@ -13,6 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Block ID.
 $block_id = $block['id'] ?? '';
 
+$count = get_field( 'count' ) ?? 4;
+
 ?>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-featured-work">
 	<div class="cb-featured-work__pre-title">
@@ -26,7 +28,7 @@ $block_id = $block['id'] ?? '';
 			$q = new WP_Query(
 				array(
 					'post_type'      => 'case_study',
-					'posts_per_page' => 4,
+					'posts_per_page' => $count,
 					'orderby'        => 'date',
 					'order'          => 'DESC',
 				)

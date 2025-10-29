@@ -8,7 +8,7 @@
     position: relative;
     background-color: var(--col-primary-black);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
     isolation: isolate;
     overflow: hidden;
     &::before {
@@ -31,10 +31,10 @@
         font-weight: var(--fw-regular);
         padding-block: 1rem;
         line-height: 1;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
     }
     &__item {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
         padding-block: 1rem;
         transition: background-color 0.3s ease;
         color: white;

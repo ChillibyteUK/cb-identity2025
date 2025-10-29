@@ -1,0 +1,18 @@
+{
+    "name": "cb/cb-pushthrough",
+    "title": "CB Pushthrough",
+    "description": "A custom CB Pushthrough block",
+    "category": "cb-blocks",
+    "icon": "admin-generic",
+    "keywords": ["cb-pushthrough", "cb"],
+    "supports": {
+        "align": ["wide", "full"],
+        "anchor": true,
+        "customClassName": true
+    },
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "cb-pushthrough.php"
+    },
+    "style": "file:./cb-pushthrough.css"
+}

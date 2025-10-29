@@ -13,13 +13,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Block ID.
 $block_id = $block['id'] ?? '';
 
+$c = is_front_page() ? 'cb-services-nav--front' : '';
 ?>
 <style>
 .cb-services-nav {
 	--_bg-url: url('<?= esc_url( wp_get_attachment_image_url( get_field( 'background' ), 'full' ) ); ?>');
 }
 </style>
-<div id="<?php echo esc_attr( $block_id ); ?>" class="cb-services-nav">
+<div id="<?php echo esc_attr( $block_id ); ?>" class="cb-services-nav <?= esc_attr( $c ); ?>">
     <div class="cb-services-nav__container pb-5">
 		<div class="cb-services-nav__header mb-4">
 			<div class="id-container px-5">
