@@ -18,6 +18,9 @@ $block_id = $block['id'] ?? '';
 $services = wp_get_post_terms( get_the_ID(), 'service' );
 $themes   = wp_get_post_terms( get_the_ID(), 'theme' );
 
+$pretitle = 'RELATED';
+$pretitle_padding = 'pt-4 pb-3';
+
 // If no service terms, try to derive from page slug (for service description pages).
 if ( empty( $services ) && is_page() ) {
 	$page_slug = get_post_field( 'post_name', get_the_ID() );
@@ -25,6 +28,8 @@ if ( empty( $services ) && is_page() ) {
 	if ( $maybe_service_term && ! is_wp_error( $maybe_service_term ) ) {
 		$services = array( $maybe_service_term );
 	}
+	$pretitle = get_the_title( get_the_ID() );
+	$pretitle_padding = 'pt-2 pb-1';
 }
 
 // Only include posts that share the same parent service as the current post, or the same service if no parent.
@@ -99,8 +104,8 @@ if ( $q->have_posts() ) {
 	?>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-related-work">
 	<div class="cb-related-work__pre-title">
-		<div class="id-container py-4 px-5">
-			RELATED WORK
+		<div class="id-container <?= esc_attr( $pretitle_padding ); ?> px-5">
+			<?= esc_html( $pretitle ); ?> WORK
 		</div>
 	</div>
 	<div class="id-container">

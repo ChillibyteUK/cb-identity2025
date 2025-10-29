@@ -1,0 +1,25 @@
+/**
+ * CB Service Detail Block Styles
+ *
+ * @package  cb-identity2025
+ */
+
+.cb-service-detail {
+    background-color: var(--col-primary-black);
+    color: var(--col-white);
+    padding-bottom: 6rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    .service-detail-row {
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+    }
+    .service-detail-title {
+        padding-block: 0.75rem;
+        font-size: var(--fs-700);
+        font-weight: var(--fw-light);
+    }
+    .service-detail-description {
+        padding-block: 0.75rem;
+        font-size: var(--fs-400);
+        font-weight: var(--fw-light);
+    }
+}

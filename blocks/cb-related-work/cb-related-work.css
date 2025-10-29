@@ -15,6 +15,7 @@
   font-weight: var(--fw-regular);
   font-size: var(--fs-300);
   line-height: 1;
+  text-transform: uppercase;
 }
 .cb-related-work__card {
   aspect-ratio: 16/9;

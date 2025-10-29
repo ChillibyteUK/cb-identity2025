@@ -1,0 +1,18 @@
+{
+    "name": "cb/cb-service-detail",
+    "title": "CB Service Detail",
+    "description": "A custom CB Service Detail block",
+    "category": "cb-blocks",
+    "icon": "admin-generic",
+    "keywords": ["cb-service-detail", "cb"],
+    "supports": {
+        "align": ["wide", "full"],
+        "anchor": true,
+        "customClassName": true
+    },
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "cb-service-detail.php"
+    },
+    "style": "file:./cb-service-detail.css"
+}
