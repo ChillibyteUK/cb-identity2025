@@ -6,7 +6,7 @@
 .cb-service-page-header {
   background-color: var(--col-primary-black);
   color: var(--col-white);
-  padding: 8rem 6rem;
+  padding-block: 8rem 6rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
 .cb-service-page-header h1 {
