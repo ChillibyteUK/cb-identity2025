@@ -118,16 +118,20 @@ if ( $q->have_posts() ) {
 				<a href="<?= esc_url( get_the_permalink() ); ?>" class="cb-related-work__card">
 					<?php
 					if ( get_the_post_thumbnail( get_the_ID() ) ) {
+						echo '<!-- has thumb -->';
 						echo get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'cb-related-work__image' ) );
 					} else {
 						// Try Vimeo video thumbnail as fallback
 						$vimeo_url = get_field( 'vimeo_url', get_the_ID() );
+						echo '<!--' . $vimeo_url . '-->';
 						$vimeo_thumb = '';
 						if ( $vimeo_url ) {
 							if ( preg_match( '/vimeo\\.com\\/(?:video\\/)?(\\d+)/', $vimeo_url, $matches ) ) {
+								echo '<!-- matched -->';
 								$vimeo_id = $matches[1];
 								if ( function_exists( 'get_vimeo_data_from_id' ) ) {
 									$vimeo_thumb = get_vimeo_data_from_id( $vimeo_id, 'thumbnail_url' );
+									echo '<!-- thumb: ' . esc_url( $vimeo_thumb ) . ' -->';
 								}
 							}
 						}
