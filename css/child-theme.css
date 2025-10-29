@@ -21906,8 +21906,9 @@ header .logo-inner svg {
 }
 header .current_page_item > .nav-link,
 header .current_page_parent > .nav-link,
-header .current-menu-ancestor > .nav-link,
+header .current-page-ancestor > .nav-link,
 header .current-menu-parent > .nav-link,
+header .current-menu-ancestor > .nav-link,
 header .dropdown.current-page-ancestor > .nav-link,
 header .dropdown.current-menu-item > .nav-link {
   color: var(--col-green-400);
