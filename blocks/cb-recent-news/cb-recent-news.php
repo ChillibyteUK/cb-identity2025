@@ -24,6 +24,10 @@ switch ( $background ) {
 		$background = 'has-primary-black-background-color';
 		$arrow      = '/img/arrow-n600.svg';
 		break;
+	case 'perspectives':
+		$background = 'has-primary-black-background-color';
+		$arrow      = '/img/arrow-n600.svg';
+		break;
 	default:
 		$background = 'has-primary-black-background-color';
 		$arrow      = '/img/arrow-n600.svg';
@@ -47,6 +51,7 @@ switch ( $background ) {
                 'orderby'        => 'date',
                 'order'          => 'DESC', // Descending order.
                 'posts_per_page' => 3,    // Get all posts.
+				'post__not_in'   => array( get_the_ID() ), // exclude current post.
 				'category_name'  => $blog_type,
             );
 			$q = new WP_Query( $args );

@@ -53,7 +53,7 @@ get_header();
                 'orderby'        => 'date',
                 'order'          => 'DESC', // Descending order.
                 'posts_per_page' => 3,    // Get all posts.
-				'category_name'  => 'insights',
+				'category_name'  => array( 'insights', 'perspectives' ),
             );
 			$q = new WP_Query( $args );
 
