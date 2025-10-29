@@ -47,7 +47,7 @@ get_header();
                 'orderby'        => 'date',
                 'order'          => 'DESC', // Descending order.
                 'posts_per_page' => -1,    // Get all posts.
-				// 'category_name'  => 'insights', // for testing only.
+				'category_name'  => 'press',
             );
 			$q = new WP_Query( $args );
 
