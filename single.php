@@ -60,20 +60,30 @@ switch ( $post_style ) {
 			</div>
 		</div>
 	</div>
-	<div class="row post-content-row mb-5">
-		<div class="col-md-3"></div>
+	<div class="id-container">
+		<div class="row post-content-row mb-5">
+			<div class="col-md-3"></div>
 			<div class="col-md-9 post-content px-5 ps-md-0 pe-md-5">
 				<?php
 				echo apply_filters( 'the_content', get_the_content() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				?>
-				<div class="container">
-					<div class="post-date pt-5">
-						<?= get_the_date( 'j F Y' ); ?>
+			</div>
+		</div>
+	</div>
+	<div class="post-date-row">
+		<div class="id-container">
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-9 px-5 ps-md-0 pe-md-5">
+					<div class="container">
+						<div class="post-date pt-3">
+							<?= get_the_date( 'j F Y' ); ?>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-    </div>
+	</div>
 
 	<section class="recent-news">
 		<?php

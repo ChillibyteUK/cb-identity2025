@@ -232,8 +232,16 @@
             font-weight: var(--fw-light);
         }
     }
-    .post-content-row {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    .post-date-row {
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        padding-bottom: 2rem;
+        .post-date {
+            color: var(--col-neutral-600);
+            text-transform: uppercase;
+            font-weight: var(--fw-regular);
+            margin-bottom: 0.5rem;
+        }
+
     }
     .post-content {
         .container {
@@ -258,11 +266,4 @@
             padding-block: 0.25rem;
         }
     }
-    .post-date {
-        color: var(--col-neutral-600);
-        text-transform: uppercase;
-        font-weight: var(--fw-regular);
-        margin-bottom: 0.5rem;
-    }
-
 }

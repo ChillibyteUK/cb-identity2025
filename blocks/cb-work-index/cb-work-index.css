@@ -34,8 +34,7 @@
 .work-index-hero__image {
   width: 100%;
   aspect-ratio: 16/9;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   grid-area: stack;
 }
 .work-index-hero .overlay {
@@ -141,4 +140,4 @@
 }
 .cb-work-index__filter-bar__container {
   background-color: rgba(255, 255, 255, 0.1);
-}/*# sourceMappingURL=cb-work-index.css.map */
+}

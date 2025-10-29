@@ -22214,8 +22214,15 @@ header .navbar-toggler {
   font-size: var(--fs-850);
   font-weight: var(--fw-light);
 }
-.single-blog .post-content-row {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+.single-blog .post-date-row {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 2rem;
+}
+.single-blog .post-date-row .post-date {
+  color: var(--col-neutral-600);
+  text-transform: uppercase;
+  font-weight: var(--fw-regular);
+  margin-bottom: 0.5rem;
 }
 .single-blog .post-content .container, .single-blog .post-content .wp-block-group:not(.alignfull) {
   padding-inline: 0;
@@ -22236,12 +22243,6 @@ header .navbar-toggler {
   font-weight: var(--fw-semi);
   margin-block: 2rem;
   padding-block: 0.25rem;
-}
-.single-blog .post-date {
-  color: var(--col-neutral-600);
-  text-transform: uppercase;
-  font-weight: var(--fw-regular);
-  margin-bottom: 0.5rem;
 }
 
 @media (min-width: 992px) {
