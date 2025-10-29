@@ -234,12 +234,8 @@ add_filter(
                 $item->classes = array_diff( $item->classes, array( 'current_page_parent', 'current-menu-parent', 'active' ) );
             }
         }
-        $request_uri = $_SERVER['REQUEST_URI'] ?? '';
-        if (
-            is_singular( 'post' ) ||
-            ( strpos( $request_uri, '/news/' ) === 0 )
-        ) {
-            // Highlight News for single posts and any /news/ path (including category archives).
+        if ( is_singular( 'post' ) ) {
+            // Highlight News for single posts.
             foreach ( $items as $item ) {
                 if ( intval( $item->object_id ) === intval( $news_page_id ) ) {
                     $item->classes[] = 'current-menu-parent';
@@ -247,14 +243,14 @@ add_filter(
                 }
             }
         } elseif ( is_singular( 'case_study' ) ) {
-            // Highlight Work for single case_study.
-            foreach ( $items as $item ) {
-                if ( $item->url === $work_url ) {
-                    $item->classes[] = 'current-menu-parent';
-                    $item->classes[] = 'active';
-                }
-            }
-        }
+		// Highlight Work for single case_study.
+			foreach ( $items as $item ) {
+				if ( $item->url === $work_url ) {
+					$item->classes[] = 'current-menu-parent';
+					$item->classes[] = 'active';
+				}
+			}
+		}
 		return $items;
 	},
 	20
