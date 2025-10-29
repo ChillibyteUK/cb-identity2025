@@ -25,6 +25,9 @@ switch ( $post_style ) {
 	case 'insights':
 		$post_style = 'post-insight';
 		break;
+	case 'perspectives':
+		$post_style = 'post-insight';
+		break;
 	default:
 		$post_style = 'post-press';
 		break;
@@ -32,11 +35,17 @@ switch ( $post_style ) {
 
 ?>
 <main id="main" class="single-blog <?= esc_attr( $post_style ); ?>">
+	<?php
+	if ( get_the_post_thumbnail( get_the_ID() ) ) {
+		?>
 	<div class="id-container pt-5 pb-4">
 		<div class="post-hero-clip-group">
 			<?= get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'post-hero-image' ) ); ?>
 		</div>
 	</div>
+		<?php
+	}
+	?>
 	<div class="category-wrapper">
 		<div class="id-container px-5">
 			<div class="category <?= esc_attr( $first_category->slug ); ?>"><?= esc_html( $first_category->name ); ?></div>
