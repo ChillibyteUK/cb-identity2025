@@ -66,8 +66,10 @@ switch ( $post_style ) {
 				<?php
 				echo apply_filters( 'the_content', get_the_content() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				?>
-				<div class="post-date pt-5">
-					<?= get_the_date( 'j F Y' ); ?>
+				<div class="container">
+					<div class="post-date pt-5">
+						<?= get_the_date( 'j F Y' ); ?>
+					</div>
 				</div>
 			</div>
 		</div>

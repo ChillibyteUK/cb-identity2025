@@ -33,6 +33,11 @@ switch ( $blog_type ) {
 		$section_title = 'has-neutral-1000-background-color';
 		$arrow         = '/img/arrow-n600.svg';
 		break;
+	case 'white-paper':
+		$background    = 'has-neutral-1100-background-color';
+		$section_title = 'has-neutral-1000-background-color';
+		$arrow         = '/img/arrow-n600.svg';
+		break;
 	default:
 		$background    = 'has-primary-black-background-color';
 		$section_title = 'has-primary-black-background-color';
