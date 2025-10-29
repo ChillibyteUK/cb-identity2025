@@ -1,0 +1,41 @@
+{
+    "key": "group_cb_recent_news",
+    "title": "CB Recent News",
+    "fields": [
+        {
+            "key": "field_cb_recent_news_message",
+            "label": "CB Recent News",
+            "name": "message",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "cb/cb-recent-news"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Fields for the CB Recent News block",
+    "show_in_rest": 0
+}

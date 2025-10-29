@@ -1,0 +1,8 @@
+/**
+ * CB Recent News Block Styles
+ *
+ * @package  cb-identity2025
+ */
+.cb-recent-news.has-purple-900-background-color .insight-type-grid__date {
+  color: var(--col-purple-200) !important;
+}

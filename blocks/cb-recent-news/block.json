@@ -1,0 +1,18 @@
+{
+    "name": "cb/cb-recent-news",
+    "title": "CB Recent News",
+    "description": "A custom CB Recent News block",
+    "category": "cb-blocks",
+    "icon": "admin-generic",
+    "keywords": ["cb-recent-news", "cb"],
+    "supports": {
+        "align": ["wide", "full"],
+        "anchor": true,
+        "customClassName": true
+    },
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "cb-recent-news.php"
+    },
+    "style": "file:./cb-recent-news.css"
+}

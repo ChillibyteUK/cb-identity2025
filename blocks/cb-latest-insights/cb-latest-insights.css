@@ -4,7 +4,7 @@
  * @package  cb-identity2025
  */
 .cb-latest-insights {
-  background-color: black;
+  background-color: var(--col-primary-black);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 .cb-latest-insights__card {
