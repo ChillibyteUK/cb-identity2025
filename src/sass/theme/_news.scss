@@ -196,9 +196,11 @@
 
     .post-hero-image {
         width: 100%;
+        max-width: 1920px;
         height: 100%;
         display: block;
         object-fit: cover;
+        position: fixed;
     }
 
     .post-hero-clip-group {

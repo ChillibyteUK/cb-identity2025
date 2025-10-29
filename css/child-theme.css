@@ -22179,10 +22179,12 @@ header .navbar-toggler {
 }
 .single-blog .post-hero-image {
   width: 100%;
+  max-width: 1920px;
   height: 100%;
   display: block;
   -o-object-fit: cover;
   object-fit: cover;
+  position: fixed;
 }
 .single-blog .post-hero-clip-group {
   aspect-ratio: 16/9;
