@@ -1,0 +1,80 @@
+/**
+ * CB Our Brands Block Styles
+ *
+ * @package  cb-identity2025
+ */
+.cb-our-brands {
+  background-color: var(--col-neutral-1100);
+  color: var(--col-white);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+.cb-our-brands__pre-title {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  padding-block: 1.5rem 1.25rem;
+  color: var(--col-green-400);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-300);
+  line-height: 1;
+  text-transform: uppercase;
+}
+.cb-our-brands__intro {
+  font-size: var(--fs-850);
+  font-weight: var(--fw-light);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  padding-block: 1rem;
+  text-wrap: balance;
+}
+.cb-our-brands .brand-card {
+  width: 100%;
+  aspect-ratio: 16/9;
+  text-decoration: none;
+}
+@media (min-width: 768px) {
+  .cb-our-brands .brand-card {
+    display: grid;
+    grid-template-areas: "stack";
+  }
+}
+.cb-our-brands .brand-card__front {
+  grid-area: stack;
+  aspect-ratio: 16/9;
+  display: grid;
+  place-content: center;
+  padding: 1rem;
+}
+.cb-our-brands .brand-card__back {
+  grid-area: stack;
+  transition: opacity 0.3s ease-in-out;
+  background-color: rgba(34, 33, 30, 0.95);
+  padding: 1.5rem;
+  font-size: var(--fs-400);
+  color: var(--col-white);
+  align-content: flex-end;
+}
+@media (min-width: 768px) {
+  .cb-our-brands .brand-card__back {
+    opacity: 0;
+  }
+}
+.cb-our-brands .brand-card__name {
+  text-transform: uppercase;
+  font-weight: var(--fw-light);
+  font-size: var(--fs-50);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  margin-bottom: 1rem;
+}
+.cb-our-brands .brand-card__strap {
+  font-size: var(--fs-400);
+  font-weight: var(--fw-semi);
+}
+.cb-our-brands .brand-card:hover .brand-card__back, .cb-our-brands .brand-card:focus .brand-card__back {
+  opacity: 1;
+  color: var(--col-white);
+}
+.cb-our-brands .brand-card__last {
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  padding-top: 1.5rem;
+  font-size: var(--fs-850);
+  color: var(--col-green-400);
+}

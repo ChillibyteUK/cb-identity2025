@@ -1,0 +1,82 @@
+/**
+ * CB Our Brands Block Styles
+ *
+ * @package  cb-identity2025
+ */
+
+ .cb-our-brands {
+    background-color: var(--col-neutral-1100);
+    color: var(--col-white);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+
+    &__pre-title {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        padding-block: 1.5rem 1.25rem;
+        color: var(--col-green-400);
+        font-weight: var(--fw-regular);
+        font-size: var(--fs-300);
+        line-height: 1;
+        text-transform: uppercase;
+    }
+
+    &__intro {
+        font-size: var(--fs-850);
+        font-weight: var(--fw-light);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        padding-block: 1rem;
+        text-wrap: balance;
+    }
+
+    .brand-card {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        text-decoration: none;
+        @media (min-width: 768px) {
+            display: grid;
+            grid-template-areas: "stack";
+        }
+        &__front {
+            grid-area: stack;
+            aspect-ratio: 16 / 9;
+            display: grid;
+            place-content: center;
+            padding: 1rem;
+        }
+        &__back {
+            grid-area: stack;
+            transition: opacity 0.3s ease-in-out;
+            background-color: rgb( 34, 33, 30, 0.95 );
+            padding: 1.5rem;
+            font-size: var(--fs-400);
+            color: var(--col-white);
+            align-content: flex-end;
+            @media (min-width: 768px) {
+                opacity: 0;
+            }
+        }
+        &__name {
+            text-transform: uppercase;
+            font-weight: var(--fw-light);
+            font-size: var(--fs-50);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            margin-bottom: 1rem;
+        }
+        &__strap {
+            font-size: var(--fs-400);
+            font-weight: var(--fw-semi);
+        }
+        &:hover .brand-card__back,
+        &:focus .brand-card__back {
+            opacity: 1;
+            color: var(--col-white);
+        }
+
+        &__last {
+            border-top: 1px solid rgba(255, 255, 255, 0.4);
+            padding-top: 1.5rem;
+            font-size: var(--fs-850);
+            color: var(--col-green-400);
+        }
+    }
+ }
