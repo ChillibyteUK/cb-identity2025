@@ -20,7 +20,7 @@ $block_id = $block['id'] ?? '';
         ?>
     <div class="cb-related-work__pre-title">
         <div class="id-container pt-4 pb-3 px-5">
-			<?= esc_html( $pretitle ); ?>
+			<?= esc_html( get_field( 'pre_title' ) ); ?>
 		</div>
 	</div>
         <?php
