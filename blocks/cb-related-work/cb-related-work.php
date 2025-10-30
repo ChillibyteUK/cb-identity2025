@@ -116,32 +116,7 @@ if ( $q->have_posts() ) {
 		?>
 			<div class="col-md-6">
 				<a href="<?= esc_url( get_the_permalink() ); ?>" class="cb-related-work__card">
-					<?php
-					if ( get_the_post_thumbnail( get_the_ID() ) ) {
-						echo '<!-- has thumb -->';
-						echo get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'cb-related-work__image' ) );
-					} else {
-						// Try Vimeo video thumbnail as fallback
-						$vimeo_url = get_field( 'vimeo_url', get_the_ID() );
-						echo '<!--' . $vimeo_url . '-->';
-						$vimeo_thumb = '';
-						if ( $vimeo_url ) {
-							if ( preg_match( '/vimeo\\.com\\/(?:video\\/)?(\\d+)/', $vimeo_url, $matches ) ) {
-								echo '<!-- matched -->';
-								$vimeo_id = $matches[1];
-								if ( function_exists( 'get_vimeo_data_from_id' ) ) {
-									$vimeo_thumb = get_vimeo_data_from_id( $vimeo_id, 'thumbnail_url' );
-									echo '<!-- thumb: ' . esc_url( $vimeo_thumb ) . ' -->';
-								}
-							}
-						}
-						if ( $vimeo_thumb ) {
-							echo '<img src="' . esc_url( $vimeo_thumb ) . '" alt="" class="cb-related-work__image" />';
-						} else {
-							echo '<img src="' . esc_url( get_stylesheet_directory_uri() . '/img/default-post-image.png' ) . '" alt="" class="cb-related-work__image" />';
-						}
-					}
-					?>
+					<?= get_work_image( get_the_ID(), 'cb-related-work__image' ); ?>
 					<div class="cb-related-work__content px-5">
 						<div class="cb-related-work__title">
 							<?php the_title(); ?> <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/arrow-wh.svg' ); ?>" width=23 height=21 alt="" class="cb-services-nav__item-icon" />

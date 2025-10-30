@@ -290,3 +290,76 @@ function cb_service_parents_shortcode() {
 }
 
 
+if ( ! function_exists( 'get_work_image' ) ) {
+    /**
+     * Returns the best available image for a work/case study post, in order:
+     * 1. Post thumbnail
+     * 2. Vimeo video thumbnail (if vimeo_url ACF field is set)
+     * 3. First cb-full-image block image
+     * 4. Default post image
+     *
+     * @param int $post_id The post ID.
+     * @return string HTML <img> tag for the image.
+     */
+    function get_work_image( $post_id, $class = 'work-card__image' ) {
+        // 1. Try post thumbnail
+        if ( get_the_post_thumbnail( $post_id ) ) {
+            return get_the_post_thumbnail( $post_id, 'full', array( 'class' => $class ) );
+        }
+
+        // 2. Try Vimeo video thumbnail as fallback
+        $vimeo_url = get_field( 'vimeo_url', $post_id );
+        $vimeo_thumb = '';
+        if ( $vimeo_url ) {
+            if ( preg_match( '/vimeo\\.com\\/(?:video\/)?(\\d+)/', $vimeo_url, $matches ) ) {
+                $vimeo_id = $matches[1];
+                if ( function_exists( 'get_vimeo_data_from_id' ) ) {
+                    $vimeo_thumb = get_vimeo_data_from_id( $vimeo_id, 'thumbnail_url' );
+                }
+            }
+        }
+        if ( $vimeo_thumb ) {
+            return '<img src="' . esc_url( $vimeo_thumb ) . '" alt="" class="' . esc_attr( $class ) . '" />';
+        }
+
+        // 3. Try first cb-full-image block image
+        $post_blocks = parse_blocks( get_the_content( null, false, $post_id ) );
+        if ( ! function_exists( 'cb_find_first_full_image_url' ) ) {
+            /**
+             * Recursively find the first cb-full-image block image URL.
+             *
+             * @param array $blocks The parsed blocks array.
+             * @return string Image URL if found, empty string otherwise.
+             */
+            function cb_find_first_full_image_url( $blocks ) {
+                foreach ( $blocks as $block ) {
+                    if (
+                        isset( $block['blockName'] ) &&
+                        'cb/cb-full-image' === $block['blockName'] &&
+                        ! empty( $block['attrs']['data']['image'] )
+                    ) {
+                        $image_id = $block['attrs']['data']['image'];
+                        $img_url = wp_get_attachment_image_url( $image_id, 'full' );
+                        if ( $img_url ) {
+                            return $img_url;
+                        }
+                    }
+                    if ( ! empty( $block['innerBlocks'] ) ) {
+                        $found = cb_find_first_full_image_url( $block['innerBlocks'] );
+                        if ( $found ) {
+                            return $found;
+                        }
+                    }
+                }
+                return '';
+            }
+        }
+        $full_image_url = cb_find_first_full_image_url( $post_blocks );
+        if ( $full_image_url ) {
+            return '<img src="' . esc_url( $full_image_url ) . '" alt="" class="' . esc_attr( $class ) . '" />';
+        }
+
+        // 4. Default post image
+        return '<img src="' . esc_url( get_stylesheet_directory_uri() . '/img/default-post-image.png' ) . '" alt="" class="' . esc_attr( $class ) . '" />';
+    }
+}

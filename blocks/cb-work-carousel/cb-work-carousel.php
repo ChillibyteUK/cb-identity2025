@@ -59,7 +59,7 @@ $block_content = get_field( 'content' );
 							<?php
 						}
 						?>
-						<?= get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'img-fluid swiper-poster' ) ); ?>
+						<?= get_work_image( get_the_ID(), 'swiper-poster' ); ?>
 						<div class="work-carousel-text">
 							<div class="id-container pb-2">
 								<div class="work-carousel-title"><?php the_title(); ?></div>
