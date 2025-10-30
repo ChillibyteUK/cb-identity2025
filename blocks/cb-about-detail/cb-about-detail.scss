@@ -20,6 +20,9 @@
         text-transform: uppercase;
     }
 
+    .about-detail-row:first-child {
+        padding-top: 1rem;
+    }
     .about-detail-row:not(:first-child) {
         border-top: 1px solid rgba(255, 255, 255, 0.4);
     }
