@@ -1,0 +1,68 @@
+/**
+ * CB About Page Header Block Styles
+ *
+ * @package  cb-identity2025
+ */
+
+.cb-about-page-header {
+    background-color: var(--col-primary-black);
+    color: var(--col-white);
+    background-image: var(--_bg-url);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    &__top {
+        position: relative;
+        padding-block: 8rem 6rem;
+        isolation: isolate;
+        .intro-overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+        }
+    }
+    h1 {
+        font-size: var(--fs-950);
+        font-weight: var(--fw-light);
+        line-height: 1;
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        padding-top: 1rem;
+        padding-bottom: 4rem;
+        margin-bottom: 2rem;
+    }
+    &__intro-text {
+        font-size: var(--fs-800);
+        line-height: 1.5;
+        text-wrap: balance;
+        a {
+            color: var(--col-green-400);
+            text-decoration: underline;
+            transition: color 0.3s ease;
+            &:hover {
+                color: var(--col-green-300);
+            }
+        }
+    }
+    &__content-wrapper {
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+        position: relative;
+        padding-block: 4rem 4rem;
+        isolation: isolate;
+        .about-overlay {
+            background-color: rgba(47, 19, 186, 0.8);
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+        }
+    }
+    &__intro {
+        font-size: var(--fs-800);
+        line-height: 1.5;
+        font-weight: var(--fw-light);
+        margin-bottom: 0.5em;
+        color: var(--col-white);
+    }
+
+}

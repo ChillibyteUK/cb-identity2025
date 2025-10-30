@@ -90,7 +90,7 @@
         {
           "name": "purple-900",
           "slug": "purple-900",
-          "color": "#2f13ba",
+          "color": "rgb(47, 19, 186)",
           "origin": "theme"
         },
         {
@@ -414,6 +414,11 @@
           "name": "50",
           "slug": "50",
           "size": "0.8889rem"
+        },
+        {
+          "name": "950",
+          "slug": "950",
+          "size": "clamp(5rem, 1rem + 4vw, 6.25rem)"
         }
       ]
     }

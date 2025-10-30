@@ -18,6 +18,7 @@
   --col-neutral-100: #f8f7f0;
   --col-purple-1000: #190A83;
   --col-purple-900: #2f13ba;
+  --col-purple-900: rgb(47, 19, 186);
   --col-purple-800: #4c35d0;
   --col-purple-700: #7162e1;
   --col-purple-600: #8b7ff0;
@@ -77,6 +78,7 @@
   --fs-800: clamp(2rem, 1rem + 1.6vw, 2.5rem); /* 36→45px */
   --fs-850: clamp(2.5rem, 1rem + 1.9vw, 3.125rem); /* 45→56px */
   --fs-900: clamp(4rem, 1rem + 3vw, 5rem); /* 72→90px */
+  --fs-950: clamp(5rem, 1rem + 4vw, 6.25rem); /* 90→112px */
   /* === Utilities === */
   --transition: 250ms ease-out;
   --h-top: 72px;
@@ -102,6 +104,7 @@
   --col-neutral-100: #f8f7f0;
   --col-purple-1000: #190A83;
   --col-purple-900: #2f13ba;
+  --col-purple-900: rgb(47, 19, 186);
   --col-purple-800: #4c35d0;
   --col-purple-700: #7162e1;
   --col-purple-600: #8b7ff0;
@@ -161,6 +164,7 @@
   --fs-800: clamp(2rem, 1rem + 1.6vw, 2.5rem); /* 36→45px */
   --fs-850: clamp(2.5rem, 1rem + 1.9vw, 3.125rem); /* 45→56px */
   --fs-900: clamp(4rem, 1rem + 3vw, 5rem); /* 72→90px */
+  --fs-950: clamp(5rem, 1rem + 4vw, 6.25rem); /* 90→112px */
   /* === Utilities === */
   --transition: 250ms ease-out;
   --h-top: 72px;
