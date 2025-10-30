@@ -52,8 +52,8 @@
   color: var(--col-neutral-500);
   margin-top: 0.5rem;
 }
-.cb-work-carousel .work-carousel-link:hover .swiper-poster,
-.cb-work-carousel .work-carousel-link:focus .swiper-poster {
+.cb-work-carousel .work-carousel-link.has_video:hover .swiper-poster,
+.cb-work-carousel .work-carousel-link.has_video:focus .swiper-poster {
   opacity: 0;
 }
 .cb-work-carousel .swiper-navigation {

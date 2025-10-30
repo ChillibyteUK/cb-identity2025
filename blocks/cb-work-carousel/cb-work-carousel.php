@@ -46,11 +46,12 @@ $block_content = get_field( 'content' );
 				<?php
 				while ( $q->have_posts() ) {
 					$q->the_post();
+					$video = get_field( 'vimeo_url', get_the_ID() );
+					$has_video = $video ? 'has_video' : '';
 					?>
 				<div class="swiper-slide">
-					<a href="<?php echo esc_url( get_permalink() ); ?>" class="work-carousel-link" tabindex="0">
+					<a href="<?php echo esc_url( get_permalink() ); ?>" class="work-carousel-link <?= esc_attr( $has_video ); ?>" tabindex="0">
 						<?php
-						$video = get_field( 'vimeo_url', get_the_ID() );
 						if ( $video ) {
 							?>
 						<div class="iframe-cover swiper-video">

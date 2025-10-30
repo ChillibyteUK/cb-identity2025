@@ -56,8 +56,8 @@
         margin-top: 0.5rem;
     }
 
-    .work-carousel-link:hover .swiper-poster,
-    .work-carousel-link:focus .swiper-poster {
+    .work-carousel-link.has_video:hover .swiper-poster,
+    .work-carousel-link.has_video:focus .swiper-poster {
         opacity: 0;
     }
 
