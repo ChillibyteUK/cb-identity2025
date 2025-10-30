@@ -1,0 +1,18 @@
+{
+    "name": "cb/cb-about-detail",
+    "title": "CB About Detail",
+    "description": "A custom CB About Detail block",
+    "category": "cb-blocks",
+    "icon": "admin-generic",
+    "keywords": ["cb-about-detail", "cb"],
+    "supports": {
+        "align": ["wide", "full"],
+        "anchor": true,
+        "customClassName": true
+    },
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "cb-about-detail.php"
+    },
+    "style": "file:./cb-about-detail.css"
+}

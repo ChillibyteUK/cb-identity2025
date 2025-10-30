@@ -1,0 +1,33 @@
+/**
+ * CB About Detail Block Styles
+ *
+ * @package  cb-identity2025
+ */
+.cb-about-detail {
+  background-color: var(--col-primary-black);
+  color: var(--col-white);
+  padding-bottom: 6rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+.cb-about-detail__pre-title {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  padding-block: 0.5rem;
+  color: var(--col-purple-300);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-300);
+  line-height: 1;
+  text-transform: uppercase;
+}
+.cb-about-detail .about-detail-row:not(:first-child) {
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+}
+.cb-about-detail .about-detail-title {
+  padding-block: 0.75rem;
+  font-size: var(--fs-700);
+  font-weight: var(--fw-light);
+}
+.cb-about-detail .about-detail-description {
+  padding-block: 0.75rem;
+  font-size: var(--fs-400);
+  font-weight: var(--fw-light);
+}
