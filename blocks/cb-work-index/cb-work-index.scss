@@ -92,10 +92,11 @@
         overflow: hidden;
         &:hover {
             text-decoration: none;
-            .cb-work-index__image {
-                opacity: 0;
-            }
+            color: initial;
         }
+    }
+    .cb-work-index__card.has_video:hover .cb-work-index__image {
+        opacity: 0;
     }
 
     &__image {

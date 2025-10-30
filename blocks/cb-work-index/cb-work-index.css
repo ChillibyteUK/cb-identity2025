@@ -90,8 +90,9 @@
 }
 .cb-work-index__card:hover {
   text-decoration: none;
+  color: initial;
 }
-.cb-work-index__card:hover .cb-work-index__image {
+.cb-work-index .cb-work-index__card.has_video:hover .cb-work-index__image {
   opacity: 0;
 }
 .cb-work-index__image {
