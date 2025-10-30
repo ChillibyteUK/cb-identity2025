@@ -47,7 +47,7 @@ $count = get_field( 'count' ) ?? 4;
 						<?php
 					}
 					?>
-					<?= get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'cb-featured-work__image' ) ); ?>
+					<?= get_work_image( get_the_ID(), 'cb-featured-work__image' ); ?>
 					<div class="cb-featured-work__content px-5">
 						<div class="cb-featured-work__title">
 							<?php the_title(); ?> <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/arrow-wh.svg' ); ?>" width=23 height=21 alt="" class="cb-services-nav__item-icon" />
