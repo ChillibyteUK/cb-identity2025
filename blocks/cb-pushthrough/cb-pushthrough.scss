@@ -9,6 +9,17 @@
     color: var(--col-white);
     border-top: 1px solid rgba(255, 255, 255, 0.4);
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    position: relative;
+    isolation: isolate;
+
+    &.has-bg {
+        background-image: var(--_bg-url);
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        padding-block-end: 4rem;
+    }
+
     &__pretitle {
         font-size: var(--fs-200);
         font-weight: var(--fw-regular);
@@ -38,5 +49,12 @@
         &:hover {
             color: var(--col-white);
         }
+    }
+
+    .overlay {
+        background-color: rgba(47, 19, 186, 0.8);
+        position: absolute;
+        inset: 0;
+        z-index: -1;
     }
 }
