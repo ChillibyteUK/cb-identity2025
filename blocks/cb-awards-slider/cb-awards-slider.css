@@ -1,0 +1,30 @@
+/**
+ * CB Awards Slider Block Styles
+ *
+ * @package  cb-identity2025
+ */
+.cb-awards-slider {
+  background-color: var(--col-primary-black);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+.cb-awards-slider__marquee {
+  overflow: hidden;
+  width: 100%;
+}
+.cb-awards-slider__track {
+  display: flex;
+  gap: 3rem;
+  animation: marquee 30s linear infinite;
+}
+.cb-awards-slider__logo {
+  height: 120px;
+  width: auto;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
