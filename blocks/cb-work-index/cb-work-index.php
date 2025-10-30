@@ -282,8 +282,12 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 					}
 					?>
 			<div class="col-md-6" data-service-terms="<?php echo esc_attr( trim( $service_classes ) ); ?>" data-theme-terms="<?php echo esc_attr( trim( $theme_classes ) ); ?>">
+				<?php
+				/*
 				<!-- <div class="has-white-background-color has-black-color"><?php echo esc_html( trim( $service_classes ) ); ?></div>
 				<div class="has-white-background-color has-black-color"><?php echo esc_html( trim( $theme_classes ) ); ?></div> -->
+				*/
+				?>
 				<a href="<?= esc_url( get_the_permalink() ); ?>" class="cb-work-index__card">
 					<?php
 					$video = get_field( 'vimeo_url', get_the_ID() );
