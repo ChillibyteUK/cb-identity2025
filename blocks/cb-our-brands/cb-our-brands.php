@@ -43,7 +43,11 @@ $block_id = $block['id'] ?? '';
                     the_row();
                     $brand_logo = get_sub_field( 'brand_logo' ) ?? '';
                     $brand_name = get_sub_field( 'brand_name' );
-                    $brand_link  = get_sub_field( 'link' ) ?? array( 'url' => '#', 'title' => 'Learn More' );
+                    $brand_link  = get_sub_field( 'link' );
+
+                    if ( ! $brand_logo || ! $brand_link ) {
+                        continue;
+                    }
                     ?>
             <div class="col-lg-6 col-xl-3">
                 <a href="<?= esc_url( $brand_link['url'] ); ?>" target="_blank" rel="noopener noreferrer" class="brand-card">
