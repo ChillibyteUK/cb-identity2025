@@ -36,7 +36,7 @@ $block_id = $block['id'] ?? '';
         </div>
     </div>
     <div class="cb-our-brands__brands id-container px-5 mb-5">
-        <div class="row g-4">
+        <div class="row g-5">
             <?php
             if ( have_rows( 'brands' ) ) {
                 while ( have_rows( 'brands' ) ) {
