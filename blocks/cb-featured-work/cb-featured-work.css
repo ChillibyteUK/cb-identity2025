@@ -27,8 +27,9 @@
 }
 .cb-featured-work__card:hover {
   text-decoration: none;
+  color: initial;
 }
-.cb-featured-work__card:hover .cb-featured-work__image {
+.cb-featured-work .cb-featured-work__card.has_video:hover .cb-featured-work__image {
   opacity: 0;
 }
 .cb-featured-work__image {

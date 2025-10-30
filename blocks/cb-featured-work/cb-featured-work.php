@@ -36,9 +36,11 @@ $count = get_field( 'count' ) ?? 4;
 			if ( $q->have_posts() ) {
 				while ( $q->have_posts() ) {
 					$q->the_post();
+					$video = get_field( 'vimeo_url', get_the_ID() );
+					$has_video = $video ? 'has_video' : '';
 					?>
 			<div class="col-md-6">
-				<a href="<?= esc_url( get_the_permalink() ); ?>" class="cb-featured-work__card">
+				<a href="<?= esc_url( get_the_permalink() ); ?>" class="cb-featured-work__card <?= esc_attr( $has_video ); ?>">
 					<?php
 					$video = get_field( 'vimeo_url', get_the_ID() );
 					if ( $video ) {

@@ -28,8 +28,9 @@
 }
 .cb-related-work__card:hover {
   text-decoration: none;
+  color: initial;
 }
-.cb-related-work__card:hover .cb-featured-work__image {
+.cb-related-work .cb-related-work__card.has_video:hover .cb-related-work__image {
   opacity: 0;
 }
 .cb-related-work__image {
