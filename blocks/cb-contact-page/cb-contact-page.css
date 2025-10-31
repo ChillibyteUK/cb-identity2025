@@ -40,6 +40,20 @@
   text-decoration: underline;
 }
 
+.cb-contact-addresses__title {
+  background-color: var(--col-primary-black);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  color: var(--col-green-500);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-300);
+  line-height: 1;
+  background-image: url("../cb-work-index/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
 .cb-contact-addresses {
   background-color: var(--col-neutral-1100);
   color: var(--col-white);

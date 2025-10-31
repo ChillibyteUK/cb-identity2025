@@ -85,11 +85,11 @@ $l = get_field( 'contact_link' );
         </div>
     </div>
 </section>
-<div class="cb-contact-addreses__title">
-    <div class="id-container px-5">
+<section class="cb-contact-addresses__title">
+    <div class="id-container px-5 py-4">
         LOCATIONS
     </div>
-</div>
+</section>
 <section class="cb-contact-addresses">
     <div class="id-container px-5">
         <?php
