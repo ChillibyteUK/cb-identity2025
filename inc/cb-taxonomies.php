@@ -66,6 +66,6 @@ function cb_register_taxes() {
         'show_in_rest'       => true,
         'rewrite'            => false,
     );
-    register_taxonomy( 'theme', array( 'case_study', 'post' ), $args );
+    register_taxonomy( 'region', array( 'case_study', 'post' ), $args );
 }
 add_action( 'init', 'cb_register_taxes' );

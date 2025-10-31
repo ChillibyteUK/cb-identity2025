@@ -85,6 +85,11 @@ $l = get_field( 'contact_link' );
         </div>
     </div>
 </section>
+<div class="cb-contact-addreses__title">
+    <div class="id-container px-5">
+        LOCATIONS
+    </div>
+</div>
 <section class="cb-contact-addresses">
     <div class="id-container px-5">
         <?php
@@ -92,10 +97,10 @@ $l = get_field( 'contact_link' );
             the_row();
             ?>
         <div class="row mx-0 g-2 cb-contact-addresses__office mb-5">
-            <div class="col-md-6 px-0">
+            <div class="col-lg-6 px-0">
                 <h2><?= get_sub_field( 'office' ); ?></h2>
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6">
                 <div class="row">
                     <?php
                     if ( have_rows( 'sub_addresses' ) ) {
