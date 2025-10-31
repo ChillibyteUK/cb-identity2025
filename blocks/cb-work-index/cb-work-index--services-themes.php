@@ -30,7 +30,72 @@ $q = new WP_Query(
 	)
 );
 
+// Build maps between services and themes based on the queried posts so JS can restrict options.
+$service_to_themes = array();
+$theme_to_services = array();
+if ( ! empty( $q->posts ) ) {
+	foreach ( $q->posts as $post_item ) {
+		$pid           = $post_item->ID;
+		$post_services = get_the_terms( $pid, 'service' );
+		$post_themes   = get_the_terms( $pid, 'theme' );
 
+		$s_slugs = array();
+		$t_slugs = array();
+		if ( ! is_wp_error( $post_services ) && ! empty( $post_services ) ) {
+			foreach ( $post_services as $service_term ) {
+				// Include the term itself.
+				$s_slugs[] = $service_term->slug;
+				// Include all ancestor (parent) slugs so parent filters match posts with child terms.
+				$anc = get_ancestors( $service_term->term_id, 'service' );
+				if ( ! empty( $anc ) ) {
+					foreach ( $anc as $anc_id ) {
+						$anc_term = get_term( $anc_id, 'service' );
+						if ( $anc_term && ! is_wp_error( $anc_term ) ) {
+							$s_slugs[] = $anc_term->slug;
+						}
+					}
+				}
+			}
+			// Ensure uniqueness.
+			$s_slugs = array_values( array_unique( $s_slugs ) );
+		}
+		if ( ! is_wp_error( $post_themes ) && ! empty( $post_themes ) ) {
+			foreach ( $post_themes as $theme_term ) {
+				$t_slugs[] = $theme_term->slug;
+			}
+			$t_slugs = array_values( array_unique( $t_slugs ) );
+		}
+
+		// Map services -> themes and themes -> services.
+		foreach ( $s_slugs as $s_slug ) {
+			if ( ! isset( $service_to_themes[ $s_slug ] ) ) {
+				$service_to_themes[ $s_slug ] = array();
+			}
+			foreach ( $t_slugs as $t_slug ) {
+				if ( ! in_array( $t_slug, $service_to_themes[ $s_slug ], true ) ) {
+					$service_to_themes[ $s_slug ][] = $t_slug;
+				}
+				if ( ! isset( $theme_to_services[ $t_slug ] ) ) {
+					$theme_to_services[ $t_slug ] = array();
+				}
+				if ( ! in_array( $s_slug, $theme_to_services[ $t_slug ], true ) ) {
+					$theme_to_services[ $t_slug ][] = $s_slug;
+				}
+			}
+			if ( empty( $t_slugs ) && ! isset( $service_to_themes[ $s_slug ] ) ) {
+				$service_to_themes[ $s_slug ] = array();
+			}
+		}
+		// Ensure themes without services get an empty array key.
+		foreach ( $t_slugs as $t_slug ) {
+			if ( ! isset( $theme_to_services[ $t_slug ] ) ) {
+				$theme_to_services[ $t_slug ] = array();
+			}
+		}
+	}
+}
+$service_map_json = wp_json_encode( $service_to_themes );
+$theme_map_json   = wp_json_encode( $theme_to_services );
 
 ?>
 <section class="work-index-hero has-primary-black-background-color pt-5">
@@ -120,7 +185,7 @@ $q = new WP_Query(
 				<div class="col-12 col-md-2 col-lg-2 col-x1-1">
 					FILTER BY:
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-4">
 			<?php
 			$service_terms = get_terms(
 				array(
@@ -137,6 +202,30 @@ $q = new WP_Query(
 				foreach ( $service_terms as $service_term ) {
 					?>
 					<option value="<?php echo esc_attr( $service_term->slug ); ?>"><?php echo esc_html( $service_term->name ); ?></option>
+					<?php
+				}
+				?>
+			</select>
+				<?php
+			}
+			?>
+				</div>
+				<div class="col-md-4">
+			<?php
+			$theme_terms = get_terms(
+				array(
+					'taxonomy'   => 'theme',
+					'hide_empty' => true,
+				)
+			);
+			if ( ! is_wp_error( $theme_terms ) && ! empty( $theme_terms ) ) {
+				?>
+			<select id="cb-work-index-theme-filter" class="cb-work-index__filter-select">
+				<option value="all">All themes</option>
+				<?php
+				foreach ( $theme_terms as $theme_term ) {
+					?>
+					<option value="<?php echo esc_attr( $theme_term->slug ); ?>"><?php echo esc_html( $theme_term->name ); ?></option>
 					<?php
 				}
 				?>
@@ -179,9 +268,16 @@ $q = new WP_Query(
 							$service_classes .= ' service-' . $slug;
 						}
 					}
-						// ...existing code...
+					// get theme terms for filtering.
+					$theme_terms   = get_the_terms( get_the_ID(), 'theme' );
+					$theme_classes = '';
+					if ( ! is_wp_error( $theme_terms ) && ! empty( $theme_terms ) ) {
+						foreach ( $theme_terms as $theme_term ) {
+							$theme_classes .= ' theme-' . $theme_term->slug;
+						}
+					}
 					?>
-			<div class="col-md-6" data-service-terms="<?php echo esc_attr( trim( $service_classes ) ); ?>">
+			<div class="col-md-6" data-service-terms="<?php echo esc_attr( trim( $service_classes ) ); ?>" data-theme-terms="<?php echo esc_attr( trim( $theme_classes ) ); ?>">
 				<?php
 				/*
 				<!-- <div class="has-white-background-color has-black-color"><?php echo esc_html( trim( $service_classes ) ); ?></div>
@@ -276,23 +372,44 @@ document.addEventListener('DOMContentLoaded', function() {
 	const filterContainer = document.querySelector('.cb-work-index__filters');
 	if (!filterContainer) return;
 
+	let serviceMap = {};
+	let themeMap = {};
+	try {
+		serviceMap = JSON.parse(filterContainer.getAttribute('data-service-map') || '{}');
+		themeMap   = JSON.parse(filterContainer.getAttribute('data-theme-map') || '{}');
+	} catch (e) {
+		serviceMap = {};
+		themeMap = {};
+	}
+
 	const serviceSelect = document.getElementById('cb-work-index-service-filter');
+	const themeSelect = document.getElementById('cb-work-index-theme-filter');
 	const cardsContainer = document.querySelector('.cb-work-index__cards');
 	const resetButton = document.getElementById('cb-work-index-filter-reset');
 
+	// Initialize Tom Select on both selects (default, no custom disabling)
 	let serviceTom = serviceSelect ? new TomSelect(serviceSelect, {
+		allowEmptyOption: true,
+		closeAfterSelect: true
+	}) : null;
+	let themeTom = themeSelect ? new TomSelect(themeSelect, {
 		allowEmptyOption: true,
 		closeAfterSelect: true
 	}) : null;
 
 	function filterCards() {
 		const selectedService = serviceTom ? serviceTom.getValue() : (serviceSelect ? serviceSelect.value : 'all');
+		const selectedTheme = themeTom ? themeTom.getValue() : (themeSelect ? themeSelect.value : 'all');
 
 		document.querySelectorAll('.cb-work-index__card').forEach(function(card) {
 			const cardWrapper = card.parentElement;
 			const cardServiceTerms = cardWrapper.getAttribute('data-service-terms') || '';
+			const cardThemeTerms = cardWrapper.getAttribute('data-theme-terms') || '';
+
 			const serviceMatch = (selectedService === 'all') || (cardServiceTerms && cardServiceTerms.includes('service-' + selectedService));
-			if (serviceMatch) {
+			const themeMatch = (selectedTheme === 'all') || (cardThemeTerms && cardThemeTerms.includes('theme-' + selectedTheme));
+
+			if (serviceMatch && themeMatch) {
 				cardWrapper.style.display = '';
 			} else {
 				cardWrapper.style.display = 'none';
@@ -304,8 +421,15 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 	}
 
+	// No custom option disabling logic for Tom Select (default behavior)
+
 	if (serviceTom) {
 		serviceTom.on('change', function() {
+			filterCards();
+		});
+	}
+	if (themeTom) {
+		themeTom.on('change', function() {
 			filterCards();
 		});
 	}
@@ -313,6 +437,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	function resetFilters() {
 		if (serviceTom) {
 			serviceTom.setValue('all');
+		}
+		if (themeTom) {
+			themeTom.setValue('all');
 		}
 		filterCards();
 	}

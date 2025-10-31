@@ -151,11 +151,11 @@
 .ts-control {
   caret-color: transparent;
   cursor: pointer;
-  background: var(--col-primary-black, #181818) !important;
+  background: rgba(13, 13, 12, 0.8) !important;
   background-image: none;
   color: var(--col-green-400, #fff) !important;
   border-radius: 0;
-  border: 1px solid var(--col-green-400, #00ff99);
+  border: 1px solid rgba(184, 255, 82, 0.4);
   min-height: 34px;
   padding: 0.5rem 2.5rem 0.5rem 1rem;
   box-shadow: none;
@@ -163,9 +163,9 @@
 }
 
 .ts-dropdown {
-  background: var(--col-primary-black, #181818);
+  background: rgba(13, 13, 12, 0.8) !important;
   color: var(--col-green-400, #fff);
-  border: 1px solid var(--col-green-400, #00ff99);
+  border: 1px solid rgba(184, 255, 82, 0.4);
   border-radius: 0;
   margin-top: -1px;
   z-index: 9999 !important;
@@ -175,11 +175,16 @@
 .ts-dropdown .option {
   padding: 0.5rem 1rem;
   cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
 }
 
-.ts-dropdown .option.selected,
 .ts-dropdown .option.active {
-  background: var(--col-green-400, #00ff99);
+  background: rgba(221, 251, 178, 0.2);
+  color: var(--col-green-400, #181818);
+}
+
+.ts-dropdown .option.selected {
+  background: var(--col-green-400);
   color: var(--col-primary-black, #181818);
 }
 
