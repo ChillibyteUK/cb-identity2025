@@ -1,0 +1,13 @@
+/**
+ * CB Full Video Block Styles
+ *
+ * @package  cb-identity2025
+ */
+.cb-full-video {
+  background-color: var(--col-primary-black);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+.cb-full-video .full-video {
+  width: 100%;
+  aspect-ratio: 16/9;
+}
