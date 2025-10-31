@@ -172,6 +172,11 @@
   font-size: 1rem;
 }
 
+.ts-dropdown-content {
+  max-height: unset;
+  overflow: visible;
+}
+
 .ts-dropdown .option {
   padding: 0.5rem 1rem;
   cursor: pointer;
