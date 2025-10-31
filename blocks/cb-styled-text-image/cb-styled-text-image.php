@@ -24,7 +24,7 @@ $title_colour  = get_field( 'title_colour' );
 	</div>
     <div class="id-container ps-5">
         <div class="row">
-            <div class="col-md-6 py-5">
+            <div class="col-md-6 py-5 cb-styled-text-image__text-content">
                 <?= wp_kses_post( get_field( 'text_content' ) ); ?>
             </div>
             <div class="col-md-6 d-none d-md-block">
