@@ -112,23 +112,9 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 	<a href="<?= esc_url( get_the_permalink() ); ?>" class="work-index-hero__background">
 		<?php
 		// get title and thumbnail of first sticky or latest case study for background image.
-		$bg_case_study = null;
-		// Find the first sticky case_study by post meta.
-		$sticky_query = new WP_Query(
-			array(
-				'post_type'      => 'case_study',
-				'posts_per_page' => 1,
-				'orderby'        => 'date',
-				'order'          => 'DESC',
-				'meta_key'       => '_cb_case_study_sticky',
-				'meta_value'     => '1',
-			)
-		);
-		if ( $sticky_query->have_posts() ) {
-			$sticky_query->the_post();
-			$bg_case_study = get_the_ID();
-			wp_reset_postdata();
-		}
+		$bg_case_study = get_field( 'hero_case_study' )[0] ?? null;
+
+
 		if ( ! $bg_case_study ) {
 			$latest_query = new WP_Query(
 				array(
