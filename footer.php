@@ -32,7 +32,7 @@ defined( 'ABSPATH' ) || exit;
 			</div>
 
             <div class="col-md-2">
-				<div class="footer-title mb-4">About</div>
+				<div class="footer-title mb-4"><a href="/about/">About</a></div>
 				<?=
 				wp_nav_menu(
 					array(
