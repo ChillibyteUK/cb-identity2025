@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
     <div class="id-container px-5">
         <div class="row pb-4 g-4">
 			<div class="col-md-4">
-				<div class="footer-title--lg mb-3">Connect. Share. Follow.</div>
+				<!-- <div class="footer-title--lg mb-3">Connect. Share. Follow.</div> -->
 				<?= do_shortcode( '[social_icons class="fa-2x"]' ); ?>
 			</div>
 			<div class="col-md-2">
@@ -74,10 +74,10 @@ defined( 'ABSPATH' ) || exit;
 			</div>
 			<div class="col-md-2">
 				<div class="footer-title mb-5"><a href="/work/">Work</a></div>
-				<div class="footer-title mb-4">Innovation Lab</div>
+				<div class="footer-title mb-4"><a href="/innovation/">Innovation Lab</a></div>
             </div>
 			<div class="col-md-2">
-				<div class="footer-title mb-4"><a href="/news/">Media</a></div>
+				<div class="footer-title mb-4"><a href="/news/">News</a></div>
 				<?=
 				wp_nav_menu(
 					array(
