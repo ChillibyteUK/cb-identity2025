@@ -182,8 +182,8 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 	<div class="cb-work-index__filter-bar py-4 px-5">
 		<div class="id-container py-4 cb-work-index__filters" data-service-map='<?php echo esc_attr( $service_map_json ); ?>' data-theme-map='<?php echo esc_attr( $theme_map_json ); ?>'>
 			<div class="row g-4 align-items-center">
-				<div class="col-md-2">
-					<span style="min-width: 100px; color: var(--col-green-400);">
+				<div class="col-12 col-md-2 col-lg-2 col-x1-1">
+					<span style="color: var(--col-green-400);">
 						FILTER BY:
 					</span>
 				</div>
