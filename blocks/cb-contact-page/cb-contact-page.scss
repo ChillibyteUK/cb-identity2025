@@ -1,0 +1,66 @@
+/**
+ * CB Contact Page Block Styles
+ *
+ * @package  cb-identity2025
+ */
+
+.cb-contact-page {
+    background-color: var(--col-primary-black);
+    color: var(--col-white);
+    padding-block-start: 8rem;
+    h1 {
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+        font-size: var(--fs-850);
+        font-weight: var(--fw-semi);
+        line-height: 1;
+        padding-top: 0.25rem;
+    }
+    &__intro-content {
+        padding-block-end: 6rem;
+    }
+    &__intro-text {
+        font-size: var(--fs-600);
+        line-height: 1.5;
+        text-wrap: balance;
+    }
+
+    &__emails {
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+        padding-block: 0.5rem 3rem;
+        h2 {
+            font-weight: var(--fw-light);
+        }
+        a {
+            color: var(--col-green-400);
+            font-size: var(--fs-300);
+            font-weight: var(--fw-light);
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.cb-contact-addresses {
+    background-color: var(--col-neutral-1100);
+    color: var(--col-white);
+    padding-block: 3rem 6rem;
+    h2 {
+        font-size: var(--fs-700);
+        font-weight: var(--fw-light);
+        margin-bottom: 1rem;
+    }
+    &__office {
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+        padding-block: 0.5rem 0;
+    }
+    a {
+        color: var(--col-green-400);
+        font-weight: var(--fw-light);
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
