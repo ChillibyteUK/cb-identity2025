@@ -180,14 +180,10 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 </section>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-work-index">
 	<div class="cb-work-index__filter-bar py-4 px-5">
-		<div class="id-container py-4 cb-work-index__filters" data-service-map='<?php echo esc_attr( $service_map_json ); ?>' data-theme-map='<?php echo esc_attr( $theme_map_json ); ?>'>
-			<div class="row g-4 align-items-center">
-				<div class="col-md-2">
-					<span style="min-width: 100px; color: var(--col-green-400);">
-						FILTER BY:
-					</span>
-				</div>
-				<div class="col-md-4">
+		<div class="id-container py-4 px-5 d-flex justify-content-start gap-4 align-items-center cb-work-index__filters" data-service-map='<?php echo esc_attr( $service_map_json ); ?>' data-theme-map='<?php echo esc_attr( $theme_map_json ); ?>'>
+			<span style="min-width: 100px; color: var(--col-green-400);">
+				FILTER BY:
+			</span>
 			<?php
 			$service_terms = get_terms(
 				array(
@@ -198,7 +194,7 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 			);
 			if ( ! is_wp_error( $service_terms ) && ! empty( $service_terms ) ) {
 				?>
-			<select id="cb-work-index-service-filter" class="cb-work-index__filter-select">
+			<select id="cb-work-index-service-filter" class="cb-work-index__filter-select form-select">
 				<option value="all">All Services</option>
 				<?php
 				foreach ( $service_terms as $service_term ) {
@@ -210,10 +206,6 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 			</select>
 				<?php
 			}
-			?>
-				</div>
-				<div class="col-md-4">
-			<?php
 			$theme_terms = get_terms(
 				array(
 					'taxonomy'   => 'theme',
@@ -222,7 +214,7 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 			);
 			if ( ! is_wp_error( $theme_terms ) && ! empty( $theme_terms ) ) {
 				?>
-			<select id="cb-work-index-theme-filter" class="cb-work-index__filter-select">
+			<select id="cb-work-index-theme-filter" class="cb-work-index__filter-select form-select">
 				<option value="all">All themes</option>
 				<?php
 				foreach ( $theme_terms as $theme_term ) {
@@ -235,11 +227,7 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 				<?php
 			}
 			?>
-				</div>
-				<div class="col-md-2">
-					<button id="cb-work-index-filter-reset" class="btn btn-id-outline-green">Reset</button>
-				</div>
-			</div>
+			<button id="cb-work-index-filter-reset" class="btn btn-id-outline-green">Reset</button>
 		</div>
 	</div>
 	<div class="id-container">
@@ -380,6 +368,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		serviceMap = JSON.parse(filterContainer.getAttribute('data-service-map') || '{}');
 		themeMap   = JSON.parse(filterContainer.getAttribute('data-theme-map') || '{}');
 	} catch (e) {
+		// parsing failed; leave maps empty and fall back to simple filtering.
 		serviceMap = {};
 		themeMap = {};
 	}
@@ -389,19 +378,13 @@ document.addEventListener('DOMContentLoaded', function() {
 	const cardsContainer = document.querySelector('.cb-work-index__cards');
 	const resetButton = document.getElementById('cb-work-index-filter-reset');
 
-	// Initialize Tom Select on both selects (default, no custom disabling)
-	let serviceTom = serviceSelect ? new TomSelect(serviceSelect, {
-		allowEmptyOption: true,
-		closeAfterSelect: true
-	}) : null;
-	let themeTom = themeSelect ? new TomSelect(themeSelect, {
-		allowEmptyOption: true,
-		closeAfterSelect: true
-	}) : null;
+	// store originals for full resets and to preserve label ordering
+	const serviceOriginalHTML = serviceSelect ? serviceSelect.innerHTML : null;
+	const themeOriginalHTML = themeSelect ? themeSelect.innerHTML : null;
 
 	function filterCards() {
-		const selectedService = serviceTom ? serviceTom.getValue() : (serviceSelect ? serviceSelect.value : 'all');
-		const selectedTheme = themeTom ? themeTom.getValue() : (themeSelect ? themeSelect.value : 'all');
+		const selectedService = serviceSelect ? serviceSelect.value : 'all';
+		const selectedTheme = themeSelect ? themeSelect.value : 'all';
 
 		document.querySelectorAll('.cb-work-index__card').forEach(function(card) {
 			const cardWrapper = card.parentElement;
@@ -423,25 +406,77 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 	}
 
-	// No custom option disabling logic for Tom Select (default behavior)
+	function rebuildOptions(changedType) {
+		// When a service is selected, disable theme options that don't appear with that service, and vice versa.
+		if ( changedType === 'service' && serviceSelect && themeSelect ) {
+			const svc = serviceSelect.value;
+			let allowed = null;
+			if ( svc === 'all' ) {
+				allowed = null; // allow all
+			} else {
+				allowed = serviceMap[ svc ] || [];
+			}
 
-	if (serviceTom) {
-		serviceTom.on('change', function() {
-			filterCards();
-		});
-	}
-	if (themeTom) {
-		themeTom.on('change', function() {
-			filterCards();
-		});
-	}
+			// Enable/disable theme options instead of removing them so users can still see unavailable choices.
+			Array.from( themeSelect.options ).forEach( function( opt ) {
+				if ( opt.value === 'all' ) {
+					opt.disabled = false;
+					return;
+				}
+				opt.disabled = ( allowed !== null && allowed.indexOf( opt.value ) === -1 );
+			} );
 
-	function resetFilters() {
-		if (serviceTom) {
-			serviceTom.setValue('all');
+			// If the currently selected theme is now disabled, reset it to 'all'.
+			if ( themeSelect.selectedOptions.length && themeSelect.selectedOptions[0].disabled ) {
+				themeSelect.value = 'all';
+			}
 		}
-		if (themeTom) {
-			themeTom.setValue('all');
+
+		if ( changedType === 'theme' && themeSelect && serviceSelect ) {
+			const th = themeSelect.value;
+			let allowed = null;
+			if ( th === 'all' ) {
+				allowed = null;
+			} else {
+				allowed = themeMap[ th ] || [];
+			}
+
+			Array.from( serviceSelect.options ).forEach( function( opt ) {
+				if ( opt.value === 'all' ) {
+					opt.disabled = false;
+					return;
+				}
+				opt.disabled = ( allowed !== null && allowed.indexOf( opt.value ) === -1 );
+			} );
+
+			if ( serviceSelect.selectedOptions.length && serviceSelect.selectedOptions[0].disabled ) {
+				serviceSelect.value = 'all';
+			}
+		}
+	}
+
+	if (serviceSelect) {
+		serviceSelect.addEventListener('change', function() {
+			rebuildOptions('service');
+			filterCards();
+			// also update the other select's options entirely
+            
+		});
+	}
+	if (themeSelect) {
+		themeSelect.addEventListener('change', function() {
+			rebuildOptions('theme');
+			filterCards();
+		});
+	}
+	function resetFilters() {
+		if (serviceSelect && serviceOriginalHTML !== null) {
+			serviceSelect.innerHTML = serviceOriginalHTML;
+			serviceSelect.value = 'all';
+		}
+		if (themeSelect && themeOriginalHTML !== null) {
+			themeSelect.innerHTML = themeOriginalHTML;
+			themeSelect.value = 'all';
 		}
 		filterCards();
 	}

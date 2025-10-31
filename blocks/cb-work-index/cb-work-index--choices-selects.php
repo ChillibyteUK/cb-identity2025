@@ -181,7 +181,7 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-work-index">
 	<div class="cb-work-index__filter-bar py-4 px-5">
 		<div class="id-container py-4 cb-work-index__filters" data-service-map='<?php echo esc_attr( $service_map_json ); ?>' data-theme-map='<?php echo esc_attr( $theme_map_json ); ?>'>
-			<div class="row g-4 align-items-center">
+			<div class="row">
 				<div class="col-md-2">
 					<span style="min-width: 100px; color: var(--col-green-400);">
 						FILTER BY:
@@ -198,7 +198,7 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 			);
 			if ( ! is_wp_error( $service_terms ) && ! empty( $service_terms ) ) {
 				?>
-			<select id="cb-work-index-service-filter" class="cb-work-index__filter-select">
+			<select id="cb-work-index-service-filter" class="cb-work-index__filter-select form-select">
 				<option value="all">All Services</option>
 				<?php
 				foreach ( $service_terms as $service_term ) {
@@ -222,7 +222,7 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 			);
 			if ( ! is_wp_error( $theme_terms ) && ! empty( $theme_terms ) ) {
 				?>
-			<select id="cb-work-index-theme-filter" class="cb-work-index__filter-select">
+			<select id="cb-work-index-theme-filter" class="cb-work-index__filter-select form-select">
 				<option value="all">All themes</option>
 				<?php
 				foreach ( $theme_terms as $theme_term ) {
@@ -237,7 +237,7 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 			?>
 				</div>
 				<div class="col-md-2">
-					<button id="cb-work-index-filter-reset" class="btn btn-id-outline-green">Reset</button>
+				<button id="cb-work-index-filter-reset" class="btn btn-id-outline-green">Reset</button>
 				</div>
 			</div>
 		</div>
@@ -349,6 +349,11 @@ add_action(
 		?>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+
+	// custom selects using Choices.js
+	let serviceChoices = null;
+	let themeChoices = null;
+
 	// Video hover play/pause binding.
 	document.querySelectorAll('.cb-work-index__card').forEach(function(card) {
 		const iframe = card.querySelector('iframe.work-video');
@@ -380,28 +385,27 @@ document.addEventListener('DOMContentLoaded', function() {
 		serviceMap = JSON.parse(filterContainer.getAttribute('data-service-map') || '{}');
 		themeMap   = JSON.parse(filterContainer.getAttribute('data-theme-map') || '{}');
 	} catch (e) {
+		// parsing failed; leave maps empty and fall back to simple filtering.
 		serviceMap = {};
 		themeMap = {};
 	}
 
 	const serviceSelect = document.getElementById('cb-work-index-service-filter');
 	const themeSelect = document.getElementById('cb-work-index-theme-filter');
+	if (window.Choices) {
+		if (serviceSelect) serviceChoices = new Choices(serviceSelect, { searchEnabled: false, itemSelectText: '', shouldSort: false, renderChoiceLimit: -1 });
+		if (themeSelect) themeChoices = new Choices(themeSelect, { searchEnabled: false, itemSelectText: '', shouldSort: false, renderChoiceLimit: -1 });
+	}
 	const cardsContainer = document.querySelector('.cb-work-index__cards');
 	const resetButton = document.getElementById('cb-work-index-filter-reset');
 
-	// Initialize Tom Select on both selects (default, no custom disabling)
-	let serviceTom = serviceSelect ? new TomSelect(serviceSelect, {
-		allowEmptyOption: true,
-		closeAfterSelect: true
-	}) : null;
-	let themeTom = themeSelect ? new TomSelect(themeSelect, {
-		allowEmptyOption: true,
-		closeAfterSelect: true
-	}) : null;
+	// store originals for full resets and to preserve label ordering
+	const serviceOriginalHTML = serviceSelect ? serviceSelect.innerHTML : null;
+	const themeOriginalHTML = themeSelect ? themeSelect.innerHTML : null;
 
 	function filterCards() {
-		const selectedService = serviceTom ? serviceTom.getValue() : (serviceSelect ? serviceSelect.value : 'all');
-		const selectedTheme = themeTom ? themeTom.getValue() : (themeSelect ? themeSelect.value : 'all');
+		const selectedService = serviceSelect ? serviceSelect.value : 'all';
+		const selectedTheme = themeSelect ? themeSelect.value : 'all';
 
 		document.querySelectorAll('.cb-work-index__card').forEach(function(card) {
 			const cardWrapper = card.parentElement;
@@ -423,26 +427,71 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 	}
 
-	// No custom option disabling logic for Tom Select (default behavior)
+	function rebuildOptions(changedType) {
+		// Helper to enable/disable choices by value using Choices.js API
+		function setChoicesEnabled(choicesInstance, allowed) {
+			if (!choicesInstance) return;
+			(choicesInstance.choices || []).forEach(function(choice) {
+				if (!choice.value) return;
+				if (choice.value === 'all') {
+					choicesInstance.enableChoiceByValue('all');
+				} else if (allowed === null || allowed.indexOf(choice.value) !== -1) {
+					choicesInstance.enableChoiceByValue(choice.value);
+				} else {
+					choicesInstance.disableChoiceByValue(choice.value);
+				}
+			});
+		}
 
-	if (serviceTom) {
-		serviceTom.on('change', function() {
+		if ( changedType === 'service' && serviceSelect && themeSelect && themeChoices ) {
+			const svc = serviceSelect.value;
+			let allowed = null;
+			if ( svc === 'all' ) {
+				allowed = null; // allow all
+			} else {
+				allowed = serviceMap[ svc ] || [];
+			}
+			setChoicesEnabled(themeChoices, allowed);
+			// If the currently selected theme is now disabled, reset it to 'all'.
+			if (themeSelect.selectedOptions.length && themeSelect.selectedOptions[0].disabled) {
+				themeChoices.setChoiceByValue('all');
+			}
+		}
+
+		if ( changedType === 'theme' && themeSelect && serviceSelect && serviceChoices ) {
+			const th = themeSelect.value;
+			let allowed = null;
+			if ( th === 'all' ) {
+				allowed = null;
+			} else {
+				allowed = themeMap[ th ] || [];
+			}
+			setChoicesEnabled(serviceChoices, allowed);
+			if (serviceSelect.selectedOptions.length && serviceSelect.selectedOptions[0].disabled) {
+				serviceChoices.setChoiceByValue('all');
+			}
+		}
+	}
+
+	if (serviceSelect) {
+		serviceSelect.addEventListener('change', function() {
+			rebuildOptions('service');
+			filterCards();
+			// also update the other select's options entirely
+            
+		});
+	}
+	if (themeSelect) {
+		themeSelect.addEventListener('change', function() {
+			rebuildOptions('theme');
 			filterCards();
 		});
 	}
-	if (themeTom) {
-		themeTom.on('change', function() {
-			filterCards();
-		});
-	}
-
 	function resetFilters() {
-		if (serviceTom) {
-			serviceTom.setValue('all');
-		}
-		if (themeTom) {
-			themeTom.setValue('all');
-		}
+		if (serviceChoices) serviceChoices.setChoiceByValue('all');
+		if (themeChoices) themeChoices.setChoiceByValue('all');
+		rebuildOptions('service');
+		rebuildOptions('theme');
 		filterCards();
 	}
 
