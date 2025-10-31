@@ -161,7 +161,7 @@
 .ts-control {
     caret-color: transparent;
     cursor: pointer;
-    background: rgb( 13, 13, 12, 0.8) !important; // var(--col-primary-black, #181818) !important;
+    background: rgb( 13, 13, 12, 0.9) !important; // var(--col-primary-black, #181818) !important;
     background-image: none;
     color: var(--col-green-400, #fff) !important;
     border-radius: 0;
@@ -172,7 +172,7 @@
     font-size: 1rem !important;
 }
 .ts-dropdown {
-    background: rgb( 13, 13, 12, 0.8) !important; // var(--col-primary-black, #181818) !important;
+    background: rgb( 13, 13, 12, 0.9) !important; // var(--col-primary-black, #181818) !important;
     color: var(--col-green-400, #fff);
     border: 1px solid rgb(184, 255, 82, 0.4); // var(--col-green-400, #00ff99);
     border-radius: 0;
