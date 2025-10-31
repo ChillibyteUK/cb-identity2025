@@ -30,7 +30,7 @@ function cb_register_taxes() {
         'show_in_rest'       => true,
         'rewrite'            => false,
     );
-    register_taxonomy( 'service', array( 'case_study' ), $args );
+    register_taxonomy( 'service', array( 'case_study', 'post' ), $args );
 
 	$args = array(
         'labels'             => array(
@@ -48,7 +48,7 @@ function cb_register_taxes() {
         'show_in_rest'       => true,
         'rewrite'            => false,
     );
-    register_taxonomy( 'theme', array( 'case_study' ), $args );
+    register_taxonomy( 'theme', array( 'case_study', 'post' ), $args );
 
     $args = array(
         'labels'             => array(
@@ -66,6 +66,6 @@ function cb_register_taxes() {
         'show_in_rest'       => true,
         'rewrite'            => false,
     );
-    register_taxonomy( 'theme', array( 'case_study' ), $args );
+    register_taxonomy( 'theme', array( 'case_study', 'post' ), $args );
 }
 add_action( 'init', 'cb_register_taxes' );
