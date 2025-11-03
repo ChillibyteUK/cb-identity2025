@@ -42,20 +42,33 @@ if ( $background ) {
 	?>
 	<?php
 	if ( $background ) {
+		$overlay = get_field( 'left_content' ) ? 'overlay--white' : '';
 		?>
-	<div class="overlay"></div>
+	<div class="overlay <?= esc_attr( $overlay ); ?>"></div>
 		<?php
 	}
+
+	$desc_class = '';
 	?>
 	<div class="id-container px-5">
 		<div class="row py-4">
 			<div class="col-md-6">
 				<h2><?= esc_html( get_field( 'title' ) ); ?></h2>
+				<?php
+				if ( get_field( 'left_content' ) ) {
+					?>
+				<div class="cb-pushthrough__left-content mb-3">
+					<?= wp_kses_post( get_field( 'left_content' ) ); ?>
+				</div>
+					<?php
+					$desc_class = 'larger-left';
+				}
+				?>
 			</div>
 			<div class="col-md-6">
-				<p class="cb-pushthrough__desc">
-					<?= esc_html( get_field( 'description' ) ); ?>
-				</p>
+				<div class="cb-pushthrough__desc <?= esc_attr( $desc_class ); ?>">
+					<?= wp_kses_post( get_field( 'description' ) ); ?>
+				</div>
 				<?php
 				if ( $l && isset( $l['url'], $l['title'] ) ) {
 					?>

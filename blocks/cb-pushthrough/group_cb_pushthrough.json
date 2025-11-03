@@ -63,9 +63,9 @@
             "append": ""
         },
         {
-            "key": "field_69021b74a88b6",
-            "label": "Description",
-            "name": "description",
+            "key": "field_6908da26019b0",
+            "label": "Left content",
+            "name": "left_content",
             "aria-label": "",
             "type": "textarea",
             "instructions": "",
@@ -82,6 +82,27 @@
             "rows": 4,
             "placeholder": "",
             "new_lines": "br"
+        },
+        {
+            "key": "field_69021b74a88b6",
+            "label": "Description",
+            "name": "description",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         },
         {
             "key": "field_69021b8aa88b7",
@@ -146,5 +167,5 @@
     "description": "Fields for the CB Pushthrough block",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1761840029
+    "modified": 1762187930
 }
