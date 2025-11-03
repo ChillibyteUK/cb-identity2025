@@ -94,7 +94,7 @@ function modify_core_add_container( $attributes, $content ) {
 	if ( ! ( $is_list_block && $is_nested ) ) {
 		ob_start();
 		?>
-		<div class="container">
+		<div class="id-container">
 			<?= wp_kses_post( $content ); ?>
 		</div>
 		<?php
