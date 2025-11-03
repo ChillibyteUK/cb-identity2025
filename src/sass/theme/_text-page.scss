@@ -11,4 +11,28 @@
             font-weight: var(--fw-light);
         }
     }
+    .post-content {
+        --_colour: var(--col-green-400);
+        .container {
+            padding-inline: 0;
+            margin-inline-end: 2rem;
+        }
+        .container:first-of-type {
+            color: var(--_colour);
+            font-size: var(--fs-500);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            margin-bottom: 2rem;
+            padding-block: 1rem 0.5rem;
+        }
+
+        h2 {
+            border-top: 1px solid rgba(255, 255, 255, 0.4);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            color: var(--_colour);
+            font-size: var(--fs-600);
+            font-weight: var(--fw-semi);
+            margin-block: 2rem;
+            padding-block: 0.25rem;
+        }
+    }
 }

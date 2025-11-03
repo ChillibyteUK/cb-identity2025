@@ -20,7 +20,7 @@ get_header();
 		</div>
 	</div>
 	<div class="id-container">
-		<div class="row post-content-row py-5 mb-5">
+		<div class="row post-content-row mb-5">
 			<div class="col-md-3"></div>
 			<div class="col-md-9 text-white post-content px-5 ps-md-0 pe-md-5">
 				<?php
