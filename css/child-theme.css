@@ -21856,11 +21856,11 @@ strong {
   }
 }
 header {
-  background-color: rgba(13, 13, 12, 0.4);
+  background-color: var(--col-primary-black) !important;
   transition: background-color 0.3s ease;
 }
 header.scrolled {
-  background-color: var(--col-primary-black);
+  background-color: rgba(13, 13, 12, 0.6) !important;
 }
 header a,
 header a.nav-link {
@@ -22251,6 +22251,10 @@ header .navbar-toggler {
   padding-block: 0.25rem;
 }
 
+body {
+  background-color: var(--col-primary-black);
+}
+
 @media (min-width: 992px) {
   .cols-lg-2 {
     -moz-columns: 2;
@@ -22264,7 +22268,6 @@ header .navbar-toggler {
 .sticky {
   position: sticky;
   top: 0;
-  background-color: var(--col-neutral-50);
   z-index: 1000;
 }
 @media (min-width: 992px) {

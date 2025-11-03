@@ -1,9 +1,8 @@
 header {
-
-  background-color: rgba( 13, 13, 12, 0.4 );
+  background-color: var(--col-primary-black) !important;
   transition: background-color 0.3s ease;
   &.scrolled {
-    background-color: var(--col-primary-black);
+    background-color: rgba( 13, 13, 12, 0.6 ) !important;
   }
 
   a,
@@ -111,7 +110,7 @@ header {
   .logo-clip { transition: none; }
 }
 
-  /* when animate is added, slide left by the computed final offset */
-  .logo-clip.animate .logo-inner {
-    transform: translateX(var(--logo-final-offset, 0px));
-  }
+/* when animate is added, slide left by the computed final offset */
+.logo-clip.animate .logo-inner {
+  transform: translateX(var(--logo-final-offset, 0px));
+}

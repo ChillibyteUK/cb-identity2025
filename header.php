@@ -104,7 +104,7 @@ if ( session_status() === PHP_SESSION_NONE ) {
     	}
 	}
 	?>
-<header id="wrapper-navbar" class="fixed-top py-2">
+<header id="wrapper-navbar" class="sticky py-2">
 	<nav class="navbar navbar-expand-lg">
 		<div class="id-container d-flex px-5 gap-4">
             <div class="d-flex justify-content-between w-100 w-lg-auto align-items-center py-3 py-lg-0">
