@@ -13,7 +13,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Block ID.
 $block_id = $block['id'] ?? '';
 
+
 $cta_option = get_query_var( 'cta_choice', get_field( 'cta_choice' ) );
+
+
+// If not set, and there are CTA rows, use the first CTA as default.
+if ( ! $cta_option && have_rows( 'ctas', 'option' ) ) {
+	the_row();
+	$cta_option = get_sub_field( 'cta_id' );
+	// Rewind rows pointer for the main loop below by calling have_rows() again.
+	have_rows( 'ctas', 'option' );
+}
 
 if ( ! $cta_option ) {
 	return;
