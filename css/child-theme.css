@@ -22286,6 +22286,13 @@ header .navbar-toggler {
   color: var(--col-neutral-900);
 }
 
+.anchor {
+  display: block;
+  position: relative;
+  top: -57px;
+  visibility: hidden;
+}
+
 .wp-block-group:not(.alignfull) .container, .wp-block-group:not(.alignfull) .wp-block-group:not(.alignfull) {
   padding-inline: 0;
 }
