@@ -22268,6 +22268,20 @@ header:has(.navbar-collapse.collapse.show) {
   padding-block: 0.25rem;
 }
 
+.text-page {
+  background-color: var(--col-primary-black);
+  color: var(--col-white);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+.text-page .post-title {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  padding-block: 1rem;
+}
+.text-page .post-title h1, .text-page .post-title .h1 {
+  font-size: var(--fs-850);
+  font-weight: var(--fw-light);
+}
+
 body {
   background-color: var(--col-primary-black);
 }
