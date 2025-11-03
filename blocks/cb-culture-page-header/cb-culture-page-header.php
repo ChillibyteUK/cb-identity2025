@@ -96,8 +96,7 @@ $bg = get_query_var( 'background', get_field( 'background' ) );
 				<div class="col-md-6">
 					<h2 class="life-detail-title"><?= wp_kses_post( $item_title ); ?></h2>
 				</div>
-				<div class="col-md-1"></div>
-				<div class="col-md-5">
+				<div class="col-md-6">
 					<div class="life-detail-description">
 						<?= wp_kses_post( $description ); ?>
 					</div>
