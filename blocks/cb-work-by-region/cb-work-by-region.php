@@ -33,7 +33,7 @@ $tax_query[] = array(
 $q = new WP_Query(
 	array(
 		'post_type'      => 'case_study',
-		'posts_per_page' => 4,
+		'posts_per_page' => -1,
 		'orderby'        => 'date',
 		'order'          => 'DESC',
 		'tax_query'      => $tax_query,

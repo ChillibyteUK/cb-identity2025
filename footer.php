@@ -43,7 +43,7 @@ defined( 'ABSPATH' ) || exit;
 				?>
 			</div>
             <div class="col-md-2">
-				<div class="footer-title mb-4">Identity</div>
+				<div class="footer-title mb-4"><a href="/about/#brands">Our Brands</div>
 				<?=
 				wp_nav_menu(
 					array(
@@ -88,7 +88,7 @@ defined( 'ABSPATH' ) || exit;
 				?>
 			</div>
 			<div class="col-md-2">
-				<div class="footer-title mb-4">Global</div>
+				<div class="footer-title mb-4"><a href="/contact/#locations">Global</a></div>
 				<?=
 				wp_nav_menu(
 					array(
