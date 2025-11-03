@@ -22288,7 +22288,7 @@ header:has(.navbar-collapse.collapse.show) {
   padding-inline: 0;
   margin-inline-end: 2rem;
 }
-.text-page .post-content .container:first-of-type, .text-page .post-content .wp-block-group:first-of-type:not(.alignfull) {
+.text-page .post-content .container:first-of-type:not([class*=wp-block-list]), .text-page .post-content .wp-block-group:first-of-type:not([class*=wp-block-list]):not(.alignfull) {
   color: var(--_colour);
   font-size: var(--fs-500);
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
@@ -22303,6 +22303,10 @@ header:has(.navbar-collapse.collapse.show) {
   font-weight: var(--fw-semi);
   margin-block: 2rem;
   padding-block: 0.25rem;
+}
+.text-page .post-content .table, .wp-block-table .text-page .post-content table,
+.text-page .post-content .wp-block-table table {
+  color: var(--col-white) !important;
 }
 
 body {
