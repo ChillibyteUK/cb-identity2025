@@ -16,7 +16,7 @@ $block_id = $block['id'] ?? '';
 $l = get_field( 'link' );
 
 $background  = get_field( 'background' );
-$link_colour = $background ? 'has-green-400-color' : '';
+// $link_colour = $background ? 'has-green-400-color' : '';
 $arrow       = $background ? 'arrow-g400.svg' : 'arrow-wh.svg';
 if ( $background ) {
 	?>
@@ -72,7 +72,7 @@ if ( $background ) {
 				<?php
 				if ( $l && isset( $l['url'], $l['title'] ) ) {
 					?>
-				<a href="<?= esc_url( $l['url'] ); ?>" class="cb-pushthrough__link <?= esc_attr( $link_colour ); ?>">
+				<a href="<?= esc_url( $l['url'] ); ?>" class="cb-pushthrough__link">
 					<?= esc_html( $l['title'] ); ?>&nbsp;
 					<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/' . esc_attr( $arrow ) ); ?>" width=33 height=26 alt="" />
 				</a>
