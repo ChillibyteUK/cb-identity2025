@@ -68,43 +68,16 @@ function is_footer_rendering() {
  * @return string The modified block content wrapped in a container div.
  */
 function modify_core_add_container( $attributes, $content ) {
-	if ( is_footer_rendering() ) {
-		return $content;
-	}
+    if ( is_footer_rendering() ) {
+        return $content;
+    }
 
-	// Prevent container if this is a list inside a list (nested list block).
-	// Check if the parent block is also a list block by inspecting the global block context.
-	global $cb_is_inside_list_block;
-	$is_nested = ! empty( $cb_is_inside_list_block );
-
-	$is_list_block = false;
-	if ( ! empty( $attributes['blockName'] ) && $attributes['blockName'] === 'core/list' ) {
-		$is_list_block = true;
-	}
-
-	// Set flag for nested list detection
-	if ( $is_list_block ) {
-		if ( ! $is_nested ) {
-			$cb_is_inside_list_block = true;
-		}
-	}
-
-	// Only add container if not a nested list
-	$output = $content;
-	if ( ! ( $is_list_block && $is_nested ) ) {
-		ob_start();
-		?>
-		<div class="id-container">
-			<?= wp_kses_post( $content ); ?>
-		</div>
-		<?php
-		$output = ob_get_clean();
-	}
-
-	// Unset flag after rendering this block
-	if ( $is_list_block && ! $is_nested ) {
-		unset( $cb_is_inside_list_block );
-	}
-
-	return $output;
+    ob_start();
+    ?>
+    <div class="container">
+        <?= wp_kses_post( $content ); ?>
+    </div>
+	<?php
+	$content = ob_get_clean();
+    return $content;
 }

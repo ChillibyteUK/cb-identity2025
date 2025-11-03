@@ -17,7 +17,7 @@
             padding-inline: 0;
             margin-inline-end: 2rem;
         }
-        .container:first-of-type:not([class*="wp-block-list"]) {
+        > .container:first-of-type {
             color: var(--_colour);
             font-size: var(--fs-500);
             border-bottom: 1px solid rgba(255, 255, 255, 0.4);
