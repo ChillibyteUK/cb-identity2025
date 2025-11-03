@@ -57,7 +57,7 @@ if ( $background ) {
 				<?php
 				if ( get_field( 'left_content' ) ) {
 					?>
-				<div class="cb-pushthrough__left-content mb-3">
+				<div class="cb-pushthrough__left-content mb-3 pt-3">
 					<?= wp_kses_post( get_field( 'left_content' ) ); ?>
 				</div>
 					<?php

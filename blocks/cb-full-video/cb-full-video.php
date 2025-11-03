@@ -18,6 +18,13 @@ $vimeo_url = get_field( 'vimeo_url' );
 if ( ! $vimeo_url ) {
     return;
 }
+
+if ( $block['anchor'] ) {
+	?>
+<a id="<?= esc_attr( $block['anchor'] ); ?>" class="anchor"></a>
+	<?php
+}
+
 ?>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-full-video">
     <div class="id-container ratio ratio-16x9">
