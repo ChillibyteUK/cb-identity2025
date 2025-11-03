@@ -48,7 +48,7 @@ $bg = get_query_var( 'background', get_field( 'background' ) );
 	<div class="cb-culture-page-header__careers">
 		<div class="careers-overlay"></div>
 		<div class="cb-culture-page-header__careers-pretitle">
-			<div class="id-container px-5 py-4">
+			<div class="id-container px-5 pt-2 pb-1">
 				JOIN US
 			</div>
 		</div>
@@ -75,5 +75,38 @@ $bg = get_query_var( 'background', get_field( 'background' ) );
 				</div>
 			</div>
 		</div>
+	</div>
+</section>
+<section class="culture-life">
+	<div class="culture-life__pretitle">
+		<div class="id-container px-5 pt-2 pb-1">
+			LIFE AT IDENTITY
+		</div>
+	</div>
+	<div class="id-container px-5">
+		<?php
+		if ( have_rows( 'life' ) ) {
+			$c = 0;
+			while ( have_rows( 'life' ) ) {
+				the_row();
+				$item_title  = get_sub_field( 'title' );
+				$description = get_sub_field( 'content' );
+				?>
+			<div class="row life-detail-row pb-5" data-aos="fade-up" data-aos-delay="<?= esc_attr( $c ); ?>">
+				<div class="col-md-6">
+					<h2 class="life-detail-title"><?= wp_kses_post( $item_title ); ?></h2>
+				</div>
+				<div class="col-md-1"></div>
+				<div class="col-md-5">
+					<div class="life-detail-description">
+						<?= wp_kses_post( $description ); ?>
+					</div>
+				</div>
+			</div>
+				<?php
+				$c += 100;
+			}
+		}
+		?>
 	</div>
 </section>

@@ -106,3 +106,33 @@
 .cb-culture-page-header__careers .careers-link:hover {
   color: var(--col-green-300);
 }
+
+.culture-life {
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  color: var(--col-white);
+  padding-bottom: 6rem;
+}
+.culture-life__pretitle {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  padding-block: 0.5rem;
+  color: var(--col-purple-300);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-300);
+  line-height: 1;
+}
+.culture-life .life-detail-row:first-child {
+  padding-top: 1rem;
+}
+.culture-life .life-detail-row:not(:first-child) {
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+}
+.culture-life .life-detail-title {
+  padding-block: 0.75rem;
+  font-size: var(--fs-700);
+  font-weight: var(--fw-light);
+}
+.culture-life .life-detail-description {
+  padding-block: 0.75rem;
+  font-size: var(--fs-400);
+  font-weight: var(--fw-light);
+}

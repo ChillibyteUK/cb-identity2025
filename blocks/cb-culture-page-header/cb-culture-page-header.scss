@@ -108,3 +108,33 @@
 
     }
 }
+.culture-life {
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    &__pretitle {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        padding-block: 0.5rem;
+        color: var(--col-purple-300);
+        font-weight: var(--fw-regular);
+        font-size: var(--fs-300);
+        line-height: 1;
+    }
+
+    color: var(--col-white);
+    padding-bottom: 6rem;
+    .life-detail-row:first-child {
+        padding-top: 1rem;
+    }
+    .life-detail-row:not(:first-child) {
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+    }
+    .life-detail-title {
+        padding-block: 0.75rem;
+        font-size: var(--fs-700);
+        font-weight: var(--fw-light);
+    }
+    .life-detail-description {
+        padding-block: 0.75rem;
+        font-size: var(--fs-400);
+        font-weight: var(--fw-light);
+    }
+}

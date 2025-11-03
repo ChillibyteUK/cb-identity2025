@@ -14,6 +14,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 $block_id  = $block['id'] ?? '';
 $blog_type = get_query_var( 'blog_type', '' );
 
+// if blog_type is not set, check get_field('category') for a term id (single or array) and use that.
+if ( ! $blog_type ) {
+	$cat_field = get_field( 'category' );
+	$first_cat = null;
+	if ( is_array( $cat_field ) && count( $cat_field ) > 0 ) {
+		$first_cat = $cat_field[0];
+	} elseif ( ! empty( $cat_field ) ) {
+		$first_cat = $cat_field;
+	}
+	if ( $first_cat ) {
+		$term = get_term( $first_cat );
+		if ( $term && ! is_wp_error( $term ) ) {
+			$blog_type = $term->slug;
+		}
+	}
+}
+
 $background    = '';
 $section_title = '';
 
@@ -28,19 +45,19 @@ switch ( $blog_type ) {
 		$background    = 'has-neutral-1100-background-color';
 		$section_title = 'has-neutral-1000-background-color';
 		$arrow         = '/img/arrow-n600.svg';
-		$block_title   = 'RECENT NEWS';
+		$block_title   = 'RECENT INSIGHTS';
 		break;
 	case 'perspectives':
 		$background    = 'has-neutral-1100-background-color';
 		$section_title = 'has-neutral-1000-background-color';
 		$arrow         = '/img/arrow-n600.svg';
-		$block_title   = 'RECENT NEWS';
+		$block_title   = 'RECENT PERSPECTIVES';
 		break;
 	case 'white-paper':
 		$background    = 'has-neutral-1100-background-color';
 		$section_title = 'has-neutral-1000-background-color';
 		$arrow         = '/img/arrow-n600.svg';
-		$block_title   = 'RECENT NEWS';
+		$block_title   = 'RECENT WHITE PAPERS';
 		break;
 	default:
 		$background    = 'has-primary-black-background-color';
