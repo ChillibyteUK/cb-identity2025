@@ -62,7 +62,7 @@ $bg = get_query_var( 'background', get_field( 'background' ) );
 						<?= wp_kses_post( get_field( 'careers_content' ) ); ?>
 					</div>
 					<?php
-					$careers_link = get_field( 'careers_link' );
+					$careers_link = get_field( 'link' );
 					if ( $careers_link ) {
 						?>
 						<a href="<?= esc_url( $careers_link['url'] ); ?>" target="<?= esc_attr( $careers_link['target'] ); ?>" class="careers-link">
