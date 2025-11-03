@@ -132,17 +132,8 @@ get_header();
 	<?php
 
 	// include cta template.
-	set_query_var( 'cta_background', 114 );
-	set_query_var( 'cta_image', 164 );
-	set_query_var( 'cta_title', 'Experience<br>Changes<br>Everything' );
-	set_query_var( 'cta_content', 'What do you want to change?<br>We want to hear what matters most to you.' );
-	set_query_var(
-		'cta_link',
-		array(
-			'url'   => '/contact/',
-			'title' => 'Start your brief',
-		)
-	);
+	$cta = get_field( 'press_cta', 'option' );
+	set_query_var( 'cta_choice', $cta );
 	get_template_part( 'blocks/cb-cta/cb-cta' );
 
 	?>

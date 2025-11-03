@@ -13,11 +13,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Block ID.
 $block_id = $block['id'] ?? '';
 
-$cta_title = get_query_var( 'cta_title', get_field( 'title' ) );
-$content   = get_query_var( 'cta_content', get_field( 'content' ) );
-$l         = get_query_var( 'cta_link', get_field( 'link' ) );
-$bg        = get_query_var( 'cta_background', get_field( 'background' ) );
-$img       = get_query_var( 'cta_image', get_field( 'image' ) );
+$cta_option = get_query_var( 'cta_choice', get_field( 'cta_choice' ) );
+
+$cta_title = '';
+$content   = '';
+$l         = '';
+$bg        = '';
+$img       = '';
+
+if ( have_rows( 'ctas', 'option' ) ) {
+    while ( have_rows( 'ctas', 'option' ) ) {
+        the_row();
+        $cta_id = get_sub_field( 'cta_id' );
+
+        if ( $cta_id === $cta_option ) {
+            $cta_title = get_sub_field( 'title' );
+            $content   = get_sub_field( 'content' );
+            $l         = get_sub_field( 'link' );
+            $bg        = get_sub_field( 'background' );
+            $img       = get_sub_field( 'image' );
+			$mask      = get_sub_field( 'mask' );
+            break;
+        }
+    }
+}
+
 ?>
 <style>
 .cb-cta {
@@ -28,7 +48,7 @@ $img       = get_query_var( 'cta_image', get_field( 'image' ) );
 	<div class="id-container p-5">
 		<div class="row g-5">
 			<div class="col-md-6">
-				<div class="cb-cta__clip-group">
+				<div class="cb-cta__clip-group cb-cta__clip-group--<?= esc_attr( $mask ); ?>">
 					<?= wp_get_attachment_image( $img, 'full', false, array( 'class' => 'img-fluid cb-cta__image' ) ); ?>
 				</div>
 			</div>
@@ -38,7 +58,7 @@ $img       = get_query_var( 'cta_image', get_field( 'image' ) );
 						<?= wp_kses_post( $cta_title ); ?>
 					</h2>
 					<div class="cb-cta__content mb-4">
-						<?= wp_kses_post( get_field( 'content' ) ); ?>
+						<?= wp_kses_post( $content ); ?>
 					</div>
 					<div class="cb-cta__button">
 						<a href="<?= esc_url( $l['url'] ); ?>" class="id-button">
@@ -80,8 +100,8 @@ document.addEventListener('DOMContentLoaded', function () {
 					percent = Math.max(0, Math.min(1, percent));
 					// Parallax: move image up to 40px up or down
 					var translateY = (percent - 0.5) * 80; // Range: -40px to +40px
-					// Retain scaleX(-1) and add translateY
-					img.style.transform = 'scaleX(-1) translateY(' + translateY.toFixed(1) + 'px)';
+					// add translateY
+					img.style.transform = 'translateY(' + translateY.toFixed(1) + 'px)';
 				}
 			}
 			ticking = false;

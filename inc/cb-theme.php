@@ -369,3 +369,64 @@ if ( ! function_exists( 'get_work_image' ) ) {
         return '<img src="' . esc_url( get_stylesheet_directory_uri() . '/img/default-post-image.png' ) . '" alt="" class="' . esc_attr( $class ) . '" />';
     }
 }
+
+add_filter(
+	'acf/load_field/name=cta_choice',
+	function ( $field ) {
+		$field['choices'] = array();
+
+		// Get repeater rows from options.
+		if ( have_rows( 'ctas', 'option' ) ) {
+			while ( have_rows( 'ctas', 'option' ) ) {
+				the_row();
+				$title = get_sub_field( 'cta_id' );
+				if ( $title ) {
+					// Use title as both key and label, or set your own key.
+					$field['choices'][ $title ] = $title;
+				}
+			}
+		}
+
+		return $field;
+	}
+);
+add_filter(
+	'acf/load_field/name=insight_cta',
+	function ( $field ) {
+		$field['choices'] = array();
+
+		// Get repeater rows from options.
+		if ( have_rows( 'ctas', 'option' ) ) {
+			while ( have_rows( 'ctas', 'option' ) ) {
+				the_row();
+				$title = get_sub_field( 'cta_id' );
+				if ( $title ) {
+					// Use title as both key and label, or set your own key.
+					$field['choices'][ $title ] = $title;
+				}
+			}
+		}
+
+		return $field;
+	}
+);
+add_filter(
+	'acf/load_field/name=press_cta',
+	function ( $field ) {
+		$field['choices'] = array();
+
+		// Get repeater rows from options.
+		if ( have_rows( 'ctas', 'option' ) ) {
+			while ( have_rows( 'ctas', 'option' ) ) {
+				the_row();
+				$title = get_sub_field( 'cta_id' );
+				if ( $title ) {
+					// Use title as both key and label, or set your own key.
+					$field['choices'][ $title ] = $title;
+				}
+			}
+		}
+
+		return $field;
+	}
+);
