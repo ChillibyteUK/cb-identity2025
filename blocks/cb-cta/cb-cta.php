@@ -15,6 +15,10 @@ $block_id = $block['id'] ?? '';
 
 $cta_option = get_query_var( 'cta_choice', get_field( 'cta_choice' ) );
 
+if ( ! $cta_option ) {
+	return;
+}
+
 $cta_title = '';
 $content   = '';
 $l         = '';
