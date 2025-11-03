@@ -21,7 +21,7 @@ if ( ! $cta_option ) {
 
 $cta_title = '';
 $content   = '';
-$l         = '';
+$l         = array();
 $bg        = '';
 $img       = '';
 
@@ -65,9 +65,11 @@ if ( have_rows( 'ctas', 'option' ) ) {
 						<?= wp_kses_post( $content ); ?>
 					</div>
 					<div class="cb-cta__button">
-						<a href="<?= esc_url( $l['url'] ); ?>" class="id-button">
-							<?= esc_html( $l['title'] ); ?>
-						</a>
+						<?php if ( ! empty( $l ) && is_array( $l ) && ! empty( $l['url'] ) ) : ?>
+							<a href="<?= esc_url( $l['url'] ); ?>" class="id-button">
+								<?= ! empty( $l['title'] ) ? esc_html( $l['title'] ) : esc_html__( 'Learn More', 'cb-identity2025' ); ?>
+							</a>
+						<?php endif; ?>
 					</div>
 				</div>
 			</div>
