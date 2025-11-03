@@ -54,7 +54,7 @@ if ( $q->have_posts() ) {
 	$first = true;
 	while ( $q->have_posts() ) {
 		$q->the_post();
-		$cols = $first ? '12 mt-0' : 6;
+		$cols  = $first ? '12 mt-0' : '6';
 		$first = false;
 		?>
 			<div class="col-md-<?= esc_attr( $cols ); ?>">

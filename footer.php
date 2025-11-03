@@ -88,7 +88,7 @@ defined( 'ABSPATH' ) || exit;
 				?>
 			</div>
 			<div class="col-md-2">
-				<div class="footer-title mb-4"><a href="/contact/#locations">Global</a></div>
+				<div class="footer-title mb-4"><a href="/contact/#locations">Locations</a></div>
 				<?=
 				wp_nav_menu(
 					array(
