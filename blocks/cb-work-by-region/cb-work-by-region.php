@@ -20,14 +20,14 @@ $region = get_field( 'region' );
 $pretitle         = 'RELATED';
 $pretitle_padding = 'pt-4 pb-3';
 
-if ( $region ) {
+if ( ! $region ) {
 	return;
 }
 
 $tax_query[] = array(
 	'taxonomy' => 'region',
 	'field'    => 'term_id',
-	'terms'    => $region->term_id,
+	'terms'    => $region,
 );
 
 $q = new WP_Query(
@@ -40,23 +40,24 @@ $q = new WP_Query(
 	)
 );
 
-
-
 if ( $q->have_posts() ) {
 	?>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-related-work">
-	<div class="cb-related-work__pre-title">
+	<!-- <div class="cb-related-work__pre-title">
 		<div class="id-container <?= esc_attr( $pretitle_padding ); ?> px-5">
 			<?= esc_html( $pretitle ); ?> WORK
 		</div>
-	</div>
+	</div> -->
 	<div class="id-container">
 		<div class="row g-2">
 	<?php
+	$first = true;
 	while ( $q->have_posts() ) {
 		$q->the_post();
+		$cols = $first ? '12 mt-0' : 6;
+		$first = false;
 		?>
-			<div class="col-md-6">
+			<div class="col-md-<?= esc_attr( $cols ); ?>">
 				<a href="<?= esc_url( get_the_permalink() ); ?>" class="cb-related-work__card">
 					<?= get_work_image( get_the_ID(), 'cb-related-work__image' ); ?>
 					<div class="cb-related-work__content px-5">
