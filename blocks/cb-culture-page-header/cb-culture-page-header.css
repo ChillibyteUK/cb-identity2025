@@ -1,9 +1,9 @@
 /**
- * CB About Page Header Block Styles
+ * CB Culture Page Header Block Styles
  *
  * @package  cb-identity2025
  */
-.cb-about-page-header {
+.cb-culture-page-header {
   background-color: var(--col-primary-black);
   color: var(--col-white);
   background-image: var(--_bg-url);
@@ -11,18 +11,18 @@
   background-position: center;
   background-attachment: fixed;
 }
-.cb-about-page-header__top {
+.cb-culture-page-header__top {
   position: relative;
   padding-block: 8rem 6rem;
   isolation: isolate;
 }
-.cb-about-page-header__top .intro-overlay {
+.cb-culture-page-header__top .intro-overlay {
   background-color: rgba(0, 0, 0, 0.6);
   position: absolute;
   inset: 0;
   z-index: -1;
 }
-.cb-about-page-header h1 {
+.cb-culture-page-header h1 {
   font-size: var(--fs-950);
   font-weight: var(--fw-light);
   line-height: 1;
@@ -32,34 +32,34 @@
   padding-bottom: 4rem;
   margin-bottom: 2rem;
 }
-.cb-about-page-header__intro-text {
+.cb-culture-page-header__intro-text {
   font-size: var(--fs-800);
   line-height: 1.5;
   text-wrap: balance;
 }
-.cb-about-page-header__intro-text a {
+.cb-culture-page-header__intro-text a {
   color: var(--col-green-400);
   text-decoration: underline;
   transition: color 0.3s ease;
 }
-.cb-about-page-header__intro-text a:hover {
+.cb-culture-page-header__intro-text a:hover {
   color: var(--col-green-300);
 }
-.cb-about-page-header__content-wrapper {
+.cb-culture-page-header__content-wrapper {
   border-top: 1px solid rgba(255, 255, 255, 0.4);
   position: relative;
   padding-block: 4rem 4rem;
   isolation: isolate;
   margin-bottom: 4rem;
 }
-.cb-about-page-header__content-wrapper .about-overlay {
+.cb-culture-page-header__content-wrapper .about-overlay {
   background-color: rgba(47, 19, 186, 0.8);
   position: absolute;
   inset: 0;
   z-index: -1;
 }
-.cb-about-page-header__intro {
-  font-size: var(--fs-800);
+.cb-culture-page-header__intro {
+  font-size: var(--fs-700);
   line-height: 1.5;
   font-weight: var(--fw-light);
   margin-bottom: 0.5em;

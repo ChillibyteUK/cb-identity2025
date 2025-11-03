@@ -1,0 +1,18 @@
+{
+    "name": "cb/cb-culture-page-header",
+    "title": "CB Culture Page Header",
+    "description": "A custom CB Culture Page Header block",
+    "category": "cb-blocks",
+    "icon": "admin-generic",
+    "keywords": ["cb-culture-page-header", "cb"],
+    "supports": {
+        "align": ["wide", "full"],
+        "anchor": true,
+        "customClassName": true
+    },
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "cb-culture-page-header.php"
+    },
+    "style": "file:./cb-culture-page-header.css"
+}
