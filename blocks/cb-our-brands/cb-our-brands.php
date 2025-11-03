@@ -14,6 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $block_id = $block['id'] ?? '';
 
 ?>
+<a id="brands" class="anchor"></a>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-our-brands">
 	<?php
 	if ( get_field( 'pre_title' ) ) {
