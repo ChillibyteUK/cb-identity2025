@@ -11,7 +11,7 @@
   height: 100%;
 }
 .cb-work-carousel__container {
-  width: min(100%, 1920px);
+  width: 100%;
   margin: 0 auto;
   aspect-ratio: 16/9;
 }

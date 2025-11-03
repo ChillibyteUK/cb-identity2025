@@ -12,7 +12,8 @@
     position: relative;
     height: 100%;
     &__container {
-        width: min(100%, 1920px);
+        // width: min(100%, 1920px);
+        width: 100%;
         margin: 0 auto;
         aspect-ratio: 16 / 9;
     }

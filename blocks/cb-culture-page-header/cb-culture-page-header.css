@@ -53,7 +53,7 @@
   margin-bottom: 6rem;
 }
 .cb-culture-page-header__content-wrapper .culture-overlay {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.2);
   position: absolute;
   inset: 0;
   z-index: -1;
@@ -87,6 +87,7 @@
 }
 .cb-culture-page-header__careers h2 {
   font-size: var(--fs-850);
+  font-weight: var(--fw-light);
 }
 .cb-culture-page-header__careers .careers-content {
   font-size: var(--fs-500);
@@ -99,6 +100,8 @@
   color: var(--col-white);
   text-decoration: none;
   transition: color 0.3s ease;
+  font-size: var(--fs-500);
+  font-weight: var(--fw-semi);
 }
 .cb-culture-page-header__careers .careers-link:hover {
   color: var(--col-green-300);

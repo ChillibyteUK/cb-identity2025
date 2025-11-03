@@ -49,13 +49,13 @@ $bg = get_query_var( 'background', get_field( 'background' ) );
 		<div class="careers-overlay"></div>
 		<div class="cb-culture-page-header__careers-pretitle">
 			<div class="id-container px-5 py-4">
-				CAREERS
+				JOIN US
 			</div>
 		</div>
 		<div class="id-container px-5 py-5">
 			<div class="row g-5">
 				<div class="col-md-6">
-					<div class="h2">Careers</div>
+					<h2>Careers</h2>
 				</div>
 				<div class="col-md-6">
 					<div class="careers-content">
