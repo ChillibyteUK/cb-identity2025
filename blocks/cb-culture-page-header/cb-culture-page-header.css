@@ -17,7 +17,7 @@
   isolation: isolate;
 }
 .cb-culture-page-header__top .intro-overlay {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.2);
   position: absolute;
   inset: 0;
   z-index: -1;
@@ -50,10 +50,10 @@
   position: relative;
   padding-block: 4rem 4rem;
   isolation: isolate;
-  margin-bottom: 4rem;
+  margin-bottom: 6rem;
 }
-.cb-culture-page-header__content-wrapper .about-overlay {
-  background-color: rgba(47, 19, 186, 0.8);
+.cb-culture-page-header__content-wrapper .culture-overlay {
+  background-color: rgba(255, 255, 255, 0.3);
   position: absolute;
   inset: 0;
   z-index: -1;
@@ -65,4 +65,41 @@
   margin-bottom: 0.5em;
   color: var(--col-white);
   text-wrap: balance;
+}
+.cb-culture-page-header__careers {
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  position: relative;
+  isolation: isolate;
+}
+.cb-culture-page-header__careers .careers-overlay {
+  background-color: rgba(47, 19, 186, 0.5);
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.cb-culture-page-header__careers-pretitle {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  padding-block: 0.5rem;
+  color: var(--col-green-500);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-300);
+  line-height: 1;
+}
+.cb-culture-page-header__careers h2 {
+  font-size: var(--fs-850);
+}
+.cb-culture-page-header__careers .careers-content {
+  font-size: var(--fs-500);
+  line-height: 1.5;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+.cb-culture-page-header__careers .careers-link {
+  color: var(--col-white);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.cb-culture-page-header__careers .careers-link:hover {
+  color: var(--col-green-300);
 }

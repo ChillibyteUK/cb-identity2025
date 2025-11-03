@@ -121,15 +121,16 @@ document.addEventListener('DOMContentLoaded', function() {
 			nextEl: '.swiper-button-next',
 			prevEl: '.swiper-button-prev',
 		},
-		effect: 'fade',
-		fadeEffect: {
-			crossFade: true
-		},
-		autoplay: {
-			delay: 4000,
-			disableOnInteraction: true,
-			pauseOnMouseEnter: true,
-		},
+		// effect: 'fade',
+		// fadeEffect: {
+		// 	crossFade: true
+		// },
+		autoplay: false,
+		// autoplay: {
+		// 	delay: 4000,
+		// 	disableOnInteraction: true,
+		// 	pauseOnMouseEnter: true,
+		// },
 		slidesPerView: 1,
 		spaceBetween: 0,
 		pagination: false,

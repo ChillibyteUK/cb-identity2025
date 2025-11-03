@@ -4,7 +4,8 @@
  * @package HubSequoia2025
  */
 .cb-work-carousel {
-  height: 100svh;
+  aspect-ratio: 16/9;
+  width: 100%;
   background-color: var(--col-primary-black);
   position: relative;
   height: 100%;
@@ -12,20 +13,24 @@
 .cb-work-carousel__container {
   width: min(100%, 1920px);
   margin: 0 auto;
+  aspect-ratio: 16/9;
 }
 .cb-work-carousel .work-swiper, .cb-work-carousel .swiper-slide {
-  height: 100svh;
+  aspect-ratio: 16/9;
+  width: 100%;
   overflow: hidden;
 }
 .cb-work-carousel .work-carousel-link {
   display: grid;
   grid-template-areas: "stack";
-  height: 100svh;
+  aspect-ratio: 16/9;
+  width: 100%;
   text-decoration: none;
 }
 .cb-work-carousel .swiper-poster {
+  aspect-ratio: 16/9;
   width: 100%;
-  height: 100svh;
+  height: 100%;
   object-fit: cover;
   display: block;
   grid-area: stack;
@@ -92,15 +97,16 @@
   grid-area: stack;
   position: relative;
   width: 100%;
-  height: 100svh;
+  height: 100%;
+  aspect-ratio: 16/9;
   overflow: hidden;
 }
 .cb-work-carousel .iframe-cover.swiper-video iframe {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   transform: translate(-50%, -50%);
   pointer-events: none;
 }

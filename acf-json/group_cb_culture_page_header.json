@@ -108,6 +108,44 @@
             "mime_types": "",
             "allow_in_bindings": 0,
             "preview_size": "thumbnail"
+        },
+        {
+            "key": "field_6908c72f6569d",
+            "label": "Careers Content",
+            "name": "careers_content",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": 4,
+            "placeholder": "",
+            "new_lines": "br"
+        },
+        {
+            "key": "field_6908c73c6569e",
+            "label": "Careers Link",
+            "name": "careers_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "allow_in_bindings": 0
         }
     ],
     "location": [
@@ -129,5 +167,5 @@
     "description": "Fields for the CB Culture Page Header block",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1762182641
+    "modified": 1762183075
 }
