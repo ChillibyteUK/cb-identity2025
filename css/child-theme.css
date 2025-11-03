@@ -21967,6 +21967,23 @@ header .navbar-toggler {
   transform: translateX(var(--logo-final-offset, 0px));
 }
 
+.navbar-collapse.collapse.show {
+  background-color: var(--col-primary-black);
+  border-color: var(--col-neutral-50);
+}
+.navbar-collapse.collapse.show ul {
+  padding-inline-start: 3rem;
+}
+
+header:has(.navbar-collapse.collapse.show) {
+  background-color: var(--col-primary-black) !important;
+}
+
+.collapse,
+.collapsing {
+  transition: none !important;
+}
+
 .footer {
   background-color: var(--col-primary-black);
   color: #fff;

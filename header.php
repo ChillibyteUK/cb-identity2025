@@ -139,7 +139,7 @@ if ( session_status() === PHP_SESSION_NONE ) {
 					</div>
 				</a>
 				</div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                <button class="navbar-toggler align-self-center" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false"
                     aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
