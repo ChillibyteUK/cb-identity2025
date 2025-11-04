@@ -22,6 +22,8 @@
   font-size: var(--fs-800);
 }
 .cb-policies-page__secondary {
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   background-image: var(--_bg-url);
   background-position: top;
   background-size: cover;
@@ -29,9 +31,42 @@
   background-attachment: fixed;
   font-size: var(--fs-700);
   position: relative;
+  margin-bottom: 4rem;
+}
+.cb-policies-page .id-container {
+  display: grid;
+}
+.cb-policies-page .row {
+  grid-area: 1/1;
 }
 .cb-policies-page .overlay {
+  grid-area: 1/1;
   width: 100%;
   height: 100%;
   background-color: rgba(13, 13, 12, 0.75);
+}
+.cb-policies-page__pretitle {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  margin-bottom: 1rem;
+  color: var(--col-green-400);
+  font-size: var(--fs-300);
+  font-weight: var(--fw-regular);
+  text-transform: uppercase;
+}
+.cb-policies-page__list {
+  padding-bottom: 6rem;
+}
+.cb-policies-page__item {
+  text-decoration: none;
+  font-size: var(--fs-700);
+  padding-block: 0.75rem 0.5rem;
+  transition: background-color 0.3s ease;
+}
+.cb-policies-page__item:hover {
+  color: var(--col-white);
+  background-color: var(--col-neutral-1100);
+}
+.cb-policies-page__item:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
