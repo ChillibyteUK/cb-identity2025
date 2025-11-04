@@ -20,7 +20,7 @@ $block_id = $block['id'] ?? '';
 			LATEST NEWS &amp; INSIGHTS
 		</div>
 	</div>
-	<div class="id-container p-5">
+	<div class="id-container px-4 px-md-5">
 
 		<div class="row g-5">
 			<?php

@@ -55,7 +55,7 @@ if ( have_rows( 'ctas', 'option' ) ) {
 }
 </style>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-cta">
-	<div class="id-container p-5">
+	<div class="id-container px-4 px-md-5">
 		<div class="row g-5">
 			<div class="col-md-6">
 				<div class="cb-cta__clip-group cb-cta__clip-group--<?= esc_attr( $mask ); ?>">
