@@ -40,7 +40,7 @@ $q = new WP_Query(
         </div>
     </h1>
     <h2>
-        <div class="id-container px-4 px-md-5 pt-2">
+        <div class="id-container px-4 px-md-5 pt-2 pb-1">
             Where experience changes everything
         </div>
     </h2>
