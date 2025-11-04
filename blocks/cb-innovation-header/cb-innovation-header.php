@@ -15,8 +15,8 @@ $block_id = $block['id'] ?? '';
 
 $bg = get_query_var( 'background', get_field( 'background' ) );
 
-$quote  = get_field( 'quote' );
-$author = get_field( 'author' );
+$quote   = get_field( 'quote' );
+$author  = get_field( 'author' );
 $company = get_field( 'company' );
 ?>
 <style>

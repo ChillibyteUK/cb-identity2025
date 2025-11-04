@@ -44,7 +44,7 @@ $block_id = $block['id'] ?? '';
                     the_row();
                     $brand_logo = get_sub_field( 'brand_logo' ) ?? '';
                     $brand_name = get_sub_field( 'brand_name' );
-                    $brand_link  = get_sub_field( 'link' );
+                    $brand_link = get_sub_field( 'link' );
 
                     if ( ! $brand_logo || ! $brand_link ) {
                         continue;
@@ -53,11 +53,21 @@ $block_id = $block['id'] ?? '';
 					?>
             <div class="col-lg-6 col-xl-3">
 					<?php
-					if ( $brand_link['url'] != '#' ) {
+					if ( '#' !== $brand_link['url'] || '' !== $brand_link['url'] ) {
                     	?>
 				<a href="<?= esc_url( $brand_link['url'] ); ?>" target="_blank" rel="noopener noreferrer" class="brand-card">
 					<div class="brand-card__front">
-                        <?= wp_get_attachment_image( $brand_logo, 'full', false, array( 'class' => 'brand-card__logo', 'alt' => esc_attr( $brand_name ) ) ); ?>
+                        <?=
+						wp_get_attachment_image(
+							$brand_logo,
+							'full',
+							false,
+							array(
+								'class' => 'brand-card__logo',
+								'alt'   => esc_attr( $brand_name ),
+							)
+						);
+						?>
                     </div>
                     <div class="brand-card__back">
                         <div class="brand-card__name">
@@ -73,7 +83,17 @@ $block_id = $block['id'] ?? '';
 						?>
 				<div class="brand-card">
 					<div class="brand-card__front">
-                        <?= wp_get_attachment_image( $brand_logo, 'full', false, array( 'class' => 'brand-card__logo', 'alt' => esc_attr( $brand_name ) ) ); ?>
+                        <?=
+						wp_get_attachment_image(
+							$brand_logo,
+							'full',
+							false,
+							array(
+								'class' => 'brand-card__logo',
+								'alt'   => esc_attr( $brand_name ),
+							)
+						);
+						?>
                     </div>
                     <div class="brand-card__back">
                         <div class="brand-card__name">

@@ -15,9 +15,8 @@ $block_id = $block['id'] ?? '';
 
 $l = get_field( 'link' );
 
-$background  = get_field( 'background' );
-// $link_colour = $background ? 'has-green-400-color' : '';
-$arrow       = $background ? 'arrow-g400.svg' : 'arrow-wh.svg';
+$background = get_field( 'background' );
+$arrow      = $background ? 'arrow-g400.svg' : 'arrow-wh.svg';
 if ( $background ) {
 	?>
 <style>

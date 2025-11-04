@@ -36,14 +36,13 @@
   line-height: 1.5;
 }
 .cb-pushthrough__desc {
-  font-size: var(--fs-500);
+  font-size: var(--fs-400);
   line-height: 1.5;
   padding-bottom: 1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
 .cb-pushthrough__desc.larger-left {
-  font-size: var(--fs-600);
-  border-bottom: none;
+  font-size: var(--fs-500);
 }
 .cb-pushthrough__desc.larger-left a {
   text-decoration: none;

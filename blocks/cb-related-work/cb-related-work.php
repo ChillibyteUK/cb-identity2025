@@ -18,12 +18,12 @@ $block_id = $block['id'] ?? '';
 $services = wp_get_post_terms( get_the_ID(), 'service' );
 $themes   = wp_get_post_terms( get_the_ID(), 'theme' );
 
-$pretitle = 'RELATED';
+$pretitle         = 'RELATED';
 $pretitle_padding = 'pt-4 pb-3';
 
 // If no service terms, try to derive from page slug (for service description pages).
 if ( empty( $services ) && is_page() ) {
-	$page_slug = get_post_field( 'post_name', get_the_ID() );
+	$page_slug          = get_post_field( 'post_name', get_the_ID() );
 	$maybe_service_term = get_term_by( 'slug', $page_slug, 'service' );
 	if ( $maybe_service_term && ! is_wp_error( $maybe_service_term ) ) {
 		$services = array( $maybe_service_term );

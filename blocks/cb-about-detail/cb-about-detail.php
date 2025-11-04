@@ -34,8 +34,8 @@ $block_id = $block['id'] ?? '';
 				the_row();
 				$item_title  = get_sub_field( 'title' );
 				$description = get_sub_field( 'description' );
-                $colour = 0 === $c ? 'has-purple-600-color' : '';
-                $title_size = 0 === $c ? 'has-800-font-size' : '';
+                $colour      = 0 === $c ? 'has-purple-600-color' : '';
+                $title_size  = 0 === $c ? 'has-800-font-size' : '';
 				?>
 			<div class="row about-detail-row pb-5 <?= esc_attr( $colour ); ?>" data-aos="fade-up" data-aos-delay="<?= esc_attr( $c ); ?>">
 				<div class="col-md-6">

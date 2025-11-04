@@ -99,7 +99,7 @@ $l = get_field( 'contact_link' );
             ?>
         <div class="row mx-0 g-2 cb-contact-addresses__office mb-5">
             <div class="col-lg-6 px-0">
-                <h2><?= get_sub_field( 'office' ); ?></h2>
+                <h2><?= esc_html( get_sub_field( 'office' ) ); ?></h2>
             </div>
             <div class="col-lg-6">
                 <div class="row">
@@ -112,7 +112,7 @@ $l = get_field( 'contact_link' );
 							<?php
 							if ( get_sub_field( 'office_title' ) ) {
 								?>
-                        <div class="mb-2"><strong><?= get_sub_field( 'office_title' ); ?></strong></div>
+                        <div class="mb-2"><strong><?= esc_html( get_sub_field( 'office_title' ) ); ?></strong></div>
 								<?php
 							}
 							?>

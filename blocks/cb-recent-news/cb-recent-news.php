@@ -24,9 +24,9 @@ if ( ! $blog_type ) {
 		$first_cat = $cat_field;
 	}
 	if ( $first_cat ) {
-		$term = get_term( $first_cat );
-		if ( $term && ! is_wp_error( $term ) ) {
-			$blog_type = $term->slug;
+		$category_term = get_term( $first_cat );
+		if ( $category_term && ! is_wp_error( $category_term ) ) {
+			$blog_type = $category_term->slug;
 		}
 	}
 }
@@ -87,7 +87,7 @@ switch ( $blog_type ) {
 				'post__not_in'   => array( get_the_ID() ), // exclude current post.
 				'category_name'  => $blog_type,
             );
-			$q = new WP_Query( $args );
+			$q    = new WP_Query( $args );
 
 			$counter = 0;
 			while ( $q->have_posts() ) {
