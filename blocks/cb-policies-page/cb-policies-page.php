@@ -42,6 +42,7 @@ $block_id = $block['id'] ?? '';
 			</div>
 		</div>
 	</div>
+	<a id="policies" class="anchor"></a>
 	<div class="cb-policies-page__pretitle">
 		<div class="id-container pt-2 pb-1 px-4 px-md-5">
 			POLICIES
@@ -75,6 +76,7 @@ $block_id = $block['id'] ?? '';
 		}
 		?>
 	</div>
+	<a id="accreditations" class="anchor"></a>
 	<div class="cb-policies-page__pretitle">
 		<div class="id-container pt-2 pb-1 px-4 px-md-5">
 			ACCREDITIATIONS
