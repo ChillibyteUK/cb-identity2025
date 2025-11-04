@@ -42,13 +42,13 @@ $block_id = $block['id'] ?? '';
 							$col_class = 'col-md-3 cb-latest-insights__card-1';
 							break;
 						case 2:
-							$col_class = 'col-md-6 cb-latest-insights__card-2';
+							$col_class = 'col-md-3 col-lg-6 cb-latest-insights__card-2';
 							break;
 						case 3:
 							$col_class = 'col-md-3 cb-latest-insights__card-3';
 							break;
 						case 4:
-							$col_class = 'col-md-6 cb-latest-insights__card-4';
+							$col_class = 'col-md-3 col-lg-6 cb-latest-insights__card-4';
 							break;
 						case 5:
 							$col_class = 'col-md-3 cb-latest-insights__card-5';
@@ -57,7 +57,7 @@ $block_id = $block['id'] ?? '';
 							$col_class = 'col-md-3 cb-latest-insights__card-6';
 							break;
 						default:
-							$col_class = 'col-md-6';
+							$col_class = 'col-md-3 col-lg-6';
 							break;
 					}
 
