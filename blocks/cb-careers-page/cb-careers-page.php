@@ -23,7 +23,7 @@ $block_id = $block['id'] ?? '';
 	<div class="id-container">
 		<div class="overlay"></div>
 		<div class="cb-careers-page__inner px-5">
-			<h1 class="cb-careers-page__title">
+			<h1 class="cb-careers-page__title pt-1">
 				<?= esc_html( get_field( 'title' ) ); ?>
 			</h1>
 			<div class="row">
