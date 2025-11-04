@@ -41,7 +41,7 @@ if ( $background ) {
 	?>
 	<?php
 	if ( $background ) {
-		$overlay = get_field( 'left_content' ) ? 'overlay--white' : '';
+		$overlay = get_field( 'left_content' ) ? 'overlay--black' : '';
 		?>
 	<div class="overlay <?= esc_attr( $overlay ); ?>"></div>
 		<?php
