@@ -18,10 +18,11 @@ acf_setup_meta( $block['data'] );
 
 $pre_title = get_field( 'pre_title' ) ?  get_field( 'pre_title' ) : 'KEY STATS';
 
+$bg = get_field( 'background' ) ? wp_get_attachment_image_url( get_field( 'background' ), 'full' ) : get_stylesheet_directory_uri() . '/blocks/cb-work-index/bg.jpg';
 ?>
 <style>
 .case-study-key-stats {
-    --_bg-url: url('<?= esc_url( get_stylesheet_directory_uri() . '/blocks/cb-work-index/bg.jpg' ); ?>');
+    --_bg-url: url('<?= esc_url( $bg ); ?>');
 }
 </style>
 <section id="<?= esc_attr( $block_id ); ?>" class="case-study-key-stats">
