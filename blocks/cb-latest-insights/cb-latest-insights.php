@@ -45,10 +45,10 @@ $block_id = $block['id'] ?? '';
 							$col_class = 'col-md-8 col-lg-6 cb-latest-insights__card-2';
 							break;
 						case 3:
-							$col_class = 'col-md-4 col-lg-3 cb-latest-insights__card-3';
+							$col_class = 'col-md-8 col-lg-3 cb-latest-insights__card-3';
 							break;
 						case 4:
-							$col_class = 'col-md-8 col-lg-6 cb-latest-insights__card-4';
+							$col_class = 'col-md-4 col-lg-6 cb-latest-insights__card-4';
 							break;
 						case 5:
 							$col_class = 'col-md-6 col-lg-3 cb-latest-insights__card-5';
