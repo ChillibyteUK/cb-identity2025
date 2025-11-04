@@ -39,7 +39,7 @@ $pre_title = get_field( 'pre_title' ) ?  get_field( 'pre_title' ) : 'KEY STATS';
                 ?>
         <div class="case-study-key-stats__item">
 			<div class="id-container px-4 px-md-5" data-aos="fade-up" data-aos-delay="<?= esc_attr( $delay ); ?>">
-                <div class="row">
+                <div class="row gx-4">
                     <div class="col-md-3 col-lg-2">
                         <div class="case-study-key-stats__stat"><?= esc_html( get_sub_field( 'stat' ) ); ?></div>
                     </div>
