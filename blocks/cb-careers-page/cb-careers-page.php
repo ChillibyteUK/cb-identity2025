@@ -34,7 +34,7 @@ $block_id = $block['id'] ?? '';
 						$l = get_field( 'link' );
 						?>
 					<div class="mt-5">
-						<a href="<?= esc_url( $l['url'] ); ?>" class="id-button"><?= esc_html( $l['title'] ); ?></a>
+						<a href="<?= esc_url( $l['url'] ); ?>" target="<?= esc_attr( $l['target'] ); ?>" class="id-button"><?= esc_html( $l['title'] ); ?></a>
 					</div>
 						<?php
 					}
