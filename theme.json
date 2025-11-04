@@ -378,37 +378,37 @@
         {
           "name": "400",
           "slug": "400",
-          "size": "clamp(1.125rem, 1rem + 0.6vw, 1.375rem)"
+          "size": "clamp(1.0625rem, 0.9rem + 0.6vw, 1.375rem)"
         },
         {
           "name": "500",
           "slug": "500",
-          "size": "clamp(1.25rem, 1rem + 1vw, 1.751rem)"
+          "size": "clamp(1.1875rem, 0.9rem + 1vw, 1.751rem)"
         },
         {
           "name": "600",
           "slug": "600",
-          "size": "clamp(1.5rem, 1rem + 1.2vw, 1.999rem)"
+          "size": "clamp(1.3125rem, 0.9rem + 1.2vw, 1.999rem)"
         },
         {
           "name": "700",
           "slug": "700",
-          "size": "clamp(1.75rem, 1rem + 1.4vw, 2.25rem)"
+          "size": "clamp(1.4375rem, 0.9rem + 1.4vw, 2.25rem)"
         },
         {
           "name": "800",
           "slug": "800",
-          "size": "clamp(2rem, 1rem + 1.6vw, 2.5rem)"
+          "size": "clamp(1.5rem, 0.9rem + 1.6vw, 2.5rem)"
         },
         {
           "name": "850",
           "slug": "850",
-          "size": "clamp(2.5rem, 1rem + 1.9vw, 3.125rem)"
+          "size": "clamp(1.875rem, 0.95rem + 1.9vw, 3.125rem)"
         },
         {
           "name": "900",
           "slug": "900",
-          "size": "clamp(4rem, 1rem + 3vw, 5rem)"
+          "size": "clamp(3rem, 1rem + 3vw, 5rem)"
         },
         {
           "name": "50",
@@ -418,12 +418,12 @@
         {
           "name": "875",
           "slug": "875",
-          "size": "clamp(3rem, 1rem + 2.2vw, 3.5rem)"
+          "size": "clamp(2.25rem, 1rem + 2.2vw, 3.5rem)"
         },
         {
           "name": "950",
           "slug": "950",
-          "size": "clamp(5rem, 1rem + 4vw, 6.25rem)"
+          "size": "clamp(3.4375rem, 1rem + 4vw, 6.25rem)"
         }
       ]
     }
