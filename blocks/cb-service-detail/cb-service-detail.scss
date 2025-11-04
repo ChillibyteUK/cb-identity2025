@@ -9,7 +9,18 @@
     color: var(--col-white);
     padding-bottom: 6rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-    .service-detail-row {
+    
+    &__pretitle {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+        margin-bottom: 1rem;
+        color: var(--col-green-400);
+        font-size: var(--fs-300);
+        font-weight: var(--fw-regular);
+        text-transform: uppercase;
+    }
+
+    .service-detail-row:not(:first-of-type) {
         border-top: 1px solid rgba(255, 255, 255, 0.4);
     }
     .service-detail-title {

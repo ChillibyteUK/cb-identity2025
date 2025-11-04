@@ -15,6 +15,17 @@ $block_id = $block['id'] ?? '';
 
 ?>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-service-detail">
+	<?php
+	if ( get_field( 'pre_title' ) ) {
+		?>
+	<div class="cb-service-detail__pretitle">
+		<div class="id-container pt-2 pb-1 px-4 px-md-5">
+			<?= esc_html( get_field( 'pre_title' ) ); ?>
+		</div>
+	</div>
+		<?php
+	}
+	?>
 	<div class="id-container px-4 px-md-5">
 		<?php
 		if ( have_rows( 'details' ) ) {

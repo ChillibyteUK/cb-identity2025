@@ -21,6 +21,27 @@
             "esc_html": 0
         },
         {
+            "key": "field_690a1160b6480",
+            "label": "Pre Title",
+            "name": "pre_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_6902375d7d225",
             "label": "Details",
             "name": "details",
@@ -108,5 +129,5 @@
     "description": "Fields for the CB Service Detail block",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1761753074
+    "modified": 1762267498
 }
