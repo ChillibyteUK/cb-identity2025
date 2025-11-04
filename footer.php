@@ -108,7 +108,7 @@ defined( 'ABSPATH' ) || exit;
 		</div>
 	</div>
 	<div class="footer__logo">
-		<div class="id-container p-5">
+		<div class="id-container py-5 px-4 px-md-5">
 			<div id="footer-logo-clip" class="footer__logo-clip">
 				<div id="footer-logo-inner" class="footer__logo-inner">
 					<!-- Inline logo SVG (long form) so we can animate precisely -->
