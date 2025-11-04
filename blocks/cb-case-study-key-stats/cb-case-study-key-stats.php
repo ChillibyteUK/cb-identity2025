@@ -16,6 +16,8 @@ $block_id = $block['id'] ?? '';
 // Setup ACF meta for block fields.
 acf_setup_meta( $block['data'] );
 
+$pre_title = get_field( 'pre_title' ) ?  get_field( 'pre_title' ) : 'KEY STATS';
+
 ?>
 <style>
 .case-study-key-stats {
@@ -26,7 +28,7 @@ acf_setup_meta( $block['data'] );
     <div class="case-study-key-stats__container pb-5">
 		<div class="case-study-key-stats__header">
 			<div class="id-container px-4 px-md-5">
-				KEY STATS
+				<?= esc_html( $pre_title ); ?>
 			</div>
 		</div>
         <?php
