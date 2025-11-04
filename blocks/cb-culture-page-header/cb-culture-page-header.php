@@ -24,7 +24,7 @@ $bg = get_query_var( 'background', get_field( 'background' ) );
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-culture-page-header">
     <div class="cb-culture-page-header__top">
         <div class="intro-overlay"></div>
-        <div class="id-container px-5">
+        <div class="id-container px-4 px-md-5">
             <h1><?= wp_kses_post( get_field( 'title' ) ); ?></h1>
             <div class="row">
                 <div class="col-md-9">
@@ -35,7 +35,7 @@ $bg = get_query_var( 'background', get_field( 'background' ) );
     </div>
     <div class="cb-culture-page-header__content-wrapper">
         <div class="culture-overlay"></div>
-        <div class="id-container px-5">
+        <div class="id-container px-4 px-md-5">
             <div class="row">
                 <div class="col-md-9">
                     <div class="cb-culture-page-header__intro">
@@ -48,11 +48,11 @@ $bg = get_query_var( 'background', get_field( 'background' ) );
 	<div class="cb-culture-page-header__careers">
 		<div class="careers-overlay"></div>
 		<div class="cb-culture-page-header__careers-pretitle">
-			<div class="id-container px-5 pt-2 pb-1">
+			<div class="id-container px-4 px-md-5 pt-2 pb-1">
 				JOIN US
 			</div>
 		</div>
-		<div class="id-container px-5 py-5">
+		<div class="id-container px-4 px-md-5 py-5">
 			<div class="row g-5">
 				<div class="col-md-6">
 					<h2>Careers</h2>
@@ -79,11 +79,11 @@ $bg = get_query_var( 'background', get_field( 'background' ) );
 </section>
 <section class="culture-life">
 	<div class="culture-life__pretitle">
-		<div class="id-container px-5 pt-2 pb-1">
+		<div class="id-container px-4 px-md-5 pt-2 pb-1">
 			LIFE AT IDENTITY
 		</div>
 	</div>
-	<div class="id-container px-5">
+	<div class="id-container px-4 px-md-5">
 		<?php
 		if ( have_rows( 'life' ) ) {
 			$c = 0;

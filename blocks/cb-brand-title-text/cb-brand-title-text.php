@@ -27,15 +27,15 @@ $l = get_field( 'link' );
 ?>
 <section id="<?= esc_attr( $block_id ); ?>" class="<?= esc_attr( implode( ' ', $block_classes ) ); ?>">
 	<div class="cb-brand-title-text__pre-title">
-		<div class="id-container px-5">
+		<div class="id-container px-4 px-md-5">
 			<?= esc_html( get_field( 'pre_title' ) ); ?>
 		</div>
 	</div>
-	<div class="id-container p-5">
+	<div class="id-container px-4 px-md-5 py-5">
 		<div class="cb-brand-title-text__container">
 			<div class="row">
 				<div class="col-md-7 mb-5 d-flex justify-content-center align-items-center">
-					<div class="cb-brand-title-text__title">
+					<div class="cb-brand-title-text__title ps-5 ps-md-0">
 					<?php
 					$section_title = get_field( 'title' );
 

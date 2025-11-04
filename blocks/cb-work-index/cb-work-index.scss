@@ -111,7 +111,12 @@
         align-self: flex-end;
         color: #fff;
         background: linear-gradient(rgba(13, 13, 12, 0), rgba(13, 13, 12, 0.5) 10%, rgba(13, 13, 12, 0.8));
-        padding: 2.5rem 2rem 2rem 1rem;
+
+        padding: 2.5rem 2rem 1rem 1rem;
+
+        @media (min-width: 768px) {
+            padding: 2.5rem 2rem 2rem 1rem;
+        }
         z-index: 3;
         position: relative;
     }

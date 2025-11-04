@@ -19,7 +19,7 @@ if ( empty( $grid_rows ) ) {
 $background_color = get_field( 'background' );
 ?>
 <section class="content-grid <?= esc_attr( $background_color ); ?>">
-    <div class="id-container pt-5 px-5">
+    <div class="id-container pt-5 px-4 px-md-5">
     <?php
     foreach ( $grid_rows as $row_index => $layout ) {
         // Support both 'multi-module_row' and 'multi_module_row' for compatibility.

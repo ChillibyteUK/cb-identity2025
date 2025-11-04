@@ -14,12 +14,12 @@ get_header();
 <main id="main" class="news-insights">
 	<section id="<?php echo esc_attr( $block_id ); ?>" class="news-hero has-primary-black-background-color pt-5">
 		<h1 class="mt-5">
-			<div class="id-container px-5 pt-1">
+			<div class="id-container px-4 px-md-5 pt-1">
 				News, Insights &amp; Press
 			</div>
 		</h1>
 		<h2>
-			<div class="id-container px-5 pt-2">
+			<div class="id-container px-4 px-md-5 pt-2">
 				Creating news and leading conversations that shape our industry	
 			</div>
 		</h2>
@@ -39,12 +39,12 @@ get_header();
 	</section>
 	<section class="insight-type has-primary-black-background-color">
 		<a class="insight-type__header" href="/news/category/insights/">
-			<div class="id-container d-flex align-items-center justify-content-between px-5">
+			<div class="id-container d-flex align-items-center justify-content-between px-4 px-md-5">
 				<div>Insights</div>
 				<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/arrow-wh.svg' ); ?>" width=65 height=60 alt="" class="cb-services-nav__item-icon" />
 			</div>
 		</a>
-		<div class="insight-type-grid grid-type-1 id-container p-5">
+		<div class="insight-type-grid grid-type-1 id-container py-5 px-4 px-md-5">
 			<div class="row g-5">
 			<?php
 			$args = array(
@@ -116,12 +116,12 @@ get_header();
 	</section>
 	<section class="insight-type has-purple-900-background-color">
 		<a class="insight-type__header" href="/news/category/press/">
-			<div class="id-container d-flex align-items-center justify-content-between px-5">
+			<div class="id-container d-flex align-items-center justify-content-between px-4 px-md-5">
 				<div>Press</div>
 				<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/arrow-wh.svg' ); ?>" width=65 height=60 alt="" class="cb-services-nav__item-icon" />
 			</div>
 		</a>
-		<div class="insight-type-grid grid-type-2 id-container p-5">
+		<div class="insight-type-grid grid-type-2 id-container py-5 px-4 px-md-5">
 			<div class="row g-5">
 			<?php
 			$args = array(

@@ -19,14 +19,14 @@ $block_id = $block['id'] ?? '';
     if ( get_field( 'pre_title' ) ) {
         ?>
     <div class="cb-about-detail__pre-title">
-        <div class="id-container pt-4 pb-3 px-5">
+        <div class="id-container pt-4 pb-3 px-4 px-md-5">
 			<?= esc_html( get_field( 'pre_title' ) ); ?>
 		</div>
 	</div>
         <?php
     }
     ?>
-	<div class="id-container px-5">
+	<div class="id-container px-4 px-md-5">
 		<?php
 		if ( have_rows( 'details' ) ) {
 			$c = 0;

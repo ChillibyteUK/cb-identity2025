@@ -13,13 +13,15 @@ defined( 'ABSPATH' ) || exit;
 <div id="footer-top"></div>
 
 <footer class="footer pt-5 pb-4">
-    <div class="id-container px-5">
+    <div class="id-container px-4 px-md-5">
         <div class="row pb-4 g-4">
-			<div class="col-md-4">
+			<!-- 1. Social icons -->
+			<div class="col-12 col-md-6 col-lg-4 order-9 order-md-1">
 				<!-- <div class="footer-title--lg mb-3">Connect. Share. Follow.</div> -->
 				<?= do_shortcode( '[social_icons class="fa-2x"]' ); ?>
 			</div>
-			<div class="col-md-2">
+			<!-- 2. Services -->
+			<div class="col-12 col-sm-6 col-md-4 col-lg-2 order-2 order-md-3 order-lg-2">
 				<div class="footer-title mb-4"><a href="/services/">Services</a></div>
 				<?=
 				wp_nav_menu(
@@ -30,8 +32,8 @@ defined( 'ABSPATH' ) || exit;
 				);
 				?>
 			</div>
-
-            <div class="col-md-2">
+			<!-- 3. About -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 order-4 order-md-4 order-lg-3">
 				<div class="footer-title mb-4"><a href="/about/">About</a></div>
 				<?=
 				wp_nav_menu(
@@ -42,8 +44,9 @@ defined( 'ABSPATH' ) || exit;
 				);
 				?>
 			</div>
-            <div class="col-md-2">
-				<div class="footer-title mb-4"><a href="/about/#brands">Our Brands</div>
+			<!-- 4. Our Brands -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 order-6 order-md-7 order-lg-4">
+				<div class="footer-title mb-4"><a href="/about/#brands">Our Brands</a></div>
 				<?=
 				wp_nav_menu(
 					array(
@@ -53,7 +56,8 @@ defined( 'ABSPATH' ) || exit;
 				);
 				?>
 			</div>
-            <div class="col-md-2">
+			<!-- 5. Legal -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 order-7 order-md-9 order-lg-5">
 				<div class="footer-title mb-4">Legal &amp; info</div>
 				<?=
 				wp_nav_menu(
@@ -64,19 +68,21 @@ defined( 'ABSPATH' ) || exit;
 				);
 				?>
 			</div>
-
 			<!-- ROW 2 -->
-			<div class="col-md-4">
+			<!-- 6. Email -->
+			<div class="col-12 col-md-4 order-8 order-md-2 order-lg-6">
 				<strong>
 				<div class="mb-5">Let's talk.</div>
 				<?= do_shortcode( '[contact_email]' ); ?>
 				</strong>
 			</div>
-			<div class="col-md-2">
+			<!-- 7. Work -->
+			<div class="col-12 col-sm-6 col-md-4 col-lg-2 order-1 order-md-5 order-lg-7">
 				<div class="footer-title mb-5"><a href="/work/">Work</a></div>
 				<div class="footer-title mb-4"><a href="/innovation/">Innovation Lab</a></div>
             </div>
-			<div class="col-md-2">
+			<!-- 8. News -->
+			<div class="col-12 col-sm-6 col-md-4 col-lg-2 order-3 order-md-6 order-lg-8">
 				<div class="footer-title mb-4"><a href="/news/">News</a></div>
 				<?=
 				wp_nav_menu(
@@ -87,7 +93,8 @@ defined( 'ABSPATH' ) || exit;
 				);
 				?>
 			</div>
-			<div class="col-md-2">
+			<!-- 9. Locations -->
+			<div class="col-12 col-sm-6 col-md-4 col-lg-2 order-4 order-md-8 order-lg-9">
 				<div class="footer-title mb-4"><a href="/contact/#locations">Locations</a></div>
 				<?=
 				wp_nav_menu(
@@ -133,7 +140,7 @@ defined( 'ABSPATH' ) || exit;
 			</div>
 		</div>
 	</div>
-	<div class="id-container px-5 pt-4 footer__colophon">
+	<div class="id-container px-4 px-md-5 pt-4 footer__colophon">
 		Identity Events Management Ltd, Registered Number - 04217845 | VAT Number - GB 813 0913 60
 	</div>
 </footer>

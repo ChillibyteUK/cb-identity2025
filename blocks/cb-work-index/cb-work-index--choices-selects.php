@@ -100,12 +100,12 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 ?>
 <section class="work-index-hero has-primary-black-background-color pt-5">
     <h1 class="mt-5">
-        <div class="id-container px-5 pt-2">
+        <div class="id-container px-4 px-md-5 pt-2">
             Our work
         </div>
     </h1>
     <h2>
-        <div class="id-container px-5 pt-2">
+        <div class="id-container px-4 px-md-5 pt-2">
             Where experience changes everything
         </div>
     </h2>
@@ -138,7 +138,7 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 		}
 		?>
 		<div class="overlay"></div>
-		<div class="work-index-hero__content px-5">
+		<div class="work-index-hero__content px-4 px-md-5">
 			<div class="work-index-hero__title">
 				<?php echo esc_html( get_the_title( $bg_case_study ) ); ?> <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/arrow-wh.svg' ); ?>" width=23 height=21 alt="" class="cb-services-nav__item-icon" />
 			</div>
@@ -179,7 +179,7 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 	</a>
 </section>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-work-index">
-	<div class="cb-work-index__filter-bar py-4 px-5">
+	<div class="cb-work-index__filter-bar py-4 px-4 px-md-5">
 		<div class="id-container py-4 cb-work-index__filters" data-service-map='<?php echo esc_attr( $service_map_json ); ?>' data-theme-map='<?php echo esc_attr( $theme_map_json ); ?>'>
 			<div class="row">
 				<div class="col-md-2">
@@ -297,7 +297,7 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 					}
 					?>
 					<?php echo get_work_image( get_the_ID(), 'cb-work-index__image' ); ?>
-					<div class="cb-work-index__content px-5">
+					<div class="cb-work-index__content px-4 px-md-5">
 						<div class="cb-work-index__title">
 							<?php the_title(); ?> <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/arrow-wh.svg' ); ?>" width=23 height=21 alt="" class="cb-services-nav__item-icon" />
 						</div>

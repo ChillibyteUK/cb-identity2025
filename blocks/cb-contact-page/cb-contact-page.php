@@ -17,7 +17,7 @@ $l = get_field( 'contact_link' );
 
 ?>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-contact-page">
-    <div class="id-container px-5">
+    <div class="id-container px-4 px-md-5">
         <h1>Contact Us</h1>
         <div class="row cb-contact-page__intro-content">
             <div class="col-md-9">
@@ -87,12 +87,12 @@ $l = get_field( 'contact_link' );
 </section>
 <a id="locations" class="anchor"></a>
 <section class="cb-contact-addresses__title">
-    <div class="id-container px-5 py-4">
+    <div class="id-container px-4 px-md-5 py-4">
         LOCATIONS
     </div>
 </section>
 <section class="cb-contact-addresses">
-    <div class="id-container px-5">
+    <div class="id-container px-4 px-md-5">
         <?php
         while ( have_rows( 'addresses' ) ) {
             the_row();
@@ -125,7 +125,7 @@ $l = get_field( 'contact_link' );
 							}
 							?>
                     </div>
-                        <?php
+                        	<?php
                         }
                     }
                     ?>

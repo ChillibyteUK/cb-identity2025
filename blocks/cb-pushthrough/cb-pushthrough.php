@@ -33,7 +33,7 @@ if ( $background ) {
 	if ( get_field( 'pretitle' ) ) {
 		?>
 	<div class="cb-pushthrough__pretitle">
-		<div class="id-container px-5">
+		<div class="id-container px-4 px-md-5">
 			<?= esc_html( get_field( 'pretitle' ) ); ?>
 		</div>
 	</div>
@@ -50,7 +50,7 @@ if ( $background ) {
 
 	$desc_class = '';
 	?>
-	<div class="id-container px-5">
+	<div class="id-container px-4 px-md-5">
 		<div class="row py-4">
 			<div class="col-md-6">
 				<h2><?= esc_html( get_field( 'title' ) ); ?></h2>

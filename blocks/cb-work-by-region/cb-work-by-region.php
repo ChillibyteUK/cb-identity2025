@@ -44,7 +44,7 @@ if ( $q->have_posts() ) {
 	?>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-related-work">
 	<!-- <div class="cb-related-work__pre-title">
-		<div class="id-container <?= esc_attr( $pretitle_padding ); ?> px-5">
+		<div class="id-container <?= esc_attr( $pretitle_padding ); ?> px-4 px-md-5">
 			<?= esc_html( $pretitle ); ?> WORK
 		</div>
 	</div> -->
@@ -60,7 +60,7 @@ if ( $q->have_posts() ) {
 			<div class="col-md-<?= esc_attr( $cols ); ?>">
 				<a href="<?= esc_url( get_the_permalink() ); ?>" class="cb-related-work__card">
 					<?= get_work_image( get_the_ID(), 'cb-related-work__image' ); ?>
-					<div class="cb-related-work__content px-5">
+					<div class="cb-related-work__content px-4 px-md-5">
 						<div class="cb-related-work__title">
 							<?php the_title(); ?> <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/arrow-wh.svg' ); ?>" width=23 height=21 alt="" class="cb-services-nav__item-icon" />
 						</div>

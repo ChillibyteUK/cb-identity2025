@@ -15,7 +15,7 @@ $block_id = $block['id'] ?? '';
 
 ?>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-service-detail">
-	<div class="id-container px-5">
+	<div class="id-container px-4 px-md-5">
 		<?php
 		if ( have_rows( 'details' ) ) {
 			$c = 0;

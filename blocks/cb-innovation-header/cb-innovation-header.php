@@ -27,7 +27,7 @@ $company = get_field( 'company' );
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-innovation-header">
     <div class="cb-innovation-header__top">
         <div class="intro-overlay"></div>
-        <div class="id-container px-5">
+        <div class="id-container px-4 px-md-5">
             <h1><?= esc_html( get_field( 'title' ) ); ?></h1>
             <div class="row">
                 <div class="col-md-9">
@@ -38,7 +38,7 @@ $company = get_field( 'company' );
     </div>
     <div class="cb-innovation-header__quote-wrapper">
         <div class="quote-overlay"></div>
-        <div class="id-container px-5">
+        <div class="id-container px-4 px-md-5">
             <div class="cb-innovation-header__quote">
                 “<?= wp_kses_post( $quote ); ?>”
             </div>

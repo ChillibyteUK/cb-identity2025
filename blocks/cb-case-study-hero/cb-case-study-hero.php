@@ -16,12 +16,12 @@ $block_id = $block['id'] ?? '';
 ?>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="case-study-hero has-primary-black-background-color pt-5">
     <h1 class="mt-5">
-        <div class="id-container px-5 pt-1">
+        <div class="id-container px-4 px-md-5 pt-1">
             <?= esc_html( get_the_title() ); ?>
         </div>
     </h1>
     <h2>
-        <div class="id-container px-5 pt-2">
+        <div class="id-container px-4 px-md-5 pt-2">
             <?= esc_html( get_field( 'case_study_subtitle' ) ); ?>
         </div>
     </h2>

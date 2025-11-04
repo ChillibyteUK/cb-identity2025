@@ -14,12 +14,12 @@ get_header();
 <main id="main" class="news-insights">
 	<section id="<?php echo esc_attr( $block_id ); ?>" class="news-hero has-primary-black-background-color pt-5">
 		<h1 class="mt-5">
-			<div class="id-container px-5 pt-1">
+			<div class="id-container px-4 px-md-5 pt-1">
 				Insights &amp; Perspectives
 			</div>
 		</h1>
 		<h2>
-			<div class="id-container px-5 pt-2">
+			<div class="id-container px-4 px-md-5 pt-2">
 				Experience changes everything. Here’s how we’re shaping what’s next.
 			</div>
 		</h2>
@@ -38,7 +38,7 @@ get_header();
 		</div>
 	</section>
 	<section class="insight-type">
-		<div class="insight-type-grid grid-type-full id-container p-5">
+		<div class="insight-type-grid grid-type-full id-container py-5 px-4 px-md-5">
 			<div class="row g-5">
 			<?php
 			$args = array(
@@ -123,7 +123,7 @@ get_header();
 			</div>
 		</div>
 		<a class="insight-type__header" href="/news/category/press/">
-			<div class="id-container d-flex align-items-center justify-content-between px-5">
+			<div class="id-container d-flex align-items-center justify-content-between px-4 px-md-5">
 				<div>Press &amp; media</div>
 				<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/arrow-wh.svg' ); ?>" width=65 height=60 alt="" class="cb-services-nav__item-icon" />
 			</div>

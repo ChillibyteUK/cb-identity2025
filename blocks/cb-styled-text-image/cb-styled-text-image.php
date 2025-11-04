@@ -18,7 +18,7 @@ $title_colour  = get_field( 'title_colour' );
 ?>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-styled-text-image">
     <div class="cb-styled-text-image__pre-title <?= esc_attr( $title_colour ); ?>">
-		<div class="id-container pt-2 pb-1 px-5">
+		<div class="id-container pt-2 pb-1 px-4 px-md-5">
 			<?= esc_html( $section_title ); ?>
 		</div>
 	</div>

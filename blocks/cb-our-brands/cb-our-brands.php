@@ -20,7 +20,7 @@ $block_id = $block['id'] ?? '';
 	if ( get_field( 'pre_title' ) ) {
 		?>
 	<div class="cb-our-brands__pre-title">
-		<div class="id-container px-5">
+		<div class="id-container px-4 px-md-5">
 			<?= esc_html( get_field( 'pre_title' ) ); ?>
 		</div>
 	</div>
@@ -28,7 +28,7 @@ $block_id = $block['id'] ?? '';
 	}
 	?>
     <div class="cb-our-brands__intro mb-5">
-        <div class="id-container px-5">
+        <div class="id-container px-4 px-md-5">
             <div class="row">
                 <div class="col-md-9">
                     <?= wp_kses_post( get_field( 'intro_text' ) ); ?>
@@ -36,7 +36,7 @@ $block_id = $block['id'] ?? '';
             </div>
         </div>
     </div>
-    <div class="cb-our-brands__brands id-container px-5 mb-5">
+    <div class="cb-our-brands__brands id-container px-4 px-md-5 mb-5">
         <div class="row g-5">
             <?php
             if ( have_rows( 'brands' ) ) {

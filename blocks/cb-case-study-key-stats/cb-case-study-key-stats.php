@@ -25,7 +25,7 @@ acf_setup_meta( $block['data'] );
 <section id="<?= esc_attr( $block_id ); ?>" class="case-study-key-stats">
     <div class="case-study-key-stats__container pb-5">
 		<div class="case-study-key-stats__header">
-			<div class="id-container px-5">
+			<div class="id-container px-4 px-md-5">
 				KEY STATS
 			</div>
 		</div>
@@ -36,7 +36,7 @@ acf_setup_meta( $block['data'] );
                 the_row();
                 ?>
         <div class="case-study-key-stats__item">
-			<div class="id-container px-5" data-aos="fade-up" data-aos-delay="<?= esc_attr( $delay ); ?>">
+			<div class="id-container px-4 px-md-5" data-aos="fade-up" data-aos-delay="<?= esc_attr( $delay ); ?>">
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="case-study-key-stats__stat"><?= esc_html( get_sub_field( 'stat' ) ); ?></div>

@@ -16,7 +16,7 @@ $block_id = $block['id'] ?? '';
 ?>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-latest-insights">
 	<div class="cb-latest-insights__pre-title">
-		<div class="id-container py-4 px-5">
+		<div class="id-container py-4 px-4 px-md-5">
 			LATEST NEWS &amp; INSIGHTS
 		</div>
 	</div>

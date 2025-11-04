@@ -70,7 +70,7 @@ switch ( $blog_type ) {
 ?>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-latest-insights cb-recent-news <?= esc_attr( $background ); ?>">
 	<div class="cb-latest-insights__pre-title <?= esc_attr( $section_title ); ?>">
-		<div class="id-container pt-2 pb-1 px-5">
+		<div class="id-container pt-2 pb-1 px-4 px-md-5">
 			<?= esc_html( $block_title ); ?>
 		</div>
 	</div>

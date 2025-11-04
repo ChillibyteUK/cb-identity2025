@@ -14,7 +14,12 @@
 .cb-logo-slider__track {
   display: flex;
   gap: 3rem;
-  animation: marquee 20s linear infinite;
+  animation: marquee 10s linear infinite;
+}
+@media (min-width: 768px) {
+  .cb-logo-slider__track {
+    animation: marquee 20s linear infinite;
+  }
 }
 .cb-logo-slider__logo {
   filter: invert(1);

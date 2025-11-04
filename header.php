@@ -106,7 +106,7 @@ if ( session_status() === PHP_SESSION_NONE ) {
 	?>
 <header id="wrapper-navbar" class="sticky py-2">
 	<nav class="navbar navbar-expand-lg">
-		<div class="id-container d-flex px-5 gap-4">
+		<div class="id-container d-flex px-4 px-md-5 gap-4">
             <div class="d-flex justify-content-between w-100 w-lg-auto align-items-center py-0">
                 <a href="/" class="logo-clip" id="site-logo-clip" aria-label="Identity Homepage">
 					<div class="logo-inner" id="site-logo-inner">
