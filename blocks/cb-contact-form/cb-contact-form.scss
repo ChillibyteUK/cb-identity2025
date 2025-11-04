@@ -1,0 +1,50 @@
+/**
+ * CB Contact Form Block Styles
+ *
+ * @package  cb-identity2025
+ */
+
+.cb-contact-form {
+    &__title {
+        color: var(--col-white);
+        margin-block: 6rem 4rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        font-size: var(--fs-900);
+        font-weight: var(--fw-semi);
+    }
+    &__intro {
+        color: var(--col-white);
+        font-size: var(--fs-800);
+        line-height: 1.5;
+        padding-bottom: 6rem;
+    }
+}
+.cb-contact-form-spacer {
+    display: block;
+    height: 6rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+p.gform_required_legend,
+label .gform_required {
+    display: none !important;
+}
+
+.gform_wrapper.gravity-theme .gfield_required {
+    display: none !important;
+}
+
+form {
+    .gfield_label {
+        color: var(--col-white);
+        font-weight: var(--fw-light) !important;
+    }
+    .ginput_container input[type="text"],
+    .ginput_container input[type="email"],
+    .ginput_container textarea {
+        background-color: rgba(255, 255, 255, 0.4);
+        border: none;
+        border-radius: 0;
+    }
+}

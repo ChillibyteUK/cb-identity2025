@@ -1,0 +1,18 @@
+{
+    "name": "cb/cb-contact-form",
+    "title": "CB Contact Form",
+    "description": "A custom CB Contact Form block",
+    "category": "cb-blocks",
+    "icon": "admin-generic",
+    "keywords": ["cb-contact-form", "cb"],
+    "supports": {
+        "align": ["wide", "full"],
+        "anchor": true,
+        "customClassName": true
+    },
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "cb-contact-form.php"
+    },
+    "style": "file:./cb-contact-form.css"
+}
