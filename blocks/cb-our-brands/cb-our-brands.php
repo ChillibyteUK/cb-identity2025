@@ -49,10 +49,14 @@ $block_id = $block['id'] ?? '';
                     if ( ! $brand_logo || ! $brand_link ) {
                         continue;
                     }
-                    ?>
+
+					?>
             <div class="col-lg-6 col-xl-3">
-                <a href="<?= esc_url( $brand_link['url'] ); ?>" target="_blank" rel="noopener noreferrer" class="brand-card">
-                    <div class="brand-card__front">
+					<?php
+					if ( $brand_link['url'] != '#' ) {
+                    	?>
+				<a href="<?= esc_url( $brand_link['url'] ); ?>" target="_blank" rel="noopener noreferrer" class="brand-card">
+					<div class="brand-card__front">
                         <?= wp_get_attachment_image( $brand_logo, 'full', false, array( 'class' => 'brand-card__logo', 'alt' => esc_attr( $brand_name ) ) ); ?>
                     </div>
                     <div class="brand-card__back">
@@ -63,9 +67,28 @@ $block_id = $block['id'] ?? '';
                             <?= esc_html( $brand_link['title'] ); ?> <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/arrow-wh.svg' ); ?>" width=23 height=21 alt="" class="cb-services-nav__item-icon" />
                         </div>
                     </div>
-                </a>
-            </div>
-                    <?php
+				</a>
+						<?php
+					} else {
+						?>
+				<div class="brand-card">
+					<div class="brand-card__front">
+                        <?= wp_get_attachment_image( $brand_logo, 'full', false, array( 'class' => 'brand-card__logo', 'alt' => esc_attr( $brand_name ) ) ); ?>
+                    </div>
+                    <div class="brand-card__back">
+                        <div class="brand-card__name">
+                            <?= esc_html( $brand_name ); ?>
+                        </div>
+                        <div class="brand-card__strap">
+                            <?= esc_html( $brand_link['title'] ); ?>
+                        </div>
+                    </div>
+				</div>
+						<?php
+					}
+					?>
+					</div>
+					<?php
                 }
             }
             ?>

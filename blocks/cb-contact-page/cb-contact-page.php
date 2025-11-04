@@ -33,26 +33,26 @@ $l = get_field( 'contact_link' );
         </div>
         <div class="cb-contact-page__emails">
             <div class="row align-items-center">
-                <div class="col-md-6">
+                <div class="col-md-6 mb-3">
                     <h2>New business</h2>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 mb-3">
                     <a href="mailto:<?= esc_attr( antispambot( get_field( 'new_business' ) ) ); ?>">
                         <?= esc_html( antispambot( get_field( 'new_business' ) ) ); ?>
                     </a>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 mb-3">
                     <h2>New business US</h2>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 mb-3">
                     <a href="mailto:<?= esc_attr( antispambot( get_field( 'new_business_us' ) ) ); ?>">
                         <?= esc_html( antispambot( get_field( 'new_business_us' ) ) ); ?>
                     </a>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 mb-3">
                     <h2>New business ME</h2>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 mb-3">
                     <a href="mailto:<?= esc_attr( antispambot( get_field( 'new_business_me' ) ) ); ?>">
                         <?= esc_html( antispambot( get_field( 'new_business_me' ) ) ); ?>
                     </a>
@@ -61,10 +61,10 @@ $l = get_field( 'contact_link' );
         </div>
         <div class="cb-contact-page__emails">
             <div class="row align-items-center">
-                <div class="col-md-6">
+                <div class="col-md-6 mb-3">
                     <h2>PR & Media</h2>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 mb-3">
                     <a href="mailto:<?= esc_attr( antispambot( get_field( 'pr_media' ) ) ); ?>">
                         <?= esc_html( antispambot( get_field( 'pr_media' ) ) ); ?>
                     </a>
@@ -73,10 +73,10 @@ $l = get_field( 'contact_link' );
         </div>
         <div class="cb-contact-page__emails">
             <div class="row align-items-center">
-                <div class="col-md-6">
+                <div class="col-md-6 mb-3">
                     <h2>Talent</h2>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 mb-3">
                     <a href="mailto:<?= esc_attr( antispambot( get_field( 'talent' ) ) ); ?>">
                         <?= esc_html( antispambot( get_field( 'talent' ) ) ); ?>
                     </a>
@@ -109,21 +109,21 @@ $l = get_field( 'contact_link' );
                             the_row();
                             ?>
                     <div class="col-md-6 mb-4">
-                        <?php
-                        if ( get_sub_field( 'office_title' ) ) {
-                            ?>
+							<?php
+							if ( get_sub_field( 'office_title' ) ) {
+								?>
                         <div class="mb-2"><strong><?= get_sub_field( 'office_title' ); ?></strong></div>
-                            <?php
-                        }
-                        ?>
+								<?php
+							}
+							?>
                         <div class="mb-2"><?= wp_kses_post( get_sub_field( 'address' ) ); ?></div>
-                        <?php
-                        if ( get_sub_field( 'phone' ) ) {
-                            ?>
+							<?php
+							if ( get_sub_field( 'phone' ) ) {
+								?>
                         <div class="mb-2"><a href="tel:<?= esc_attr( get_sub_field( 'phone' ) ); ?>"><?= esc_html( get_sub_field( 'phone' ) ); ?></a></div>
-                            <?php
-                        }
-                        ?>
+								<?php
+							}
+							?>
                     </div>
                         <?php
                         }
