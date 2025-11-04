@@ -14,8 +14,13 @@
 }
 .cb-awards-slider__track {
   display: flex;
-  gap: 3rem;
-  animation: marquee 30s linear infinite;
+  gap: 1.5rem;
+  animation: marquee 10s linear infinite;
+}
+@media (min-width: 768px) {
+  .cb-awards-slider__track {
+    animation: marquee 20s linear infinite;
+  }
 }
 .cb-awards-slider__logo {
   height: 120px;
