@@ -27,7 +27,7 @@ $pre_title = get_field( 'pre_title' ) ?  get_field( 'pre_title' ) : 'KEY STATS';
 <section id="<?= esc_attr( $block_id ); ?>" class="case-study-key-stats">
     <div class="case-study-key-stats__container pb-5">
 		<div class="case-study-key-stats__header">
-			<div class="id-container px-4 px-md-5">
+			<div class="id-container pt-1 px-4 px-md-5">
 				<?= esc_html( $pre_title ); ?>
 			</div>
 		</div>
