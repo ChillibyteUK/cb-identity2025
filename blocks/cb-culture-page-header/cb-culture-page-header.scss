@@ -50,13 +50,13 @@
         position: relative;
         padding-block: 4rem 4rem;
         isolation: isolate;
+        margin-bottom: 6rem;
         .culture-overlay {
             background-color: rgba(255, 255, 255, 0.2);
             position: absolute;
             inset: 0;
             z-index: -1;
         }
-        margin-bottom: 6rem;
     }
     &__intro {
         font-size: var(--fs-700);
@@ -113,6 +113,9 @@
 }
 .culture-life {
     border-top: 1px solid rgba(255, 255, 255, 0.4);
+    color: var(--col-white);
+    padding-bottom: 6rem;
+
     &__pretitle {
         border-bottom: 1px solid rgba(255, 255, 255, 0.4);
         padding-block: 0.5rem;
@@ -122,8 +125,6 @@
         line-height: 1;
     }
 
-    color: var(--col-white);
-    padding-bottom: 6rem;
     .life-detail-row:first-child {
         padding-top: 1rem;
     }

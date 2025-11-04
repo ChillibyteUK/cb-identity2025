@@ -64,18 +64,17 @@
         font-size: var(--fs-600);
         @media (min-width: 768px) {
             font-size: var(--fs-700);
-            
         }
     }
     .work-carousel-excerpt {
         margin: 0;
+        margin-top: 0.5rem;
+        color: var(--col-neutral-500);
         font-size: var(--fs-500);
         @media (min-width: 768px) {
             font-size: var(--fs-600);
             
         }
-        color: var(--col-neutral-500);
-        margin-top: 0.5rem;
     }
 
     .work-carousel-link.has_video:hover .swiper-poster,
