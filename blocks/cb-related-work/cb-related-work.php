@@ -18,7 +18,7 @@ $block_id = $block['id'] ?? '';
 
 // Get all selected services for this post.
 $services = wp_get_post_terms( get_the_ID(), 'service' );
-$themes   = wp_get_post_terms( get_the_ID(), 'theme' );
+// $themes   = wp_get_post_terms( get_the_ID(), 'theme' );
 
 // Resolve all selected services to their parent (if any), ignore children.
 $primary_parent_service = null;
@@ -48,23 +48,36 @@ if ( empty( $services ) && is_page() ) {
 	$page_slug          = get_post_field( 'post_name', get_the_ID() );
 	$maybe_service_term = get_term_by( 'slug', $page_slug, 'service' );
 	if ( $maybe_service_term && ! is_wp_error( $maybe_service_term ) ) {
-		$services = array( $maybe_service_term );
+		// Use only the parent and its direct children for related work selection.
+		$primary_parent_service = $maybe_service_term;
 	}
 	$pretitle         = get_the_title( get_the_ID() );
 	$pretitle_padding = 'pt-2 pb-1';
 }
 
 
-// Only use the primary parent service for related work selection.
+
+// Only include posts tagged with the selected parent service or its direct children.
 $service_ids = array();
 if ( $primary_parent_service ) {
-    $service_ids[] = $primary_parent_service->term_id;
+	$service_ids[] = $primary_parent_service->term_id;
+	// Get all direct children of the parent service.
+	$child_terms = get_terms( array(
+		'taxonomy' => 'service',
+		'parent' => $primary_parent_service->term_id,
+		'hide_empty' => false
+	) );
+	if ( ! is_wp_error( $child_terms ) && ! empty( $child_terms ) ) {
+		foreach ( $child_terms as $child ) {
+			$service_ids[] = $child->term_id;
+		}
+	}
 }
 
-$theme_ids = array();
-foreach ( $themes as $theme ) {
-	$theme_ids[] = $theme->term_id;
-}
+// $theme_ids = array();
+// foreach ( $themes as $theme ) {
+// 	$theme_ids[] = $theme->term_id;
+// }
 
 $tax_query = array( 'relation' => 'OR' );
 if ( ! empty( $service_ids ) ) {
@@ -74,13 +87,13 @@ if ( ! empty( $service_ids ) ) {
 		'terms'    => $service_ids,
 	);
 }
-if ( ! empty( $theme_ids ) ) {
-	$tax_query[] = array(
-		'taxonomy' => 'theme',
-		'field'    => 'term_id',
-		'terms'    => $theme_ids,
-	);
-}
+// if ( ! empty( $theme_ids ) ) {
+// 	$tax_query[] = array(
+// 		'taxonomy' => 'theme',
+// 		'field'    => 'term_id',
+// 		'terms'    => $theme_ids,
+// 	);
+// }
 
 $q = new WP_Query(
 	array(
