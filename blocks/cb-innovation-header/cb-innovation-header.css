@@ -36,6 +36,12 @@
   line-height: 1.5;
   text-wrap: balance;
 }
+.cb-innovation-header__intro-text p:first-child {
+  font-size: var(--fs-800);
+}
+.cb-innovation-header__intro-text p:not(:first-child) {
+  font-size: var(--fs-700);
+}
 .cb-innovation-header__quote-wrapper {
   border-top: 1px solid rgba(255, 255, 255, 0.4);
   position: relative;
