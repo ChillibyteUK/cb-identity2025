@@ -60,7 +60,7 @@ if ( $background ) {
 					<?= wp_kses_post( get_field( 'left_content' ) ); ?>
 				</div>
 					<?php
-					$desc_class = 'larger-left';
+					// $desc_class = 'larger-left';
 				}
 				?>
 			</div>
