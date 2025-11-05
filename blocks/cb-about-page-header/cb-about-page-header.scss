@@ -44,6 +44,13 @@
                 color: var(--col-green-300);
             }
         }
+        // Style first and other paragraphs in intro text
+        p:first-child {
+            font-size: var(--fs-800);
+        }
+        p:not(:first-child) {
+            font-size: var(--fs-700);
+        }
     }
     &__content-wrapper {
         border-top: 1px solid rgba(255, 255, 255, 0.4);
