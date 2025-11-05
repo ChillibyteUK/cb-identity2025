@@ -30,6 +30,7 @@ $content   = '';
 $l         = array();
 $bg        = '';
 $img       = '';
+$mask      = '';
 
 if ( have_rows( 'ctas', 'option' ) ) {
     while ( have_rows( 'ctas', 'option' ) ) {
