@@ -53,7 +53,7 @@ $block_id = $block['id'] ?? '';
 					?>
             <div class="col-lg-6 col-xl-3">
 					<?php
-					if ( '#' !== $brand_link['url'] || '' !== $brand_link['url'] ) {
+					if ( '#' !== $brand_link['url'] && '' !== $brand_link['url'] ) {
                     	?>
 				<a href="<?= esc_url( $brand_link['url'] ); ?>" target="_blank" rel="noopener noreferrer" class="brand-card">
 					<div class="brand-card__front">
