@@ -75,7 +75,7 @@ switch ( $blog_type ) {
 		</div>
 	</div>
 	<div class="id-container">
-		<div class="insight-type-grid grid-type-1 id-container px-4 px-md-5 py-5">
+		<div class="insight-type-grid grid-type-1 id-container p-5">
 			<div class="row g-5">
 			<?php
 			$args = array(

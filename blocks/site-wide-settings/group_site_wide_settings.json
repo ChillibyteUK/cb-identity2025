@@ -165,27 +165,6 @@
             "append": ""
         },
         {
-            "key": "field_690b1d808457d",
-            "label": "GA Property",
-            "name": "ga_property",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
             "key": "field_68a7625413eff",
             "label": "GTM Property",
             "name": "gtm_property",
@@ -266,10 +245,7 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "Face A": "Face A",
-                "CTA TEST B": "CTA TEST B"
-            },
+            "choices": [],
             "default_value": false,
             "return_format": "value",
             "multiple": 0,
@@ -295,10 +271,7 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "Face A": "Face A",
-                "CTA TEST B": "CTA TEST B"
-            },
+            "choices": [],
             "default_value": false,
             "return_format": "value",
             "multiple": 0,
@@ -520,5 +493,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1762336147
+    "modified": 1762172717
 }

@@ -109,12 +109,6 @@
 .cb-region-page-header__intro-text a:hover {
   color: var(--col-green-300);
 }
-.cb-region-page-header__intro-text p:first-child {
-  font-size: var(--fs-800);
-}
-.cb-region-page-header__intro-text p:not(:first-child) {
-  font-size: var(--fs-700);
-}
 .cb-region-page-header__content-wrapper {
   border-top: 1px solid rgba(255, 255, 255, 0.4);
   position: relative;

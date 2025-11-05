@@ -10,7 +10,6 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    position: relative;
     .id-container {
         position: relative;
         overflow: hidden;
@@ -25,8 +24,7 @@
         object-position: center;
     }
     .overlay {
-        position: absolute;
-        inset: 0;
+        grid-area: 1 / 1;
         background-color: rgba(13, 13, 12, 0.75);
     }
     &__inner {
