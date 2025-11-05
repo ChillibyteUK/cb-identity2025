@@ -15,7 +15,7 @@ get_header();
 	<section id="<?php echo esc_attr( $block_id ); ?>" class="news-hero has-primary-black-background-color pt-5">
 		<h1 class="mt-5">
 			<div class="id-container px-4 px-md-5 pt-1">
-				News, Insights &amp; Press
+				News, insights, and perspectives
 			</div>
 		</h1>
 		<h2>
