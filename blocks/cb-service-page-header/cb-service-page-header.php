@@ -19,7 +19,9 @@ $block_id = $block['id'] ?? '';
 		<h1><?= esc_html( get_field( 'service_title' ) ); ?></h1>
 		<div class="row">
 			<div class="col-md-9">
-				<p class="cb-service-page-header__intro-text"><?= wp_kses_post( get_field( 'service_intro_text' ) ); ?></p>
+				<div class="cb-service-page-header__intro-text">
+					<?= wp_kses_post( get_field( 'service_intro_text' ) ); ?>
+				</div>
 			</div>
 		</div>
 	</div>

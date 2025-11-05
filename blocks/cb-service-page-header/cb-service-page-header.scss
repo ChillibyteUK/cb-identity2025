@@ -21,5 +21,10 @@
         font-size: var(--fs-800);
         line-height: 1.5;
         text-wrap: balance;
+        p:first-of-type {
+        }
+        p:not(:first-of-type) {
+            font-size: var(--fs-700);
+        }
     }
 }
