@@ -15,8 +15,30 @@ $block_id = $block['id'] ?? '';
 
 // Get service and theme terms from current post.
 
+
+// Get all selected services for this post.
 $services = wp_get_post_terms( get_the_ID(), 'service' );
 $themes   = wp_get_post_terms( get_the_ID(), 'theme' );
+
+// Resolve all selected services to their parent (if any), ignore children.
+$primary_parent_service = null;
+if ( ! empty( $services ) ) {
+	$parent_services = array();
+	foreach ( $services as $service ) {
+        	if ( 0 !== $service->parent && $service->parent ) {
+			$parent_term = get_term( $service->parent, 'service' );
+			if ( $parent_term && ! is_wp_error( $parent_term ) ) {
+				$parent_services[] = $parent_term;
+			}
+		} else {
+			$parent_services[] = $service;
+		}
+	}
+	// Use only the first parent service (primary).
+	if ( ! empty( $parent_services ) ) {
+		$primary_parent_service = $parent_services[0];
+	}
+}
 
 $pretitle         = 'RELATED';
 $pretitle_padding = 'pt-4 pb-3';
@@ -32,38 +54,11 @@ if ( empty( $services ) && is_page() ) {
 	$pretitle_padding = 'pt-2 pb-1';
 }
 
-// Only include posts that share the same parent service as the current post, or the same service if no parent.
+
+// Only use the primary parent service for related work selection.
 $service_ids = array();
-if ( ! empty( $services ) ) {
-	// Collect all parent IDs for the current post's service terms.
-	$parent_id = null;
-	foreach ( $services as $service ) {
-		if ( $service->parent ) {
-			$parent_id = $service->parent;
-			break;
-		}
-	}
-	if ( $parent_id ) {
-		// Get all child terms of this parent (i.e., all siblings).
-		$siblings = get_terms(
-			array(
-				'taxonomy'   => 'service',
-				'parent'     => $parent_id,
-				'hide_empty' => false,
-			)
-		);
-		foreach ( $siblings as $sibling ) {
-			$service_ids[] = $sibling->term_id;
-		}
-		// Also include the parent itself.
-		$service_ids[] = $parent_id;
-	} else {
-		// No parent, just use the current service term(s).
-		foreach ( $services as $service ) {
-			$service_ids[] = $service->term_id;
-		}
-	}
-	$service_ids = array_unique( $service_ids );
+if ( $primary_parent_service ) {
+    $service_ids[] = $primary_parent_service->term_id;
 }
 
 $theme_ids = array();
@@ -116,7 +111,7 @@ if ( $q->have_posts() ) {
 		?>
 			<div class="col-md-6">
 				<a href="<?= esc_url( get_the_permalink() ); ?>" class="cb-related-work__card">
-					<?= get_work_image( get_the_ID(), 'cb-related-work__image' ); ?>
+					<?= wp_kses_post( get_work_image( get_the_ID(), 'cb-related-work__image' ) ); ?>
 					<div class="cb-related-work__content px-4 px-md-5">
 						<div class="cb-related-work__title">
 							<?php the_title(); ?> <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/arrow-wh.svg' ); ?>" width=23 height=21 alt="" class="cb-services-nav__item-icon" />
