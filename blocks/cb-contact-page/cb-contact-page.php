@@ -42,7 +42,7 @@ $l = get_field( 'contact_link' );
                     </a>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <h2>New business US</h2>
+                    <h2>New business USA</h2>
                 </div>
                 <div class="col-md-6 mb-3">
                     <a href="mailto:<?= esc_attr( antispambot( get_field( 'new_business_us' ) ) ); ?>">
@@ -50,7 +50,7 @@ $l = get_field( 'contact_link' );
                     </a>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <h2>New business ME</h2>
+                    <h2>New business Middle East</h2>
                 </div>
                 <div class="col-md-6 mb-3">
                     <a href="mailto:<?= esc_attr( antispambot( get_field( 'new_business_me' ) ) ); ?>">
