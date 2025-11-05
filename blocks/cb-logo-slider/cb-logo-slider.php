@@ -47,9 +47,12 @@ document.addEventListener('DOMContentLoaded', function() {
 		wrapper.innerHTML += wrapper.innerHTML;
 		wrapperWidth = wrapper.scrollWidth;
 	}
+	var pxPerSecond = 80; // Adjust for desired speed
+	var distance = wrapperWidth / 2;
+	var duration = distance / pxPerSecond;
 	gsap.to(wrapper, {
-		x: -wrapperWidth / 2,
-		duration: 20,
+		x: -distance,
+		duration: duration,
 		ease: 'none',
 		repeat: -1,
 	});
