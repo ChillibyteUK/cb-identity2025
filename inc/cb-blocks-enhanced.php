@@ -191,25 +191,15 @@ function cb_load_block_acf_fields( $paths ) {
 add_filter( 'acf/settings/load_json', 'cb_load_block_acf_fields' );
 
 /**
- * Save ACF block field group JSON to the block's directory if it matches a block's field group key.
+ * Save ACF block field group JSON to /acf-json (let the save_post hook handle copying to blocks).
  *
  * @param string $path Default save path.
  * @param array  $field_group The field group being saved.
  * @return string Modified save path.
  */
 function cb_save_block_acf_json_path( $path, $field_group = null ) {
-    if ( is_array( $field_group ) && isset( $field_group['key'] ) ) {
-        $blocks = cb_get_blocks();
-        foreach ( $blocks as $block ) {
-            $block_dir = get_stylesheet_directory() . '/blocks/' . $block;
-            $json_file = $block_dir . '/group_' . $field_group['key'] . '.json';
-            // If this block directory contains the field group, save there.
-            if ( file_exists( $json_file ) || ( isset( $field_group['location'][0][0]['param'] ) && 'block' === $field_group['location'][0][0]['param'] && strpos( $field_group['location'][0][0]['value'], $block ) !== false ) ) {
-                return $block_dir;
-            }
-        }
-    }
-    // Default to theme acf-json.
+    // Always save to default acf-json path.
+    // The acf/save_post hook will handle copying to block directories.
     return $path;
 }
 add_filter( 'acf/settings/save_json', 'cb_save_block_acf_json_path', 10, 2 );
@@ -232,7 +222,8 @@ function cb_force_acf_sync() {
 
 
 /**
- * After ACF saves a field group, copy its JSON from /acf-json to the correct block folder if it matches a block.
+ * After ACF saves a field group, sync JSON between /acf-json and block folders.
+ * ACF may save directly to block folder, so we need to ensure both locations are synced.
  */
 add_action(
 	'acf/save_post',
@@ -241,34 +232,78 @@ add_action(
     	if ( strpos( $post_id, 'group_' ) !== 0 ) {
         	return;
     	}
+    	
     	$acf_json_dir = get_stylesheet_directory() . '/acf-json';
-    	$json_file    = $acf_json_dir . '/' . $post_id . '.json';
-    	if ( ! file_exists( $json_file ) ) {
+    	$acf_json_file = $acf_json_dir . '/' . $post_id . '.json';
+    	$blocks = cb_get_blocks();
+    	
+    	// Check if the file was saved to a block directory or acf-json.
+    	$source_file = null;
+    	$source_dir = null;
+    	$target_block_dir = null;
+    	
+    	// First check if it exists in acf-json.
+    	if ( file_exists( $acf_json_file ) ) {
+        	$source_file = $acf_json_file;
+        	$source_dir = 'acf-json';
+    	} else {
+        	// Check if it exists in any block directory.
+        	foreach ( $blocks as $block ) {
+            	$block_dir = get_stylesheet_directory() . '/blocks/' . $block;
+            	$block_json_file = $block_dir . '/' . $post_id . '.json';
+            	if ( file_exists( $block_json_file ) ) {
+                	$source_file = $block_json_file;
+                	$source_dir = $block;
+                	break;
+            	}
+        	}
+    	}
+    	
+    	if ( ! $source_file ) {
         	return;
     	}
-    	$blocks = cb_get_blocks();
-    	$json   = json_decode( file_get_contents( $json_file ), true );
+    	
+    	$json = json_decode( file_get_contents( $source_file ), true );
     	if ( ! is_array( $json ) || ! isset( $json['location'][0][0]['param'] ) ) {
         	return;
     	}
     	if ( 'block' !== $json['location'][0][0]['param'] ) {
         	return;
     	}
+    	
 		$location_value = $json['location'][0][0]['value'];
+		
+		// Find the matching block directory.
 		foreach ( $blocks as $block ) {
 			$block_json_path = get_stylesheet_directory() . '/blocks/' . $block . '/block.json';
 			if ( file_exists( $block_json_path ) ) {
 				$block_json = json_decode( file_get_contents( $block_json_path ), true );
 				if ( isset( $block_json['name'] ) && $block_json['name'] === $location_value ) {
-					$block_dir   = get_stylesheet_directory() . '/blocks/' . $block;
-					$target_file = $block_dir . '/' . $post_id . '.json';
-					copy( $json_file, $target_file );
-					// Force reload of block editor to reflect changes (AJAX or redirect).
-					if ( is_admin() && isset( $_GET['post'] ) ) {
-						echo '<script>window.location.reload();</script>';
-					}
+					$target_block_dir = get_stylesheet_directory() . '/blocks/' . $block;
 					break;
 				}
+			}
+		}
+		
+		if ( ! $target_block_dir ) {
+			return;
+		}
+		
+		$target_block_file = $target_block_dir . '/' . $post_id . '.json';
+		
+		// Sync: Copy to both locations.
+		if ( $source_dir === 'acf-json' ) {
+			// Source is acf-json, copy to block directory.
+			copy( $source_file, $target_block_file );
+		} else {
+			// Source is block directory, copy to acf-json.
+			if ( ! is_dir( $acf_json_dir ) ) {
+				mkdir( $acf_json_dir, 0755, true );
+			}
+			copy( $source_file, $acf_json_file );
+			// Also ensure the block directory has the latest.
+			if ( $source_file !== $target_block_file ) {
+				copy( $source_file, $target_block_file );
 			}
 		}
 	}

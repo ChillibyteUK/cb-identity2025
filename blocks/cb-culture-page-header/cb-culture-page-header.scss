@@ -36,6 +36,9 @@
         font-size: var(--fs-800);
         line-height: 1.5;
         text-wrap: balance;
+        p:not(:first-of-type) {
+            font-size: var(--fs-700);
+        }
         a {
             color: var(--col-green-400);
             text-decoration: underline;
@@ -140,5 +143,6 @@
         padding-block: 0.75rem;
         font-size: var(--fs-400);
         font-weight: var(--fw-light);
+        text-wrap: balance;
     }
 }

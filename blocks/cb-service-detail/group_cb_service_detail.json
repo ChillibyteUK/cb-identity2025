@@ -90,7 +90,7 @@
                     "label": "Description",
                     "name": "description",
                     "aria-label": "",
-                    "type": "textarea",
+                    "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -100,11 +100,11 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "maxlength": "",
                     "allow_in_bindings": 0,
-                    "rows": 4,
-                    "placeholder": "",
-                    "new_lines": "br",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1,
+                    "delay": 0,
                     "parent_repeater": "field_6902375d7d225"
                 }
             ]
@@ -129,5 +129,5 @@
     "description": "Fields for the CB Service Detail block",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1762267498
+    "modified": 1762350978
 }
