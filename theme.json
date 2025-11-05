@@ -411,11 +411,6 @@
           "size": "clamp(3rem, 1rem + 3vw, 5rem)"
         },
         {
-          "name": "50",
-          "slug": "50",
-          "size": "0.8889rem"
-        },
-        {
           "name": "875",
           "slug": "875",
           "size": "clamp(2.25rem, 1rem + 2.2vw, 3.5rem)"
@@ -424,6 +419,11 @@
           "name": "950",
           "slug": "950",
           "size": "clamp(3.4375rem, 1rem + 4vw, 6.25rem)"
+        },
+        {
+          "name": "50",
+          "slug": "50",
+          "size": "0.8889rem"
         }
       ]
     }

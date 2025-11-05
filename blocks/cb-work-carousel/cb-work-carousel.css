@@ -4,14 +4,13 @@
  * @package HubSequoia2025
  */
 .cb-work-carousel {
-  aspect-ratio: 16/9;
   width: 100%;
   background-color: var(--col-primary-black);
   position: relative;
   height: 100%;
 }
 .cb-work-carousel__container {
-  width: 100%;
+  width: min(100%, 1920px);
   margin: 0 auto;
   aspect-ratio: 16/9;
 }

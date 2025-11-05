@@ -18,10 +18,10 @@
   margin-bottom: 2rem;
 }
 .cb-service-page-header__intro-text {
-  font-size: var(--fs-800);
+  font-size: var(--fs-700);
   line-height: 1.5;
   text-wrap: balance;
 }
 .cb-service-page-header__intro-text p:not(:first-of-type) {
-  font-size: var(--fs-700);
+  font-size: var(--fs-500);
 }

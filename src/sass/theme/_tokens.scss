@@ -122,10 +122,6 @@ $col-light: #f2f2f2;
   // --fs-850: 3.125rem; /* ~56.25px */
   // --fs-900: 5rem;     /* ~90px */
 
-  /* fixed base levels */
-  --fs-50: 0.8889rem; /* ~16px */
-  --fs-100: 1rem;     /* 18px floor and cap */
-  --fs-200: 1.125rem; /* ~20px floor and cap */
   /* fluid-down heading levels */
   // --fs-300: clamp(1rem, 0.95rem + 0.5vw, 1.25rem);    /* 18→22px */
   // --fs-400: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);  /* 20→25px */
@@ -138,6 +134,10 @@ $col-light: #f2f2f2;
   // --fs-900: clamp(4rem, 1rem + 3vw, 5rem);            /* 72→90px */
   // --fs-950: clamp(5rem, 1rem + 4vw, 6.25rem);         /* 90→112px */
 
+  /* fixed base levels */
+  --fs-50: 0.8889rem; /* ~16px */
+  --fs-100: 1rem;     /* 18px floor and cap */
+  --fs-200: 1.125rem; /* ~20px floor and cap */
   /* fluid-down heading levels – refined lower scaling */
   --fs-300: clamp(1rem, 0.95rem + 0.5vw, 1.25rem);      /* 16→22px */
   --fs-400: clamp(1.0625rem, 0.9rem + 0.6vw, 1.375rem); /* 17→25px */

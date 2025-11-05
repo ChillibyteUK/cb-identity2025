@@ -24,7 +24,7 @@ $block_id = $block['id'] ?? '';
 					foreach ( $logos as $logo ) {
 						?>
 				<div class="swiper-slide">
-					<?= wp_get_attachment_image( $logo, 'full', false, array( 'class' => 'cb-logo-slider__logo img-fluid' ) ); ?>
+						<?= wp_get_attachment_image( $logo, 'full', false, array( 'class' => 'cb-logo-slider__logo img-fluid' ) ); ?>
 				</div>
 						<?php
 					}
