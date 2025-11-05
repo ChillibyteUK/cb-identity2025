@@ -9,6 +9,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  position: relative;
 }
 .cb-careers-page .id-container {
   position: relative;
@@ -24,7 +25,8 @@
   object-position: center;
 }
 .cb-careers-page .overlay {
-  grid-area: 1/1;
+  position: absolute;
+  inset: 0;
   background-color: rgba(13, 13, 12, 0.75);
 }
 .cb-careers-page__inner {
