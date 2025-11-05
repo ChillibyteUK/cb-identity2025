@@ -34,19 +34,25 @@ $block_id = $block['id'] ?? '';
 		</div>
 	</div>
 </section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  new Swiper('.cb-logo-slider__track', {
-	slidesPerView: 'auto',
-	spaceBetween: 0,
-	loop: true,
-	speed: 6000,
-	autoplay: {
-	  delay: 0,
-	  disableOnInteraction: false,
-	},
-	allowTouchMove: false,
-  });
+	var wrapper = document.querySelector('.cb-logo-slider__track .swiper-wrapper');
+	if (!wrapper) return;
+	var wrapperWidth = wrapper.scrollWidth;
+	var container = document.querySelector('.cb-logo-slider__marquee');
+	var containerWidth = container.offsetWidth;
+	// Duplicate logos for seamless loop if needed
+	if (wrapperWidth < containerWidth * 2) {
+		wrapper.innerHTML += wrapper.innerHTML;
+		wrapperWidth = wrapper.scrollWidth;
+	}
+	gsap.to(wrapper, {
+		x: -wrapperWidth / 2,
+		duration: 20,
+		ease: 'none',
+		repeat: -1,
+	});
 });
 </script>
 <?php

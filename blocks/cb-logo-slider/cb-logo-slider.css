@@ -11,26 +11,17 @@
   overflow: hidden;
   width: 100%;
 }
-.cb-logo-slider__track {
+.cb-logo-slider__track .swiper-wrapper {
   display: flex;
-  gap: 0;
-  animation: marquee 10s linear infinite;
-}
-@media (min-width: 768px) {
-  .cb-logo-slider__track {
-    animation: marquee 20s linear infinite;
-  }
 }
 .cb-logo-slider__logo {
   filter: invert(1);
   height: 120px;
   width: auto;
+  flex: 0 0 auto;
 }
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+
+.swiper-slide {
+  flex: 0 0 auto;
+  width: auto;
 }
