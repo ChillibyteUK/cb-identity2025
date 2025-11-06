@@ -21,7 +21,24 @@ $block_id = $block['id'] ?? '';
 </style>
 <?php
 
+$bg_case_study = get_field( 'hero_case_study' )[0] ?? null;
 
+
+if ( ! $bg_case_study ) {
+	$latest_query = new WP_Query(
+		array(
+			'post_type'      => 'case_study',
+			'posts_per_page' => 1,
+			'orderby'        => 'date',
+			'order'          => 'DESC',
+		)
+	);
+	if ( $latest_query->have_posts() ) {
+		$latest_query->the_post();
+		$bg_case_study = get_the_ID();
+		wp_reset_postdata();
+	}
+}
 ?>
 <section class="work-index-hero has-primary-black-background-color pt-5">
     <h1 class="mt-5">
@@ -35,28 +52,13 @@ $block_id = $block['id'] ?? '';
         </div>
     </h2>
 	<div class="id-container">
-		<a href="<?= esc_url( get_the_permalink() ); ?>" class="work-index-hero__background">
-			<?php
+		<?php
 			// get title and thumbnail of first sticky or latest case study for background image.
-			$bg_case_study = get_field( 'hero_case_study' )[0] ?? null;
 
-
-			if ( ! $bg_case_study ) {
-				$latest_query = new WP_Query(
-					array(
-						'post_type'      => 'case_study',
-						'posts_per_page' => 1,
-						'orderby'        => 'date',
-						'order'          => 'DESC',
-					)
-				);
-				if ( $latest_query->have_posts() ) {
-					$latest_query->the_post();
-					$bg_case_study = get_the_ID();
-					wp_reset_postdata();
-				}
-			}
 			if ( $bg_case_study ) {
+				?>
+		<a href="<?= esc_url( get_the_permalink( $bg_case_study) ); ?>" class="work-index-hero__background">
+				<?php
 				$bg_image_id = get_post_thumbnail_id( $bg_case_study );
 				if ( $bg_image_id ) {
 					echo wp_get_attachment_image( $bg_image_id, 'full', false, array( 'class' => 'work-index-hero__image' ) );
@@ -102,7 +104,13 @@ $block_id = $block['id'] ?? '';
 					?>
 				</div>
 			</div>
+		<?php
+		if ( $bg_case_study ) {
+			?>
 		</a>
+			<?php
+		}
+		?>
 	</div>
 </section>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-work-index">
