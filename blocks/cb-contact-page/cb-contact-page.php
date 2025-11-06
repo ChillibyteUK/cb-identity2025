@@ -32,30 +32,63 @@ $l = get_field( 'contact_link' );
             </div>
         </div>
         <div class="cb-contact-page__emails">
-            <div class="row align-items-center">
+            <div class="row align-items-start">
                 <div class="col-md-6 mb-3">
                     <h2>New business</h2>
                 </div>
-                <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-5 mb-md-3">
                     <a href="mailto:<?= esc_attr( antispambot( get_field( 'new_business' ) ) ); ?>">
                         <?= esc_html( antispambot( get_field( 'new_business' ) ) ); ?>
                     </a>
+                    <?php
+                    if ( get_field( 'new_business_phone' ) ) {
+                        ?>
+                        <div class="mt-2">
+                            <a href="tel:<?= esc_attr( preg_replace( '/\s+/', '', get_field( 'new_business_phone' ) ) ); ?>">
+                                <?= esc_html( get_field( 'new_business_phone' ) ); ?>
+                            </a>
+                        </div>
+                        <?php
+                    }
+                    ?>
                 </div>
                 <div class="col-md-6 mb-3">
                     <h2>New business USA</h2>
                 </div>
-                <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-5 mb-md-3">
                     <a href="mailto:<?= esc_attr( antispambot( get_field( 'new_business_us' ) ) ); ?>">
                         <?= esc_html( antispambot( get_field( 'new_business_us' ) ) ); ?>
                     </a>
+                    <?php
+                    if ( get_field( 'new_business_us_phone' ) ) {
+                        ?>
+                        <div class="mt-2">
+                            <a href="tel:<?= esc_attr( preg_replace( '/\s+/', '', get_field( 'new_business_us_phone' ) ) ); ?>">
+                                <?= esc_html( get_field( 'new_business_us_phone' ) ); ?>
+                            </a>
+                        </div>
+                        <?php
+                    }
+                    ?>
                 </div>
                 <div class="col-md-6 mb-3">
                     <h2>New business Middle East</h2>
                 </div>
-                <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-5 mb-md-3">
                     <a href="mailto:<?= esc_attr( antispambot( get_field( 'new_business_me' ) ) ); ?>">
                         <?= esc_html( antispambot( get_field( 'new_business_me' ) ) ); ?>
                     </a>
+                    <?php
+                    if ( get_field( 'new_business_me_phone' ) ) {
+                        ?>
+                        <div class="mt-2">
+                            <a href="tel:<?= esc_attr( preg_replace( '/\s+/', '', get_field( 'new_business_me_phone' ) ) ); ?>">
+                                <?= esc_html( get_field( 'new_business_me_phone' ) ); ?>
+                            </a>
+                        </div>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -64,10 +97,21 @@ $l = get_field( 'contact_link' );
                 <div class="col-md-6 mb-3">
                     <h2>PR & Media</h2>
                 </div>
-                <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-5 mb-md-3">
                     <a href="mailto:<?= esc_attr( antispambot( get_field( 'pr_media' ) ) ); ?>">
                         <?= esc_html( antispambot( get_field( 'pr_media' ) ) ); ?>
                     </a>
+                    <?php
+                    if ( get_field( 'pr_media_phone' ) ) {
+                        ?>
+                        <div class="mt-2">
+                            <a href="tel:<?= esc_attr( preg_replace( '/\s+/', '', get_field( 'pr_media_phone' ) ) ); ?>">
+                                <?= esc_html( get_field( 'pr_media_phone' ) ); ?>
+                            </a>
+                        </div>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -76,10 +120,21 @@ $l = get_field( 'contact_link' );
                 <div class="col-md-6 mb-3">
                     <h2>Talent</h2>
                 </div>
-                <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-5 mb-md-3">
                     <a href="mailto:<?= esc_attr( antispambot( get_field( 'talent' ) ) ); ?>">
                         <?= esc_html( antispambot( get_field( 'talent' ) ) ); ?>
                     </a>
+                    <?php
+                    if ( get_field( 'talent_phone' ) ) {
+                        ?>
+                        <div class="mt-2">
+                            <a href="tel:<?= esc_attr( preg_replace( '/\s+/', '', get_field( 'talent_phone' ) ) ); ?>">
+                                <?= esc_html( get_field( 'talent_phone' ) ); ?>
+                            </a>
+                        </div>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -120,7 +175,7 @@ $l = get_field( 'contact_link' );
 							<?php
 							if ( get_sub_field( 'phone' ) ) {
 								?>
-                        <div class="mb-2"><a href="tel:<?= esc_attr( get_sub_field( 'phone' ) ); ?>"><?= esc_html( get_sub_field( 'phone' ) ); ?></a></div>
+                        <div class="mb-2"><a href="tel:<?= esc_attr( preg_replace( '/\s+/', '', get_sub_field( 'phone' ) ) ); ?>"><?= esc_html( get_sub_field( 'phone' ) ); ?></a></div>
 								<?php
 							}
 							?>
