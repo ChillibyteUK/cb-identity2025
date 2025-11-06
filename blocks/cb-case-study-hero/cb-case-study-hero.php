@@ -31,7 +31,7 @@ $block_id = $block['id'] ?? '';
         ?>
     <div class="id-container case-study-hero-video-container">
         <div class="overlay"></div>
-        <iframe class="case-study-hero-video" src="<?= esc_url( $video ); ?>&&autoplay=1" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+        <iframe class="case-study-hero-video" src="<?= esc_url( cb_vimeo_url_with_dnt( $video ) ); ?>&autoplay=1" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
     </div>
         <?php
     }

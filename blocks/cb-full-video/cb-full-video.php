@@ -28,6 +28,6 @@ if ( $block['anchor'] ) {
 ?>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-full-video">
     <div class="id-container ratio ratio-16x9">
-        <iframe class="full-video" src="<?= esc_url( $vimeo_url ); ?>" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+        <iframe class="full-video" src="<?= esc_url( cb_vimeo_url_with_dnt( $vimeo_url ) ); ?>" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
     </div>
 </section>

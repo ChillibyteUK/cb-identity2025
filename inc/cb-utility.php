@@ -781,3 +781,40 @@ function lc_cf7_honeypot_validation_filter( $result, $tag ) {
 
 	return $result;
 }
+
+/**
+ * Ensure Vimeo URL has dnt=1 parameter.
+ *
+ * @param string $url Vimeo video URL.
+ * @return string Vimeo URL with dnt=1 parameter.
+ */
+function cb_vimeo_url_with_dnt( $url ) {
+    if ( strpos( $url, 'vimeo.com' ) === false ) {
+        return $url;
+    }
+    // Parse URL
+    $parts = parse_url( $url );
+    if ( ! isset( $parts['query'] ) ) {
+        // No query string, just add dnt=1
+        return $url . ( strpos( $url, '?' ) === false ? '?' : '' ) . 'dnt=1';
+    }
+    // Parse query string
+    parse_str( $parts['query'], $query );
+    if ( isset( $query['dnt'] ) ) {
+        return $url;
+    }
+    // Add dnt=1
+    $query['dnt'] = '1';
+    // Build new query string
+    $parts['query'] = http_build_query( $query );
+    // Rebuild URL
+    $new_url = $parts['scheme'] . '://' . $parts['host'];
+    if ( isset( $parts['path'] ) ) {
+        $new_url .= $parts['path'];
+    }
+    $new_url .= '?' . $parts['query'];
+    if ( isset( $parts['fragment'] ) ) {
+        $new_url .= '#' . $parts['fragment'];
+    }
+    return $new_url;
+}

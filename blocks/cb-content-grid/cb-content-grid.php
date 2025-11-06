@@ -98,7 +98,7 @@ $background_color = get_field( 'background' );
                         if ( $vimeo_url ) {
                             echo '<div class="ratio ratio-16x9">';
 							?>
-							<iframe src="<?= esc_url( $vimeo_url ); ?>" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+							<iframe src="<?= esc_url( cb_vimeo_url_with_dnt( $vimeo_url ) ); ?>" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
 							<?php
                             echo '</div>';
                         }
@@ -199,7 +199,7 @@ $background_color = get_field( 'background' );
                                 $vimeo_url = $block['data'][ 'grid_rows_' . $row_index . '_module_' . $module_index . '_vimeo_url' ] ?? '';
                                 if ( $vimeo_url ) {
                                     echo '<div class="ratio ratio-16x9">';
-                                    echo wp_kses_post( wp_oembed_get( esc_url( $vimeo_url ) ) );
+                                    echo wp_kses_post( wp_oembed_get( esc_url( cb_vimeo_url_with_dnt( $vimeo_url ) ) ) );
                                     echo '</div>';
                                 }
                             }

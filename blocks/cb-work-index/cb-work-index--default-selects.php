@@ -276,7 +276,7 @@ $theme_map_json   = wp_json_encode( $theme_to_services );
 					<?php
 					if ( $video ) {
 						?>
-					<iframe class="work-video" src="<?= esc_url( $video ); ?>&background=1&autoplay=0" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+					<iframe class="work-video" src="<?= esc_url( cb_vimeo_url_with_dnt( $video ) ); ?>&background=1&autoplay=0" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
 						<?php
 					}
 					?>

@@ -48,7 +48,7 @@ $block_content = get_field( 'content' );
 					if ( $video ) {
 						?>
 					<div class="iframe-cover swiper-video">
-						<iframe src="<?= esc_url( $video ); ?>&background=1&autoplay=0" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+						<iframe src="<?= esc_url( cb_vimeo_url_with_dnt( $video ) ); ?>&background=1&autoplay=0" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
 					</div>
 						<?php
 					}

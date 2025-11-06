@@ -45,7 +45,7 @@ $count = get_field( 'count' ) ?? 4;
 					$video = get_field( 'vimeo_url', get_the_ID() );
 					if ( $video ) {
 						?>
-					<iframe class="work-video" src="<?= esc_url( $video ); ?>&background=1&autoplay=0" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+					<iframe class="work-video" src="<?= esc_url( cb_vimeo_url_with_dnt( $video ) ); ?>&background=1&autoplay=0" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
 						<?php
 					}
 					?>

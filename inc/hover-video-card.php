@@ -22,7 +22,7 @@ if ( ! $vimeo_url ) {
     return;
 }
 ?>
-<div class="hover-video-card" data-vimeo-url="<?php echo esc_url( $vimeo_url ); ?>">
+<div class="hover-video-card" data-vimeo-url="<?php echo esc_url( cb_vimeo_url_with_dnt( $vimeo_url ) ); ?>">
     <?php echo wp_kses_post( $thumb_html ); ?>
     <div class="hover-video-card__video"></div>
 </div>
