@@ -67,7 +67,7 @@ $block_id = $block['id'] ?? '';
 					<div class="cb-latest-insights__image-wrapper">
 						<?php
 						if ( get_the_post_thumbnail( get_the_ID() ) ) {
-							echo get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'cb-latest-insights__image' ) );
+							echo get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'cb-latest-insights__image', 'alt' => get_post_meta( get_post_thumbnail_id( get_the_ID() ), '_wp_attachment_image_alt', true ) ) );
 						} else {
 							echo '<img src="' . esc_url( get_stylesheet_directory_uri() . '/img/default-post-image.png' ) . '" alt="" class="cb-latest-insights__image" />';
 						}

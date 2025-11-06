@@ -186,7 +186,7 @@ $background_color = get_field( 'background' );
 								}
                                 if ( $image_id ) {
 									echo '<div class="img-cover ' . esc_attr( $aspect_class ) . '">';
-                                    echo wp_get_attachment_image( $image_id, 'full', false, array( 'class' => 'img-fluid' ) );
+                                    echo wp_get_attachment_image( $image_id, 'full', false, array( 'class' => 'img-fluid', 'alt' => get_post_meta( $image_id, '_wp_attachment_image_alt', true ) ) );
 									echo '</div>';
                                 }
                                 if ( $caption ) {

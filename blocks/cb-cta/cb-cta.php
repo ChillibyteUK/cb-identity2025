@@ -60,7 +60,7 @@ if ( have_rows( 'ctas', 'option' ) ) {
 		<div class="row g-5">
 			<div class="col-md-6">
 				<div class="cb-cta__clip-group cb-cta__clip-group--<?= esc_attr( $mask ); ?>">
-					<?= wp_get_attachment_image( $img, 'full', false, array( 'class' => 'img-fluid cb-cta__image' ) ); ?>
+					<?= wp_get_attachment_image( $img, 'full', false, array( 'class' => 'img-fluid cb-cta__image', 'alt' => get_post_meta( $img, '_wp_attachment_image_alt', true ) ) ); ?>
 				</div>
 			</div>
 			<div class="col-md-6">

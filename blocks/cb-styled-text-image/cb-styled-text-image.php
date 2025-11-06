@@ -29,7 +29,7 @@ $title_colour  = get_field( 'title_colour' );
             </div>
             <div class="col-md-6 d-none d-md-block">
                 <div class="cb-styled-text-image__image-wrapper">
-                    <?= wp_get_attachment_image( get_field( 'image' ), 'full', false, array( 'class' => 'cb-styled-text-image__image' ) ); ?>
+                    <?= wp_get_attachment_image( get_field( 'image' ), 'full', false, array( 'class' => 'cb-styled-text-image__image', 'alt' => get_post_meta( get_field( 'image' ), '_wp_attachment_image_alt', true ) ) ); ?>
                 </div>
             </div>
         </div>

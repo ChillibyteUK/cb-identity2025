@@ -310,7 +310,7 @@ if ( ! function_exists( 'get_work_image' ) ) {
     function get_work_image( $post_id, $class = 'work-card__image' ) {
         // 1. Try post thumbnail
         if ( get_the_post_thumbnail( $post_id ) ) {
-            return get_the_post_thumbnail( $post_id, 'full', array( 'class' => $class ) );
+            return get_the_post_thumbnail( $post_id, 'full', array( 'class' => $class, 'alt' => get_post_meta( get_post_thumbnail_id( $post_id ), '_wp_attachment_image_alt', true ) ) );
         }
 
         // 2. Try Vimeo video thumbnail as fallback
