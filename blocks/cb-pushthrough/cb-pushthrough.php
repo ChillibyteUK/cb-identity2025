@@ -49,8 +49,8 @@ if ( $background ) {
 
 	$desc_class = '';
 	?>
-	<div class="id-container px-4 px-md-5">
-		<div class="row py-4">
+	<div class="id-container px-4 px-md-5 py-5">
+		<div class="row g-5 py-4">
 			<div class="col-md-6">
 				<h2><?= esc_html( get_field( 'title' ) ); ?></h2>
 				<?php
