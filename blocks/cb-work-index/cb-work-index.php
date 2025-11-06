@@ -34,74 +34,76 @@ $block_id = $block['id'] ?? '';
             Where experience changes everything
         </div>
     </h2>
-	<a href="<?= esc_url( get_the_permalink() ); ?>" class="work-index-hero__background">
-		<?php
-		// get title and thumbnail of first sticky or latest case study for background image.
-		$bg_case_study = get_field( 'hero_case_study' )[0] ?? null;
+	<div class="id-container">
+		<a href="<?= esc_url( get_the_permalink() ); ?>" class="work-index-hero__background">
+			<?php
+			// get title and thumbnail of first sticky or latest case study for background image.
+			$bg_case_study = get_field( 'hero_case_study' )[0] ?? null;
 
 
-		if ( ! $bg_case_study ) {
-			$latest_query = new WP_Query(
-				array(
-					'post_type'      => 'case_study',
-					'posts_per_page' => 1,
-					'orderby'        => 'date',
-					'order'          => 'DESC',
-				)
-			);
-			if ( $latest_query->have_posts() ) {
-				$latest_query->the_post();
-				$bg_case_study = get_the_ID();
-				wp_reset_postdata();
+			if ( ! $bg_case_study ) {
+				$latest_query = new WP_Query(
+					array(
+						'post_type'      => 'case_study',
+						'posts_per_page' => 1,
+						'orderby'        => 'date',
+						'order'          => 'DESC',
+					)
+				);
+				if ( $latest_query->have_posts() ) {
+					$latest_query->the_post();
+					$bg_case_study = get_the_ID();
+					wp_reset_postdata();
+				}
 			}
-		}
-		if ( $bg_case_study ) {
-			$bg_image_id = get_post_thumbnail_id( $bg_case_study );
-			if ( $bg_image_id ) {
-				echo wp_get_attachment_image( $bg_image_id, 'full', false, array( 'class' => 'work-index-hero__image' ) );
+			if ( $bg_case_study ) {
+				$bg_image_id = get_post_thumbnail_id( $bg_case_study );
+				if ( $bg_image_id ) {
+					echo wp_get_attachment_image( $bg_image_id, 'full', false, array( 'class' => 'work-index-hero__image' ) );
+				}
 			}
-		}
-		?>
-		<div class="overlay"></div>
-		<div class="work-index-hero__content px-4 px-md-5">
-			<div class="work-index-hero__title">
-				<?php echo esc_html( get_the_title( $bg_case_study ) ); ?> <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/arrow-wh.svg' ); ?>" width=23 height=21 alt="" class="cb-services-nav__item-icon" />
-			</div>
-			<div class="work-index-hero__desc">
-				<?php
-				// get the case_study_subtitle field from the cb-case-study-hero block if available.
-				if ( ! function_exists( 'cb_find_hero_subtitle' ) ) {
-					function cb_find_hero_subtitle( $blocks ) {
-						foreach ( $blocks as $block ) {
-							if (
-								isset( $block['blockName'] ) &&
-								'cb/cb-case-study-hero' === $block['blockName'] &&
-								! empty( $block['attrs']['data']['case_study_subtitle'] )
-							) {
-								return $block['attrs']['data']['case_study_subtitle'];
-							}
-							if ( ! empty( $block['innerBlocks'] ) ) {
-								$found = cb_find_hero_subtitle( $block['innerBlocks'] );
-								if ( $found ) {
-									return $found;
+			?>
+			<div class="overlay"></div>
+			<div class="work-index-hero__content px-4 px-md-5">
+				<div class="work-index-hero__title">
+					<?php echo esc_html( get_the_title( $bg_case_study ) ); ?> <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/arrow-wh.svg' ); ?>" width=23 height=21 alt="" class="cb-services-nav__item-icon" />
+				</div>
+				<div class="work-index-hero__desc">
+					<?php
+					// get the case_study_subtitle field from the cb-case-study-hero block if available.
+					if ( ! function_exists( 'cb_find_hero_subtitle' ) ) {
+						function cb_find_hero_subtitle( $blocks ) {
+							foreach ( $blocks as $block ) {
+								if (
+									isset( $block['blockName'] ) &&
+									'cb/cb-case-study-hero' === $block['blockName'] &&
+									! empty( $block['attrs']['data']['case_study_subtitle'] )
+								) {
+									return $block['attrs']['data']['case_study_subtitle'];
+								}
+								if ( ! empty( $block['innerBlocks'] ) ) {
+									$found = cb_find_hero_subtitle( $block['innerBlocks'] );
+									if ( $found ) {
+										return $found;
+									}
 								}
 							}
+							return '';
 						}
-						return '';
 					}
-				}
-				$post_blocks = parse_blocks( get_post_field( 'post_content', $bg_case_study ) );
-				$subtitle    = cb_find_hero_subtitle( $post_blocks );
-				if ( $subtitle ) {
-					echo esc_html( $subtitle );
-				} else {
-					$excerpt = get_the_excerpt( $bg_case_study );
-					echo wp_kses_post( wp_trim_words( $excerpt, 18, '...' ) );
-				}
-				?>
+					$post_blocks = parse_blocks( get_post_field( 'post_content', $bg_case_study ) );
+					$subtitle    = cb_find_hero_subtitle( $post_blocks );
+					if ( $subtitle ) {
+						echo esc_html( $subtitle );
+					} else {
+						$excerpt = get_the_excerpt( $bg_case_study );
+						echo wp_kses_post( wp_trim_words( $excerpt, 18, '...' ) );
+					}
+					?>
+				</div>
 			</div>
-		</div>
-	</a>
+		</a>
+	</div>
 </section>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-work-index">
 	<div class="cb-work-index__filter-bar py-4 px-4 px-md-5">
