@@ -21948,14 +21948,14 @@ header .dropdown.current-menu-item > .nav-link {
   }
   header .nav-link,
   header .navbar-nav .nav-link {
-    font-size: var(--fs-200);
+    font-size: var(--fs-600);
     padding: 1rem 0;
   }
   header .dropdown-item {
-    font-size: var(--fs-200);
+    font-size: var(--fs-600);
   }
   header .fs-subtle a {
-    font-size: var(--fs-200);
+    font-size: var(--fs-600);
   }
 }
 header .dropdown-toggle::after {
@@ -21993,7 +21993,8 @@ header .navbar-toggler {
   border-color: var(--col-neutral-50);
 }
 .navbar-collapse.collapse.show ul {
-  padding-inline-start: 3rem;
+  padding-block-start: 3rem;
+  padding-inline-start: 1.5rem;
 }
 
 header:has(.navbar-collapse.collapse.show) {

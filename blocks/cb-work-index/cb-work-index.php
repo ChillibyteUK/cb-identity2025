@@ -21,16 +21,6 @@ $block_id = $block['id'] ?? '';
 </style>
 <?php
 
-$q = new WP_Query(
-	array(
-		'post_type'      => 'case_study',
-		'posts_per_page' => -1,
-		'orderby'        => 'date',
-		'order'          => 'DESC',
-	)
-);
-
-
 
 ?>
 <section class="work-index-hero has-primary-black-background-color pt-5">
@@ -154,6 +144,18 @@ $q = new WP_Query(
 	<div class="id-container">
 		<div class="cb-work-index__cards row g-2">
 			<?php
+
+			$q = new WP_Query(
+				array(
+					'post_type'      => 'case_study',
+					'posts_per_page' => -1,
+					'orderby'        => 'date',
+					'order'          => 'DESC',
+					'post__not_in'   => array( $bg_case_study ),
+				)
+			);
+
+
 			if ( $q->have_posts() ) {
 				while ( $q->have_posts() ) {
 					$q->the_post();
