@@ -33,6 +33,7 @@ label .gform_required {
   display: none !important;
 }
 
+form .gform-field-label.gform-field-label--type-inline.gfield_consent_label,
 form .gfield_label {
   color: var(--col-white);
   font-weight: var(--fw-light) !important;

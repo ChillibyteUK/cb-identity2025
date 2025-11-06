@@ -36,6 +36,7 @@ label .gform_required {
 }
 
 form {
+    .gform-field-label.gform-field-label--type-inline.gfield_consent_label,
     .gfield_label {
         color: var(--col-white);
         font-weight: var(--fw-light) !important;
