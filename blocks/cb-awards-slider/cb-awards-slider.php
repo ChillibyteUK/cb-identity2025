@@ -22,22 +22,22 @@ $block_id = $block['id'] ?? '';
 			if ( $logos ) {
 				foreach ( $logos as $logo ) {
 					?>
-					<?= wp_get_attachment_image( $logo, 'full', false, array( 'class' => 'cb-awards-slider__logo img-fluid' ) ); ?>
+					<?= wp_get_attachment_image( $logo, 'full', false, array( 'class' => 'cb-awards-slider__logo img-fluid', 'alt' => get_post_meta( $logo, '_wp_attachment_image_alt', true ) ) ); ?>
 					<?php
 				}
 				foreach ( $logos as $logo ) {
 					?>
-					<?= wp_get_attachment_image( $logo, 'full', false, array( 'class' => 'cb-awards-slider__logo img-fluid' ) ); ?>
+					<?= wp_get_attachment_image( $logo, 'full', false, array( 'class' => 'cb-awards-slider__logo img-fluid', 'alt' => get_post_meta( $logo, '_wp_attachment_image_alt', true ) ) ); ?>
 					<?php
 				}
 				foreach ( $logos as $logo ) {
 					?>
-					<?= wp_get_attachment_image( $logo, 'full', false, array( 'class' => 'cb-awards-slider__logo img-fluid' ) ); ?>
+					<?= wp_get_attachment_image( $logo, 'full', false, array( 'class' => 'cb-awards-slider__logo img-fluid', 'alt' => get_post_meta( $logo, '_wp_attachment_image_alt', true ) ) ); ?>
 					<?php
 				}
 				foreach ( $logos as $logo ) {
 					?>
-					<?= wp_get_attachment_image( $logo, 'full', false, array( 'class' => 'cb-awards-slider__logo img-fluid' ) ); ?>
+					<?= wp_get_attachment_image( $logo, 'full', false, array( 'class' => 'cb-awards-slider__logo img-fluid', 'alt' => get_post_meta( $logo, '_wp_attachment_image_alt', true ) ) ); ?>
 					<?php
 				}
 			}
