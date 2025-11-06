@@ -5,12 +5,16 @@
  */
 
 .cb-careers-page {
+    position: relative;
     background-image: var(--_bg-url);
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    position: relative;
+    @supports (-webkit-touch-callout: none) {
+        /* iOS-specific styles */
+        background-attachment: scroll;
+    }
     .overlay {
         inset: 0;
         position: absolute;

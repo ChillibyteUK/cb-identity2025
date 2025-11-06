@@ -4,12 +4,18 @@
  * @package  cb-identity2025
  */
 .cb-careers-page {
+  position: relative;
   background-image: var(--_bg-url);
   background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  position: relative;
+}
+@supports (-webkit-touch-callout: none) {
+  .cb-careers-page {
+    /* iOS-specific styles */
+    background-attachment: scroll;
+  }
 }
 .cb-careers-page .overlay {
   inset: 0;

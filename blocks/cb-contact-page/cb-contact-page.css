@@ -53,6 +53,12 @@
   background-position: center;
   background-attachment: fixed;
 }
+@supports (-webkit-touch-callout: none) {
+  .cb-contact-addresses__title {
+    /* iOS-specific styles */
+    background-attachment: scroll;
+  }
+}
 
 .cb-contact-addresses {
   background-color: var(--col-neutral-1100);

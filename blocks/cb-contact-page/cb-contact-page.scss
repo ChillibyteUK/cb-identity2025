@@ -54,6 +54,10 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    @supports (-webkit-touch-callout: none) {
+        /* iOS-specific styles */
+        background-attachment: scroll;
+    }
 }
 
 .cb-contact-addresses {

@@ -11,6 +11,12 @@
   background-position: center;
   background-attachment: fixed;
 }
+@supports (-webkit-touch-callout: none) {
+  .cb-innovation-header {
+    /* iOS-specific styles */
+    background-attachment: scroll;
+  }
+}
 .cb-innovation-header__top {
   position: relative;
   padding-block: 8rem 6rem;

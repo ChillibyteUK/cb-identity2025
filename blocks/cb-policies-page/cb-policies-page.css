@@ -24,14 +24,20 @@
 .cb-policies-page__secondary {
   border-top: 1px solid rgba(255, 255, 255, 0.4);
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  font-size: var(--fs-700);
+  position: relative;
+  margin-bottom: 4rem;
   background-image: var(--_bg-url);
   background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  font-size: var(--fs-700);
-  position: relative;
-  margin-bottom: 4rem;
+}
+@supports (-webkit-touch-callout: none) {
+  .cb-policies-page__secondary {
+    /* iOS-specific styles */
+    background-attachment: scroll;
+  }
 }
 .cb-policies-page .id-container {
   display: grid;

@@ -144,6 +144,12 @@
   background-position: center;
   background-attachment: fixed;
 }
+@supports (-webkit-touch-callout: none) {
+  .cb-work-index__filter-bar {
+    /* iOS-specific styles */
+    background-attachment: scroll;
+  }
+}
 .cb-work-index__filter-bar__container {
   background-color: rgba(255, 255, 255, 0.1);
 }

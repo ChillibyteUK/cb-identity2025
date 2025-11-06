@@ -11,6 +11,10 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    @supports (-webkit-touch-callout: none) {
+        /* iOS-specific styles */
+        background-attachment: scroll;
+    }
     &__top {
         position: relative;
         padding-block: 8rem 6rem;
