@@ -39,6 +39,7 @@
         aspect-ratio: 16 / 9;
         transition: opacity 0.3s ease;
         z-index: 2;
+        object-fit: cover;
     }
     &__content {
         grid-area: stack;
