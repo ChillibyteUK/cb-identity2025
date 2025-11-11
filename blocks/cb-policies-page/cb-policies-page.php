@@ -33,8 +33,8 @@ $block_id = $block['id'] ?? '';
 		</div>
 	</div>
 	<div class="cb-policies-page__secondary">
+		<div class="overlay"></div>
 		<div class="id-container">
-			<div class="overlay"></div>
 			<div class="row py-5 px-4 px-md-5">
 				<div class="col-md-9 cb-policies-page__secondary-content">
 					<?= wp_kses_post( get_field( 'secondary_content' ) ); ?>
