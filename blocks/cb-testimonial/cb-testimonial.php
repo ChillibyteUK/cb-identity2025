@@ -28,10 +28,14 @@ if ( ! $quote ) {
             <div class="cb-testimonial__quote">
                 “<?= wp_kses_post( $quote ); ?>”
             </div>
+			<?php
+			if ( $author ) {
+				?>
             <div class="cb-testimonial__author">
                 <?= esc_html( $author ); ?>
             </div>
-			<?php
+				<?php
+			}
 			if ( $company ) {
 				?>
 			<br>
