@@ -9,6 +9,7 @@
   --col-neutral-1000: #363531;
   --col-neutral-900: #505049;
   --col-neutral-800: #5e5d55;
+  --hsl-neutral-800: 53 5% 35%;
   --col-neutral-700: #77766c;
   --col-neutral-600: #939287;
   --col-neutral-500: #aeada1;
@@ -96,6 +97,7 @@
   --col-neutral-1000: #363531;
   --col-neutral-900: #505049;
   --col-neutral-800: #5e5d55;
+  --hsl-neutral-800: 53 5% 35%;
   --col-neutral-700: #77766c;
   --col-neutral-600: #939287;
   --col-neutral-500: #aeada1;
@@ -263,8 +265,10 @@ p {
 }
 
 abbr[title] {
+  -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
   cursor: help;
+  -webkit-text-decoration-skip-ink: none;
   text-decoration-skip-ink: none;
 }
 
@@ -2648,14 +2652,20 @@ progress {
 }
 
 .user-select-all {
+  -webkit-user-select: all !important;
+  -moz-user-select: all !important;
   user-select: all !important;
 }
 
 .user-select-auto {
+  -webkit-user-select: auto !important;
+  -moz-user-select: auto !important;
   user-select: auto !important;
 }
 
 .user-select-none {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
   user-select: none !important;
 }
 

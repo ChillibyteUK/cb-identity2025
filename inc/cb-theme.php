@@ -299,7 +299,7 @@ function cb_service_parents_shortcode() {
 
 	$output = '<ul class="service-parents">';
 	foreach ( $parents as $parent ) {
-		$output .= '<li><a href="' . esc_url( home_url( '/work/?service=' . $parent->slug ) ) . '">' . esc_html( $parent->name ) . '</a></li>';
+		$output .= '<li><a href="' . esc_url( home_url( '/services/' . $parent->slug ) ) . '">' . esc_html( $parent->name ) . '</a></li>';
 	}
 	$output .= '</ul>';
 
