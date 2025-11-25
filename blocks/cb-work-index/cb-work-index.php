@@ -55,16 +55,16 @@ if ( ! $bg_case_study ) {
 		<?php
 			// get title and thumbnail of first sticky or latest case study for background image.
 
-			if ( $bg_case_study ) {
-				?>
-		<a href="<?= esc_url( get_the_permalink( $bg_case_study) ); ?>" class="work-index-hero__background">
-				<?php
-				$bg_image_id = get_post_thumbnail_id( $bg_case_study );
-				if ( $bg_image_id ) {
-					echo wp_get_attachment_image( $bg_image_id, 'full', false, array( 'class' => 'work-index-hero__image' ) );
-				}
-			}
+		if ( $bg_case_study ) {
 			?>
+		<a href="<?= esc_url( get_the_permalink( $bg_case_study ) ); ?>" class="work-index-hero__background">
+			<?php
+			$bg_image_id = get_post_thumbnail_id( $bg_case_study );
+			if ( $bg_image_id ) {
+				echo wp_get_attachment_image( $bg_image_id, 'full', false, array( 'class' => 'work-index-hero__image' ) );
+			}
+		}
+		?>
 			<div class="overlay"></div>
 			<div class="work-index-hero__content px-4 px-md-5">
 				<div class="work-index-hero__title">
@@ -74,6 +74,12 @@ if ( ! $bg_case_study ) {
 					<?php
 					// get the case_study_subtitle field from the cb-case-study-hero block if available.
 					if ( ! function_exists( 'cb_find_hero_subtitle' ) ) {
+						/**
+						 * Find hero subtitle in parsed blocks.
+						 *
+						 * @param array $blocks Array of parsed block data.
+						 * @return string The subtitle text or empty string.
+						 */
 						function cb_find_hero_subtitle( $blocks ) {
 							foreach ( $blocks as $block ) {
 								if (
@@ -191,7 +197,6 @@ if ( ! $bg_case_study ) {
 							$service_classes .= ' service-' . $slug;
 						}
 					}
-						// ...existing code...
 					?>
 			<div class="col-md-6" data-service-terms="<?php echo esc_attr( trim( $service_classes ) ); ?>">
 					<?php
@@ -215,6 +220,12 @@ if ( ! $bg_case_study ) {
 							<?php
 							// get the case_study_subtitle field from the cb-case-study-hero block if available.
 							if ( ! function_exists( 'cb_find_hero_subtitle' ) ) {
+								/**
+								 * Find hero subtitle in parsed blocks.
+								 *
+								 * @param array $blocks Array of parsed block data.
+								 * @return string The subtitle text or empty string.
+								 */
 								function cb_find_hero_subtitle( $blocks ) {
 									foreach ( $blocks as $block ) {
 										if (
@@ -292,6 +303,24 @@ document.addEventListener('DOMContentLoaded', function() {
 		allowEmptyOption: true,
 		closeAfterSelect: true
 	}) : null;
+
+	// Check for URL parameters and apply filtering
+	function getUrlParameter(name) {
+		const urlParams = new URLSearchParams(window.location.search);
+		return urlParams.get(name);
+	}
+
+	// Apply URL parameters on page load
+	const serviceParam = getUrlParameter('service');
+	if (serviceParam && serviceTom) {
+		// Check if the parameter value exists in the select options
+		const options = Array.from(serviceSelect.options).map(opt => opt.value);
+		if (options.includes(serviceParam)) {
+			serviceTom.setValue(serviceParam);
+			// Trigger filtering after setting the value
+			filterCards();
+		}
+	}
 
 	function filterCards() {
 		const selectedService = serviceTom ? serviceTom.getValue() : (serviceSelect ? serviceSelect.value : 'all');

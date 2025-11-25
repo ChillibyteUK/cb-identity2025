@@ -168,6 +168,9 @@ function cb_theme_enqueue() {
     // wp_enqueue_style( 'glightbox-style', 'https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.3.1/css/glightbox.min.css', array(), $the_theme->get( 'Version' ) );
     // wp_enqueue_script( 'glightbox', 'https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.3.1/js/glightbox.min.js', array(), $the_theme->get( 'Version' ), true );
     // wp_deregister_script( 'jquery' ); // needed by gravity forms
+    // wp_enqueue_style('choices-css', 'https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css', array(), null);
+    // wp_enqueue_script('choices-js', 'https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js', array(), null, true);
+    // wp_enqueue_style( 'tom-select', 'https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.bootstrap5.min.css', array(), '2.3.1' );
     // phpcs:enable
 
     wp_enqueue_style( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css', array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
@@ -176,10 +179,6 @@ function cb_theme_enqueue() {
     wp_enqueue_script( 'aos', 'https://unpkg.com/aos@2.3.1/dist/aos.js', array(), null, true ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 	wp_enqueue_script( 'lenis', 'https://unpkg.com/lenis@1.3.11/dist/lenis.min.js', array(), null, true ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 	wp_enqueue_style( 'lenis-style', 'https://unpkg.com/lenis@1.3.11/dist/lenis.css', array() ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
-
-    // wp_enqueue_style('choices-css', 'https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css', array(), null);
-    // wp_enqueue_script('choices-js', 'https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js', array(), null, true);
-    // wp_enqueue_style( 'tom-select', 'https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.bootstrap5.min.css', array(), '2.3.1' );
     wp_enqueue_style( 'tom-select', 'https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.min.css', array(), '2.3.1' );
     wp_enqueue_script( 'tom-select', 'https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js', array(), '2.3.1', true );
 }
@@ -230,7 +229,7 @@ add_filter(
 	'wp_nav_menu_objects',
 	function ( $items ) {
         $news_page_id = get_option( 'page_for_posts' );
-        $work_url = home_url( '/work/' );
+        $work_url     = home_url( '/work/' );
         foreach ( $items as $item ) {
             // Remove highlight classes from both News and Work by default.
             if ( intval( $item->object_id ) === intval( $news_page_id ) ) {
@@ -249,7 +248,7 @@ add_filter(
                 }
             }
         } elseif ( is_singular( 'case_study' ) ) {
-		// Highlight Work for single case_study.
+			// Highlight Work for single case_study.
 			foreach ( $items as $item ) {
 				if ( $item->url === $work_url ) {
 					$item->classes[] = 'current-menu-parent';
@@ -266,13 +265,23 @@ add_filter(
  * Shortcode to display parent categories of service taxonomy terms assigned to the current post.
  */
 add_shortcode( 'service_parents', 'cb_service_parents_shortcode' );
+
+/**
+ * Displays parent categories of service taxonomy terms assigned to the current post.
+ *
+ * @return string HTML markup for parent service categories or empty string.
+ */
 function cb_service_parents_shortcode() {
-	if ( ! is_singular() ) return '';
+    if ( ! is_singular() ) {
+        return '';
+    }
 
-	$post_id = get_the_ID();
-	$terms = get_the_terms( $post_id, 'service' );
+    $post_id = get_the_ID();
+	$terms   = get_the_terms( $post_id, 'service' );
 
-	if ( ! $terms || is_wp_error( $terms ) ) return '';
+	if ( ! $terms || is_wp_error( $terms ) ) {
+		return '';
+	}
 
 	$parents = array();
 	foreach ( $terms as $term ) {
@@ -284,11 +293,13 @@ function cb_service_parents_shortcode() {
 		}
 	}
 
-	if ( empty( $parents ) ) return '';
+	if ( empty( $parents ) ) {
+		return '';
+	}
 
 	$output = '<ul class="service-parents">';
 	foreach ( $parents as $parent ) {
-		$output .= '<li><a href="' . get_term_link( $parent ) . '">' . esc_html( $parent->name ) . '</a></li>';
+		$output .= '<li><a href="' . esc_url( home_url( '/work/?service=' . $parent->slug ) ) . '">' . esc_html( $parent->name ) . '</a></li>';
 	}
 	$output .= '</ul>';
 
@@ -304,17 +315,29 @@ if ( ! function_exists( 'get_work_image' ) ) {
      * 3. First cb-full-image block image
      * 4. Default post image
      *
-     * @param int $post_id The post ID.
+     * @param int    $post_id The post ID.
+     * @param string $class   The CSS class to apply to the image.
      * @return string HTML <img> tag for the image.
      */
     function get_work_image( $post_id, $class = 'work-card__image' ) {
         // 1. Try post thumbnail
         if ( get_the_post_thumbnail( $post_id ) ) {
-            return get_the_post_thumbnail( $post_id, 'full', array( 'class' => $class, 'alt' => get_post_meta( get_post_thumbnail_id( $post_id ), '_wp_attachment_image_alt', true ) ) );
+            return get_the_post_thumbnail(
+				$post_id,
+				'full',
+				array(
+					'class' => $class,
+					'alt'   => get_post_meta(
+						get_post_thumbnail_id( $post_id ),
+						'_wp_attachment_image_alt',
+						true
+					),
+				)
+			);
         }
 
         // 2. Try Vimeo video thumbnail as fallback
-        $vimeo_url = get_field( 'vimeo_url', $post_id );
+        $vimeo_url   = get_field( 'vimeo_url', $post_id );
         $vimeo_thumb = '';
         if ( $vimeo_url ) {
             if ( preg_match( '/vimeo\\.com\\/(?:video\/)?(\\d+)/', $vimeo_url, $matches ) ) {
@@ -345,7 +368,7 @@ if ( ! function_exists( 'get_work_image' ) ) {
                         ! empty( $block['attrs']['data']['image'] )
                     ) {
                         $image_id = $block['attrs']['data']['image'];
-                        $img_url = wp_get_attachment_image_url( $image_id, 'full' );
+                        $img_url  = wp_get_attachment_image_url( $image_id, 'full' );
                         if ( $img_url ) {
                             return $img_url;
                         }
@@ -432,6 +455,11 @@ add_filter(
 );
 
 
-add_filter('gform_submit_button', function($button, $form){
-    return '<button class="gform_button button id-button" style="background-color:transparent;" id="gform_submit_button_' . $form['id'] . '">' . esc_html($form['button']['text']) . '</button>';
-}, 10, 2);
+add_filter(
+	'gform_submit_button',
+	function ( $button, $form ) {
+    	return '<button class="gform_button button id-button" style="background-color:transparent;" id="gform_submit_button_' . $form['id'] . '">' . esc_html( $form['button']['text'] ) . '</button>';
+	},
+	10,
+	2
+);
