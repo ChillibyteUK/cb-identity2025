@@ -18,9 +18,13 @@
     }
     &__logo {
         filter: invert(1);
-        height: 120px;
+        height: 120px !important;
         width: auto;
         flex: 0 0 auto;
+        max-width: 300px !important;
+        max-height: 120px !important;
+        object-fit: contain;
+        
     }
     .swiper-slide {
         flex: 0 0 auto;
