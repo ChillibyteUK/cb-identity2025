@@ -10,6 +10,99 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+if ( ! function_exists( 'cb_normalize_excel_paste' ) ) {
+    function cb_normalize_excel_paste( $html ) {
+        $html = (string) $html;
+        if ( '' === trim( $html ) ) {
+            return $html;
+        }
+        $prev = libxml_use_internal_errors( true );
+        $doc  = new DOMDocument();
+        $doc->loadHTML( '<?xml encoding="utf-8" ?><div id="cb-normalize-wrapper">' . $html . '</div>', LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
+        $xpath = new DOMXPath( $doc );
+
+        // Deepest-first processing of ewa-rteLine wrappers.
+        $nodes = $xpath->query( '//*[contains(concat(" ", normalize-space(@class), " "), " ewa-rteLine ")]' );
+        $arr   = array();
+        foreach ( $nodes as $n ) {
+            $arr[] = $n;
+        }
+        $arr = array_reverse( $arr );
+
+        foreach ( $arr as $div ) {
+            $has_child_ewa = false;
+            foreach ( $div->childNodes as $child ) {
+                if ( $child instanceof DOMElement ) {
+                    $cls = $child->getAttribute( 'class' );
+                    if ( $cls && preg_match( '/(^|\s)ewa-?rteLine(\s|$)/i', $cls ) ) {
+                        $has_child_ewa = true;
+                        break;
+                    }
+                }
+            }
+
+            // Is this wrapper effectively empty?
+            $has_non_empty = false;
+            foreach ( $div->childNodes as $child ) {
+                if ( $child instanceof DOMText ) {
+                    if ( trim( $child->wholeText ) !== '' ) {
+                        $has_non_empty = true;
+                        break;
+                    }
+                } elseif ( $child instanceof DOMElement ) {
+                    if ( strtolower( $child->tagName ) === 'br' || trim( $child->textContent ) !== '' ) {
+                        $has_non_empty = true;
+                        break;
+                    }
+                }
+            }
+
+            if ( ! $has_non_empty && ! $has_child_ewa ) {
+                if ( $div->parentNode ) {
+                    $div->parentNode->removeChild( $div );
+                }
+                continue;
+            }
+
+            if ( $has_child_ewa ) {
+                // Unwrap: move children out.
+                while ( $div->firstChild ) {
+                    $div->parentNode->insertBefore( $div->firstChild, $div );
+                }
+                $div->parentNode->removeChild( $div );
+            } else {
+                // Convert to paragraph.
+                $p = $doc->createElement( 'p' );
+                while ( $div->firstChild ) {
+                    $p->appendChild( $div->firstChild );
+                }
+                $div->parentNode->replaceChild( $p, $div );
+            }
+        }
+
+        // Remove empty generic divs left over.
+        $empties = $xpath->query( '//div[not(normalize-space()) and not(*)]' );
+        foreach ( $empties as $e ) {
+            if ( $e->parentNode ) {
+                $e->parentNode->removeChild( $e );
+            }
+        }
+
+        $out      = '';
+        $wrapper  = $doc->getElementById( 'cb-normalize-wrapper' );
+        if ( $wrapper ) {
+            foreach ( $wrapper->childNodes as $child ) {
+                $out .= $doc->saveHTML( $child );
+            }
+        } else {
+            $out = $html;
+        }
+        libxml_clear_errors();
+        libxml_use_internal_errors( $prev );
+        return $out;
+    }
+}
+
 // Get grid rows from block data.
 $grid_rows = $block['data']['grid_rows'] ?? array();
 if ( empty( $grid_rows ) ) {
@@ -92,7 +185,8 @@ $background_color = get_field( 'background' );
                         }
                     } elseif ( 'text' === $mtype || 'Text' === $mtype ) {
                         $text = $block['data'][ 'grid_rows_' . $row_index . '_text' ] ?? '';
-                        echo wp_kses_post( do_shortcode( $text ) );
+                        $text = cb_normalize_excel_paste( $text );
+                        echo apply_filters( 'the_content', $text );
                     } elseif ( 'video' === $mtype || 'Video' === $mtype ) {
                         $vimeo_url = $block['data'][ 'grid_rows_' . $row_index . '_vimeo_url' ] ?? '';
                         if ( $vimeo_url ) {
@@ -194,7 +288,8 @@ $background_color = get_field( 'background' );
                                 }
                             } elseif ( 'text' === $mtype || 'Text' === $mtype ) {
                                 $text = $block['data'][ 'grid_rows_' . $row_index . '_module_' . $module_index . '_text' ] ?? '';
-                                echo wp_kses_post( do_shortcode( $text ) );
+                                $text = cb_normalize_excel_paste( $text );
+                                echo apply_filters( 'the_content', $text );
                             } elseif ( 'video' === $mtype || 'Video' === $mtype ) {
                                 $vimeo_url = $block['data'][ 'grid_rows_' . $row_index . '_module_' . $module_index . '_vimeo_url' ] ?? '';
                                 if ( $vimeo_url ) {

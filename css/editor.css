@@ -12,3 +12,16 @@
 .editor-styles-wrapper .wp-block[data-align="full"] {
   max-width: none;
 }
+
+/* Add a comfortable default gap between top-level blocks */
+.editor-styles-wrapper {
+  --wp--style--block-gap: 1.5rem;
+}
+
+.editor-styles-wrapper .is-root-container > .wp-block {
+  margin-block-start: var(--wp--style--block-gap);
+}
+
+.editor-styles-wrapper .is-root-container > .wp-block:first-child {
+  margin-block-start: 0;
+}

@@ -128,9 +128,6 @@ function widgets_init() {
 }
 add_action( 'widgets_init', 'widgets_init', 11 );
 
-remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
-remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
-
 // phpcs:disable
 // add_filter('wpseo_breadcrumb_links', function( $links ) {
 //     global $post;
@@ -297,10 +294,10 @@ function cb_service_parents_shortcode() {
 		return '';
 	}
 
-	$output = '<ul class="service-parents">';
-	foreach ( $parents as $parent ) {
-		$output .= '<li><a href="' . esc_url( home_url( '/services/' . $parent->slug ) ) . '">' . esc_html( $parent->name ) . '</a></li>';
-	}
+    $output = '<ul class="service-parents">';
+    foreach ( $parents as $parent ) {
+        $output .= '<li><a href="' . esc_url( home_url( '/work/?service=' . $parent->slug ) ) . '">' . esc_html( $parent->name ) . '</a></li>';
+    }
 	$output .= '</ul>';
 
 	return $output;
@@ -463,3 +460,4 @@ add_filter(
 	10,
 	2
 );
+
