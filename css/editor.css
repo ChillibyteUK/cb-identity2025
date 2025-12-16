@@ -1,0 +1,14 @@
+/* Scoped Gutenberg editor improvements (centered canvas + widths) */
+.editor-styles-wrapper .wp-block {
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.editor-styles-wrapper .wp-block[data-align="wide"] {
+  max-width: 1320px;
+}
+
+.editor-styles-wrapper .wp-block[data-align="full"] {
+  max-width: none;
+}
