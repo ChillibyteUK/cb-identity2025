@@ -62,7 +62,7 @@
 }
 @media (min-width: 768px) {
   .case-study-key-stats__stat {
-    padding-inline: 1.5rem;
+    padding-inline: 3rem;
   }
 }
 @media (max-width: 767px) {
@@ -72,7 +72,7 @@
   }
 }
 .case-study-key-stats__descriptor {
-  padding-block: 1rem;
+  padding-block: 0 1rem;
   padding-inline: 1.25rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   font-size: var(--fs-500);
@@ -83,6 +83,7 @@
 }
 @media (min-width: 768px) {
   .case-study-key-stats__descriptor {
-    padding-inline: 1.5rem;
+    padding-block: 1rem;
+    padding-inline: 1rem;
   }
 }
