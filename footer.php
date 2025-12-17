@@ -217,6 +217,8 @@ defined( 'ABSPATH' ) || exit;
 </script>
 
 <?php wp_footer(); ?>
+<!-- Insert these code snippets into your external site page -->
+<script async src="https://go.identityglobal.com/forms/assets/scripts/external-form-handler-host.min.js" onload="SFDCFormHandler.init('https://go.identityglobal.com/forms')"></script>
 </body>
 
 </html>
