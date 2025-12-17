@@ -40,8 +40,10 @@ $bg = get_field( 'background' ) ? wp_get_attachment_image_url( get_field( 'backg
                 the_row();
                 ?>
         <div class="case-study-key-stats__item" data-aos="fade-up" data-aos-delay="<?= esc_attr( $delay ); ?>">
-            <div class="case-study-key-stats__stat"><?= esc_html( get_sub_field( 'stat' ) ); ?></div>
-            <div class="case-study-key-stats__descriptor"><?= esc_html( get_sub_field( 'descriptor' ) ); ?></div>
+            <div class="id-container px-4 px-md-5" style="display: contents;">
+                <div class="case-study-key-stats__stat"><?= esc_html( get_sub_field( 'stat' ) ); ?></div>
+                <div class="case-study-key-stats__descriptor"><?= esc_html( get_sub_field( 'descriptor' ) ); ?></div>
+            </div>
         </div>
                 <?php
                 $delay += 50;
