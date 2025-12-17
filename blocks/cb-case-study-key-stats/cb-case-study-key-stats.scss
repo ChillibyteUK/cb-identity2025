@@ -37,6 +37,9 @@
         display: grid;
         grid-template-columns: auto 1fr;
         gap: 0;
+        @media (max-width: 767px) {
+            grid-template-columns: 1fr;
+        }
     }
     &__item {
         display: contents;
@@ -60,6 +63,10 @@
         white-space: nowrap;
         display: flex;
         align-items: center;
+        @media (max-width: 767px) {
+            border-bottom: none;
+            padding-block: 1rem 0.5rem;
+        }
     }
     &__descriptor {
         padding-block: 1rem;

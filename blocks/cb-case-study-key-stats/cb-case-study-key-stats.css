@@ -37,6 +37,11 @@
   grid-template-columns: auto 1fr;
   gap: 0;
 }
+@media (max-width: 767px) {
+  .case-study-key-stats__grid-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
 .case-study-key-stats__item {
   display: contents;
 }
@@ -58,6 +63,12 @@
 @media (min-width: 768px) {
   .case-study-key-stats__stat {
     padding-inline: 1.5rem;
+  }
+}
+@media (max-width: 767px) {
+  .case-study-key-stats__stat {
+    border-bottom: none;
+    padding-block: 1rem 0.5rem;
   }
 }
 .case-study-key-stats__descriptor {
