@@ -44,7 +44,7 @@
   animation-name: aos-fade-up;
 }
 .case-study-key-stats__stat {
-  padding-block: 1rem;
+  padding-block: 1rem 0.5rem;
   padding-inline: 1.25rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   font-size: var(--fs-900);
