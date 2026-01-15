@@ -461,44 +461,72 @@ add_filter(
 	2
 );
 
-add_filter(
-	'gform_form_tag',
-	function ( $form_tag, $form ) {
+// add_filter(
+// 	'gform_form_tag',
+// 	function ( $form_tag, $form ) {
 
-		if( (int) $form['id'] !== 1 ) {
-			return $form_tag;
-		}
+// 		if( (int) $form['id'] !== 1 ) {
+// 			return $form_tag;
+// 		}
 
-		$salesforce_id = 'MC6FXNIUWZ5ZEPLBVQKCLTBY2H5U';
+// 		$salesforce_id = 'MC6FXNIUWZ5ZEPLBVQKCLTBY2H5U';
 
-		// replace Gravity Forms id (single or double quotes).
-		if ( preg_match( '/\sid=(["\'])gform_\d+\1/', $form_tag ) ) {
-			$form_tag = preg_replace(
-				'/\sid=(["\'])gform_\d+\1/',
-				' id="'. $salesforce_id . '"',
-				$form_tag,
-				1
-			);
-		} else {
-			// if no id attribute is present, inject one.
-			$form_tag = str_replace(
-				'<form ',
-				'<form id="' . $salesforce_id . '" ',
-				$form_tag
-			);
-		}
+// 		// replace Gravity Forms id (single or double quotes).
+// 		if ( preg_match( '/\sid=(["\'])gform_\d+\1/', $form_tag ) ) {
+// 			$form_tag = preg_replace(
+// 				'/\sid=(["\'])gform_\d+\1/',
+// 				' id="'. $salesforce_id . '"',
+// 				$form_tag,
+// 				1
+// 			);
+// 		} else {
+// 			// if no id attribute is present, inject one.
+// 			$form_tag = str_replace(
+// 				'<form ',
+// 				'<form id="' . $salesforce_id . '" ',
+// 				$form_tag
+// 			);
+// 		}
 
-		// add UMA attribute if not present.
-		if ( strpos( $form_tag, 'data-uma-forms=' ) === false ) {
-			$form_tag = str_replace(
-				'<form ',
-				'<form data-uma-forms="true" ',
-				$form_tag
-			);
-		}
+// 		// add UMA attribute if not present.
+// 		if ( strpos( $form_tag, 'data-uma-forms=' ) === false ) {
+// 			$form_tag = str_replace(
+// 				'<form ',
+// 				'<form data-uma-forms="true" ',
+// 				$form_tag
+// 			);
+// 		}
 
-		return $form_tag;
-	},
-	10,
-	2
-);
+// 		return $form_tag;
+// 	},
+// 	10,
+// 	2
+// );
+
+add_filter( 'gform_form_tag', function( $form_tag, $form ) {
+
+    if ( (int) $form['id'] !== 1 ) {
+        return $form_tag;
+    }
+
+    // add Salesforce ID as data attribute
+    if ( strpos( $form_tag, 'data-salesforce-id=' ) === false ) {
+        $form_tag = str_replace(
+            '<form ',
+            '<form data-salesforce-id="MC6FXNIUWZ5ZEPLBVQKCLTBY2H5U" ',
+            $form_tag
+        );
+    }
+
+    // add UMA flag if required by Salesforce
+    if ( strpos( $form_tag, 'data-uma-forms=' ) === false ) {
+        $form_tag = str_replace(
+            '<form ',
+            '<form data-uma-forms="true" ',
+            $form_tag
+        );
+    }
+
+    return $form_tag;
+
+}, 10, 2 );
