@@ -4,6 +4,7 @@
  * @package  cb-identity2025
  */
 .cb-full-image {
+  position: relative;
   background-color: var(--col-primary-black);
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
@@ -11,4 +12,13 @@
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
+}
+.cb-full-image .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgb(13, 13, 12) 0%, rgba(13, 13, 12, 0.2) 20%, rgba(13, 13, 12, 0) 30%);
+  pointer-events: none;
 }
