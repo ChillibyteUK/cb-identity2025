@@ -1,0 +1,41 @@
+/**
+ * CB Sport Logos Block Styles
+ *
+ * @package  cb-identity2025
+ */
+.cb-logo-slider {
+  background-color: var(--col-primary-black);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.cb-logo-slider__marquee {
+  overflow: hidden;
+  width: 100%;
+}
+
+.cb-logo-slider__track {
+  display: flex;
+  gap: 1.5rem;
+  animation: marquee 10s linear infinite;
+}
+
+@media (min-width: 768px) {
+  .cb-logo-slider__track {
+    animation: marquee 20s linear infinite;
+  }
+}
+.cb-logo-slider__logo {
+  height: 120px !important;
+  width: auto;
+  object-fit: contain;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "cb/cb-related-work-sports",
+  "title": "CB Related Work (SPORTS)",
+  "description": "A custom CB Related Work SPORTS block",
+  "category": "cb-blocks",
+  "icon": "admin-generic",
+  "keywords": ["cb-related-work-sports", "cb"],
+  "supports": {
+    "align": ["wide", "full"],
+    "anchor": true,
+    "customClassName": true
+  },
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "cb-related-work-sports.php"
+  },
+  "style": "file:./cb-related-work-sports.css"
+}
