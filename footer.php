@@ -45,25 +45,13 @@ defined( 'ABSPATH' ) || exit;
 				?>
 			</div>
 			<!-- 4. Our Brands -->
-            <div class="col-12 col-sm-6 col-md-4 col-lg-2 order-6 order-md-7 order-lg-4">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-4 order-6 order-md-7 order-lg-4">
 				<div class="footer-title mb-4"><a href="/about/#brands">Our Brands</a></div>
 				<?=
 				wp_nav_menu(
 					array(
 						'theme_location' => 'footer_menu_identity',
-						'menu_class'     => 'footer__menu',
-					)
-				);
-				?>
-			</div>
-			<!-- 5. Legal -->
-            <div class="col-12 col-sm-6 col-md-4 col-lg-2 order-7 order-md-9 order-lg-5">
-				<div class="footer-title mb-4">Legal &amp; info</div>
-				<?=
-				wp_nav_menu(
-					array(
-						'theme_location' => 'footer_menu_legal',
-						'menu_class'     => 'footer__menu',
+						'menu_class'     => 'footer__menu cols-lg-2',
 					)
 				);
 				?>
@@ -100,6 +88,18 @@ defined( 'ABSPATH' ) || exit;
 				wp_nav_menu(
 					array(
 						'theme_location' => 'footer_menu_global',
+						'menu_class'     => 'footer__menu',
+					)
+				);
+				?>
+			</div>
+			<!-- 10. Legal -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 order-7 order-md-9 order-lg-10">
+				<div class="footer-title mb-4">Legal &amp; info</div>
+				<?=
+				wp_nav_menu(
+					array(
+						'theme_location' => 'footer_menu_legal',
 						'menu_class'     => 'footer__menu',
 					)
 				);
