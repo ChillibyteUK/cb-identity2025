@@ -145,6 +145,13 @@ if ( ! $bg_case_study ) {
 					<option value="<?php echo esc_attr( $service_term->slug ); ?>"><?php echo esc_html( $service_term->name ); ?></option>
 					<?php
 				}
+				// Add sports from theme taxonomy.
+				$sports_term = get_term_by( 'slug', 'sports', 'theme' );
+				if ( $sports_term && ! is_wp_error( $sports_term ) ) {
+					?>
+					<option value="sports">Identity Sport</option>
+					<?php
+				}
 				?>
 			</select>
 				<?php
@@ -195,6 +202,16 @@ if ( ! $bg_case_study ) {
 						$s_slugs = array_values( array_unique( $s_slugs ) );
 						foreach ( $s_slugs as $slug ) {
 							$service_classes .= ' service-' . $slug;
+						}
+					}
+					// Add sports theme term to service classes.
+					$theme_terms = get_the_terms( get_the_ID(), 'theme' );
+					if ( ! is_wp_error( $theme_terms ) && ! empty( $theme_terms ) ) {
+						foreach ( $theme_terms as $theme_term ) {
+							if ( 'sports' === $theme_term->slug ) {
+								$service_classes .= ' service-sports';
+								break;
+							}
 						}
 					}
 					?>
