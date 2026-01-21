@@ -67,7 +67,7 @@
             "label": "Secondary Text",
             "name": "secondary_text",
             "aria-label": "",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -77,11 +77,11 @@
                 "id": ""
             },
             "default_value": "",
-            "maxlength": "",
             "allow_in_bindings": 0,
-            "rows": "",
-            "placeholder": "",
-            "new_lines": ""
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
         },
         {
             "key": "field_6904dc780f955",
@@ -129,5 +129,5 @@
     "description": "Fields for the CB Region Page Header block",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1761926276
+    "modified": 1768996248
 }
