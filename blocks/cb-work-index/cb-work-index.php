@@ -29,8 +29,8 @@ if ( ! $bg_case_study ) {
 		array(
 			'post_type'      => 'case_study',
 			'posts_per_page' => 1,
-			'orderby'        => 'date',
-			'order'          => 'DESC',
+			'orderby'        => 'menu_order',
+			'order'          => 'ASC',
 		)
 	);
 	if ( $latest_query->have_posts() ) {
@@ -165,17 +165,9 @@ if ( ! $bg_case_study ) {
 				array(
 					'post_type'      => 'case_study',
 					'posts_per_page' => -1,
-					'orderby'        => 'date',
-					'order'          => 'DESC',
+					'orderby'        => 'menu_order',
+					'order'          => 'ASC',
 					'post__not_in'   => array( $bg_case_study ),
-					'tax_query'      => array(
-						array(
-							'taxonomy' => 'theme',
-							'field'    => 'slug',
-							'terms'    => 'sports',
-							'operator' => 'NOT IN',
-						),
-					),
 				)
 			);
 

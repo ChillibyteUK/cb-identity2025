@@ -133,14 +133,6 @@ if ( $service_id ) {
 				'compare' => '=',
 			),
 		),
-		'tax_query'      => array(
-			array(
-				'taxonomy' => 'theme',
-				'field'    => 'slug',
-				'terms'    => 'sports',
-				'operator' => 'NOT IN',
-			),
-		),
 		'post__not_in'   => array( get_the_ID() ),
 	) );
 	$yoast_count = $yoast_query->found_posts;
@@ -160,12 +152,6 @@ if ( $service_id ) {
 				'taxonomy' => 'service',
 				'field'    => 'term_id',
 				'terms'    => $service_id,
-			),
-			array(
-				'taxonomy' => 'theme',
-				'field'    => 'slug',
-				'terms'    => 'sports',
-				'operator' => 'NOT IN',
 			),
 		);
 		$fill_query = new WP_Query( array(
