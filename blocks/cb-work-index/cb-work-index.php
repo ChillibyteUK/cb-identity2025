@@ -168,6 +168,14 @@ if ( ! $bg_case_study ) {
 					'orderby'        => 'date',
 					'order'          => 'DESC',
 					'post__not_in'   => array( $bg_case_study ),
+					'tax_query'      => array(
+						array(
+							'taxonomy' => 'theme',
+							'field'    => 'slug',
+							'terms'    => 'sports',
+							'operator' => 'NOT IN',
+						),
+					),
 				)
 			);
 
