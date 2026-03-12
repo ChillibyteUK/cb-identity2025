@@ -112,7 +112,7 @@ $block_id = $block['id'] ?? '';
                 }
             }
             ?>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <div class="brand-card__last">
                     Together, we deliver a breadth of expertise with the simplicity of one team.
                 </div>
