@@ -51,7 +51,7 @@ $block_id = $block['id'] ?? '';
                     }
 
 					?>
-            <div class="col-lg-6 col-xl-3">
+            <div class="col-lg-6 col-xl-4 col-xxl-3">
 					<?php
 					if ( '#' !== $brand_link['url'] && '' !== $brand_link['url'] ) {
                     	?>
@@ -74,7 +74,7 @@ $block_id = $block['id'] ?? '';
                             <?= esc_html( $brand_name ); ?>
                         </div>
                         <div class="brand-card__strap">
-                            <?= esc_html( $brand_link['title'] ); ?> <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/arrow-wh.svg' ); ?>" width=23 height=21 alt="" class="cb-services-nav__item-icon" />
+                            <?= esc_html( $brand_link['title'] ); ?> <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/img/arrow-wh.svg' ); ?>" width=23 height=21 alt="" class="" />
                         </div>
                     </div>
 				</a>
@@ -112,7 +112,7 @@ $block_id = $block['id'] ?? '';
                 }
             }
             ?>
-            <div class="col-md-3">
+            <div class="col-lg-6 col-xl-3">
                 <div class="brand-card__last">
                     Together, we deliver a breadth of expertise with the simplicity of one team.
                 </div>
