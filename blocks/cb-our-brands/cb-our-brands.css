@@ -26,16 +26,12 @@
   text-wrap: balance;
 }
 .cb-our-brands .brand-card {
-  position: relative;
   display: block;
   width: 100%;
-  aspect-ratio: 16/9;
-  overflow: hidden;
   text-decoration: none;
 }
 .cb-our-brands .brand-card__front {
-  position: absolute;
-  inset: 0;
+  aspect-ratio: 16/9;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,9 +44,6 @@
   height: auto;
 }
 .cb-our-brands .brand-card__back {
-  position: absolute;
-  inset: 0;
-  transition: opacity 0.3s ease-in-out;
   background-color: rgba(34, 33, 30, 0.95);
   padding: 1.5rem;
   font-size: var(--fs-300);
@@ -58,7 +51,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  opacity: 0;
+  opacity: 1;
 }
 .cb-our-brands .brand-card__name {
   text-transform: uppercase;
@@ -71,9 +64,33 @@
   font-size: var(--fs-300);
   font-weight: var(--fw-semi);
 }
-.cb-our-brands .brand-card:hover .brand-card__back, .cb-our-brands .brand-card:focus .brand-card__back, .cb-our-brands .brand-card:focus-visible .brand-card__back {
-  opacity: 1;
-  color: var(--col-white);
+@media (min-width: 768px) {
+  .cb-our-brands .brand-card {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+  }
+  .cb-our-brands .brand-card__front {
+    position: absolute;
+    inset: 0;
+    aspect-ratio: auto;
+  }
+  .cb-our-brands .brand-card__back {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  .cb-our-brands .brand-card:focus .brand-card__back, .cb-our-brands .brand-card:focus-visible .brand-card__back {
+    opacity: 1;
+    color: var(--col-white);
+  }
+}
+@media (min-width: 768px) and (hover: hover) {
+  .cb-our-brands .brand-card:hover .brand-card__back {
+    opacity: 1;
+    color: var(--col-white);
+  }
 }
 .cb-our-brands .brand-card__last {
   border-top: 1px solid rgba(255, 255, 255, 0.4);

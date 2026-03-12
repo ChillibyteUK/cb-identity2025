@@ -29,16 +29,12 @@
   }
 
   .brand-card {
-    position: relative;
     display: block;
     width: 100%;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
     text-decoration: none;
 
     &__front {
-      position: absolute;
-      inset: 0;
+      aspect-ratio: 16 / 9;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -53,9 +49,6 @@
     }
 
     &__back {
-      position: absolute;
-      inset: 0;
-      transition: opacity 0.3s ease-in-out;
       background-color: rgb(34, 33, 30, 0.95);
       padding: 1.5rem;
       font-size: var(--fs-300);
@@ -63,7 +56,7 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      opacity: 0;
+      opacity: 1;
     }
     &__name {
       text-transform: uppercase;
@@ -77,11 +70,36 @@
       font-weight: var(--fw-semi);
     }
 
-    &:hover .brand-card__back,
-    &:focus .brand-card__back,
-    &:focus-visible .brand-card__back {
-      opacity: 1;
-      color: var(--col-white);
+    @media (min-width: 768px) {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+
+      &__front {
+        position: absolute;
+        inset: 0;
+        aspect-ratio: auto;
+      }
+
+      &__back {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      &:focus .brand-card__back,
+      &:focus-visible .brand-card__back {
+        opacity: 1;
+        color: var(--col-white);
+      }
+    }
+
+    @media (min-width: 768px) and (hover: hover) {
+      &:hover .brand-card__back {
+        opacity: 1;
+        color: var(--col-white);
+      }
     }
 
     &__last {

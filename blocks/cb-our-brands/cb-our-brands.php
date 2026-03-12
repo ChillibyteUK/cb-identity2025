@@ -51,7 +51,7 @@ $block_id = $block['id'] ?? '';
                     }
 
 					?>
-            <div class="col-lg-6 col-xl-4 col-xxl-3">
+            <div class="col-md-6 col-xl-4 col-xxl-3">
 					<?php
 					if ( '#' !== $brand_link['url'] && '' !== $brand_link['url'] ) {
                     	?>
@@ -112,7 +112,7 @@ $block_id = $block['id'] ?? '';
                 }
             }
             ?>
-            <div class="col-lg-6 col-xl-3">
+            <div class="col-md-6 col-xl-8 col-xxl-3">
                 <div class="brand-card__last">
                     Together, we deliver a breadth of expertise with the simplicity of one team.
                 </div>
