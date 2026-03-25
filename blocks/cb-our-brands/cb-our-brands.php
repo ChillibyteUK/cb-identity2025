@@ -39,6 +39,22 @@ $block_id = $block['id'] ?? '';
     <div class="cb-our-brands__brands id-container px-4 px-md-5 mb-5">
         <div class="row g-5">
             <?php
+            $brands_raw    = get_field( 'brands' ) ?: array();
+            $display_count = 0;
+            foreach ( $brands_raw as $b ) {
+                if ( ! empty( $b['brand_logo'] ) && ! empty( $b['link'] ) ) {
+                    ++$display_count;
+                }
+            }
+
+            // Calculate last-card column widths to fill the remaining row space.
+            $xxl_rem     = $display_count % 4;
+            $xl_rem      = $display_count % 3;
+            $md_rem      = $display_count % 2;
+            $last_col_xxl = $xxl_rem === 0 ? 12 : ( 4 - $xxl_rem ) * 3;
+            $last_col_xl  = $xl_rem  === 0 ? 12 : ( 3 - $xl_rem )  * 4;
+            $last_col_md  = $md_rem  === 0 ? 12 : 6;
+
             if ( have_rows( 'brands' ) ) {
                 while ( have_rows( 'brands' ) ) {
                     the_row();
@@ -111,8 +127,9 @@ $block_id = $block['id'] ?? '';
 					<?php
                 }
             }
+            // Fill remaining space with the last card. Col widths are calculated above.
             ?>
-            <div class="col-md-6 col-xl-8 col-xxl-3">
+            <div class="col-md-<?= esc_attr( $last_col_md ); ?> col-xl-<?= esc_attr( $last_col_xl ); ?> col-xxl-<?= esc_attr( $last_col_xxl ); ?>">
                 <div class="brand-card__last">
                     Together, we deliver a breadth of expertise with the simplicity of one team.
                 </div>
