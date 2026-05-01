@@ -71,15 +71,15 @@
     &__descriptor {
         padding-block: 0 1rem;
         padding-inline: 1.25rem;
-        @media (min-width: 768px) {
-            padding-block: 1rem;
-            padding-inline: 1rem;
-        }
         border-bottom: 1px solid rgba(255, 255, 255, 0.4);
         font-size: var(--fs-500);
         font-weight: var(--fw-light);
         color: var(--col-white);
         display: flex;
         align-items: center;
+        @media (min-width: 768px) {
+            padding-block: 1rem;
+            padding-inline: 1rem;
+        }
     }
 }
