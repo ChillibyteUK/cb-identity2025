@@ -44,7 +44,7 @@ if ( empty( $services ) && is_page() ) {
 		$primary_parent_service = $maybe_service_term;
 	}
 	$pretitle         = get_the_title( get_the_ID() );
-	$pretitle_padding = 'pt-2 pb-1';
+	$pretitle_padding = 'pt-4 pb-3';
 }
 
 // Dynamically determine the service term for this page
