@@ -1,0 +1,67 @@
+{
+  "key": "group_cb_latest_insights_expo",
+  "title": "CB Latest Insights (EXPO)",
+  "fields": [
+    {
+      "key": "field_cb_latest_insights_expo_message",
+      "label": "CB Latest Insights (EXPO)",
+      "name": "message",
+      "type": "message",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "new_lines": "wpautop",
+      "esc_html": 0
+    },
+    {
+      "key": "field_cb_latest_insights_expo_posts_per_page",
+      "label": "Posts Per Page",
+      "name": "posts_per_page",
+      "aria-label": "",
+      "type": "radio",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "3": "3",
+        "6": "6"
+      },
+      "default_value": 6,
+      "return_format": "value",
+      "allow_null": 0,
+      "other_choice": 0,
+      "layout": "horizontal",
+      "save_other_choice": 0
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "cb/cb-latest-insights-expo"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Fields for the CB Latest Insights (EXPO) block",
+  "show_in_rest": 0,
+  "modified": 1770000000
+}
