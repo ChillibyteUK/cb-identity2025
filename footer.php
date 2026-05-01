@@ -66,7 +66,8 @@ defined( 'ABSPATH' ) || exit;
 			</div>
 			<!-- 7. Work -->
 			<div class="col-12 col-sm-6 col-md-4 col-lg-2 order-1 order-md-5 order-lg-7">
-				<div class="footer-title mb-5"><a href="/work/">Work</a></div>
+				<div class="footer-title mb-3"><a href="/work/">Work</a></div>
+				<div class="footer-title mb-3"><a href="/world-expo/">World Expo</a></div>
 				<div class="footer-title mb-4"><a href="/innovation/">Innovation Lab</a></div>
             </div>
 			<!-- 8. News -->
