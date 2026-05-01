@@ -29,7 +29,7 @@ if ( empty( $services ) && is_page() ) {
 	$page_slug          = get_post_field( 'post_name', get_the_ID() );
 	$maybe_service_term = get_term_by( 'slug', $page_slug, 'service' );
 	$pretitle         = get_the_title( get_the_ID() );
-	$pretitle_padding = 'pt-2 pb-1';
+	$pretitle_padding = 'pt-4 pb-3';
 	if ( ! $maybe_service_term || is_wp_error( $maybe_service_term ) ) {
 		// Try to find the term by slug manually if get_term_by fails
 		$all_terms = get_terms( array( 'taxonomy' => 'service', 'hide_empty' => false ) );
