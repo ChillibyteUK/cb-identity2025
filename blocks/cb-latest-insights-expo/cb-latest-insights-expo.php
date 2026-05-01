@@ -22,7 +22,7 @@ if ( ! in_array( $posts_per_page, array( 3, 6 ), true ) ) {
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-latest-insights">
 	<div class="cb-latest-insights__pre-title">
 		<div class="id-container pt-4 pb-3 px-4 px-md-5">
-			LATEST EXPO WORK
+			LATEST NEWS &amp; INSIGHTS
 		</div>
 	</div>
 	<div class="id-container py-5 px-4 px-md-5">
@@ -31,7 +31,7 @@ if ( ! in_array( $posts_per_page, array( 3, 6 ), true ) ) {
 			<?php
 			$q = new WP_Query(
 				array(
-					'post_type'      => 'case_study',
+					'post_type'      => 'post',
 					'posts_per_page' => $posts_per_page,
 					'orderby'        => 'date',
 					'order'          => 'DESC',
@@ -78,7 +78,11 @@ if ( ! in_array( $posts_per_page, array( 3, 6 ), true ) ) {
 				<a href="<?php echo esc_url( get_permalink() ); ?>" class="cb-latest-insights__card">
 					<div class="cb-latest-insights__image-wrapper">
 						<?php
-						echo get_work_image( get_the_ID(), 'cb-latest-insights__image' );
+						if ( get_the_post_thumbnail( get_the_ID() ) ) {
+							echo get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'cb-latest-insights__image', 'alt' => get_post_meta( get_post_thumbnail_id( get_the_ID() ), '_wp_attachment_image_alt', true ) ) );
+						} else {
+							echo '<img src="' . esc_url( get_stylesheet_directory_uri() . '/img/default-post-image.png' ) . '" alt="" class="cb-latest-insights__image" />';
+						}
 						?>
 					</div>
 					<div class="cb-latest-insights__content">
