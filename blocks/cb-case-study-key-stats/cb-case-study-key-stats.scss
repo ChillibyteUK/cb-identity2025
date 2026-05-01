@@ -52,9 +52,6 @@
     &__stat {
         padding-block: 1rem 0.5rem;
         padding-inline: 1.25rem;
-        @media (min-width: 768px) {
-            padding-inline: 3rem;
-        }
         border-bottom: 1px solid rgba(255, 255, 255, 0.4);
         font-size: var(--fs-900);
         font-weight: var(--fw-semi);
@@ -63,6 +60,9 @@
         white-space: nowrap;
         display: flex;
         align-items: center;
+        @media (min-width: 768px) {
+            padding-inline: 3rem;
+        }
         @media (max-width: 767px) {
             border-bottom: none;
             padding-block: 1rem 0.5rem;

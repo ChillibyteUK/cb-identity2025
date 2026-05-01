@@ -34,8 +34,10 @@ $block_id = $block['id'] ?? '';
 				the_row();
 				$item_title  = get_sub_field( 'title' );
 				$description = get_sub_field( 'description' );
-                $colour      = 0 === $c ? 'has-purple-600-color' : '';
-                $title_size  = 0 === $c ? 'has-800-font-size' : '';
+				$has_description = '' !== trim( wp_strip_all_tags( (string) $description ) );
+				$is_large_intro  = 0 === $c && ! $has_description;
+				$colour          = $is_large_intro ? 'has-purple-600-color' : '';
+				$title_size      = $is_large_intro ? 'has-800-font-size' : '';
 				?>
 			<div class="row about-detail-row pb-5 <?= esc_attr( $colour ); ?>" data-aos="fade-up" data-aos-delay="<?= esc_attr( $c ); ?>">
 				<div class="col-md-6">
@@ -43,9 +45,11 @@ $block_id = $block['id'] ?? '';
 				</div>
 				<div class="col-md-1"></div>
 				<div class="col-md-5">
+					<?php if ( $has_description ) { ?>
 					<div class="about-detail-description">
 						<?= wp_kses_post( $description ); ?>
 					</div>
+					<?php } ?>
 				</div>
 			</div>
 				<?php

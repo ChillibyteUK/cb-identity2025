@@ -1,0 +1,18 @@
+{
+  "name": "cb/cb-related-work-expo",
+  "title": "CB Related Work (EXPO)",
+  "description": "A custom CB Related Work EXPO block",
+  "category": "cb-blocks",
+  "icon": "admin-generic",
+  "keywords": ["cb-related-work-expo", "cb"],
+  "supports": {
+    "align": ["wide", "full"],
+    "anchor": true,
+    "customClassName": true
+  },
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "cb-related-work-expo.php"
+  },
+  "style": "file:./cb-related-work-expo.css"
+}
