@@ -30,7 +30,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "75",
                 "class": "",
                 "id": ""
             },
@@ -47,11 +47,11 @@
             "name": "full_bleed_video",
             "aria-label": "",
             "type": "true_false",
-            "instructions": "Display the video full-bleed (min-height 730px, overflow hidden, centered)",
+            "instructions": "Display the video full-bleed (min-height 780px, overflow hidden, centered)",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
