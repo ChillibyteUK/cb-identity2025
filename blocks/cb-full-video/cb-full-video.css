@@ -20,7 +20,8 @@
 }
 @media (min-width: 769px) {
   .cb-full-video--full-bleed .cb-full-video__bleed-wrapper {
-    height: 780px;
+    height: 90vh;
+    min-height: 780px;
   }
 }
 .cb-full-video--full-bleed .cb-full-video__bleed-wrapper iframe {

@@ -20,7 +20,8 @@
       overflow: hidden;
 
       @media (min-width: 769px) {
-        height: 780px;
+        height: 90vh;
+        min-height: 780px;
       }
 
       iframe {
