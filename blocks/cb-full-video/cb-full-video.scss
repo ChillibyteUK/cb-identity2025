@@ -5,10 +5,36 @@
  */
 
 .cb-full-video {
-    background-color: var(--col-primary-black);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-    .full-video {
+  background-color: var(--col-primary-black);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  .full-video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+
+  &--full-bleed {
+    .cb-full-video__bleed-wrapper {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+
+      @media (min-width: 769px) {
+        height: 730px;
+      }
+
+      iframe {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        /* Cover: always at least 100% wide and 16:9 tall relative to viewport */
         width: 100%;
-        aspect-ratio: 16 / 9;
+        height: 56.25vw; /* 16:9 of viewport width */
+        min-height: 100%; /* fill container height */
+        min-width: 177.78vh; /* 16:9 of container height — overrides width on tall containers */
+        transform: translate(-50%, -50%);
+        border: 0;
+      }
     }
+  }
 }

@@ -13,7 +13,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Block ID.
 $block_id = $block['id'] ?? '';
 
-$vimeo_url = get_field( 'vimeo_url' );
+
+$vimeo_url  = get_field( 'vimeo_url' );
+$full_bleed = get_field( 'full_bleed_video' ); // New ACF true/false field
+
 
 if ( ! $vimeo_url ) {
     return;
@@ -26,8 +29,14 @@ if ( $block['anchor'] ) {
 }
 
 ?>
-<section id="<?php echo esc_attr( $block_id ); ?>" class="cb-full-video">
-    <div class="id-container ratio ratio-16x9">
-        <iframe class="full-video" src="<?= esc_url( cb_vimeo_url_with_dnt( $vimeo_url ) ); ?>" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
-    </div>
+<section id="<?php echo esc_attr( $block_id ); ?>" class="cb-full-video<?php if ( $full_bleed ) echo ' cb-full-video--full-bleed'; ?>">
+    <?php if ( $full_bleed ) : ?>
+        <div class="cb-full-video__bleed-wrapper">
+            <iframe class="full-video" src="<?= esc_url( cb_vimeo_url_with_dnt( $vimeo_url ) ); ?>" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+        </div>
+    <?php else : ?>
+        <div class="id-container ratio ratio-16x9">
+            <iframe class="full-video" src="<?= esc_url( cb_vimeo_url_with_dnt( $vimeo_url ) ); ?>" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+        </div>
+    <?php endif; ?>
 </section>

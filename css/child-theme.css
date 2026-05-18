@@ -21878,8 +21878,8 @@ strong {
   }
 }
 header {
-  background-color: var(--col-primary-black) !important;
   transition: background-color 0.3s ease;
+  background-color: rgba(13, 13, 12, 0.6) !important;
 }
 header.scrolled {
   background-color: rgba(13, 13, 12, 0.6) !important;
@@ -22346,17 +22346,6 @@ body {
     columns: 3;
   }
 }
-.sticky {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-@media (min-width: 992px) {
-  .sticky {
-    top: 0;
-  }
-}
-
 .admin-bar header.fixed-top {
   top: 32px;
 }

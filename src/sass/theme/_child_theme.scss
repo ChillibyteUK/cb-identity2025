@@ -19,15 +19,15 @@ body {
   }
 }
 
-.sticky {
-  position: sticky;
-  top: 0; // var(--h-top);
-  @media (min-width: 992px) {
-    top: 0; //var(--h-top-desktop);
-  }
-  // background-color: var(--col-neutral-50);
-  z-index: 1000;
-}
+// .sticky {
+//   position: sticky;
+//   top: 0; // var(--h-top);
+//   @media (min-width: 992px) {
+//     top: 0; //var(--h-top-desktop);
+//   }
+//   // background-color: var(--col-neutral-50);
+//   z-index: 1000;
+// }
 
 // Adjust fixed header when admin bar is present
 .admin-bar header.fixed-top {

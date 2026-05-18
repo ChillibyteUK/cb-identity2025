@@ -1,6 +1,7 @@
 header {
-  background-color: var(--col-primary-black) !important;
+  // background-color: var(--col-primary-black) !important;
   transition: background-color 0.3s ease;
+  background-color: rgba( 13, 13, 12, 0.6 ) !important;
   &.scrolled {
     background-color: rgba( 13, 13, 12, 0.6 ) !important;
   }

@@ -19,6 +19,8 @@ require_once CB_THEME_DIR . '/inc/cb-taxonomies.php';
 
 require_once CB_THEME_DIR . '/inc/cb-blocks-enhanced.php';
 
+require_once CB_THEME_DIR . '/inc/cb-block-usage.php';
+
 // Remove unwanted SVG filter injection WP.
 remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
 remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
