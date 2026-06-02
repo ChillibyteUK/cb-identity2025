@@ -129,3 +129,12 @@ p, ul, ol, blockquote, figure {
 strong {
   font-weight: var(--fw-semi);
 }
+
+.text-wrap-balance {
+  text-wrap: balance;
+}
+
+.text-wrap-pretty {
+  text-wrap: balance;
+  text-wrap: pretty;
+}
