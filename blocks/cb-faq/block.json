@@ -8,7 +8,12 @@
     "supports": {
         "align": ["wide", "full"],
         "anchor": true,
-        "customClassName": true
+        "customClassName": true,
+        "color": {
+            "background": true,
+            "text": true,
+            "gradients": false
+        }
     },
     "acf": {
         "mode": "edit",

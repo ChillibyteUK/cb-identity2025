@@ -77,6 +77,8 @@
 .cb-brand-title-text__pre-title {
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   padding-block: 0.5rem;
+}
+.cb-brand-title-text__pre-title h1 {
   color: var(--col-green-500);
   font-weight: var(--fw-regular);
   font-size: var(--fs-600);

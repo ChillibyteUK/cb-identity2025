@@ -19,7 +19,7 @@
         padding-left: 11vw;
         padding-right: 11vw;
 
-        padding-left: 0;  // Let Bootstrap’s col gutter handle left spacing
+        padding-left: 0;  // Let Bootstrap's col gutter handle left spacing
         padding-right: 0; // Avoid double padding from the grid
         overflow: visible; // Prevent accidental clipping when rotated
 
@@ -71,10 +71,12 @@
     &__pre-title {
         border-bottom: 1px solid rgba(255, 255, 255, 0.4);
         padding-block: 0.5rem;
-        color: var(--col-green-500);
-        font-weight: var(--fw-regular);
-        font-size: var(--fs-600);
-        line-height: 1;
+        h1 {
+            color: var(--col-green-500);
+            font-weight: var(--fw-regular);
+            font-size: var(--fs-600);
+            line-height: 1;
+        }
     }
     &__content-heading {
         font-size: var(--fs-800);

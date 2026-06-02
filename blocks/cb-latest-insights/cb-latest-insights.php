@@ -15,11 +15,11 @@ $block_id = $block['id'] ?? '';
 
 ?>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-latest-insights">
-	<div class="cb-latest-insights__pre-title">
+	<h2 class="cb-latest-insights__pre-title mb-0">
 		<div class="id-container pt-4 pb-3 px-4 px-md-5">
 			LATEST NEWS &amp; INSIGHTS
 		</div>
-	</div>
+	</h2>
 	<div class="id-container py-5 px-4 px-md-5">
 
 		<div class="row g-5">
@@ -74,9 +74,9 @@ $block_id = $block['id'] ?? '';
 						?>
 					</div>
 					<div class="cb-latest-insights__content">
-						<div class="cb-latest-insights__title">
+						<h3 class="cb-latest-insights__title mb-0">
 							<?php the_title(); ?>
-						</div>
+						</h3>
 						<div class="cb-latest-insights__excerpt">
 							<?php echo wp_kses_post( wp_trim_words( get_the_excerpt(), 18, '...' ) ); ?>
 						</div>

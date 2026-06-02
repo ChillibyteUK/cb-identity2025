@@ -7,7 +7,7 @@
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-    exit;
+	exit;
 }
 
 // Block ID.
@@ -16,10 +16,10 @@ $block_id = $block['id'] ?? '';
 // Block classes.
 $block_classes = array( 'block', 'cb-brand-title-text' );
 if ( ! empty( $block['className'] ) ) {
-    $block_classes[] = $block['className'];
+	$block_classes[] = $block['className'];
 }
 if ( ! empty( $block['align'] ) ) {
-    $block_classes[] = 'align' . $block['align'];
+	$block_classes[] = 'align' . $block['align'];
 }
 
 $l = get_field( 'link' );
@@ -27,14 +27,14 @@ $l = get_field( 'link' );
 ?>
 <section id="<?= esc_attr( $block_id ); ?>" class="<?= esc_attr( implode( ' ', $block_classes ) ); ?>">
 	<div class="cb-brand-title-text__pre-title">
-		<div class="id-container px-4 px-md-5">
+		<h1 class="id-container px-4 px-md-5">
 			<?= esc_html( get_field( 'pre_title' ) ); ?>
-		</div>
+		</h1>
 	</div>
 	<div class="id-container px-4 px-md-5 py-5">
 		<div class="cb-brand-title-text__container">
-			<div class="row">
-				<div class="col-md-7 mb-5 d-flex justify-content-center align-items-center">
+			<div class="row g-5">
+				<div class="col-md-6 mb-5 d-flex justify-content-center align-items-center">
 					<div class="cb-brand-title-text__title ps-5 ps-md-0">
 					<?php
 					$section_title = get_field( 'title' );
@@ -54,12 +54,9 @@ $l = get_field( 'link' );
 
 					echo wp_kses_post( implode( '', $wrapped ) );
 					?>
+					</div>
 				</div>
-			</div>
-		</div>
-		<div class="cb-brand-title-text__content-wrapper pb-5">
-			<div class="row">
-				<div class="col-md-6 offset-md-6">
+				<div class="col-md-6">
 					<div class="cb-brand-title-text__content-heading mb-4" data-aos="fade-up">
 						<?= wp_kses_post( get_field( 'content_heading' ) ); ?>
 					</div>

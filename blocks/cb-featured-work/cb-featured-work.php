@@ -17,11 +17,11 @@ $count = get_field( 'count' ) ?? 4;
 
 ?>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-featured-work">
-	<div class="cb-featured-work__pre-title">
+	<h2 class="cb-featured-work__pre-title mb-0">
 		<div class="id-container py-4 px-4 px-md-5">
 			FEATURED WORK
 		</div>
-	</div>
+	</h2>
 	<div class="id-container">
 		<div class="row g-2">
 			<?php

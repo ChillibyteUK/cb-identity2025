@@ -65,6 +65,15 @@
     height: 60px;
   }
 }
+.cb-services-nav__item-title {
+  font-size: var(--fs-850);
+  font-weight: var(--fw-light);
+}
+@media (max-width: 767px) {
+  .cb-services-nav__item-title {
+    font-size: var(--fs-600);
+  }
+}
 .cb-services-nav.cb-services-nav--front .cb-services-nav__item {
   font-weight: var(--fw-semi);
 }
