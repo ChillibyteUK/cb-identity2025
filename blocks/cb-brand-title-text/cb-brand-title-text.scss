@@ -53,7 +53,7 @@
             opacity: 0;
             text-align: left;
             @media (min-width: 768px) {
-                font-size: 7vw;
+                font-size: mim(7vw,7rem);
             }
         }
 

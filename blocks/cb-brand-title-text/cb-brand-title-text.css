@@ -53,7 +53,7 @@
 }
 @media (min-width: 768px) {
   .cb-brand-title-text__title .text {
-    font-size: 7vw;
+    font-size: mim(7vw, 7rem);
   }
 }
 .cb-brand-title-text__title .line:nth-child(1) {
