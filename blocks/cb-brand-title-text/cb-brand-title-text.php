@@ -22,53 +22,78 @@ if ( ! empty( $block['align'] ) ) {
 	$block_classes[] = 'align' . $block['align'];
 }
 
-$l = get_field( 'link' );
+$section_attrs = 'class="' . esc_attr( implode( ' ', $block_classes ) ) . '"';
+if ( ! empty( $block_id ) ) {
+	$section_attrs = 'id="' . esc_attr( $block_id ) . '" ' . $section_attrs;
+}
+
+// Link field — safe access.
+$cta_link         = get_field( 'link' );
+$link_url         = is_array( $cta_link ) ? ( $cta_link['url'] ?? '' ) : '';
+$link_title       = is_array( $cta_link ) ? ( $cta_link['title'] ?? '' ) : '';
+$link_target      = is_array( $cta_link ) ? ( $cta_link['target'] ?? '' ) : '';
+$link_target_attr = ! empty( $link_target ) ? ' target="' . esc_attr( $link_target ) . '"' : '';
 
 ?>
-<section id="<?= esc_attr( $block_id ); ?>" class="<?= esc_attr( implode( ' ', $block_classes ) ); ?>">
+<section <?= wp_kses_post( $section_attrs ); ?>>
 	<div class="cb-brand-title-text__pre-title">
 		<h1 class="id-container px-4 px-md-5">
 			<?= esc_html( get_field( 'pre_title' ) ); ?>
 		</h1>
 	</div>
 	<div class="id-container px-4 px-md-5 py-5">
-		<div class="cb-brand-title-text__container">
+		<div class="cb-brand-title-text__container pt-5 pb-4">
 			<div class="row g-5">
-				<div class="col-md-6 mb-5 d-flex justify-content-center align-items-center">
-					<div class="cb-brand-title-text__title ps-5 ps-md-0">
+				<div class="col-md-6 mb-md-5 d-flex justify-content-center align-items-center">
+					<div class="cb-brand-title-text__title ps-5 ps-lg-0">
 					<?php
 					$section_title = get_field( 'title' );
-
-					$lines = preg_split( '/<br\s*\/?>/i', $section_title );
-
-					$c = 1;
-
-					$wrapped = array_map(
-						function ( $line ) use ( &$c ) {
-							$output = '<div class="line"><div class="bar bar' . $c . '"></div><div class="text text' . $c . '">' . trim( $line ) . '</div></div>';
-							$c++;
-							return $output;
-						},
-						$lines
-					);
-
-					echo wp_kses_post( implode( '', $wrapped ) );
+					$section_title = is_string( $section_title ) ? trim( $section_title ) : '';
+					if ( '' !== $section_title ) {
+						$lines   = preg_split( '/<br\s*\/?>/i', $section_title );
+						$lines   = array_filter( array_map( 'trim', $lines ) );
+						$c       = 1;
+						$wrapped = array_map(
+							function ( $line ) use ( &$c ) {
+								$output = '<div class="line"><div class="bar bar' . $c . '"></div><div class="text text' . $c . '">' . wp_kses_post( $line ) . '</div></div>';
+								$c++;
+								return $output;
+							},
+							$lines
+						);
+						echo wp_kses_post( implode( '', $wrapped ) );
+					}
 					?>
 					</div>
 				</div>
+				<?php
+				$content_heading = get_field( 'content_heading' );
+				$content         = get_field( 'content' );
+				$has_content     = ! empty( $content_heading ) || ! empty( $content ) || ( $link_url && $link_title );
+				if ( $has_content ) {
+					?>
 				<div class="col-md-6">
+					<?php if ( ! empty( $content_heading ) ) { ?>
 					<div class="cb-brand-title-text__content-heading mb-4" data-aos="fade-up">
-						<?= wp_kses_post( get_field( 'content_heading' ) ); ?>
+						<?= wp_kses_post( $content_heading ); ?>
 					</div>
+					<?php } ?>
+					<?php if ( ! empty( $content ) ) { ?>
 					<div class="cb-brand-title-text__content" data-aos="fade-up" data-aos-delay="100">
-						<?= wp_kses_post( get_field( 'content' ) ); ?>
+						<?= wp_kses_post( $content ); ?>
 					</div>
+					<?php } ?>
+					<?php if ( $link_url && $link_title ) { ?>
 					<div class="cb-brand-title-text__link mt-4" data-aos="fade-up" data-aos-delay="200">
-						<a href="<?= esc_url( $l['url'] ); ?>" target="<?= esc_attr( $l['target'] ); ?>" class="id-button">
-							<?= esc_html( $l['title'] ); ?>
+						<a href="<?= esc_url( $link_url ); ?>"<?= wp_kses_post( $link_target_attr ); ?> class="id-button">
+							<?= esc_html( $link_title ); ?>
 						</a>
 					</div>
+					<?php } ?>
 				</div>
+					<?php
+				}
+				?>
 			</div>
 		</div>
 	</div>
