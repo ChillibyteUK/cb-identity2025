@@ -10,6 +10,14 @@
     border-top: 1px solid rgba(255, 255, 255, 0.4);
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
     
+    &__anim {
+        justify-content: center;
+        @media (min-width:1200px) {
+            justify-content: flex-start;
+            margin-inline: 5rem -5rem;
+        }
+    }
+
     &__title {
         position: relative;
         display: flex;

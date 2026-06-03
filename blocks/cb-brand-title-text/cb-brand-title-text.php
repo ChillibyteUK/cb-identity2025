@@ -41,10 +41,10 @@ $link_target_attr = ! empty( $link_target ) ? ' target="' . esc_attr( $link_targ
 			<?= esc_html( get_field( 'pre_title' ) ); ?>
 		</h1>
 	</div>
-	<div class="id-container px-4 px-md-5 py-5">
+	<div class="id-container px-4 px-md-5 pt-4 pt-md-5 pb-5">
 		<div class="cb-brand-title-text__container pt-5 pb-4">
 			<div class="row g-5">
-				<div class="col-md-6 mb-md-5 d-flex justify-content-center align-items-center">
+				<div class="col-md-6 cb-brand-title-text__anim mb-md-5 d-flex align-items-center">
 					<div class="cb-brand-title-text__title ps-5 ps-lg-0">
 					<?php
 					$section_title = get_field( 'title' );
