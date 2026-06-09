@@ -1,0 +1,23 @@
+{
+    "name": "cb/cb-signpost-header",
+    "title": "CB Signpost Header",
+    "description": "A custom CB Signpost Header block",
+    "category": "cb-blocks",
+    "icon": "admin-generic",
+    "keywords": ["cb-signpost-header", "cb"],
+    "supports": {
+        "align": ["wide", "full"],
+        "anchor": true,
+        "customClassName": true,
+        "color": {
+            "background": true,
+            "text": true,
+            "gradients": false
+        }
+    },
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "cb-signpost-header.php"
+    },
+    "style": "file:./cb-signpost-header.css"
+}

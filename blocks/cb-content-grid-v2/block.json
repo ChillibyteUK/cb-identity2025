@@ -1,0 +1,23 @@
+{
+    "name": "cb/cb-content-grid-v2",
+    "title": "CB Content Grid V2",
+    "description": "A custom CB Content Grid V2 block",
+    "category": "cb-blocks",
+    "icon": "admin-generic",
+    "keywords": ["cb-content-grid-v2", "cb"],
+    "supports": {
+        "align": ["wide", "full"],
+        "anchor": true,
+        "customClassName": true,
+        "color": {
+            "background": true,
+            "text": true,
+            "gradients": false
+        }
+    },
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "cb-content-grid-v2.php"
+    },
+    "style": "file:./cb-content-grid-v2.css"
+}

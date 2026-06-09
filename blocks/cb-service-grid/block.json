@@ -1,0 +1,23 @@
+{
+    "name": "cb/cb-service-grid",
+    "title": "CB Service Grid",
+    "description": "A custom CB Service Grid block",
+    "category": "cb-blocks",
+    "icon": "admin-generic",
+    "keywords": ["cb-service-grid", "cb"],
+    "supports": {
+        "align": ["wide", "full"],
+        "anchor": true,
+        "customClassName": true,
+        "color": {
+            "background": true,
+            "text": true,
+            "gradients": false
+        }
+    },
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "cb-service-grid.php"
+    },
+    "style": "file:./cb-service-grid.css"
+}
