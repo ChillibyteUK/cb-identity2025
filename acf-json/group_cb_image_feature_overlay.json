@@ -1,10 +1,10 @@
 {
     "key": "group_cb_image_feature_overlay",
-    "title": "CB Image Feature Overlay\/Hero",
+    "title": "CB Image Feature Overlay/Hero",
     "fields": [
         {
             "key": "field_69ca7da4ad885",
-            "label": "CB Image Feature Overlay \/ Hero",
+            "label": "CB Image Feature Overlay / Hero",
             "name": "",
             "aria-label": "",
             "type": "message",
@@ -275,7 +275,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "cb\/cb-image-feature-overlay"
+                "value": "cb/cb-image-feature-overlay"
             }
         ]
     ],

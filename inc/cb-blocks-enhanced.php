@@ -175,13 +175,30 @@ function cb_load_block_acf_fields( $paths ) {
     // Add the theme's acf-json directory.
     $paths[] = get_stylesheet_directory() . '/acf-json';
 
-    // Add individual block directories that contain ACF JSON files.
+    // Add individual block directories only as a fallback when /acf-json
+    // does not already contain the same field group file.
+    $acf_json_dir = get_stylesheet_directory() . '/acf-json';
     $blocks = cb_get_blocks();
     foreach ( $blocks as $block ) {
         $block_dir = get_stylesheet_directory() . '/blocks/' . $block;
-        // Check if this block directory contains any ACF JSON files.
         $json_files = glob( $block_dir . '/group_*.json' );
-        if ( ! empty( $json_files ) ) {
+
+        if ( empty( $json_files ) ) {
+            continue;
+        }
+
+        $needs_fallback_path = false;
+
+        foreach ( $json_files as $json_file ) {
+            $acf_json_file = $acf_json_dir . '/' . wp_basename( $json_file );
+
+            if ( ! file_exists( $acf_json_file ) ) {
+                $needs_fallback_path = true;
+                break;
+            }
+        }
+
+        if ( $needs_fallback_path ) {
             $paths[] = $block_dir;
         }
     }
@@ -203,6 +220,44 @@ function cb_save_block_acf_json_path( $path, $field_group = null ) {
     return $path;
 }
 add_filter( 'acf/settings/save_json', 'cb_save_block_acf_json_path', 10, 2 );
+
+/**
+ * Keep block-local ACF JSON and /acf-json mirrored.
+ *
+ * This bootstraps older block groups that only exist in block folders and keeps
+ * the canonical acf-json copy present for editor saves and version control.
+ */
+function cb_sync_block_acf_json_mirrors() {
+    $acf_json_dir = get_stylesheet_directory() . '/acf-json';
+
+    if ( ! is_dir( $acf_json_dir ) ) {
+        wp_mkdir_p( $acf_json_dir );
+    }
+
+    foreach ( cb_get_blocks() as $block ) {
+        $block_dir = get_stylesheet_directory() . '/blocks/' . $block;
+        $json_files = glob( $block_dir . '/group_*.json' );
+
+        if ( empty( $json_files ) ) {
+            continue;
+        }
+
+        foreach ( $json_files as $block_json_file ) {
+            $filename      = wp_basename( $block_json_file );
+            $acf_json_file = $acf_json_dir . '/' . $filename;
+
+            if ( ! file_exists( $acf_json_file ) || filemtime( $block_json_file ) > filemtime( $acf_json_file ) ) {
+                copy( $block_json_file, $acf_json_file );
+                continue;
+            }
+
+            if ( filemtime( $acf_json_file ) > filemtime( $block_json_file ) ) {
+                copy( $acf_json_file, $block_json_file );
+            }
+        }
+    }
+}
+add_action( 'admin_init', 'cb_sync_block_acf_json_mirrors' );
 
 /**
  * Force ACF field group sync on admin init (temporary debugging).
