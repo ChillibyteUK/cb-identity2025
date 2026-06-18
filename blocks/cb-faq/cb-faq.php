@@ -110,10 +110,10 @@ if ( $block['anchor'] ?? '' ) {
 }
 
 $is_post_context = is_singular( 'post' );
-?>
-<?php if ( $is_post_context ) : ?>
-	<?php
-	foreach ( $faqs as $faq ) :
+
+if ( $is_post_context ) {
+	echo '<div class="container">';
+	foreach ( $faqs as $faq ) {
 		$question = $faq['question'] ?? '';
 		$answer   = $faq['answer'] ?? '';
 
@@ -121,22 +121,23 @@ $is_post_context = is_singular( 'post' );
 			continue;
 		}
 
-		if ( '' !== trim( $question ) ) :
+		if ( '' !== trim( $question ) ) {
 			?>
-	<h2><?= esc_html( $question ); ?></h2>
-			<?php endif; ?>
-			<?php if ( '' !== trim( wp_strip_all_tags( $answer ) ) ) : ?>
-	<?= wpautop( wp_kses_post( $answer ) ); ?>
+			<h2><?= esc_html( $question ); ?></h2>
 			<?php
-		endif;
-	endforeach;
+		}
+		if ( '' !== trim( wp_strip_all_tags( $answer ) ) ) {
+			echo wpautop( wp_kses_post( $answer ) );
+		}
+	}
+	echo '</div>';
+} else {
 	?>
-<?php else : ?>
 <section id="<?php echo esc_attr( $block_id ); ?>" class="cb-faq">
 	<div class="id-container px-4 px-md-5">
 		<?php
 		$c = 0;
-		foreach ( $faqs as $faq ) :
+		foreach ( $faqs as $faq ) {
 			$question = $faq['question'] ?? '';
 			$answer   = $faq['answer'] ?? '';
 
@@ -144,7 +145,7 @@ $is_post_context = is_singular( 'post' );
 				continue;
 			}
 
-				?>
+			?>
 			<div class="cb-faq__item row" data-aos="fade-up" data-aos-delay="<?= esc_attr( $c ); ?>">
 				<div class="col-md-6">
 					<p class="cb-faq__question"><?= esc_html( $question ); ?></p>
@@ -158,8 +159,9 @@ $is_post_context = is_singular( 'post' );
 			</div>
 				<?php
 				$c += 100;
-		endforeach;
+		}
 		?>
 	</div>
 </section>
-<?php endif; ?>
+	<?php
+}
