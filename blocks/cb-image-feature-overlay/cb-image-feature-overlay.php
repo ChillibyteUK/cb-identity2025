@@ -86,6 +86,7 @@ $section_style = implode( ' ', $section_style_declarations );
 	</div>
 </section>
 <?php
+/*
 if ( 'Hero' === $presentation && get_field( 'page_intro' ) ) {
 	?>
 <section class="cb-image-feature-overlay__page-intro id-container px-4 px-md-5 py-4 py-md-5 has-white-color fs-700">
@@ -97,6 +98,7 @@ if ( 'Hero' === $presentation && get_field( 'page_intro' ) ) {
 </section>
 	<?php
 }
+*/
 
 if ( $section_style ) : ?>
 <script>

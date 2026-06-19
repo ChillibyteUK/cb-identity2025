@@ -67,6 +67,7 @@
 .cb-image-feature-overlay .cta-hero__cta-title {
   font-size: var(--fs-400);
   font-weight: var(--fw-regular);
-  letter-spacing: -0.05em;
+  letter-spacing: -0.005em;
+  line-height: 1.55;
   text-wrap: balance;
 }
