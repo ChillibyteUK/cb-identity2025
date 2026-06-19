@@ -46,6 +46,7 @@
       font-weight: var(--fw-semi);
       text-wrap: balance;
     }
+
     .cb-image-feature-overlay__overlay {
       margin-top: 0;
     }
@@ -67,8 +68,16 @@
     font-weight: var(--fw-light);
     letter-spacing: var(--ls--10);
     text-wrap: balance;
+
     p:last-child {
       margin-bottom: 0;
     }
+  }
+
+  .cta-hero__cta-title {
+    font-size: var(--fs-400);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.05em;
+    text-wrap: balance;
   }
 }
